@@ -432,9 +432,9 @@
       <category term="个人日志" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="个人塑造" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/"/>
-    
       <category term="个人日志" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="个人塑造" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/"/>
     
   </entry>
   
@@ -1522,9 +1522,9 @@
       <category term="个人日志" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="个人塑造" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/"/>
-    
       <category term="个人日志" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="个人塑造" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/"/>
     
   </entry>
   
@@ -1900,438 +1900,6 @@
     
     
       <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="r" scheme="http://yoursite.com/tags/r/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R_字符串处理_stringr</title>
-    <link href="http://yoursite.com/2017/07/25/R_%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86_stringr/"/>
-    <id>http://yoursite.com/2017/07/25/R_字符串处理_stringr/</id>
-    <published>2017-07-24T16:00:00.000Z</published>
-    <updated>2017-07-30T08:39:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>R_字符串处理_stringr</strong></p>
-<p><strong>stringr：对一个单元格内的 [元素] 进行操作，而非把一个单元格看做一个整体来对待。</strong></p>
-<a id="more"></a>
-<h2 id="文本文件的读写"><a href="#文本文件的读写" class="headerlink" title="文本文件的读写"></a>文本文件的读写</h2><blockquote>
-<p>这里的文本文件指的是非表格式的文件，如纯文本文件，html文件</p>
-</blockquote>
-<p><br></p>
-<h3 id="获取文件目录信息"><a href="#获取文件目录信息" class="headerlink" title="获取文件目录信息"></a>获取文件目录信息</h3><ul>
-<li>file.info()</li>
-<li>dir() 列出指定目录中所有的文件，可选参数recursive=T可递归列出所有的子目录文件</li>
-<li>file.exists()：判断文件是否存在</li>
-<li>getwd() ：获得当前工作目录</li>
-<li>setwd() ：设置当前工作目录 <code>setwd(&quot;C:/data&quot;)</code></li>
-</ul>
-<p><br></p>
-<h3 id="读入"><a href="#读入" class="headerlink" title="读入"></a>读入</h3><ul>
-<li><p><strong>scan(“file.xxx”, what=double(), seq=””, n=-1, nmax=-1, skip=0, encoding=”utf-8”)</strong></p>
-<blockquote>
-<p>读取文本文件，<strong>默认</strong>情况下读取文件中以<strong>[空格分割]</strong> 所有<strong>[浮点数值]</strong></p>
-</blockquote>
-<ul>
-<li>如果文件中包<strong>含非数值</strong>，可以字符串形式读入 <code>scan(&quot;a.txt&quot;,what=&quot;&quot;)</code></li>
-<li>指定分隔符为换行，<code>scan(“a.txt”,what=””,sep=”\n”)</code> 返回以换行分割的字符串向量</li>
-<li>如果数据为<strong>表格形式：因为有表头，用scan不能读入</strong></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>what：读入的数据类型；The supported types are [ logical, integer, numeric, complex, character, raw and list. ]</p>
-<ul>
-<li>character(0)：每个单词作为字符向量的一个元素</li>
-</ul>
-<p>sep：分隔符，默认为空格<code>&quot; &quot;</code> </p>
-<p>n = -1：显示至最后一行</p>
-<p>nmax = -1：读取至最后一行</p>
-<p>skip=0：跳过的行数</p>
-<p>encoding=”utf-8” / “Latin1”</p>
-</blockquote>
-<p><br></p>
-<ul>
-<li><strong>readline()</strong> 可以从键盘<strong>读取单行数据</strong>，如 <code>age&lt;-readline(&quot;input the age: &quot;)</code></li>
-</ul>
-<p><br></p>
-<ul>
-<li><strong>readLines(“file.xxx”, encoding=”utf-8”)</strong> ：<strong>每一行当做一个字符串</strong>。等价于scan中指定分隔符为换行<ul>
-<li>用于<strong>读取</strong>字符型的格式文件；常用于文本文件</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>encoding = “utf-8” / “Latin1” ; Lattin1是[ISO-8859-1]的别名，有些环境下写作Latin-1。ISO-8859-1编码是单字节编码，<strong>向下兼容ASCII</strong></p>
-</blockquote>
-<p><br></p>
-<h3 id="写出"><a href="#写出" class="headerlink" title="写出"></a>写出</h3><p><br></p>
-<ul>
-<li><strong>cat(x, file=””, sep=””, fill=False, labels=NULL, append=False)</strong>：<strong>拼接后输出</strong>对象，也可以<strong>把结果写到指定的文件中</strong></li>
-</ul>
-<blockquote>
-<p>x：R的对象</p>
-<p>file：一个连接，或命名的文件打印到一个字符串；默认情况下打印到标准输出连接</p>
-<p>sep=” “：每个元素后追加一个字符串的字符向量；默认为<strong>空格</strong></p>
-<p>append = False 覆盖file内容；若为True，表示附加到file</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; cat(c(<span class="string">"AB"</span>, <span class="string">"C"</span>), c(<span class="string">"E"</span>, <span class="string">"F"</span>), <span class="string">"\n"</span>, sep=<span class="string">""</span>)</div><div class="line">[<span class="number">1</span>] ABCDEF</div><div class="line"></div><div class="line"><span class="comment">#----可以把结果写到指定的文件中-----------------#</span></div><div class="line">cat(<span class="string">"i = "</span>, <span class="number">1</span>, <span class="string">"\n"</span>, file=<span class="string">"c:/work/result.txt"</span>)</div><div class="line"><span class="comment"># 加上一个append=TRUE参数可以不覆盖原文 件而是在文件末尾附加，这很适用于运行中的结果记录。</span></div><div class="line"></div><div class="line"></div><div class="line">&gt; cat(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)  <span class="comment"># 拼接后进行输出</span></div><div class="line">hello bob.</div><div class="line"> Is<span class="string">'t R 	 Great?</span></div><div class="line"> !</div><div class="line"></div><div class="line">&gt; paste("hello", "bob", "\b.\n", "Is\'t R", "\t", "Great?\n","!")</div><div class="line">[1] "hello bob \b.\n Is't R \t Great?\n !<span class="string">"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<ul>
-<li><strong>writeLines</strong></li>
-</ul>
-<p><br></p>
-<h2 id="字符串统计"><a href="#字符串统计" class="headerlink" title="字符串统计"></a>字符串统计</h2><h3 id="str-length"><a href="#str-length" class="headerlink" title="str_length"></a>str_length</h3><blockquote>
-<p><strong>符串长度</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_length(string)</strong></li>
-</ul>
-<p><br></p>
-<h3 id="str-count"><a href="#str-count" class="headerlink" title="str_count"></a>str_count</h3><blockquote>
-<p><strong>字符串计数</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_count(string, pattern = “”)</strong></li>
-</ul>
-<blockquote>
-<p>string: 字符串，字符串向量。</p>
-<p>pattern: 匹配的字符。</p>
-<ul>
-<li>若不匹配字符，即等价于 <code>str_length</code></li>
-</ul>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; str_count(<span class="string">'aaa444sssddd'</span>, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">3</span></div><div class="line"></div><div class="line"><span class="comment"># 对字符串向量中匹配的字符计数</span></div><div class="line">&gt; fruit &lt;- c(<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"pear"</span>, <span class="string">"pineapple"</span>)</div><div class="line">&gt; str_count(fruit, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">3</span> <span class="number">1</span> <span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 对字符串中的'.'字符计数，由于.是正则表达式的匹配符，直接判断计数的结果是不对的。</span></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), <span class="string">"."</span>)</div><div class="line">[<span class="number">1</span>]  <span class="number">2</span>  <span class="number">1</span>  <span class="number">3</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), fixed(<span class="string">"."</span>)) <span class="comment"># 用fixed匹配字符</span></div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">1</span>  <span class="number">2</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), <span class="string">"\\."</span>) <span class="comment"># 用\\匹配字符</span></div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">1</span>  <span class="number">2</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="字符串查询"><a href="#字符串查询" class="headerlink" title="字符串查询"></a>字符串查询</h2><h3 id="str-locate-位置"><a href="#str-locate-位置" class="headerlink" title="str_locate - 位置"></a>str_locate - 位置</h3><blockquote>
-<p>找到的模式在字符串中的<strong>位置</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_locate(string, pattern)</strong></li>
-<li><strong>str_locate_all(string, pattern)</strong><ul>
-<li>以字符串<strong>matrix格式返回</strong></li>
-</ul>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 匹配a在字符串中的位置</span></div><div class="line">&gt; str_locate(val, <span class="string">"a"</span>)</div><div class="line">     start end</div><div class="line">[<span class="number">1</span>,]     <span class="number">1</span>   <span class="number">1</span></div><div class="line">[<span class="number">2</span>,]    <span class="literal">NA</span>  <span class="literal">NA</span></div><div class="line">[<span class="number">3</span>,]     <span class="number">3</span>   <span class="number">3</span></div><div class="line"></div><div class="line"><span class="comment"># 用向量匹配</span></div><div class="line">&gt; str_locate(val, c(<span class="string">"a"</span>, <span class="number">12</span>, <span class="string">"b"</span>))</div><div class="line">     start end</div><div class="line">[<span class="number">1</span>,]     <span class="number">1</span>   <span class="number">1</span></div><div class="line">[<span class="number">2</span>,]     <span class="number">1</span>   <span class="number">2</span></div><div class="line">[<span class="number">3</span>,]     <span class="number">2</span>   <span class="number">2</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="str-detect-逻辑值"><a href="#str-detect-逻辑值" class="headerlink" title="str_detect - 逻辑值"></a>str_detect - 逻辑值</h3><blockquote>
-<p><strong>匹配字符串的字符，返回逻辑值</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_detect(string, pattern)</strong></li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 检查字符串向量，是否包括a</span></div><div class="line">&gt; str_detect(val, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 检查字符串向量，是否以a为开头</span></div><div class="line">&gt; str_detect(val, <span class="string">"^a"</span>)</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="字符串提取"><a href="#字符串提取" class="headerlink" title="字符串提取"></a>字符串提取</h2><h3 id="strsub-截取位置"><a href="#strsub-截取位置" class="headerlink" title="strsub - 截取位置"></a>str<em>sub - 截取</em>位置</h3><blockquote>
-<p><strong>截取字符串</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_sub(string, start = 1L, end = -1L)</strong></li>
-</ul>
-<blockquote>
-<p>string: 字符串，字符串向量。</p>
-<p>start : 开始位置  (若只出现一个数字，默认为开始位置)</p>
-<p>end : 结束位置</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&gt; txt &lt;- <span class="string">"I am Conan."</span></div><div class="line"></div><div class="line"><span class="comment"># 截取1-6的索引位置的字符串</span></div><div class="line">&gt; str_sub(txt, end=<span class="number">6</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"I am C"</span></div><div class="line"></div><div class="line"><span class="comment"># 截取6到结束的索引位置的字符串</span></div><div class="line">&gt; str_sub(txt, <span class="number">6</span>)   <span class="comment"># 若只出现一个数字，默认为开始位置</span></div><div class="line">[<span class="number">1</span>] <span class="string">"Conan."</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 通过负坐标截取字符串</span></div><div class="line">&gt; str_sub(txt, -<span class="number">3</span>)  <span class="comment"># [截取] 最后3个字符</span></div><div class="line">[<span class="number">1</span>] <span class="string">"an."</span></div><div class="line">&gt; str_sub(txt, end = -<span class="number">3</span>)  <span class="comment"># [截止] 到最后第三个字符</span></div><div class="line">[<span class="number">1</span>] <span class="string">"I am Cona"</span></div><div class="line"></div><div class="line"><span class="comment">#----对截取的字符串进行赋值-----------------------------------------#</span></div><div class="line">&gt; x &lt;- <span class="string">"AAABBBCCC"</span></div><div class="line"></div><div class="line"><span class="comment"># 在字符串的1的位置赋值为1</span></div><div class="line">&gt; str_sub(x, <span class="number">1</span>, <span class="number">1</span>) &lt;- <span class="number">1</span>; x</div><div class="line">[<span class="number">1</span>] <span class="string">"1AABBBCCC"</span></div><div class="line"></div><div class="line">&gt; str_sub(x, <span class="number">1</span>, <span class="number">1</span>) &lt;- <span class="number">123</span>; x   <span class="comment"># [若数量超过截取的位数，则进行填充]</span></div><div class="line">[<span class="number">1</span>] <span class="string">"123AABBBCCC"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="str-subset-提取"><a href="#str-subset-提取" class="headerlink" title="str_subset - 提取"></a>str_subset - 提取</h3><blockquote>
-<p><strong>返回的匹配字符串</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_subset(string, pattern)</strong></li>
-</ul>
-<blockquote>
-<p>pattern: 匹配的字符</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 全文匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span> <span class="string">"cba"</span></div><div class="line"></div><div class="line"><span class="comment"># 开头匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"^a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line"><span class="comment"># 结尾匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"a$"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"cba"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="str-match-匹配"><a href="#str-match-匹配" class="headerlink" title="str_match - 匹配"></a>str_match - 匹配</h3><blockquote>
-<p>从字符串中<strong>提取匹配组</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_match(string, pattern)</strong></li>
-<li><strong>str_match_all(string, pattern)</strong><ul>
-<li>以字符串<strong>matrix格式返回</strong></li>
-</ul>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 匹配字符a，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"a"</span>)</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span> </div><div class="line">[<span class="number">2</span>,] <span class="literal">NA</span>  </div><div class="line">[<span class="number">3</span>,] <span class="string">"a"</span> </div><div class="line"></div><div class="line"><span class="comment"># 匹配字符0-9，限1个，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"[0-9]"</span>)</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="literal">NA</span>  </div><div class="line">[<span class="number">2</span>,] <span class="string">"1"</span> </div><div class="line">[<span class="number">3</span>,] <span class="literal">NA</span>  </div><div class="line"></div><div class="line"><span class="comment"># 匹配字符0-9，不限数量，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"[0-9]*"</span>)</div><div class="line">     [,<span class="number">1</span>] </div><div class="line">[<span class="number">1</span>,] <span class="string">""</span>   </div><div class="line">[<span class="number">2</span>,] <span class="string">"123"</span></div><div class="line">[<span class="number">3</span>,] <span class="string">""</span>  </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----以字符串matrix格式返回------------------------------------------#</span></div><div class="line">&gt; str_match_all(val, <span class="string">"a"</span>)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span> </div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line"></div><div class="line">[[<span class="number">3</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="str-extract-匹配-Regex"><a href="#str-extract-匹配-Regex" class="headerlink" title="str_extract - 匹配_Regex"></a>str_extract - 匹配_Regex</h3><blockquote>
-<p>从字符串中根据 <strong>[正则表达式]</strong> 提取匹配的值</p>
-</blockquote>
-<ul>
-<li><strong>str_extract(string, pattern)</strong></li>
-<li><strong>str_extract_all(string, pattern, simplify = FALSE)</strong></li>
-</ul>
-<blockquote>
-<p>simplify: 返回值，TRUE返回matrix，FALSE返回<strong>字符串向量</strong>；(默认为False)</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 返回匹配的数字</span></div><div class="line">&gt; str_extract(val, <span class="string">"\\d"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"4"</span> <span class="string">"1"</span> <span class="string">"2"</span></div><div class="line"></div><div class="line"><span class="comment"># 返回匹配的字符</span></div><div class="line">&gt; str_extract(val, <span class="string">"[a-z]+"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abca"</span> <span class="literal">NA</span>     <span class="string">"cba"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<p><br></p>
-<h3 id="word-单词"><a href="#word-单词" class="headerlink" title="word - 单词"></a>word - 单词</h3><blockquote>
-<p><strong>从文本中提取 [单词] </strong></p>
-</blockquote>
-<ul>
-<li><strong>word(string, start = 1L, end = start, sep = fixed(“ “))</strong></li>
-</ul>
-<blockquote>
-<p>start: 开始位置。</p>
-<p>end: 结束位置。</p>
-<p>sep: 匹配字符。  <strong>(默认为 空格)</strong></p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"I am Conan."</span>, <span class="string">"http://fens.me, ok"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 默认以空格分割，取第一个位置的字符串</span></div><div class="line">&gt; word(val, <span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"I"</span>               <span class="string">"http://fens.me,"</span></div><div class="line">&gt; word(val, -<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"Conan."</span> <span class="string">"ok"</span>    </div><div class="line">&gt; word(val, <span class="number">2</span>, -<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"am Conan."</span> <span class="string">"ok"</span>       </div><div class="line"></div><div class="line"><span class="comment"># 以,分割，取第一个位置的字符串 </span></div><div class="line">&gt; val&lt;-<span class="string">'111,222,333,444'</span></div><div class="line">&gt; word(val, <span class="number">1</span>, sep = fixed(<span class="string">','</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"111"</span></div><div class="line">&gt; word(val, <span class="number">3</span>, sep = fixed(<span class="string">','</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"333"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<p><br></p>
-<h2 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h2><h3 id="str-replace"><a href="#str-replace" class="headerlink" title="str_replace"></a>str_replace</h3><blockquote>
-<p>字符串<strong>替换</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_replace(string, pattern, replacement)</strong><ul>
-<li>替换出现的 <strong>[第一个]</strong>字符</li>
-</ul>
-</li>
-<li><strong>str_replcae_all(string, pattern, replacement)</strong><ul>
-<li>替换出现的 <strong>[所有]</strong>字符</li>
-</ul>
-</li>
-<li><strong>str_repclea_na(string, repalcement= “NA”)</strong><ul>
-<li><strong>把NA替换为其他字符串</strong></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>string: 字符串，字符串向量。</p>
-<p>pattern: 匹配字符。</p>
-<p>replacement: 用于替换的字符。</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 把目标字符串 [第一个] 出现的a或b，替换为- </span></div><div class="line">&gt; str_replace(val, <span class="string">"[ab]"</span>, <span class="string">"-"</span>)  <span class="comment"># 表示或者</span></div><div class="line">[<span class="number">1</span>] <span class="string">"-bc"</span> <span class="string">"123"</span> <span class="string">"c-a"</span></div><div class="line"></div><div class="line"><span class="comment"># 把目标字符串 [所有] 出现的a或b，替换为-</span></div><div class="line">&gt; str_replace_all(val, <span class="string">"[ab]"</span>, <span class="string">"-"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"--c"</span> <span class="string">"123"</span> <span class="string">"c--"</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----把NA替换为字符串------------------------#</span></div><div class="line">&gt; str_replace_na(c(<span class="literal">NA</span>,<span class="string">'NA'</span>,<span class="string">"abc"</span>),<span class="string">'x'</span>)  <span class="comment"># 把NA替换为x</span></div><div class="line">[<span class="number">1</span>] <span class="string">"x"</span>   <span class="string">"NA"</span>  <span class="string">"abc"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="字符串拆分"><a href="#字符串拆分" class="headerlink" title="字符串拆分"></a>字符串拆分</h2><h3 id="str-split-amp-str-split-fixed"><a href="#str-split-amp-str-split-fixed" class="headerlink" title="str_split &amp; str_split_fixed"></a>str_split &amp; str_split_fixed</h3><blockquote>
-<p><strong>字符串分割，同str_split_fixed</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_split(string, pattern, n = Inf)</strong><ul>
-<li>str_split()函数操作的结果类型为<strong>list</strong>  <code>&gt; class(s1)  [1] &quot;list&quot;</code></li>
-</ul>
-</li>
-<li><strong>str_split_fixed(string, pattern, n)</strong><ul>
-<li>str_split_fixed()函数分割，结果类型是<strong>matrix </strong> <code>&gt; class(s3)   [1] &quot;matrix&quot;</code></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>pattern: 匹配的字符。</p>
-<p>n: 分割个数</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- <span class="string">"abc,123,234,iuuu"</span></div><div class="line"></div><div class="line"><span class="comment"># 以,进行分割</span></div><div class="line">&gt; s1&lt;-str_split(val, <span class="string">","</span>);s1</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span>  <span class="string">"123"</span>  <span class="string">"234"</span>  <span class="string">"iuuu"</span></div><div class="line"></div><div class="line"><span class="comment"># 以,进行分割，保留2块</span></div><div class="line">&gt; s2&lt;-str_split(val, <span class="string">","</span>,<span class="number">2</span>);s2</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span>          <span class="string">"123,234,iuuu"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h2><h3 id="str-c-amp-str-join"><a href="#str-c-amp-str-join" class="headerlink" title="str_c &amp; str_join"></a>str_c &amp; str_join</h3><blockquote>
-<p><strong>字符串拼接操作，与str_join完全相同，与paste()行为不完全一致。</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_c(…, sep = “”, collapse = NULL)</strong> </li>
-<li><strong>str_join(…, sep = “”, collapse = NULL)</strong><ul>
-<li>拼接有NA值的字符串向量时，NA还是NA    <code>&gt; str_c(c(&quot;a&quot;, NA, &quot;b&quot;), &quot;-d&quot;)    &gt; &quot;a-d&quot;   NA  &quot;b-d&quot;</code></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>…: 多参数的输入</p>
-<p> sep: 把多个 [字符串] 拼接为一个大的字符串，用于字符串的分割符。</p>
-<p>collapse: 把多个 [向量] 参数拼接为一个大的字符串，用于字符串的分割符。</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----------------示例--------------------------#</span></div><div class="line">多个 [字符串] 拼接为一个大的字符串</div><div class="line">&gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>,sep=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a-b"</span></div><div class="line">&gt; str_c(c(<span class="string">'a'</span>,<span class="string">'a1'</span>),c(<span class="string">'b'</span>,<span class="string">'b1'</span>),sep=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a-b"</span>   <span class="string">"a1-b1"</span></div><div class="line"></div><div class="line">多个 [向量] 参数拼接为一个大的字符串</div><div class="line">&gt; str_c(head(letters), collapse = <span class="string">", "</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a, b, c, d, e, f"</span></div><div class="line"></div><div class="line"><span class="comment"># collapse参数，对多个字符串无效</span></div><div class="line">&gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>,collapse = <span class="string">"-"</span>)   </div><div class="line">[<span class="number">1</span>] <span class="string">"ab"</span></div><div class="line">&gt; str_c(c(<span class="string">'a'</span>,<span class="string">'a1'</span>),c(<span class="string">'b'</span>,<span class="string">'b1'</span>),collapse=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"ab-a1b1"</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>对比str_c()函数和<strong>paste()函数之间的不同点</strong></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="comment"># [字符串] 拼接，默认的sep参数行为 [不一致]</span></div><div class="line">&gt; &gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>)  <span class="comment"># 默认分隔符为""</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"ab"</span></div><div class="line">&gt; &gt; paste(<span class="string">'a'</span>,<span class="string">'b'</span>)  <span class="comment"># 默认分隔符为" "</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a b"</span></div><div class="line">&gt;</div><div class="line">&gt; <span class="comment"># [向量] 拼接字符串，collapse参数的行为 [一致]</span></div><div class="line">&gt; &gt; str_c(head(letters), collapse = <span class="string">""</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"abcdef"</span></div><div class="line">&gt; &gt; paste(head(letters), collapse = <span class="string">""</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"abcdef"</span></div><div class="line">&gt;</div><div class="line">&gt;</div><div class="line">&gt; <span class="comment">#拼接有 [NA值] 的字符串向量，对NA的处理行为 [不一致]</span></div><div class="line">&gt; &gt; str_c(c(<span class="string">"a"</span>, <span class="literal">NA</span>, <span class="string">"b"</span>), <span class="string">"-d"</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a-d"</span>   <span class="literal">NA</span>    <span class="string">"b-d"</span> </div><div class="line">&gt; &gt; paste(c(<span class="string">"a"</span>, <span class="literal">NA</span>, <span class="string">"b"</span>), <span class="string">"-d"</span>)  <span class="comment"># 将NA作为一个普通字符串来对待</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a -d"</span>  <span class="string">"NA -d"</span> <span class="string">"b -d"</span> </div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<p>对比<strong>str_c() &amp; paste()</strong> 与 <strong>cat()</strong> 的区别：</p>
-<ul>
-<li>paste()：<strong>转为字符串后进行连接</strong>；</li>
-<li>cat() ：<strong>连接后输出为对象</strong></li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; paste(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"hello bob \b.\n Is't R \t Great?\n !"</span></div><div class="line">&gt;</div><div class="line">&gt; &gt; cat(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)</div><div class="line">&gt; hello bob.</div><div class="line">&gt;  Is<span class="string">'t R 	 Great?</span></div><div class="line">&gt;  !</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-</blockquote>
-<p><br></p>
-<h3 id="str-conv-转码"><a href="#str-conv-转码" class="headerlink" title="str_conv - 转码"></a>str_conv - 转码</h3><blockquote>
-<p><strong>字符编码转换</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_conv(string, encoding)</strong></li>
-</ul>
-<blockquote>
-<p>encoding: 编码名。</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----对中文进行转码处理---------------------------#</span></div><div class="line">&gt; x &lt;- charToRaw(<span class="string">'你好'</span>);x</div><div class="line">[<span class="number">1</span>] c4 e3 ba c3</div><div class="line"></div><div class="line"><span class="comment"># 默认win系统字符集为GBK，[GB2312为GBK字集]，转码正常</span></div><div class="line">&gt; str_conv(x, <span class="string">"GBK"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"你好"</span></div><div class="line">&gt; str_conv(x, <span class="string">"GB2312"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"你好"</span></div><div class="line"></div><div class="line"><span class="comment"># 转UTF-8失败</span></div><div class="line">&gt; str_conv(x, <span class="string">"UTF-8"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"���"</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----把unicode转UTF-8------------------------------#</span></div><div class="line">&gt; x1 &lt;- <span class="string">"\u5317\u4eac"</span></div><div class="line">&gt; str_conv(x1, <span class="string">"UTF-8"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"北京"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<p><br></p>
-<h2 id="字符串输出"><a href="#字符串输出" class="headerlink" title="字符串输出"></a>字符串输出</h2><h3 id="str-trim-空格"><a href="#str-trim-空格" class="headerlink" title="str_trim - 空格"></a>str_trim - 空格</h3><blockquote>
-<p><strong>去掉字符串的空格和TAB(\t)</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_trim(string, side = c(“both”, “left”, “right”))</strong></li>
-</ul>
-<blockquote>
-<p>string: 字符串，字符串向量。</p>
-<p>side: 过滤方式，both两边都过滤，left左边过滤，right右边过滤  “both”（默认）</p>
-</blockquote>
-<p><br></p>
-<h3 id="str-to-upper-title-大小写"><a href="#str-to-upper-title-大小写" class="headerlink" title="str_to_upper/title - 大小写"></a>str_to_upper/title - 大小写</h3><blockquote>
-<p><strong>字符串大小写转换</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_to_upper(string, locale = “”)</strong> ：<strong>全大写</strong></li>
-<li><strong>str_to_lower(string, locale = “”)</strong> ：<strong>全小写</strong></li>
-<li><strong>str_to_title(string, locale = “”)</strong> ：<strong>首字母大写</strong></li>
-</ul>
-<blockquote>
-<p>locale:按哪种语言习惯排序</p>
-</blockquote>
-<p><br></p>
-<h3 id="str-pad-补充长度"><a href="#str-pad-补充长度" class="headerlink" title="str_pad - 补充长度"></a>str_pad - 补充长度</h3><blockquote>
-<p><strong>补充字符串的长度</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_pad(string, width, side = c(“left”, “right”, “both”), pad = “ “)</strong></li>
-</ul>
-<blockquote>
-<p>string: 字符串，字符串向量。</p>
-<p>width: 字符串填充后的长度</p>
-<p>side: 填充方向，both两边都填充，left左边填充，right右边填充</p>
-<p>pad: 用于填充的字符 （默认为 空格）</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从左边补充空格，直到字符串长度为20</span></div><div class="line">&gt; str_pad(<span class="string">"conan"</span>, <span class="number">20</span>, <span class="string">"left"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"               conan"</span></div><div class="line"></div><div class="line"><span class="comment"># 从左右两边各补充x字符，直到字符串长度为20</span></div><div class="line">&gt; str_pad(<span class="string">"conan"</span>, <span class="number">20</span>, <span class="string">"both"</span>,<span class="string">'x'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"xxxxxxxconanxxxxxxxx"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="str-dup-复制"><a href="#str-dup-复制" class="headerlink" title="str_dup - 复制"></a>str_dup - 复制</h3><blockquote>
-<p><strong>复制字符串</strong> duplicate</p>
-</blockquote>
-<ul>
-<li><strong>str_dup(string, times)</strong></li>
-</ul>
-<blockquote>
-<p>string: 字符串，字符串向量。</p>
-<p>times: 复制数量</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 复制2次</span></div><div class="line">&gt; str_dup(val, <span class="number">2</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abca4abca4"</span> <span class="string">"123123"</span>     <span class="string">"cba2cba2"</span>  </div><div class="line"></div><div class="line"><span class="comment"># 按位置复制</span></div><div class="line">&gt; str_dup(val, <span class="number">1</span>:<span class="number">3</span>)  <span class="comment"># 复制的次数从1次增加到3次</span></div><div class="line">[<span class="number">1</span>] <span class="string">"abca4"</span>        <span class="string">"123123"</span>       <span class="string">"cba2cba2cba2"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="str-sort-amp-str-order-排序"><a href="#str-sort-amp-str-order-排序" class="headerlink" title="str_sort &amp; str_order - 排序"></a>str_sort &amp; str_order - 排序</h3><blockquote>
-<p><strong>字符串值排序，同str_order索引排序</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_sort(x, decreasing = FALSE, na_last = TRUE, locale = “”, …)</strong></li>
-<li><strong>str_order(x, decreasing = FALSE, na_last = TRUE, locale = “”, …)</strong></li>
-</ul>
-<blockquote>
-<p>decreasing: 排序方向。  decrease - 减少</p>
-<p>na_last:NA值的存放位置，一共3个值，TRUE放到最后，FALSE放到最前，NA过滤处理</p>
-<p>locale:按哪种语言习惯排序</p>
-<ul>
-<li>loacle = “en” - ASCII字母 / “zh” - 拼音</li>
-</ul>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 按ASCII字母排序</span></div><div class="line">&gt; str_sort(c(<span class="string">'a'</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="string">'11'</span>), locale = <span class="string">"en"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span>  <span class="string">"11"</span> <span class="string">"2"</span>  <span class="string">"a"</span> </div><div class="line"></div><div class="line"><span class="comment"># 倒序排序</span></div><div class="line">&gt; str_sort(letters,decreasing=<span class="literal">TRUE</span>)         </div><div class="line"> [<span class="number">1</span>] <span class="string">"z"</span> <span class="string">"y"</span> <span class="string">"x"</span> <span class="string">"w"</span> <span class="string">"v"</span> <span class="string">"u"</span> <span class="string">"t"</span> <span class="string">"s"</span> <span class="string">"r"</span> <span class="string">"q"</span> <span class="string">"p"</span> <span class="string">"o"</span> <span class="string">"n"</span> <span class="string">"m"</span> <span class="string">"l"</span> <span class="string">"k"</span> <span class="string">"j"</span> <span class="string">"i"</span> <span class="string">"h"</span></div><div class="line">[<span class="number">20</span>] <span class="string">"g"</span> <span class="string">"f"</span> <span class="string">"e"</span> <span class="string">"d"</span> <span class="string">"c"</span> <span class="string">"b"</span> <span class="string">"a"</span></div><div class="line"></div><div class="line"><span class="comment"># 按拼音排序</span></div><div class="line">&gt; str_sort(c(<span class="string">'你'</span>,<span class="string">'好'</span>,<span class="string">'粉'</span>,<span class="string">'丝'</span>,<span class="string">'日'</span>,<span class="string">'志'</span>),locale = <span class="string">"zh"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"粉"</span> <span class="string">"好"</span> <span class="string">"你"</span> <span class="string">"日"</span> <span class="string">"丝"</span> <span class="string">"志"</span></div><div class="line"></div><div class="line"><span class="comment">#----对NA值的排序处理------------------------#</span></div><div class="line"> <span class="comment">#把NA放最后面</span></div><div class="line">&gt; str_sort(c(<span class="literal">NA</span>,<span class="string">'1'</span>,<span class="literal">NA</span>),na_last=<span class="literal">TRUE</span>) </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span> <span class="literal">NA</span>  <span class="literal">NA</span></div><div class="line"></div><div class="line"><span class="comment">#去掉NA值 </span></div><div class="line">&gt; str_sort(c(<span class="literal">NA</span>,<span class="string">'1'</span>,<span class="literal">NA</span>),na_last=<span class="literal">NA</span>)    </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<p><br></p>
-<h2 id="字符串变换"><a href="#字符串变换" class="headerlink" title="字符串变换"></a>字符串变换</h2><h3 id="str-warp-格式"><a href="#str-warp-格式" class="headerlink" title="str_warp - 格式"></a>str_warp - 格式</h3><blockquote>
-<p><strong>控制字符串输出格式</strong></p>
-</blockquote>
-<ul>
-<li><strong>str_wrap(string, width = 80, indent = 0, exdent = 0)</strong></li>
-</ul>
-<blockquote>
-<p>string: 字符串，字符串向量。</p>
-<p>width: 设置一行所占的宽度。</p>
-<p>indent: 段落首行的缩进值</p>
-<p>exdent: 段落非首行的缩进值</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">txt&lt;-<span class="string">'R语言作为统计学一门语言，一直在小众领域闪耀着光芒。直到大数据的爆发，R语言变成了一门炙手可热的数据分析的利器。随着越来越多的工程背景的人的加入，R语言的社区在迅速扩大成长。现在已不仅仅是统计领域，教育，银行，电商，互联网….都在使用R语言。'</span></div><div class="line"></div><div class="line"><span class="comment"># 设置宽度为60字符，首行缩进2字符</span></div><div class="line">&gt; cat(str_wrap(txt, width = <span class="number">60</span>, indent = <span class="number">2</span>), <span class="string">"\n"</span>)</div><div class="line">  R语言作为统计学一门语言，一直在小众领域闪耀着光芒。直到大数</div><div class="line">据的爆发，R语言变成了一门炙手可热的数据分析的利器。随着越来</div><div class="line">越多的工程背景的人的加入，R语言的社区在迅速扩大成长。现在已</div><div class="line">不仅仅是统计领域，教育，银行，电商，互联网….都在使用R语言。</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="参数控制函数"><a href="#参数控制函数" class="headerlink" title="参数控制函数"></a>参数控制函数</h2><blockquote>
-<p>仅用于构造功能的参数，不能独立使用。</p>
-</blockquote>
-<h3 id="regex"><a href="#regex" class="headerlink" title="regex"></a>regex</h3><blockquote>
-<p>定义正则表达式</p>
-</blockquote>
-<p><br></p>
-<h2 id="stringr的API介绍"><a href="#stringr的API介绍" class="headerlink" title="stringr的API介绍"></a>stringr的API介绍</h2><p>stringr包1.0.0版本，一共提供了30个函数，方便我们对字符串处理。常用的字符串的处理以str_开头来命名，方便更直观理解函数的定义。我们可以根据使用习惯对函数进行分类：</p>
-<ul>
-<li>stringr包中的函数<strong><u>默认使用正则表达式</u></strong>的函数（pattern）</li>
-<li><strong>R中的转义字符则是双斜杠：<code>\\</code></strong><ul>
-<li><code>\\d</code> 代表<code>\d</code></li>
-</ul>
-</li>
-</ul>
-<p><strong>字符串拼接函数</strong></p>
-<ul>
-<li>str_c:字符串拼接。</li>
-<li>str_join:字符串拼接，同str_c。</li>
-<li>str_trim:去掉字符串的空格和TAB(\t)</li>
-<li>str_pad:补充字符串的长度</li>
-<li>str_dup:复制字符串</li>
-<li>str_wrap:控制字符串输出格式</li>
-<li>str_sub:截取字符串</li>
-<li>str_sub&lt;-截取字符串，并赋值，同str_sub</li>
-</ul>
-<p><strong>字符串计算函数</strong></p>
-<ul>
-<li>str_count:字符串计数</li>
-<li>str_length:字符串长度</li>
-<li>str_sort:字符串值排序</li>
-<li>str_order:字符串索引排序，规则同str_sort</li>
-</ul>
-<p><strong>字符串匹配函数</strong></p>
-<ul>
-<li>str_split:    字符串分割</li>
-<li>str_split_fixed: 字符串分割，同str_split</li>
-<li>str_subset: 返回匹配的字符串</li>
-<li>word:从文本中提取单词</li>
-<li>str_detect: 检查匹配字符串的字符</li>
-<li>str_match:从字符串中提取匹配组。</li>
-<li>str_match_all: 从字符串中提取匹配组，同str_match</li>
-<li>str_replace: 字符串替换</li>
-<li>str_replace_all: 字符串替换，同str_replace</li>
-<li>str_replace_na:把NA替换为NA字符串</li>
-<li>str_locate: 找到匹配的字符串的位置。</li>
-<li>str_locate_all: 找到匹配的字符串的位置,同str_locate</li>
-<li>str_extract: 从字符串中提取匹配字符</li>
-<li>str_extract_all: 从字符串中提取匹配字符，同str_extract</li>
-</ul>
-<p><strong>字符串变换函数</strong></p>
-<ul>
-<li>str_conv:字符编码转换</li>
-<li>str_to_upper: 字符串转成大写</li>
-<li>str_to_lower: 字符串转成小写,规则同str_to_upper</li>
-<li>str_to_title: 字符串转成首字母大写,规则同str_to_upper</li>
-</ul>
-<p><strong>参数控制函数</strong>，仅用于构造功能的参数，不能独立使用。</p>
-<ul>
-<li>boundary:定义使用边界</li>
-<li>coll:定义字符串标准排序规则。</li>
-<li>fixed:定义用于匹配的字符，包括正则表达式中的转义符</li>
-<li>regex:定义正则表达式</li>
-</ul>
-<p><br></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;R_字符串处理_stringr&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;stringr：对一个单元格内的 [元素] 进行操作，而非把一个单元格看做一个整体来对待。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="r" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/r/"/>
-    
-    
-      <category term="软件工具" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
       <category term="r" scheme="http://yoursite.com/tags/r/"/>
     
@@ -2962,187 +2530,29 @@
   </entry>
   
   <entry>
-    <title>R_导入&amp;导出</title>
-    <link href="http://yoursite.com/2017/07/24/R_%E5%AF%BC%E5%85%A5&amp;%E5%AF%BC%E5%87%BA/"/>
-    <id>http://yoursite.com/2017/07/24/R_导入&amp;导出/</id>
-    <published>2017-07-23T16:00:00.000Z</published>
-    <updated>2017-08-13T03:25:25.000Z</updated>
+    <title>R_字符串处理_stringr</title>
+    <link href="http://yoursite.com/2017/07/25/R_%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86_stringr/"/>
+    <id>http://yoursite.com/2017/07/25/R_字符串处理_stringr/</id>
+    <published>2017-07-24T16:00:00.000Z</published>
+    <updated>2017-07-30T08:39:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code>  </strong></p>
-<p><strong>R本身把<code>\</code> 当做转义符，所以写pattern的时候要用<code>\\</code>进行转义</strong></p>
+    <content type="html"><![CDATA[<p><strong>R_字符串处理_stringr</strong></p>
+<p><strong>stringr：对一个单元格内的 [元素] 进行操作，而非把一个单元格看做一个整体来对待。</strong></p>
 <a id="more"></a>
-<p><br></p>
-<h1 id="获取文件目录信息"><a href="#获取文件目录信息" class="headerlink" title="获取文件目录信息"></a>获取文件目录信息</h1><h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><h4 id="getwd-amp-setwd"><a href="#getwd-amp-setwd" class="headerlink" title="getwd &amp; setwd"></a>getwd &amp; setwd</h4><ul>
-<li><strong>getwd()</strong>：获得<strong>当前工作目录</strong></li>
-<li><strong>setwd()</strong> ：<strong>设置</strong>当前工作目录 <code>setwd(&quot;C:/data&quot;)</code></li>
-</ul>
-<p><br></p>
-<h4 id="dir-amp-list-files-获取"><a href="#dir-amp-list-files-获取" class="headerlink" title="dir &amp; list.files - 获取"></a>dir &amp; list.files - 获取</h4><blockquote>
-<p>dir 与 list.files 功能相同；列出<strong>当前目录</strong>中所有的文件</p>
+<h2 id="文本文件的读写"><a href="#文本文件的读写" class="headerlink" title="文本文件的读写"></a>文本文件的读写</h2><blockquote>
+<p>这里的文本文件指的是非表格式的文件，如纯文本文件，html文件</p>
 </blockquote>
-<ul>
-<li><strong>dir()</strong> ：列出<strong>当前目录</strong>中所有的文件名</li>
-<li><strong>dir(path=”/home/conan/R”, pattern=Null, all.files=False, full.names=Fasle, recursice=Fasle, igonre.case= False, include.dirs=False, no..=False)</strong>：查看<strong>指定目录</strong>的文件</li>
-</ul>
-<blockquote>
-<p>path：查看指定<strong>路径下</strong>的文件。</p>
-<p>pattern ：匹配的正则表达式模式</p>
-<p>all.files = False(默认) ；若为True，则列出隐藏的文件名</p>
-<p>full.names=False(默认) <code>&quot;我的形状&quot;</code>；若为True，列出含相对路径的文件名 <code>&quot;./我的形状&quot;</code></p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir(path=<span class="string">"/home/conan/R"</span>,pattern=<span class="string">'txt$'</span>)</div></pre></td></tr></table></figure>
 <p><br></p>
-<h4 id="choose-dir-获取"><a href="#choose-dir-获取" class="headerlink" title="choose.dir - 获取"></a>choose.dir - 获取</h4><blockquote>
-<p>通过选取的方式获得目录</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a &lt;- choose.dir()</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="system-“tree”-获取"><a href="#system-“tree”-获取" class="headerlink" title="system(“tree”) - 获取"></a>system(“tree”) - 获取</h4><blockquote>
-<p>通过系统命令以<strong>树状结构</strong>查看目录结构</p>
-</blockquote>
-<ul>
+<h3 id="获取文件目录信息"><a href="#获取文件目录信息" class="headerlink" title="获取文件目录信息"></a>获取文件目录信息</h3><ul>
 <li>file.info()</li>
+<li>dir() 列出指定目录中所有的文件，可选参数recursive=T可递归列出所有的子目录文件</li>
+<li>file.exists()：判断文件是否存在</li>
+<li>getwd() ：获得当前工作目录</li>
+<li>setwd() ：设置当前工作目录 <code>setwd(&quot;C:/data&quot;)</code></li>
 </ul>
 <p><br></p>
-<h4 id="dir-create-新建"><a href="#dir-create-新建" class="headerlink" title="dir.create - 新建"></a>dir.create - 新建</h4><ul>
-<li><strong>dir.create()</strong>：在当前目录下，新建一个目录</li>
-<li><strong>dir.create(path=”a1/b2/c3”,recursive = TRUE)</strong>：创建一个<strong>3级子目录</strong>./a1/b2/c3</li>
-</ul>
-<p><br></p>
-<h4 id="file-path-合并"><a href="#file-path-合并" class="headerlink" title="file.path - 合并"></a>file.path - 合并</h4><ul>
-<li><strong>file.path(…, fsep = .Platform$file.sep)</strong><ul>
-<li><strong>file.path(getwd(), dir())</strong> ：当前工作目录下的文件的路径</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>… : 字符串</p>
-<p>fsep : 用于使用的<strong>路径分隔符</strong></p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; file.path(<span class="string">"C:\\Users\\long\\Desktop"</span>,<span class="string">"txt"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"C:\\Users\\long\\Desktop/txt"</span> </div><div class="line"></div><div class="line"><span class="comment">#----------------------------------------#</span></div><div class="line">&gt; file.path(getwd(),dir())</div><div class="line">[<span class="number">1</span>] <span class="string">'E:/Jupyter_notebook/test'</span> <span class="string">'E:/Jupyter_notebook/test.ipynb'</span> <span class="string">'E:/Jupyter_notebook/专项分析'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>一般用paste来生成系统路径的时候，在最终结果，结合的地方会多一个<strong>空格</strong>，当然也可以用去空格的方式排除，但是不够好。</p>
-<p>用file.path的方式直接生成，比较方便，而且绝对正确。</p>
-</blockquote>
-<p><br></p>
-<h4 id="几个特殊的目录"><a href="#几个特殊的目录" class="headerlink" title="几个特殊的目录"></a>几个特殊的目录</h4><ul>
-<li>R.home() 查看R软件的相关目录</li>
-<li>.Library 查看R核心包的目录</li>
-<li>.Library.site 查看R核心包的目录和root用户安装包目录</li>
-<li>.libPaths() 查看R所有包的存放目录</li>
-<li>system.file() 查看指定包所在的目录</li>
-</ul>
-<p><br></p>
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p><br></p>
-<h4 id="file-exist-存在"><a href="#file-exist-存在" class="headerlink" title="file.exist - 存在"></a>file.exist - 存在</h4><blockquote>
-<p>判断文件是否存在</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; file.exists(<span class="string">"."</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt; file.exists(<span class="string">"./a1/b2"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 目录不存在</span></div><div class="line">&gt; file.exists(<span class="string">"./aa"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="file-remove-删除"><a href="#file-remove-删除" class="headerlink" title="file.remove - 删除"></a>file.remove - 删除</h4><blockquote>
-<p>删除某目录</p>
-</blockquote>
-<p><br></p>
-<h4 id="file-create-创建"><a href="#file-create-创建" class="headerlink" title="file.create - 创建"></a>file.create - 创建</h4><blockquote>
-<p>创建文件</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 创建一个空文件 A.txt</span></div><div class="line">&gt; file.create(<span class="string">"A.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 创建一个有内容的文件 B.txt</span></div><div class="line">&gt; cat(<span class="string">"file B\n"</span>, file = <span class="string">"B.txt"</span>)  <span class="comment"># 把字符串输出到file</span></div><div class="line"><span class="comment"># 打印B.txt</span></div><div class="line">&gt; readLines(<span class="string">"B.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"file B"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="file-copy-复制"><a href="#file-copy-复制" class="headerlink" title="file.copy - 复制"></a>file.copy - 复制</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; file.copy(<span class="string">"A.txt"</span>, <span class="string">"C.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="file-append"><a href="#file-append" class="headerlink" title="file.append"></a>file.append</h4><p><br></p>
-<h4 id="file-rename-重命名"><a href="#file-rename-重命名" class="headerlink" title="file.rename - 重命名"></a>file.rename - 重命名</h4><blockquote>
-<p>对文件重命名</p>
-</blockquote>
-<ul>
-<li>file.rename(“old_name”, “new_name”)：将old_name变更为new_name</li>
-</ul>
-<p><br></p>
-<h3 id="压缩与解压"><a href="#压缩与解压" class="headerlink" title="压缩与解压"></a>压缩与解压</h3><blockquote>
-<p>unzip(),zip() 两个函数，可以压缩和解压缩</p>
-</blockquote>
-<p><br></p>
-<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><p><br></p>
-<h2 id="导入-数据表"><a href="#导入-数据表" class="headerlink" title="导入 - 数据表"></a>导入 - 数据表</h2><ol>
-<li>要导入的数据必须<strong>存放在getwd()目录下</strong></li>
-<li>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code></li>
-</ol>
-<p><br></p>
-<h3 id="readr"><a href="#readr" class="headerlink" title="readr"></a>readr</h3><blockquote>
-<p>library(readr)</p>
-</blockquote>
-<ul>
-<li><strong>read_delim(“filename.xxx”, delim=””)</strong> : <strong>自由分隔符</strong><ul>
-<li><code>delim= &quot;|&quot;</code>或其他任何形式</li>
-</ul>
-</li>
-<li><strong>read_csv(“filename.csv”, col_names=T, col_types=NULL, skip = 0, locale(), na=c(“”,”NA”))：分隔符-逗号</strong></li>
-</ul>
-<blockquote>
-<p>col_names = True(默认) / False 或者 <strong>c(“”,””)</strong> 指定的 [向量]列名</p>
-<p>col_types = cols(colname=col<em>character() ) / cols(colename= “c”, colname=”</em>“) ：指定某个列的类型；</p>
-<ul>
-<li>可以使用简写 each character represents one column: c = character, i = integer, n = number, d = double, l = logical, D = date, T = date time, t = time, ? = guess, or _/- to skip the column.</li>
-<li>cols(colname=col_skip() ) 跳过某个列不进行选取；</li>
-</ul>
-<p>skip = n 跳过的行数</p>
-<p><strong>locale= locale</strong>(encoding=”UTF-8”, date_format=”%AD”,time_format=”%AT”)  (默认为US-centric)</p>
-<ul>
-<li><strong>encoding=”UTF-8” / “gb2312”</strong></li>
-</ul>
-<p>na = c(“”, “NA”)  ：设置 <code>&quot;&quot;</code> 与<code>&quot;NA&quot;</code> 显示为NA；也可自定义</p>
-</blockquote>
-<ul>
-<li><strong>read_tsv()：制表符</strong></li>
-<li><strong>read_csv2()：分号</strong></li>
-<li><strong>read_table()</strong>  </li>
-<li><strong>read_fwf()</strong></li>
-</ul>
-<p><br></p>
-<h3 id="readxl"><a href="#readxl" class="headerlink" title="readxl"></a>readxl</h3><blockquote>
-<p>.xls和.xlsx格式的Excel工作表</p>
-</blockquote>
-<ul>
-<li><strong>read_excel(path, sheet = NULL, range = NULL, col_names = TRUE,  col_types = NULL, na = “”, trim_ws = TRUE, skip = 0, n_max = Inf,  guess_max = min(1000, n_max))</strong> ：读取xls/xlsx的工作表</li>
-</ul>
-<blockquote>
-<p>path：Path to the xls/xlsx file</p>
-<p>sheet：Sheet to read；整数或者字符串</p>
-<p>range：读取的范围，例如 “B3:D87”</p>
-<p>col_names：True/Fasle，或者输入自定义的列名，长度需要与col_types相同</p>
-<p>col_types：</p>
-<p>na = “ ”：默认将<code>空格</code>视为NULL</p>
-<p>skip=0：跳过行数；若给定了<code>range</code>则忽略</p>
-</blockquote>
-<ul>
-<li><strong>excel_sheet(path)</strong> ：显示表中的sheet名称</li>
-</ul>
-<p><br></p>
-<h2 id="导入-非表格式"><a href="#导入-非表格式" class="headerlink" title="导入 - 非表格式"></a>导入 - 非表格式</h2><blockquote>
-<p>非表格式的（Non-Tabular）；这里的文本文件指的是非表格式的文件，如纯文本文件，html文件</p>
-</blockquote>
-<p><br></p>
-<h3 id="readr-1"><a href="#readr-1" class="headerlink" title="readr"></a>readr</h3><ul>
-<li><strong>read_file(file, locale=default_locale())</strong>：读入为一个<strong>单一的字符串</strong></li>
-</ul>
-<blockquote>
-<p>file ： 文档路径，一个连接或一个文本数据</p>
-<ul>
-<li>Files ending in .gz, .bz2, .xz, or .zip 将自动被解压</li>
-<li>Files starting with http://, https://, ftp://, or ftps:// 将自动被下载</li>
-<li>Remote gz files 也能被自动下载</li>
-</ul>
-<p>locale=locale()  : 默认为US-centric</p>
-</blockquote>
-<ul>
-<li><strong>read_file_raw(file)</strong>：读入为一个<strong>未加工的向量</strong></li>
-<li><strong>read_lines(file, skip=0, n_max=-1L, locale=default_locale(), na=character(), progress=interactive())</strong>：<strong>逐行读入</strong>，每一行作为一个<strong>单一的字符串</strong></li>
-<li><strong>read_lines_raw()</strong>：逐行读入，每一行作为一个<strong>未加工的向量</strong></li>
-<li><strong>read_log(file, col_names=FALSE, col_types=NULL, skip=0, n_max=-1L)</strong>：读入日志文档</li>
-</ul>
-<p><br></p>
-<h3 id="scan"><a href="#scan" class="headerlink" title="scan"></a>scan</h3><ul>
-<li><p><strong>scan(“file.xxx”, what=double(), seq=””, n=-1, nmax=-1, skip=0, encoding=”UTF-8”)</strong></p>
+<h3 id="读入"><a href="#读入" class="headerlink" title="读入"></a>读入</h3><ul>
+<li><p><strong>scan(“file.xxx”, what=double(), seq=””, n=-1, nmax=-1, skip=0, encoding=”utf-8”)</strong></p>
 <blockquote>
 <p>读取文本文件，<strong>默认</strong>情况下读取文件中以<strong>[空格分割]</strong> 所有<strong>[浮点数值]</strong></p>
 </blockquote>
@@ -3162,102 +2572,390 @@
 <p>n = -1：显示至最后一行</p>
 <p>nmax = -1：读取至最后一行</p>
 <p>skip=0：跳过的行数</p>
-<p>encoding=”UTF-8” / “Latin1”</p>
-<p>quote =’’  : 若提示 EOF within quoted string可将<code>quote = &#39;&#39;</code> </p>
+<p>encoding=”utf-8” / “Latin1”</p>
 </blockquote>
 <p><br></p>
+<ul>
+<li><strong>readline()</strong> 可以从键盘<strong>读取单行数据</strong>，如 <code>age&lt;-readline(&quot;input the age: &quot;)</code></li>
+</ul>
 <p><br></p>
-<p><br></p>
-<h3 id="readline"><a href="#readline" class="headerlink" title="readline"></a>readline</h3><blockquote>
-<p>可以从键盘<strong>读取单行数据</strong></p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">age&lt;-readline(<span class="string">"input the age: "</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="readLines"><a href="#readLines" class="headerlink" title="readLines"></a>readLines</h3><ul>
-<li><strong>readLines(“file.xxx”, encoding=”UTF-8”)</strong> ：<strong>每一行当做一个字符串</strong>。等价于scan中指定分隔符为换行<ul>
+<ul>
+<li><strong>readLines(“file.xxx”, encoding=”utf-8”)</strong> ：<strong>每一行当做一个字符串</strong>。等价于scan中指定分隔符为换行<ul>
 <li>用于<strong>读取</strong>字符型的格式文件；常用于文本文件</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>encoding = “UTF-8” / “Latin1” ; Lattin1是[ISO-8859-1]的别名，有些环境下写作Latin-1。ISO-8859-1编码是单字节编码，<strong>向下兼容ASCII</strong></p>
+<p>encoding = “utf-8” / “Latin1” ; Lattin1是[ISO-8859-1]的别名，有些环境下写作Latin-1。ISO-8859-1编码是单字节编码，<strong>向下兼容ASCII</strong></p>
 </blockquote>
 <p><br></p>
-<h1 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h1><p><br></p>
-<h2 id="导出-数据表"><a href="#导出-数据表" class="headerlink" title="导出 - 数据表"></a>导出 - 数据表</h2><h3 id="readr-2"><a href="#readr-2" class="headerlink" title="readr"></a>readr</h3><ul>
-<li><strong>write_delim(x, path, delim = “ “, na = “NA”, append = FALSE,  col_names = !append)</strong> ：默认分隔符为 <code>&quot; &quot;</code></li>
-<li><strong>write_csv(x, path, na = “NA”, append = FALSE, col_names = !append)</strong> ：导出为<strong>逗号分隔符</strong>的文档</li>
-</ul>
-<blockquote>
-<p>path：Path or connection to write to.</p>
-<p>append=False (默认), 覆盖已有的文件；若为True，增加已经存在的文件</p>
-<p>col_names = !append 写入的时候不写入列名</p>
-</blockquote>
+<h3 id="写出"><a href="#写出" class="headerlink" title="写出"></a>写出</h3><p><br></p>
 <ul>
-<li>write_tsv()  ：分隔符为制表符<code>\t</code></li>
-<li>write_excel_csv()：导出为csv文档</li>
-</ul>
-<blockquote>
-<p>All columns are encoded as UTF-8</p>
-</blockquote>
-<p><br></p>
-<h2 id="导出-文本-amp-文本文件"><a href="#导出-文本-amp-文本文件" class="headerlink" title="导出 - 文本&amp;文本文件"></a>导出 - 文本&amp;文本文件</h2><h3 id="readr-3"><a href="#readr-3" class="headerlink" title="readr"></a>readr</h3><ul>
-<li><p><strong>write_file(x, path)</strong>：导出为<strong>字符串文档</strong></p>
-</li>
-<li><p><strong>write_lines()</strong>：导出为<strong>字符串向量，每一个元素一行</strong></p>
-</li>
-<li><p><strong>write_rds()</strong>：导出为RDS文档</p>
-<p>​</p>
-</li>
-</ul>
-<p><br></p>
-<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
-<li><strong>cat(x, file=””, sep=””, fill=False, labels=NULL, append=False)</strong>：<ul>
-<li>拼接后<strong>输出</strong>对象</li>
-<li><strong>把结果写到指定的文件中</strong></li>
-</ul>
-</li>
+<li><strong>cat(x, file=””, sep=””, fill=False, labels=NULL, append=False)</strong>：<strong>拼接后输出</strong>对象，也可以<strong>把结果写到指定的文件中</strong></li>
 </ul>
 <blockquote>
 <p>x：R的对象</p>
 <p>file：一个连接，或命名的文件打印到一个字符串；默认情况下打印到标准输出连接</p>
-<p>sep=” “：默认为<strong>空格</strong>； 每个元素后追加一个字符串的字符向量；</p>
+<p>sep=” “：每个元素后追加一个字符串的字符向量；默认为<strong>空格</strong></p>
 <p>append = False 覆盖file内容；若为True，表示附加到file</p>
 </blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; cat(c(<span class="string">"AB"</span>, <span class="string">"C"</span>), c(<span class="string">"E"</span>, <span class="string">"F"</span>), <span class="string">"\n"</span>, sep=<span class="string">""</span>)</div><div class="line">[<span class="number">1</span>] ABCDEF</div><div class="line"></div><div class="line"><span class="comment">#----可以把结果写到指定的文件中-----------------#</span></div><div class="line">cat(<span class="string">"i = "</span>, <span class="number">1</span>, <span class="string">"\n"</span>, file=<span class="string">"c:/work/result.txt"</span>)</div><div class="line"><span class="comment"># 加上一个append=TRUE参数可以不覆盖原文 件而是在文件末尾附加，这很适用于运行中的结果记录。</span></div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; cat(c(<span class="string">"AB"</span>, <span class="string">"C"</span>), c(<span class="string">"E"</span>, <span class="string">"F"</span>), <span class="string">"\n"</span>, sep=<span class="string">""</span>)</div><div class="line">[<span class="number">1</span>] ABCDEF</div><div class="line"></div><div class="line"><span class="comment">#----可以把结果写到指定的文件中-----------------#</span></div><div class="line">cat(<span class="string">"i = "</span>, <span class="number">1</span>, <span class="string">"\n"</span>, file=<span class="string">"c:/work/result.txt"</span>)</div><div class="line"><span class="comment"># 加上一个append=TRUE参数可以不覆盖原文 件而是在文件末尾附加，这很适用于运行中的结果记录。</span></div><div class="line"></div><div class="line"></div><div class="line">&gt; cat(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)  <span class="comment"># 拼接后进行输出</span></div><div class="line">hello bob.</div><div class="line"> Is<span class="string">'t R 	 Great?</span></div><div class="line"> !</div><div class="line"></div><div class="line">&gt; paste("hello", "bob", "\b.\n", "Is\'t R", "\t", "Great?\n","!")</div><div class="line">[1] "hello bob \b.\n Is't R \t Great?\n !<span class="string">"</span></div></pre></td></tr></table></figure>
 <p><br></p>
-<h4 id="cat-vs-paste"><a href="#cat-vs-paste" class="headerlink" title="cat vs. paste"></a>cat vs. paste</h4><ul>
-<li>cat是<strong>输出</strong>，paste连接成一个<strong>字符串</strong><ul>
-<li>显示结果是：一个没有引号的结果（cat），另一个是有引号的字符串（paste）</li>
+<ul>
+<li><strong>writeLines</strong></li>
+</ul>
+<p><br></p>
+<h2 id="字符串统计"><a href="#字符串统计" class="headerlink" title="字符串统计"></a>字符串统计</h2><h3 id="str-length"><a href="#str-length" class="headerlink" title="str_length"></a>str_length</h3><blockquote>
+<p><strong>符串长度</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_length(string)</strong></li>
+</ul>
+<p><br></p>
+<h3 id="str-count"><a href="#str-count" class="headerlink" title="str_count"></a>str_count</h3><blockquote>
+<p><strong>字符串计数</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_count(string, pattern = “”)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>pattern: 匹配的字符。</p>
+<ul>
+<li>若不匹配字符，即等价于 <code>str_length</code></li>
+</ul>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; str_count(<span class="string">'aaa444sssddd'</span>, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">3</span></div><div class="line"></div><div class="line"><span class="comment"># 对字符串向量中匹配的字符计数</span></div><div class="line">&gt; fruit &lt;- c(<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"pear"</span>, <span class="string">"pineapple"</span>)</div><div class="line">&gt; str_count(fruit, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">3</span> <span class="number">1</span> <span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 对字符串中的'.'字符计数，由于.是正则表达式的匹配符，直接判断计数的结果是不对的。</span></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), <span class="string">"."</span>)</div><div class="line">[<span class="number">1</span>]  <span class="number">2</span>  <span class="number">1</span>  <span class="number">3</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), fixed(<span class="string">"."</span>)) <span class="comment"># 用fixed匹配字符</span></div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">1</span>  <span class="number">2</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), <span class="string">"\\."</span>) <span class="comment"># 用\\匹配字符</span></div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">1</span>  <span class="number">2</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="字符串查询"><a href="#字符串查询" class="headerlink" title="字符串查询"></a>字符串查询</h2><h3 id="str-locate-位置"><a href="#str-locate-位置" class="headerlink" title="str_locate - 位置"></a>str_locate - 位置</h3><blockquote>
+<p>找到的模式在字符串中的<strong>位置</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_locate(string, pattern)</strong></li>
+<li><strong>str_locate_all(string, pattern)</strong><ul>
+<li>以字符串<strong>matrix格式返回</strong></li>
 </ul>
 </li>
 </ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">a&lt;-c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div><div class="line">b&lt;-c(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)</div><div class="line">c&lt;-c(<span class="string">'hi'</span>,<span class="string">'hello'</span>)</div><div class="line">&gt; paste(a,b,c)</div><div class="line">[<span class="number">1</span>] <span class="string">"1 4 hi"</span>    <span class="string">"2 5 hello"</span> <span class="string">"3 6 hi"</span>    <span class="string">"4 7 hello"</span></div><div class="line"></div><div class="line">&gt; cat(a,b,c)</div><div class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> hi hello</div><div class="line"></div><div class="line"></div><div class="line">&gt; cat(LETTERS, letters)</div><div class="line">A B C D E <span class="literal">F</span> G H I J K L M N O P Q R S <span class="literal">T</span> U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z</div><div class="line">&gt; paste(LETTERS, letters)</div><div class="line"> [<span class="number">1</span>] <span class="string">"A a"</span> <span class="string">"B b"</span> <span class="string">"C c"</span> <span class="string">"D d"</span> <span class="string">"E e"</span> <span class="string">"F f"</span> <span class="string">"G g"</span> <span class="string">"H h"</span> <span class="string">"I i"</span> <span class="string">"J j"</span> <span class="string">"K k"</span> <span class="string">"L l"</span></div><div class="line">[<span class="number">13</span>] <span class="string">"M m"</span> <span class="string">"N n"</span> <span class="string">"O o"</span> <span class="string">"P p"</span> <span class="string">"Q q"</span> <span class="string">"R r"</span> <span class="string">"S s"</span> <span class="string">"T t"</span> <span class="string">"U u"</span> <span class="string">"V v"</span> <span class="string">"W w"</span> <span class="string">"X x"</span></div><div class="line">[<span class="number">25</span>] <span class="string">"Y y"</span> <span class="string">"Z z"</span></div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 匹配a在字符串中的位置</span></div><div class="line">&gt; str_locate(val, <span class="string">"a"</span>)</div><div class="line">     start end</div><div class="line">[<span class="number">1</span>,]     <span class="number">1</span>   <span class="number">1</span></div><div class="line">[<span class="number">2</span>,]    <span class="literal">NA</span>  <span class="literal">NA</span></div><div class="line">[<span class="number">3</span>,]     <span class="number">3</span>   <span class="number">3</span></div><div class="line"></div><div class="line"><span class="comment"># 用向量匹配</span></div><div class="line">&gt; str_locate(val, c(<span class="string">"a"</span>, <span class="number">12</span>, <span class="string">"b"</span>))</div><div class="line">     start end</div><div class="line">[<span class="number">1</span>,]     <span class="number">1</span>   <span class="number">1</span></div><div class="line">[<span class="number">2</span>,]     <span class="number">1</span>   <span class="number">2</span></div><div class="line">[<span class="number">3</span>,]     <span class="number">2</span>   <span class="number">2</span></div></pre></td></tr></table></figure>
 <p><br></p>
-<h4 id="cat-vs-print"><a href="#cat-vs-print" class="headerlink" title="cat vs. print"></a>cat vs. print</h4><ul>
-<li>cat被认为是更低级别的print，会<strong>识别转义符并进行执行</strong></li>
+<h3 id="str-detect-逻辑值"><a href="#str-detect-逻辑值" class="headerlink" title="str_detect - 逻辑值"></a>str_detect - 逻辑值</h3><blockquote>
+<p><strong>匹配字符串的字符，返回逻辑值</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_detect(string, pattern)</strong></li>
 </ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; x &lt;- <span class="string">"a b\tc\nd"</span></div><div class="line">&gt; print(x)</div><div class="line">[<span class="number">1</span>] <span class="string">"a b\tc\nd"</span></div><div class="line"></div><div class="line">&gt; cat(x)</div><div class="line">a b	c</div><div class="line">d</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 检查字符串向量，是否包括a</span></div><div class="line">&gt; str_detect(val, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 检查字符串向量，是否以a为开头</span></div><div class="line">&gt; str_detect(val, <span class="string">"^a"</span>)</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span></div></pre></td></tr></table></figure>
 <p><br></p>
-<h3 id="writeLines"><a href="#writeLines" class="headerlink" title="writeLines"></a>writeLines</h3><h1 id="案例-获取指定目录下的csv文档，并合并输出"><a href="#案例-获取指定目录下的csv文档，并合并输出" class="headerlink" title="案例 - 获取指定目录下的csv文档，并合并输出"></a>案例 - 获取指定目录下的csv文档，并合并输出</h1><ul>
-<li><strong>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code>  </strong></li>
+<h2 id="字符串提取"><a href="#字符串提取" class="headerlink" title="字符串提取"></a>字符串提取</h2><h3 id="strsub-截取位置"><a href="#strsub-截取位置" class="headerlink" title="strsub - 截取位置"></a>str<em>sub - 截取</em>位置</h3><blockquote>
+<p><strong>截取字符串</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_sub(string, start = 1L, end = -1L)</strong></li>
 </ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----获取指定目录下的csv文档，并合并输出----------#</span></div><div class="line"></div><div class="line"><span class="comment">## 获取当前工作目录下所有文件名的路径</span></div><div class="line">file.path(getwd(),dir())</div><div class="line"><span class="string">'E:/Jupyter_notebook/test'</span> <span class="string">'E:/Jupyter_notebook/test.ipynb'</span> <span class="string">'E:/Jupyter_notebook/专项分析'</span></div><div class="line"></div><div class="line">path &lt;- file.path(getwd(),dir())[<span class="number">1</span>]</div><div class="line"><span class="string">'E:/Jupyter_notebook/test'</span></div><div class="line"></div><div class="line"><span class="comment">## 获取该路径下的所有csv文件名</span></div><div class="line">name &lt;- dir(path, pattern=<span class="string">".*\\.csv$"</span>); name</div><div class="line"><span class="string">'2016-01-11-IC_1.csv'</span> <span class="string">'2016-01-11-IH_1.csv'</span> <span class="string">'2016-01-12-TF_1.csv'</span> <span class="string">'2016-01-13-T_1.csv'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## 合并文件名路径 + 文件名</span></div><div class="line">path_name &lt;- file.path(path, name); path_name</div><div class="line"></div><div class="line"><span class="comment">## 省去定义data.frame的时间，我选择先读入一个文件</span></div><div class="line">table0 &lt;- read_csv(path_name[<span class="number">1</span>], locale=locale(encoding=<span class="string">'gb2312'</span>)) </div><div class="line"></div><div class="line"><span class="comment">## 写循环写入该文件中</span></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> path_name[<span class="number">2</span>:length(paht_name)])&#123;       <span class="comment"># 大括号表示代码块的起止</span></div><div class="line">  table1 &lt;- read_csv(path_name[<span class="number">1</span>], locale=locale(encoding=<span class="string">'gb2312'</span>)) </div><div class="line">  table0 &lt;- bind_rows(table0, talbe1)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">## 写出文档</span></div><div class="line">write_csv(table0, file.path(path, <span class="string">'test.csv'</span>), append=<span class="literal">F</span>)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>start : 开始位置  (若只出现一个数字，默认为开始位置)</p>
+<p>end : 结束位置</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&gt; txt &lt;- <span class="string">"I am Conan."</span></div><div class="line"></div><div class="line"><span class="comment"># 截取1-6的索引位置的字符串</span></div><div class="line">&gt; str_sub(txt, end=<span class="number">6</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"I am C"</span></div><div class="line"></div><div class="line"><span class="comment"># 截取6到结束的索引位置的字符串</span></div><div class="line">&gt; str_sub(txt, <span class="number">6</span>)   <span class="comment"># 若只出现一个数字，默认为开始位置</span></div><div class="line">[<span class="number">1</span>] <span class="string">"Conan."</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 通过负坐标截取字符串</span></div><div class="line">&gt; str_sub(txt, -<span class="number">3</span>)  <span class="comment"># [截取] 最后3个字符</span></div><div class="line">[<span class="number">1</span>] <span class="string">"an."</span></div><div class="line">&gt; str_sub(txt, end = -<span class="number">3</span>)  <span class="comment"># [截止] 到最后第三个字符</span></div><div class="line">[<span class="number">1</span>] <span class="string">"I am Cona"</span></div><div class="line"></div><div class="line"><span class="comment">#----对截取的字符串进行赋值-----------------------------------------#</span></div><div class="line">&gt; x &lt;- <span class="string">"AAABBBCCC"</span></div><div class="line"></div><div class="line"><span class="comment"># 在字符串的1的位置赋值为1</span></div><div class="line">&gt; str_sub(x, <span class="number">1</span>, <span class="number">1</span>) &lt;- <span class="number">1</span>; x</div><div class="line">[<span class="number">1</span>] <span class="string">"1AABBBCCC"</span></div><div class="line"></div><div class="line">&gt; str_sub(x, <span class="number">1</span>, <span class="number">1</span>) &lt;- <span class="number">123</span>; x   <span class="comment"># [若数量超过截取的位数，则进行填充]</span></div><div class="line">[<span class="number">1</span>] <span class="string">"123AABBBCCC"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-subset-提取"><a href="#str-subset-提取" class="headerlink" title="str_subset - 提取"></a>str_subset - 提取</h3><blockquote>
+<p><strong>返回的匹配字符串</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_subset(string, pattern)</strong></li>
+</ul>
+<blockquote>
+<p>pattern: 匹配的字符</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 全文匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span> <span class="string">"cba"</span></div><div class="line"></div><div class="line"><span class="comment"># 开头匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"^a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line"><span class="comment"># 结尾匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"a$"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"cba"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-match-匹配"><a href="#str-match-匹配" class="headerlink" title="str_match - 匹配"></a>str_match - 匹配</h3><blockquote>
+<p>从字符串中<strong>提取匹配组</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_match(string, pattern)</strong></li>
+<li><strong>str_match_all(string, pattern)</strong><ul>
+<li>以字符串<strong>matrix格式返回</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 匹配字符a，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"a"</span>)</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span> </div><div class="line">[<span class="number">2</span>,] <span class="literal">NA</span>  </div><div class="line">[<span class="number">3</span>,] <span class="string">"a"</span> </div><div class="line"></div><div class="line"><span class="comment"># 匹配字符0-9，限1个，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"[0-9]"</span>)</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="literal">NA</span>  </div><div class="line">[<span class="number">2</span>,] <span class="string">"1"</span> </div><div class="line">[<span class="number">3</span>,] <span class="literal">NA</span>  </div><div class="line"></div><div class="line"><span class="comment"># 匹配字符0-9，不限数量，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"[0-9]*"</span>)</div><div class="line">     [,<span class="number">1</span>] </div><div class="line">[<span class="number">1</span>,] <span class="string">""</span>   </div><div class="line">[<span class="number">2</span>,] <span class="string">"123"</span></div><div class="line">[<span class="number">3</span>,] <span class="string">""</span>  </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----以字符串matrix格式返回------------------------------------------#</span></div><div class="line">&gt; str_match_all(val, <span class="string">"a"</span>)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span> </div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line"></div><div class="line">[[<span class="number">3</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-extract-匹配-Regex"><a href="#str-extract-匹配-Regex" class="headerlink" title="str_extract - 匹配_Regex"></a>str_extract - 匹配_Regex</h3><blockquote>
+<p>从字符串中根据 <strong>[正则表达式]</strong> 提取匹配的值</p>
+</blockquote>
+<ul>
+<li><strong>str_extract(string, pattern)</strong></li>
+<li><strong>str_extract_all(string, pattern, simplify = FALSE)</strong></li>
+</ul>
+<blockquote>
+<p>simplify: 返回值，TRUE返回matrix，FALSE返回<strong>字符串向量</strong>；(默认为False)</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 返回匹配的数字</span></div><div class="line">&gt; str_extract(val, <span class="string">"\\d"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"4"</span> <span class="string">"1"</span> <span class="string">"2"</span></div><div class="line"></div><div class="line"><span class="comment"># 返回匹配的字符</span></div><div class="line">&gt; str_extract(val, <span class="string">"[a-z]+"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abca"</span> <span class="literal">NA</span>     <span class="string">"cba"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h3 id="word-单词"><a href="#word-单词" class="headerlink" title="word - 单词"></a>word - 单词</h3><blockquote>
+<p><strong>从文本中提取 [单词] </strong></p>
+</blockquote>
+<ul>
+<li><strong>word(string, start = 1L, end = start, sep = fixed(“ “))</strong></li>
+</ul>
+<blockquote>
+<p>start: 开始位置。</p>
+<p>end: 结束位置。</p>
+<p>sep: 匹配字符。  <strong>(默认为 空格)</strong></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"I am Conan."</span>, <span class="string">"http://fens.me, ok"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 默认以空格分割，取第一个位置的字符串</span></div><div class="line">&gt; word(val, <span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"I"</span>               <span class="string">"http://fens.me,"</span></div><div class="line">&gt; word(val, -<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"Conan."</span> <span class="string">"ok"</span>    </div><div class="line">&gt; word(val, <span class="number">2</span>, -<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"am Conan."</span> <span class="string">"ok"</span>       </div><div class="line"></div><div class="line"><span class="comment"># 以,分割，取第一个位置的字符串 </span></div><div class="line">&gt; val&lt;-<span class="string">'111,222,333,444'</span></div><div class="line">&gt; word(val, <span class="number">1</span>, sep = fixed(<span class="string">','</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"111"</span></div><div class="line">&gt; word(val, <span class="number">3</span>, sep = fixed(<span class="string">','</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"333"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h2><h3 id="str-replace"><a href="#str-replace" class="headerlink" title="str_replace"></a>str_replace</h3><blockquote>
+<p>字符串<strong>替换</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_replace(string, pattern, replacement)</strong><ul>
+<li>替换出现的 <strong>[第一个]</strong>字符</li>
+</ul>
+</li>
+<li><strong>str_replcae_all(string, pattern, replacement)</strong><ul>
+<li>替换出现的 <strong>[所有]</strong>字符</li>
+</ul>
+</li>
+<li><strong>str_repclea_na(string, repalcement= “NA”)</strong><ul>
+<li><strong>把NA替换为其他字符串</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>pattern: 匹配字符。</p>
+<p>replacement: 用于替换的字符。</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 把目标字符串 [第一个] 出现的a或b，替换为- </span></div><div class="line">&gt; str_replace(val, <span class="string">"[ab]"</span>, <span class="string">"-"</span>)  <span class="comment"># 表示或者</span></div><div class="line">[<span class="number">1</span>] <span class="string">"-bc"</span> <span class="string">"123"</span> <span class="string">"c-a"</span></div><div class="line"></div><div class="line"><span class="comment"># 把目标字符串 [所有] 出现的a或b，替换为-</span></div><div class="line">&gt; str_replace_all(val, <span class="string">"[ab]"</span>, <span class="string">"-"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"--c"</span> <span class="string">"123"</span> <span class="string">"c--"</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----把NA替换为字符串------------------------#</span></div><div class="line">&gt; str_replace_na(c(<span class="literal">NA</span>,<span class="string">'NA'</span>,<span class="string">"abc"</span>),<span class="string">'x'</span>)  <span class="comment"># 把NA替换为x</span></div><div class="line">[<span class="number">1</span>] <span class="string">"x"</span>   <span class="string">"NA"</span>  <span class="string">"abc"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="字符串拆分"><a href="#字符串拆分" class="headerlink" title="字符串拆分"></a>字符串拆分</h2><h3 id="str-split-amp-str-split-fixed"><a href="#str-split-amp-str-split-fixed" class="headerlink" title="str_split &amp; str_split_fixed"></a>str_split &amp; str_split_fixed</h3><blockquote>
+<p><strong>字符串分割，同str_split_fixed</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_split(string, pattern, n = Inf)</strong><ul>
+<li>str_split()函数操作的结果类型为<strong>list</strong>  <code>&gt; class(s1)  [1] &quot;list&quot;</code></li>
+</ul>
+</li>
+<li><strong>str_split_fixed(string, pattern, n)</strong><ul>
+<li>str_split_fixed()函数分割，结果类型是<strong>matrix </strong> <code>&gt; class(s3)   [1] &quot;matrix&quot;</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>pattern: 匹配的字符。</p>
+<p>n: 分割个数</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- <span class="string">"abc,123,234,iuuu"</span></div><div class="line"></div><div class="line"><span class="comment"># 以,进行分割</span></div><div class="line">&gt; s1&lt;-str_split(val, <span class="string">","</span>);s1</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span>  <span class="string">"123"</span>  <span class="string">"234"</span>  <span class="string">"iuuu"</span></div><div class="line"></div><div class="line"><span class="comment"># 以,进行分割，保留2块</span></div><div class="line">&gt; s2&lt;-str_split(val, <span class="string">","</span>,<span class="number">2</span>);s2</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span>          <span class="string">"123,234,iuuu"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h2><h3 id="str-c-amp-str-join"><a href="#str-c-amp-str-join" class="headerlink" title="str_c &amp; str_join"></a>str_c &amp; str_join</h3><blockquote>
+<p><strong>字符串拼接操作，与str_join完全相同，与paste()行为不完全一致。</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_c(…, sep = “”, collapse = NULL)</strong> </li>
+<li><strong>str_join(…, sep = “”, collapse = NULL)</strong><ul>
+<li>拼接有NA值的字符串向量时，NA还是NA    <code>&gt; str_c(c(&quot;a&quot;, NA, &quot;b&quot;), &quot;-d&quot;)    &gt; &quot;a-d&quot;   NA  &quot;b-d&quot;</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>…: 多参数的输入</p>
+<p> sep: 把多个 [字符串] 拼接为一个大的字符串，用于字符串的分割符。</p>
+<p>collapse: 把多个 [向量] 参数拼接为一个大的字符串，用于字符串的分割符。</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----------------示例--------------------------#</span></div><div class="line">多个 [字符串] 拼接为一个大的字符串</div><div class="line">&gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>,sep=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a-b"</span></div><div class="line">&gt; str_c(c(<span class="string">'a'</span>,<span class="string">'a1'</span>),c(<span class="string">'b'</span>,<span class="string">'b1'</span>),sep=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a-b"</span>   <span class="string">"a1-b1"</span></div><div class="line"></div><div class="line">多个 [向量] 参数拼接为一个大的字符串</div><div class="line">&gt; str_c(head(letters), collapse = <span class="string">", "</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a, b, c, d, e, f"</span></div><div class="line"></div><div class="line"><span class="comment"># collapse参数，对多个字符串无效</span></div><div class="line">&gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>,collapse = <span class="string">"-"</span>)   </div><div class="line">[<span class="number">1</span>] <span class="string">"ab"</span></div><div class="line">&gt; str_c(c(<span class="string">'a'</span>,<span class="string">'a1'</span>),c(<span class="string">'b'</span>,<span class="string">'b1'</span>),collapse=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"ab-a1b1"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>对比str_c()函数和<strong>paste()函数之间的不同点</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="comment"># [字符串] 拼接，默认的sep参数行为 [不一致]</span></div><div class="line">&gt; &gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>)  <span class="comment"># 默认分隔符为""</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"ab"</span></div><div class="line">&gt; &gt; paste(<span class="string">'a'</span>,<span class="string">'b'</span>)  <span class="comment"># 默认分隔符为" "</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a b"</span></div><div class="line">&gt;</div><div class="line">&gt; <span class="comment"># [向量] 拼接字符串，collapse参数的行为 [一致]</span></div><div class="line">&gt; &gt; str_c(head(letters), collapse = <span class="string">""</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"abcdef"</span></div><div class="line">&gt; &gt; paste(head(letters), collapse = <span class="string">""</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"abcdef"</span></div><div class="line">&gt;</div><div class="line">&gt;</div><div class="line">&gt; <span class="comment">#拼接有 [NA值] 的字符串向量，对NA的处理行为 [不一致]</span></div><div class="line">&gt; &gt; str_c(c(<span class="string">"a"</span>, <span class="literal">NA</span>, <span class="string">"b"</span>), <span class="string">"-d"</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a-d"</span>   <span class="literal">NA</span>    <span class="string">"b-d"</span> </div><div class="line">&gt; &gt; paste(c(<span class="string">"a"</span>, <span class="literal">NA</span>, <span class="string">"b"</span>), <span class="string">"-d"</span>)  <span class="comment"># 将NA作为一个普通字符串来对待</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a -d"</span>  <span class="string">"NA -d"</span> <span class="string">"b -d"</span> </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>对比<strong>str_c() &amp; paste()</strong> 与 <strong>cat()</strong> 的区别：</p>
+<ul>
+<li>paste()：<strong>转为字符串后进行连接</strong>；</li>
+<li>cat() ：<strong>连接后输出为对象</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; paste(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"hello bob \b.\n Is't R \t Great?\n !"</span></div><div class="line">&gt;</div><div class="line">&gt; &gt; cat(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)</div><div class="line">&gt; hello bob.</div><div class="line">&gt;  Is<span class="string">'t R 	 Great?</span></div><div class="line">&gt;  !</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+</blockquote>
+<p><br></p>
+<h3 id="str-conv-转码"><a href="#str-conv-转码" class="headerlink" title="str_conv - 转码"></a>str_conv - 转码</h3><blockquote>
+<p><strong>字符编码转换</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_conv(string, encoding)</strong></li>
+</ul>
+<blockquote>
+<p>encoding: 编码名。</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----对中文进行转码处理---------------------------#</span></div><div class="line">&gt; x &lt;- charToRaw(<span class="string">'你好'</span>);x</div><div class="line">[<span class="number">1</span>] c4 e3 ba c3</div><div class="line"></div><div class="line"><span class="comment"># 默认win系统字符集为GBK，[GB2312为GBK字集]，转码正常</span></div><div class="line">&gt; str_conv(x, <span class="string">"GBK"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"你好"</span></div><div class="line">&gt; str_conv(x, <span class="string">"GB2312"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"你好"</span></div><div class="line"></div><div class="line"><span class="comment"># 转UTF-8失败</span></div><div class="line">&gt; str_conv(x, <span class="string">"UTF-8"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"���"</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----把unicode转UTF-8------------------------------#</span></div><div class="line">&gt; x1 &lt;- <span class="string">"\u5317\u4eac"</span></div><div class="line">&gt; str_conv(x1, <span class="string">"UTF-8"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"北京"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="字符串输出"><a href="#字符串输出" class="headerlink" title="字符串输出"></a>字符串输出</h2><h3 id="str-trim-空格"><a href="#str-trim-空格" class="headerlink" title="str_trim - 空格"></a>str_trim - 空格</h3><blockquote>
+<p><strong>去掉字符串的空格和TAB(\t)</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_trim(string, side = c(“both”, “left”, “right”))</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>side: 过滤方式，both两边都过滤，left左边过滤，right右边过滤  “both”（默认）</p>
+</blockquote>
+<p><br></p>
+<h3 id="str-to-upper-title-大小写"><a href="#str-to-upper-title-大小写" class="headerlink" title="str_to_upper/title - 大小写"></a>str_to_upper/title - 大小写</h3><blockquote>
+<p><strong>字符串大小写转换</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_to_upper(string, locale = “”)</strong> ：<strong>全大写</strong></li>
+<li><strong>str_to_lower(string, locale = “”)</strong> ：<strong>全小写</strong></li>
+<li><strong>str_to_title(string, locale = “”)</strong> ：<strong>首字母大写</strong></li>
+</ul>
+<blockquote>
+<p>locale:按哪种语言习惯排序</p>
+</blockquote>
+<p><br></p>
+<h3 id="str-pad-补充长度"><a href="#str-pad-补充长度" class="headerlink" title="str_pad - 补充长度"></a>str_pad - 补充长度</h3><blockquote>
+<p><strong>补充字符串的长度</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_pad(string, width, side = c(“left”, “right”, “both”), pad = “ “)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>width: 字符串填充后的长度</p>
+<p>side: 填充方向，both两边都填充，left左边填充，right右边填充</p>
+<p>pad: 用于填充的字符 （默认为 空格）</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从左边补充空格，直到字符串长度为20</span></div><div class="line">&gt; str_pad(<span class="string">"conan"</span>, <span class="number">20</span>, <span class="string">"left"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"               conan"</span></div><div class="line"></div><div class="line"><span class="comment"># 从左右两边各补充x字符，直到字符串长度为20</span></div><div class="line">&gt; str_pad(<span class="string">"conan"</span>, <span class="number">20</span>, <span class="string">"both"</span>,<span class="string">'x'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"xxxxxxxconanxxxxxxxx"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-dup-复制"><a href="#str-dup-复制" class="headerlink" title="str_dup - 复制"></a>str_dup - 复制</h3><blockquote>
+<p><strong>复制字符串</strong> duplicate</p>
+</blockquote>
+<ul>
+<li><strong>str_dup(string, times)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>times: 复制数量</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 复制2次</span></div><div class="line">&gt; str_dup(val, <span class="number">2</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abca4abca4"</span> <span class="string">"123123"</span>     <span class="string">"cba2cba2"</span>  </div><div class="line"></div><div class="line"><span class="comment"># 按位置复制</span></div><div class="line">&gt; str_dup(val, <span class="number">1</span>:<span class="number">3</span>)  <span class="comment"># 复制的次数从1次增加到3次</span></div><div class="line">[<span class="number">1</span>] <span class="string">"abca4"</span>        <span class="string">"123123"</span>       <span class="string">"cba2cba2cba2"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-sort-amp-str-order-排序"><a href="#str-sort-amp-str-order-排序" class="headerlink" title="str_sort &amp; str_order - 排序"></a>str_sort &amp; str_order - 排序</h3><blockquote>
+<p><strong>字符串值排序，同str_order索引排序</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_sort(x, decreasing = FALSE, na_last = TRUE, locale = “”, …)</strong></li>
+<li><strong>str_order(x, decreasing = FALSE, na_last = TRUE, locale = “”, …)</strong></li>
+</ul>
+<blockquote>
+<p>decreasing: 排序方向。  decrease - 减少</p>
+<p>na_last:NA值的存放位置，一共3个值，TRUE放到最后，FALSE放到最前，NA过滤处理</p>
+<p>locale:按哪种语言习惯排序</p>
+<ul>
+<li>loacle = “en” - ASCII字母 / “zh” - 拼音</li>
+</ul>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 按ASCII字母排序</span></div><div class="line">&gt; str_sort(c(<span class="string">'a'</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="string">'11'</span>), locale = <span class="string">"en"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span>  <span class="string">"11"</span> <span class="string">"2"</span>  <span class="string">"a"</span> </div><div class="line"></div><div class="line"><span class="comment"># 倒序排序</span></div><div class="line">&gt; str_sort(letters,decreasing=<span class="literal">TRUE</span>)         </div><div class="line"> [<span class="number">1</span>] <span class="string">"z"</span> <span class="string">"y"</span> <span class="string">"x"</span> <span class="string">"w"</span> <span class="string">"v"</span> <span class="string">"u"</span> <span class="string">"t"</span> <span class="string">"s"</span> <span class="string">"r"</span> <span class="string">"q"</span> <span class="string">"p"</span> <span class="string">"o"</span> <span class="string">"n"</span> <span class="string">"m"</span> <span class="string">"l"</span> <span class="string">"k"</span> <span class="string">"j"</span> <span class="string">"i"</span> <span class="string">"h"</span></div><div class="line">[<span class="number">20</span>] <span class="string">"g"</span> <span class="string">"f"</span> <span class="string">"e"</span> <span class="string">"d"</span> <span class="string">"c"</span> <span class="string">"b"</span> <span class="string">"a"</span></div><div class="line"></div><div class="line"><span class="comment"># 按拼音排序</span></div><div class="line">&gt; str_sort(c(<span class="string">'你'</span>,<span class="string">'好'</span>,<span class="string">'粉'</span>,<span class="string">'丝'</span>,<span class="string">'日'</span>,<span class="string">'志'</span>),locale = <span class="string">"zh"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"粉"</span> <span class="string">"好"</span> <span class="string">"你"</span> <span class="string">"日"</span> <span class="string">"丝"</span> <span class="string">"志"</span></div><div class="line"></div><div class="line"><span class="comment">#----对NA值的排序处理------------------------#</span></div><div class="line"> <span class="comment">#把NA放最后面</span></div><div class="line">&gt; str_sort(c(<span class="literal">NA</span>,<span class="string">'1'</span>,<span class="literal">NA</span>),na_last=<span class="literal">TRUE</span>) </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span> <span class="literal">NA</span>  <span class="literal">NA</span></div><div class="line"></div><div class="line"><span class="comment">#去掉NA值 </span></div><div class="line">&gt; str_sort(c(<span class="literal">NA</span>,<span class="string">'1'</span>,<span class="literal">NA</span>),na_last=<span class="literal">NA</span>)    </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="字符串变换"><a href="#字符串变换" class="headerlink" title="字符串变换"></a>字符串变换</h2><h3 id="str-warp-格式"><a href="#str-warp-格式" class="headerlink" title="str_warp - 格式"></a>str_warp - 格式</h3><blockquote>
+<p><strong>控制字符串输出格式</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_wrap(string, width = 80, indent = 0, exdent = 0)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>width: 设置一行所占的宽度。</p>
+<p>indent: 段落首行的缩进值</p>
+<p>exdent: 段落非首行的缩进值</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">txt&lt;-<span class="string">'R语言作为统计学一门语言，一直在小众领域闪耀着光芒。直到大数据的爆发，R语言变成了一门炙手可热的数据分析的利器。随着越来越多的工程背景的人的加入，R语言的社区在迅速扩大成长。现在已不仅仅是统计领域，教育，银行，电商，互联网….都在使用R语言。'</span></div><div class="line"></div><div class="line"><span class="comment"># 设置宽度为60字符，首行缩进2字符</span></div><div class="line">&gt; cat(str_wrap(txt, width = <span class="number">60</span>, indent = <span class="number">2</span>), <span class="string">"\n"</span>)</div><div class="line">  R语言作为统计学一门语言，一直在小众领域闪耀着光芒。直到大数</div><div class="line">据的爆发，R语言变成了一门炙手可热的数据分析的利器。随着越来</div><div class="line">越多的工程背景的人的加入，R语言的社区在迅速扩大成长。现在已</div><div class="line">不仅仅是统计领域，教育，银行，电商，互联网….都在使用R语言。</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="参数控制函数"><a href="#参数控制函数" class="headerlink" title="参数控制函数"></a>参数控制函数</h2><blockquote>
+<p>仅用于构造功能的参数，不能独立使用。</p>
+</blockquote>
+<h3 id="regex"><a href="#regex" class="headerlink" title="regex"></a>regex</h3><blockquote>
+<p>定义正则表达式</p>
+</blockquote>
+<p><br></p>
+<h2 id="stringr的API介绍"><a href="#stringr的API介绍" class="headerlink" title="stringr的API介绍"></a>stringr的API介绍</h2><p>stringr包1.0.0版本，一共提供了30个函数，方便我们对字符串处理。常用的字符串的处理以str_开头来命名，方便更直观理解函数的定义。我们可以根据使用习惯对函数进行分类：</p>
+<ul>
+<li>stringr包中的函数<strong><u>默认使用正则表达式</u></strong>的函数（pattern）</li>
+<li><strong>R中的转义字符则是双斜杠：<code>\\</code></strong><ul>
+<li><code>\\d</code> 代表<code>\d</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>字符串拼接函数</strong></p>
+<ul>
+<li>str_c:字符串拼接。</li>
+<li>str_join:字符串拼接，同str_c。</li>
+<li>str_trim:去掉字符串的空格和TAB(\t)</li>
+<li>str_pad:补充字符串的长度</li>
+<li>str_dup:复制字符串</li>
+<li>str_wrap:控制字符串输出格式</li>
+<li>str_sub:截取字符串</li>
+<li>str_sub&lt;-截取字符串，并赋值，同str_sub</li>
+</ul>
+<p><strong>字符串计算函数</strong></p>
+<ul>
+<li>str_count:字符串计数</li>
+<li>str_length:字符串长度</li>
+<li>str_sort:字符串值排序</li>
+<li>str_order:字符串索引排序，规则同str_sort</li>
+</ul>
+<p><strong>字符串匹配函数</strong></p>
+<ul>
+<li>str_split:    字符串分割</li>
+<li>str_split_fixed: 字符串分割，同str_split</li>
+<li>str_subset: 返回匹配的字符串</li>
+<li>word:从文本中提取单词</li>
+<li>str_detect: 检查匹配字符串的字符</li>
+<li>str_match:从字符串中提取匹配组。</li>
+<li>str_match_all: 从字符串中提取匹配组，同str_match</li>
+<li>str_replace: 字符串替换</li>
+<li>str_replace_all: 字符串替换，同str_replace</li>
+<li>str_replace_na:把NA替换为NA字符串</li>
+<li>str_locate: 找到匹配的字符串的位置。</li>
+<li>str_locate_all: 找到匹配的字符串的位置,同str_locate</li>
+<li>str_extract: 从字符串中提取匹配字符</li>
+<li>str_extract_all: 从字符串中提取匹配字符，同str_extract</li>
+</ul>
+<p><strong>字符串变换函数</strong></p>
+<ul>
+<li>str_conv:字符编码转换</li>
+<li>str_to_upper: 字符串转成大写</li>
+<li>str_to_lower: 字符串转成小写,规则同str_to_upper</li>
+<li>str_to_title: 字符串转成首字母大写,规则同str_to_upper</li>
+</ul>
+<p><strong>参数控制函数</strong>，仅用于构造功能的参数，不能独立使用。</p>
+<ul>
+<li>boundary:定义使用边界</li>
+<li>coll:定义字符串标准排序规则。</li>
+<li>fixed:定义用于匹配的字符，包括正则表达式中的转义符</li>
+<li>regex:定义正则表达式</li>
+</ul>
+<p><br></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;Windows下路径要用斜杠&lt;code&gt;/&lt;/code&gt;或者双反斜杠&lt;code&gt;\\&lt;/code&gt;  &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;R本身把&lt;code&gt;\&lt;/code&gt; 当做转义符，所以写pattern的时候要用&lt;code&gt;\\&lt;/code&gt;进行转义&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;R_字符串处理_stringr&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;stringr：对一个单元格内的 [元素] 进行操作，而非把一个单元格看做一个整体来对待。&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
-      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+      <category term="软件工具" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="r" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/r/"/>
+      <category term="r" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/r/"/>
     
     
-      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+      <category term="软件工具" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
     
       <category term="r" scheme="http://yoursite.com/tags/r/"/>
     
@@ -3972,6 +3670,308 @@
   </entry>
   
   <entry>
+    <title>R_导入&amp;导出</title>
+    <link href="http://yoursite.com/2017/07/24/R_%E5%AF%BC%E5%85%A5&amp;%E5%AF%BC%E5%87%BA/"/>
+    <id>http://yoursite.com/2017/07/24/R_导入&amp;导出/</id>
+    <published>2017-07-23T16:00:00.000Z</published>
+    <updated>2017-08-13T03:25:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code>  </strong></p>
+<p><strong>R本身把<code>\</code> 当做转义符，所以写pattern的时候要用<code>\\</code>进行转义</strong></p>
+<a id="more"></a>
+<p><br></p>
+<h1 id="获取文件目录信息"><a href="#获取文件目录信息" class="headerlink" title="获取文件目录信息"></a>获取文件目录信息</h1><h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><h4 id="getwd-amp-setwd"><a href="#getwd-amp-setwd" class="headerlink" title="getwd &amp; setwd"></a>getwd &amp; setwd</h4><ul>
+<li><strong>getwd()</strong>：获得<strong>当前工作目录</strong></li>
+<li><strong>setwd()</strong> ：<strong>设置</strong>当前工作目录 <code>setwd(&quot;C:/data&quot;)</code></li>
+</ul>
+<p><br></p>
+<h4 id="dir-amp-list-files-获取"><a href="#dir-amp-list-files-获取" class="headerlink" title="dir &amp; list.files - 获取"></a>dir &amp; list.files - 获取</h4><blockquote>
+<p>dir 与 list.files 功能相同；列出<strong>当前目录</strong>中所有的文件</p>
+</blockquote>
+<ul>
+<li><strong>dir()</strong> ：列出<strong>当前目录</strong>中所有的文件名</li>
+<li><strong>dir(path=”/home/conan/R”, pattern=Null, all.files=False, full.names=Fasle, recursice=Fasle, igonre.case= False, include.dirs=False, no..=False)</strong>：查看<strong>指定目录</strong>的文件</li>
+</ul>
+<blockquote>
+<p>path：查看指定<strong>路径下</strong>的文件。</p>
+<p>pattern ：匹配的正则表达式模式</p>
+<p>all.files = False(默认) ；若为True，则列出隐藏的文件名</p>
+<p>full.names=False(默认) <code>&quot;我的形状&quot;</code>；若为True，列出含相对路径的文件名 <code>&quot;./我的形状&quot;</code></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir(path=<span class="string">"/home/conan/R"</span>,pattern=<span class="string">'txt$'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="choose-dir-获取"><a href="#choose-dir-获取" class="headerlink" title="choose.dir - 获取"></a>choose.dir - 获取</h4><blockquote>
+<p>通过选取的方式获得目录</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a &lt;- choose.dir()</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="system-“tree”-获取"><a href="#system-“tree”-获取" class="headerlink" title="system(“tree”) - 获取"></a>system(“tree”) - 获取</h4><blockquote>
+<p>通过系统命令以<strong>树状结构</strong>查看目录结构</p>
+</blockquote>
+<ul>
+<li>file.info()</li>
+</ul>
+<p><br></p>
+<h4 id="dir-create-新建"><a href="#dir-create-新建" class="headerlink" title="dir.create - 新建"></a>dir.create - 新建</h4><ul>
+<li><strong>dir.create()</strong>：在当前目录下，新建一个目录</li>
+<li><strong>dir.create(path=”a1/b2/c3”,recursive = TRUE)</strong>：创建一个<strong>3级子目录</strong>./a1/b2/c3</li>
+</ul>
+<p><br></p>
+<h4 id="file-path-合并"><a href="#file-path-合并" class="headerlink" title="file.path - 合并"></a>file.path - 合并</h4><ul>
+<li><strong>file.path(…, fsep = .Platform$file.sep)</strong><ul>
+<li><strong>file.path(getwd(), dir())</strong> ：当前工作目录下的文件的路径</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>… : 字符串</p>
+<p>fsep : 用于使用的<strong>路径分隔符</strong></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; file.path(<span class="string">"C:\\Users\\long\\Desktop"</span>,<span class="string">"txt"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"C:\\Users\\long\\Desktop/txt"</span> </div><div class="line"></div><div class="line"><span class="comment">#----------------------------------------#</span></div><div class="line">&gt; file.path(getwd(),dir())</div><div class="line">[<span class="number">1</span>] <span class="string">'E:/Jupyter_notebook/test'</span> <span class="string">'E:/Jupyter_notebook/test.ipynb'</span> <span class="string">'E:/Jupyter_notebook/专项分析'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>一般用paste来生成系统路径的时候，在最终结果，结合的地方会多一个<strong>空格</strong>，当然也可以用去空格的方式排除，但是不够好。</p>
+<p>用file.path的方式直接生成，比较方便，而且绝对正确。</p>
+</blockquote>
+<p><br></p>
+<h4 id="几个特殊的目录"><a href="#几个特殊的目录" class="headerlink" title="几个特殊的目录"></a>几个特殊的目录</h4><ul>
+<li>R.home() 查看R软件的相关目录</li>
+<li>.Library 查看R核心包的目录</li>
+<li>.Library.site 查看R核心包的目录和root用户安装包目录</li>
+<li>.libPaths() 查看R所有包的存放目录</li>
+<li>system.file() 查看指定包所在的目录</li>
+</ul>
+<p><br></p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p><br></p>
+<h4 id="file-exist-存在"><a href="#file-exist-存在" class="headerlink" title="file.exist - 存在"></a>file.exist - 存在</h4><blockquote>
+<p>判断文件是否存在</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; file.exists(<span class="string">"."</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt; file.exists(<span class="string">"./a1/b2"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 目录不存在</span></div><div class="line">&gt; file.exists(<span class="string">"./aa"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="file-remove-删除"><a href="#file-remove-删除" class="headerlink" title="file.remove - 删除"></a>file.remove - 删除</h4><blockquote>
+<p>删除某目录</p>
+</blockquote>
+<p><br></p>
+<h4 id="file-create-创建"><a href="#file-create-创建" class="headerlink" title="file.create - 创建"></a>file.create - 创建</h4><blockquote>
+<p>创建文件</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 创建一个空文件 A.txt</span></div><div class="line">&gt; file.create(<span class="string">"A.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 创建一个有内容的文件 B.txt</span></div><div class="line">&gt; cat(<span class="string">"file B\n"</span>, file = <span class="string">"B.txt"</span>)  <span class="comment"># 把字符串输出到file</span></div><div class="line"><span class="comment"># 打印B.txt</span></div><div class="line">&gt; readLines(<span class="string">"B.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"file B"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="file-copy-复制"><a href="#file-copy-复制" class="headerlink" title="file.copy - 复制"></a>file.copy - 复制</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; file.copy(<span class="string">"A.txt"</span>, <span class="string">"C.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="file-append"><a href="#file-append" class="headerlink" title="file.append"></a>file.append</h4><p><br></p>
+<h4 id="file-rename-重命名"><a href="#file-rename-重命名" class="headerlink" title="file.rename - 重命名"></a>file.rename - 重命名</h4><blockquote>
+<p>对文件重命名</p>
+</blockquote>
+<ul>
+<li>file.rename(“old_name”, “new_name”)：将old_name变更为new_name</li>
+</ul>
+<p><br></p>
+<h3 id="压缩与解压"><a href="#压缩与解压" class="headerlink" title="压缩与解压"></a>压缩与解压</h3><blockquote>
+<p>unzip(),zip() 两个函数，可以压缩和解压缩</p>
+</blockquote>
+<p><br></p>
+<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><p><br></p>
+<h2 id="导入-数据表"><a href="#导入-数据表" class="headerlink" title="导入 - 数据表"></a>导入 - 数据表</h2><ol>
+<li>要导入的数据必须<strong>存放在getwd()目录下</strong></li>
+<li>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code></li>
+</ol>
+<p><br></p>
+<h3 id="readr"><a href="#readr" class="headerlink" title="readr"></a>readr</h3><blockquote>
+<p>library(readr)</p>
+</blockquote>
+<ul>
+<li><strong>read_delim(“filename.xxx”, delim=””)</strong> : <strong>自由分隔符</strong><ul>
+<li><code>delim= &quot;|&quot;</code>或其他任何形式</li>
+</ul>
+</li>
+<li><strong>read_csv(“filename.csv”, col_names=T, col_types=NULL, skip = 0, locale(), na=c(“”,”NA”))：分隔符-逗号</strong></li>
+</ul>
+<blockquote>
+<p>col_names = True(默认) / False 或者 <strong>c(“”,””)</strong> 指定的 [向量]列名</p>
+<p>col_types = cols(colname=col<em>character() ) / cols(colename= “c”, colname=”</em>“) ：指定某个列的类型；</p>
+<ul>
+<li>可以使用简写 each character represents one column: c = character, i = integer, n = number, d = double, l = logical, D = date, T = date time, t = time, ? = guess, or _/- to skip the column.</li>
+<li>cols(colname=col_skip() ) 跳过某个列不进行选取；</li>
+</ul>
+<p>skip = n 跳过的行数</p>
+<p><strong>locale= locale</strong>(encoding=”UTF-8”, date_format=”%AD”,time_format=”%AT”)  (默认为US-centric)</p>
+<ul>
+<li><strong>encoding=”UTF-8” / “gb2312”</strong></li>
+</ul>
+<p>na = c(“”, “NA”)  ：设置 <code>&quot;&quot;</code> 与<code>&quot;NA&quot;</code> 显示为NA；也可自定义</p>
+</blockquote>
+<ul>
+<li><strong>read_tsv()：制表符</strong></li>
+<li><strong>read_csv2()：分号</strong></li>
+<li><strong>read_table()</strong>  </li>
+<li><strong>read_fwf()</strong></li>
+</ul>
+<p><br></p>
+<h3 id="readxl"><a href="#readxl" class="headerlink" title="readxl"></a>readxl</h3><blockquote>
+<p>.xls和.xlsx格式的Excel工作表</p>
+</blockquote>
+<ul>
+<li><strong>read_excel(path, sheet = NULL, range = NULL, col_names = TRUE,  col_types = NULL, na = “”, trim_ws = TRUE, skip = 0, n_max = Inf,  guess_max = min(1000, n_max))</strong> ：读取xls/xlsx的工作表</li>
+</ul>
+<blockquote>
+<p>path：Path to the xls/xlsx file</p>
+<p>sheet：Sheet to read；整数或者字符串</p>
+<p>range：读取的范围，例如 “B3:D87”</p>
+<p>col_names：True/Fasle，或者输入自定义的列名，长度需要与col_types相同</p>
+<p>col_types：</p>
+<p>na = “ ”：默认将<code>空格</code>视为NULL</p>
+<p>skip=0：跳过行数；若给定了<code>range</code>则忽略</p>
+</blockquote>
+<ul>
+<li><strong>excel_sheet(path)</strong> ：显示表中的sheet名称</li>
+</ul>
+<p><br></p>
+<h2 id="导入-非表格式"><a href="#导入-非表格式" class="headerlink" title="导入 - 非表格式"></a>导入 - 非表格式</h2><blockquote>
+<p>非表格式的（Non-Tabular）；这里的文本文件指的是非表格式的文件，如纯文本文件，html文件</p>
+</blockquote>
+<p><br></p>
+<h3 id="readr-1"><a href="#readr-1" class="headerlink" title="readr"></a>readr</h3><ul>
+<li><strong>read_file(file, locale=default_locale())</strong>：读入为一个<strong>单一的字符串</strong></li>
+</ul>
+<blockquote>
+<p>file ： 文档路径，一个连接或一个文本数据</p>
+<ul>
+<li>Files ending in .gz, .bz2, .xz, or .zip 将自动被解压</li>
+<li>Files starting with http://, https://, ftp://, or ftps:// 将自动被下载</li>
+<li>Remote gz files 也能被自动下载</li>
+</ul>
+<p>locale=locale()  : 默认为US-centric</p>
+</blockquote>
+<ul>
+<li><strong>read_file_raw(file)</strong>：读入为一个<strong>未加工的向量</strong></li>
+<li><strong>read_lines(file, skip=0, n_max=-1L, locale=default_locale(), na=character(), progress=interactive())</strong>：<strong>逐行读入</strong>，每一行作为一个<strong>单一的字符串</strong></li>
+<li><strong>read_lines_raw()</strong>：逐行读入，每一行作为一个<strong>未加工的向量</strong></li>
+<li><strong>read_log(file, col_names=FALSE, col_types=NULL, skip=0, n_max=-1L)</strong>：读入日志文档</li>
+</ul>
+<p><br></p>
+<h3 id="scan"><a href="#scan" class="headerlink" title="scan"></a>scan</h3><ul>
+<li><p><strong>scan(“file.xxx”, what=double(), seq=””, n=-1, nmax=-1, skip=0, encoding=”UTF-8”)</strong></p>
+<blockquote>
+<p>读取文本文件，<strong>默认</strong>情况下读取文件中以<strong>[空格分割]</strong> 所有<strong>[浮点数值]</strong></p>
+</blockquote>
+<ul>
+<li>如果文件中包<strong>含非数值</strong>，可以字符串形式读入 <code>scan(&quot;a.txt&quot;,what=&quot;&quot;)</code></li>
+<li>指定分隔符为换行，<code>scan(“a.txt”,what=””,sep=”\n”)</code> 返回以换行分割的字符串向量</li>
+<li>如果数据为<strong>表格形式：因为有表头，用scan不能读入</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>what：读入的数据类型；The supported types are [ logical, integer, numeric, complex, character, raw and list. ]</p>
+<ul>
+<li>character(0)：每个单词作为字符向量的一个元素</li>
+</ul>
+<p>sep：分隔符，默认为空格<code>&quot; &quot;</code> </p>
+<p>n = -1：显示至最后一行</p>
+<p>nmax = -1：读取至最后一行</p>
+<p>skip=0：跳过的行数</p>
+<p>encoding=”UTF-8” / “Latin1”</p>
+<p>quote =’’  : 若提示 EOF within quoted string可将<code>quote = &#39;&#39;</code> </p>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<h3 id="readline"><a href="#readline" class="headerlink" title="readline"></a>readline</h3><blockquote>
+<p>可以从键盘<strong>读取单行数据</strong></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">age&lt;-readline(<span class="string">"input the age: "</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="readLines"><a href="#readLines" class="headerlink" title="readLines"></a>readLines</h3><ul>
+<li><strong>readLines(“file.xxx”, encoding=”UTF-8”)</strong> ：<strong>每一行当做一个字符串</strong>。等价于scan中指定分隔符为换行<ul>
+<li>用于<strong>读取</strong>字符型的格式文件；常用于文本文件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>encoding = “UTF-8” / “Latin1” ; Lattin1是[ISO-8859-1]的别名，有些环境下写作Latin-1。ISO-8859-1编码是单字节编码，<strong>向下兼容ASCII</strong></p>
+</blockquote>
+<p><br></p>
+<h1 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h1><p><br></p>
+<h2 id="导出-数据表"><a href="#导出-数据表" class="headerlink" title="导出 - 数据表"></a>导出 - 数据表</h2><h3 id="readr-2"><a href="#readr-2" class="headerlink" title="readr"></a>readr</h3><ul>
+<li><strong>write_delim(x, path, delim = “ “, na = “NA”, append = FALSE,  col_names = !append)</strong> ：默认分隔符为 <code>&quot; &quot;</code></li>
+<li><strong>write_csv(x, path, na = “NA”, append = FALSE, col_names = !append)</strong> ：导出为<strong>逗号分隔符</strong>的文档</li>
+</ul>
+<blockquote>
+<p>path：Path or connection to write to.</p>
+<p>append=False (默认), 覆盖已有的文件；若为True，增加已经存在的文件</p>
+<p>col_names = !append 写入的时候不写入列名</p>
+</blockquote>
+<ul>
+<li>write_tsv()  ：分隔符为制表符<code>\t</code></li>
+<li>write_excel_csv()：导出为csv文档</li>
+</ul>
+<blockquote>
+<p>All columns are encoded as UTF-8</p>
+</blockquote>
+<p><br></p>
+<h2 id="导出-文本-amp-文本文件"><a href="#导出-文本-amp-文本文件" class="headerlink" title="导出 - 文本&amp;文本文件"></a>导出 - 文本&amp;文本文件</h2><h3 id="readr-3"><a href="#readr-3" class="headerlink" title="readr"></a>readr</h3><ul>
+<li><p><strong>write_file(x, path)</strong>：导出为<strong>字符串文档</strong></p>
+</li>
+<li><p><strong>write_lines()</strong>：导出为<strong>字符串向量，每一个元素一行</strong></p>
+</li>
+<li><p><strong>write_rds()</strong>：导出为RDS文档</p>
+<p>​</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
+<li><strong>cat(x, file=””, sep=””, fill=False, labels=NULL, append=False)</strong>：<ul>
+<li>拼接后<strong>输出</strong>对象</li>
+<li><strong>把结果写到指定的文件中</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>x：R的对象</p>
+<p>file：一个连接，或命名的文件打印到一个字符串；默认情况下打印到标准输出连接</p>
+<p>sep=” “：默认为<strong>空格</strong>； 每个元素后追加一个字符串的字符向量；</p>
+<p>append = False 覆盖file内容；若为True，表示附加到file</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; cat(c(<span class="string">"AB"</span>, <span class="string">"C"</span>), c(<span class="string">"E"</span>, <span class="string">"F"</span>), <span class="string">"\n"</span>, sep=<span class="string">""</span>)</div><div class="line">[<span class="number">1</span>] ABCDEF</div><div class="line"></div><div class="line"><span class="comment">#----可以把结果写到指定的文件中-----------------#</span></div><div class="line">cat(<span class="string">"i = "</span>, <span class="number">1</span>, <span class="string">"\n"</span>, file=<span class="string">"c:/work/result.txt"</span>)</div><div class="line"><span class="comment"># 加上一个append=TRUE参数可以不覆盖原文 件而是在文件末尾附加，这很适用于运行中的结果记录。</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="cat-vs-paste"><a href="#cat-vs-paste" class="headerlink" title="cat vs. paste"></a>cat vs. paste</h4><ul>
+<li>cat是<strong>输出</strong>，paste连接成一个<strong>字符串</strong><ul>
+<li>显示结果是：一个没有引号的结果（cat），另一个是有引号的字符串（paste）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">a&lt;-c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div><div class="line">b&lt;-c(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)</div><div class="line">c&lt;-c(<span class="string">'hi'</span>,<span class="string">'hello'</span>)</div><div class="line">&gt; paste(a,b,c)</div><div class="line">[<span class="number">1</span>] <span class="string">"1 4 hi"</span>    <span class="string">"2 5 hello"</span> <span class="string">"3 6 hi"</span>    <span class="string">"4 7 hello"</span></div><div class="line"></div><div class="line">&gt; cat(a,b,c)</div><div class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> hi hello</div><div class="line"></div><div class="line"></div><div class="line">&gt; cat(LETTERS, letters)</div><div class="line">A B C D E <span class="literal">F</span> G H I J K L M N O P Q R S <span class="literal">T</span> U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z</div><div class="line">&gt; paste(LETTERS, letters)</div><div class="line"> [<span class="number">1</span>] <span class="string">"A a"</span> <span class="string">"B b"</span> <span class="string">"C c"</span> <span class="string">"D d"</span> <span class="string">"E e"</span> <span class="string">"F f"</span> <span class="string">"G g"</span> <span class="string">"H h"</span> <span class="string">"I i"</span> <span class="string">"J j"</span> <span class="string">"K k"</span> <span class="string">"L l"</span></div><div class="line">[<span class="number">13</span>] <span class="string">"M m"</span> <span class="string">"N n"</span> <span class="string">"O o"</span> <span class="string">"P p"</span> <span class="string">"Q q"</span> <span class="string">"R r"</span> <span class="string">"S s"</span> <span class="string">"T t"</span> <span class="string">"U u"</span> <span class="string">"V v"</span> <span class="string">"W w"</span> <span class="string">"X x"</span></div><div class="line">[<span class="number">25</span>] <span class="string">"Y y"</span> <span class="string">"Z z"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="cat-vs-print"><a href="#cat-vs-print" class="headerlink" title="cat vs. print"></a>cat vs. print</h4><ul>
+<li>cat被认为是更低级别的print，会<strong>识别转义符并进行执行</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; x &lt;- <span class="string">"a b\tc\nd"</span></div><div class="line">&gt; print(x)</div><div class="line">[<span class="number">1</span>] <span class="string">"a b\tc\nd"</span></div><div class="line"></div><div class="line">&gt; cat(x)</div><div class="line">a b	c</div><div class="line">d</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="writeLines"><a href="#writeLines" class="headerlink" title="writeLines"></a>writeLines</h3><h1 id="案例-获取指定目录下的csv文档，并合并输出"><a href="#案例-获取指定目录下的csv文档，并合并输出" class="headerlink" title="案例 - 获取指定目录下的csv文档，并合并输出"></a>案例 - 获取指定目录下的csv文档，并合并输出</h1><ul>
+<li><strong>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code>  </strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----获取指定目录下的csv文档，并合并输出----------#</span></div><div class="line"></div><div class="line"><span class="comment">## 获取当前工作目录下所有文件名的路径</span></div><div class="line">file.path(getwd(),dir())</div><div class="line"><span class="string">'E:/Jupyter_notebook/test'</span> <span class="string">'E:/Jupyter_notebook/test.ipynb'</span> <span class="string">'E:/Jupyter_notebook/专项分析'</span></div><div class="line"></div><div class="line">path &lt;- file.path(getwd(),dir())[<span class="number">1</span>]</div><div class="line"><span class="string">'E:/Jupyter_notebook/test'</span></div><div class="line"></div><div class="line"><span class="comment">## 获取该路径下的所有csv文件名</span></div><div class="line">name &lt;- dir(path, pattern=<span class="string">".*\\.csv$"</span>); name</div><div class="line"><span class="string">'2016-01-11-IC_1.csv'</span> <span class="string">'2016-01-11-IH_1.csv'</span> <span class="string">'2016-01-12-TF_1.csv'</span> <span class="string">'2016-01-13-T_1.csv'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## 合并文件名路径 + 文件名</span></div><div class="line">path_name &lt;- file.path(path, name); path_name</div><div class="line"></div><div class="line"><span class="comment">## 省去定义data.frame的时间，我选择先读入一个文件</span></div><div class="line">table0 &lt;- read_csv(path_name[<span class="number">1</span>], locale=locale(encoding=<span class="string">'gb2312'</span>)) </div><div class="line"></div><div class="line"><span class="comment">## 写循环写入该文件中</span></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> path_name[<span class="number">2</span>:length(paht_name)])&#123;       <span class="comment"># 大括号表示代码块的起止</span></div><div class="line">  table1 &lt;- read_csv(path_name[<span class="number">1</span>], locale=locale(encoding=<span class="string">'gb2312'</span>)) </div><div class="line">  table0 &lt;- bind_rows(table0, talbe1)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">## 写出文档</span></div><div class="line">write_csv(table0, file.path(path, <span class="string">'test.csv'</span>), append=<span class="literal">F</span>)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Windows下路径要用斜杠&lt;code&gt;/&lt;/code&gt;或者双反斜杠&lt;code&gt;\\&lt;/code&gt;  &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;R本身把&lt;code&gt;\&lt;/code&gt; 当做转义符，所以写pattern的时候要用&lt;code&gt;\\&lt;/code&gt;进行转义&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="r" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/r/"/>
+    
+    
+      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="r" scheme="http://yoursite.com/tags/r/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《麦肯锡精英的39个工作习惯》_摘抄</title>
     <link href="http://yoursite.com/2017/07/23/%E3%80%8A%E9%BA%A6%E8%82%AF%E9%94%A1%E7%B2%BE%E8%8B%B1%E7%9A%8439%E4%B8%AA%E5%B7%A5%E4%BD%9C%E4%B9%A0%E6%83%AF%E3%80%8B_%E6%91%98%E6%8A%84/"/>
     <id>http://yoursite.com/2017/07/23/《麦肯锡精英的39个工作习惯》_摘抄/</id>
@@ -4283,6 +4283,83 @@
   </entry>
   
   <entry>
+    <title>文件名命名规范</title>
+    <link href="http://yoursite.com/2017/07/11/%E6%96%87%E4%BB%B6%E5%90%8D%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
+    <id>http://yoursite.com/2017/07/11/文件名命名规范/</id>
+    <published>2017-07-10T16:00:00.000Z</published>
+    <updated>2017-07-13T14:56:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>文件名的命名规则。</p>
+<a id="more"></a>
+<h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><ol>
+<li><p>只使用<strong>小写字母</strong>，不使用大写字母</p>
+<blockquote>
+<p>可移植性：inux 系统是大小写敏感的，而 Windows 系统和 Mac 系统正好相反，大小写不敏感。</p>
+<p>易读性：小写文件名通常比大写文件名更易读，比如<code>accessibility.txt</code>就比<code>ACCESSIBILITY.TXT</code>易读</p>
+<p>易用性：某些系统会生成一些预置的用户目录，采用首字母大写的目录名。</p>
+</blockquote>
+</li>
+<li><p><strong>文件</strong>的命名规范：<strong>项目命名词（或项目编号）_文件命名词_日期_V版本号.文件后缀</strong> </p>
+<blockquote>
+<p>文件名称由四部分组成：第一部分为项目名称或编号，第二部分为文件的描述，第三部分为当前文件的日期，第四部分为文件阶段标识加文件后缀</p>
+<p>如果是同一版本同一阶段的文件修改过两次以上，则在版本标识后面加以数字标识，每次修改数字加1； <strong>当有多人同时提交同一份文件时，可以在版本标识的后面加入人名或缩写来区别。</strong></p>
+</blockquote>
+</li>
+<li><p><strong>文件夹</strong>的命名规范：<strong>项目命名词(或项目编号)_文件夹名称_起始日期_结束日期</strong></p>
+<blockquote>
+<p>举个文件夹命名例子：Prj_PC PIS Project_20101112_完成日期。<strong>第二个下划线后为空，等待工作结束时，添加工作结束的日期</strong>。</p>
+</blockquote>
+</li>
+<li><p>用<strong>下划线<code>_</code> 作为分割符，用连字符<code>-</code> 作为联接符</strong>（同一个属性的内容） —— [ 个人习惯 ]</p>
+<blockquote>
+<p>1_工作学习_jupyter-notebook_20170711</p>
+</blockquote>
+</li>
+</ol>
+<p><br></p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
+<li><strong>版本号式命名法</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">XX平台交流材料_V1.0.pptx</div><div class="line">XX平台交流材料_V1.1.pptx</div></pre></td></tr></table></figure>
+<blockquote>
+<p>用V1.0、V1.0.0或者V1.0.0.0作为起始的版本，可根据需要自行控制，然后对其中的需要变更的数字进行+1操作即可</p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><strong>日期命名法</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">广东办事处周报_20140117.xlsx</div><div class="line">广东办事处周报_20140220.xlsx</div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>综合命名法</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">XX平台交流材料_20170102_v1.0</div><div class="line">XX平台交流材料_20170102_v1.1</div><div class="line">XX平台交流材料_20170103_v1.2</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>增加特殊符号，用于标识不同状态的文件： </p>
+<ol>
+<li><code>！</code>（叹号）——标注<strong>重要</strong>的文件或者文件夹 </li>
+<li><code>#</code>（井号）——标注<strong>等待处理</strong>的文件或者文件夹 </li>
+<li><code>@</code>（@号）——标注<strong>正在处理</strong>的文件或者文件夹</li>
+</ol>
+<p>对那些处理完毕的文件，应该放在合适的文件夹当中，因此不作特殊符号的标注。</p>
+<p>这些符号的使用，是作为文件命名的<strong>首字应用</strong>，如此一个文件夹中，标注特殊符号的文件会排列在一块，查找和使用起来会比较方便。</p>
+<p><br></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;文件名的命名规则。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="文档规范" scheme="http://yoursite.com/categories/%E6%96%87%E6%A1%A3%E8%A7%84%E8%8C%83/"/>
+    
+    
+      <category term="文档规范" scheme="http://yoursite.com/tags/%E6%96%87%E6%A1%A3%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《刻意练习》_读书笔记</title>
     <link href="http://yoursite.com/2017/07/11/%E3%80%8A%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0%E3%80%8B_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2017/07/11/《刻意练习》_读书笔记/</id>
@@ -4390,83 +4467,6 @@
       <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
     
       <category term="工具方法" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文件名命名规范</title>
-    <link href="http://yoursite.com/2017/07/11/%E6%96%87%E4%BB%B6%E5%90%8D%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
-    <id>http://yoursite.com/2017/07/11/文件名命名规范/</id>
-    <published>2017-07-10T16:00:00.000Z</published>
-    <updated>2017-07-13T14:56:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>文件名的命名规则。</p>
-<a id="more"></a>
-<h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><ol>
-<li><p>只使用<strong>小写字母</strong>，不使用大写字母</p>
-<blockquote>
-<p>可移植性：inux 系统是大小写敏感的，而 Windows 系统和 Mac 系统正好相反，大小写不敏感。</p>
-<p>易读性：小写文件名通常比大写文件名更易读，比如<code>accessibility.txt</code>就比<code>ACCESSIBILITY.TXT</code>易读</p>
-<p>易用性：某些系统会生成一些预置的用户目录，采用首字母大写的目录名。</p>
-</blockquote>
-</li>
-<li><p><strong>文件</strong>的命名规范：<strong>项目命名词（或项目编号）_文件命名词_日期_V版本号.文件后缀</strong> </p>
-<blockquote>
-<p>文件名称由四部分组成：第一部分为项目名称或编号，第二部分为文件的描述，第三部分为当前文件的日期，第四部分为文件阶段标识加文件后缀</p>
-<p>如果是同一版本同一阶段的文件修改过两次以上，则在版本标识后面加以数字标识，每次修改数字加1； <strong>当有多人同时提交同一份文件时，可以在版本标识的后面加入人名或缩写来区别。</strong></p>
-</blockquote>
-</li>
-<li><p><strong>文件夹</strong>的命名规范：<strong>项目命名词(或项目编号)_文件夹名称_起始日期_结束日期</strong></p>
-<blockquote>
-<p>举个文件夹命名例子：Prj_PC PIS Project_20101112_完成日期。<strong>第二个下划线后为空，等待工作结束时，添加工作结束的日期</strong>。</p>
-</blockquote>
-</li>
-<li><p>用<strong>下划线<code>_</code> 作为分割符，用连字符<code>-</code> 作为联接符</strong>（同一个属性的内容） —— [ 个人习惯 ]</p>
-<blockquote>
-<p>1_工作学习_jupyter-notebook_20170711</p>
-</blockquote>
-</li>
-</ol>
-<p><br></p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
-<li><strong>版本号式命名法</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">XX平台交流材料_V1.0.pptx</div><div class="line">XX平台交流材料_V1.1.pptx</div></pre></td></tr></table></figure>
-<blockquote>
-<p>用V1.0、V1.0.0或者V1.0.0.0作为起始的版本，可根据需要自行控制，然后对其中的需要变更的数字进行+1操作即可</p>
-</blockquote>
-<p><br></p>
-<ul>
-<li><strong>日期命名法</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">广东办事处周报_20140117.xlsx</div><div class="line">广东办事处周报_20140220.xlsx</div></pre></td></tr></table></figure>
-<p><br></p>
-<ul>
-<li><strong>综合命名法</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">XX平台交流材料_20170102_v1.0</div><div class="line">XX平台交流材料_20170102_v1.1</div><div class="line">XX平台交流材料_20170103_v1.2</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>增加特殊符号，用于标识不同状态的文件： </p>
-<ol>
-<li><code>！</code>（叹号）——标注<strong>重要</strong>的文件或者文件夹 </li>
-<li><code>#</code>（井号）——标注<strong>等待处理</strong>的文件或者文件夹 </li>
-<li><code>@</code>（@号）——标注<strong>正在处理</strong>的文件或者文件夹</li>
-</ol>
-<p>对那些处理完毕的文件，应该放在合适的文件夹当中，因此不作特殊符号的标注。</p>
-<p>这些符号的使用，是作为文件命名的<strong>首字应用</strong>，如此一个文件夹中，标注特殊符号的文件会排列在一块，查找和使用起来会比较方便。</p>
-<p><br></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;文件名的命名规则。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="文档规范" scheme="http://yoursite.com/categories/%E6%96%87%E6%A1%A3%E8%A7%84%E8%8C%83/"/>
-    
-    
-      <category term="文档规范" scheme="http://yoursite.com/tags/%E6%96%87%E6%A1%A3%E8%A7%84%E8%8C%83/"/>
     
   </entry>
   
@@ -4623,9 +4623,9 @@
       <category term="个人日志" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="个人塑造" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/"/>
-    
       <category term="个人日志" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="个人塑造" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/"/>
     
   </entry>
   
@@ -6143,9 +6143,9 @@
       <category term="个人日志" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="个人塑造" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/"/>
-    
       <category term="个人日志" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="个人塑造" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E5%A1%91%E9%80%A0/"/>
     
   </entry>
   
