@@ -1,0 +1,1530 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件工具,r," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="R_字符串处理_stringr
+stringr：对一个单元格内的 [元素] 进行操作，而非把一个单元格看做一个整体来对待。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R_字符串处理_stringr">
+<meta property="og:url" content="http://yoursite.com/2017/07/25/R_字符串处理_stringr/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="R_字符串处理_stringr
+stringr：对一个单元格内的 [元素] 进行操作，而非把一个单元格看做一个整体来对待。">
+<meta property="og:updated_time" content="2017-07-30T08:39:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R_字符串处理_stringr">
+<meta name="twitter:description" content="R_字符串处理_stringr
+stringr：对一个单元格内的 [元素] 进行操作，而非把一个单元格看做一个整体来对待。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/25/R_字符串处理_stringr/"/>
+
+
+
+
+
+  <title> R_字符串处理_stringr | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/R_字符串处理_stringr/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                R_字符串处理_stringr
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-25T00:00:00+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2017-07-30T16:39:08+08:00">
+                2017-07-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工具/r/" itemprop="url" rel="index">
+                    <span itemprop="name">r</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/25/R_字符串处理_stringr/" class="leancloud_visitors" data-flag-title="R_字符串处理_stringr">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>R_字符串处理_stringr</strong></p>
+<p><strong>stringr：对一个单元格内的 [元素] 进行操作，而非把一个单元格看做一个整体来对待。</strong></p>
+<a id="more"></a>
+<h2 id="文本文件的读写"><a href="#文本文件的读写" class="headerlink" title="文本文件的读写"></a>文本文件的读写</h2><blockquote>
+<p>这里的文本文件指的是非表格式的文件，如纯文本文件，html文件</p>
+</blockquote>
+<p><br></p>
+<h3 id="获取文件目录信息"><a href="#获取文件目录信息" class="headerlink" title="获取文件目录信息"></a>获取文件目录信息</h3><ul>
+<li>file.info()</li>
+<li>dir() 列出指定目录中所有的文件，可选参数recursive=T可递归列出所有的子目录文件</li>
+<li>file.exists()：判断文件是否存在</li>
+<li>getwd() ：获得当前工作目录</li>
+<li>setwd() ：设置当前工作目录 <code>setwd(&quot;C:/data&quot;)</code></li>
+</ul>
+<p><br></p>
+<h3 id="读入"><a href="#读入" class="headerlink" title="读入"></a>读入</h3><ul>
+<li><p><strong>scan(“file.xxx”, what=double(), seq=””, n=-1, nmax=-1, skip=0, encoding=”utf-8”)</strong></p>
+<blockquote>
+<p>读取文本文件，<strong>默认</strong>情况下读取文件中以<strong>[空格分割]</strong> 所有<strong>[浮点数值]</strong></p>
+</blockquote>
+<ul>
+<li>如果文件中包<strong>含非数值</strong>，可以字符串形式读入 <code>scan(&quot;a.txt&quot;,what=&quot;&quot;)</code></li>
+<li>指定分隔符为换行，<code>scan(“a.txt”,what=””,sep=”\n”)</code> 返回以换行分割的字符串向量</li>
+<li>如果数据为<strong>表格形式：因为有表头，用scan不能读入</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>what：读入的数据类型；The supported types are [ logical, integer, numeric, complex, character, raw and list. ]</p>
+<ul>
+<li>character(0)：每个单词作为字符向量的一个元素</li>
+</ul>
+<p>sep：分隔符，默认为空格<code>&quot; &quot;</code> </p>
+<p>n = -1：显示至最后一行</p>
+<p>nmax = -1：读取至最后一行</p>
+<p>skip=0：跳过的行数</p>
+<p>encoding=”utf-8” / “Latin1”</p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><strong>readline()</strong> 可以从键盘<strong>读取单行数据</strong>，如 <code>age&lt;-readline(&quot;input the age: &quot;)</code></li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>readLines(“file.xxx”, encoding=”utf-8”)</strong> ：<strong>每一行当做一个字符串</strong>。等价于scan中指定分隔符为换行<ul>
+<li>用于<strong>读取</strong>字符型的格式文件；常用于文本文件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>encoding = “utf-8” / “Latin1” ; Lattin1是[ISO-8859-1]的别名，有些环境下写作Latin-1。ISO-8859-1编码是单字节编码，<strong>向下兼容ASCII</strong></p>
+</blockquote>
+<p><br></p>
+<h3 id="写出"><a href="#写出" class="headerlink" title="写出"></a>写出</h3><p><br></p>
+<ul>
+<li><strong>cat(x, file=””, sep=””, fill=False, labels=NULL, append=False)</strong>：<strong>拼接后输出</strong>对象，也可以<strong>把结果写到指定的文件中</strong></li>
+</ul>
+<blockquote>
+<p>x：R的对象</p>
+<p>file：一个连接，或命名的文件打印到一个字符串；默认情况下打印到标准输出连接</p>
+<p>sep=” “：每个元素后追加一个字符串的字符向量；默认为<strong>空格</strong></p>
+<p>append = False 覆盖file内容；若为True，表示附加到file</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; cat(c(<span class="string">"AB"</span>, <span class="string">"C"</span>), c(<span class="string">"E"</span>, <span class="string">"F"</span>), <span class="string">"\n"</span>, sep=<span class="string">""</span>)</div><div class="line">[<span class="number">1</span>] ABCDEF</div><div class="line"></div><div class="line"><span class="comment">#----可以把结果写到指定的文件中-----------------#</span></div><div class="line">cat(<span class="string">"i = "</span>, <span class="number">1</span>, <span class="string">"\n"</span>, file=<span class="string">"c:/work/result.txt"</span>)</div><div class="line"><span class="comment"># 加上一个append=TRUE参数可以不覆盖原文 件而是在文件末尾附加，这很适用于运行中的结果记录。</span></div><div class="line"></div><div class="line"></div><div class="line">&gt; cat(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)  <span class="comment"># 拼接后进行输出</span></div><div class="line">hello bob.</div><div class="line"> Is<span class="string">'t R 	 Great?</span></div><div class="line"> !</div><div class="line"></div><div class="line">&gt; paste("hello", "bob", "\b.\n", "Is\'t R", "\t", "Great?\n","!")</div><div class="line">[1] "hello bob \b.\n Is't R \t Great?\n !<span class="string">"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>writeLines</strong></li>
+</ul>
+<p><br></p>
+<h2 id="字符串统计"><a href="#字符串统计" class="headerlink" title="字符串统计"></a>字符串统计</h2><h3 id="str-length"><a href="#str-length" class="headerlink" title="str_length"></a>str_length</h3><blockquote>
+<p><strong>符串长度</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_length(string)</strong></li>
+</ul>
+<p><br></p>
+<h3 id="str-count"><a href="#str-count" class="headerlink" title="str_count"></a>str_count</h3><blockquote>
+<p><strong>字符串计数</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_count(string, pattern = “”)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>pattern: 匹配的字符。</p>
+<ul>
+<li>若不匹配字符，即等价于 <code>str_length</code></li>
+</ul>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; str_count(<span class="string">'aaa444sssddd'</span>, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">3</span></div><div class="line"></div><div class="line"><span class="comment"># 对字符串向量中匹配的字符计数</span></div><div class="line">&gt; fruit &lt;- c(<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"pear"</span>, <span class="string">"pineapple"</span>)</div><div class="line">&gt; str_count(fruit, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">3</span> <span class="number">1</span> <span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 对字符串中的'.'字符计数，由于.是正则表达式的匹配符，直接判断计数的结果是不对的。</span></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), <span class="string">"."</span>)</div><div class="line">[<span class="number">1</span>]  <span class="number">2</span>  <span class="number">1</span>  <span class="number">3</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), fixed(<span class="string">"."</span>)) <span class="comment"># 用fixed匹配字符</span></div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">1</span>  <span class="number">2</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; str_count(c(<span class="string">"a."</span>, <span class="string">"."</span>, <span class="string">".a."</span>,<span class="literal">NA</span>), <span class="string">"\\."</span>) <span class="comment"># 用\\匹配字符</span></div><div class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">1</span>  <span class="number">2</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="字符串查询"><a href="#字符串查询" class="headerlink" title="字符串查询"></a>字符串查询</h2><h3 id="str-locate-位置"><a href="#str-locate-位置" class="headerlink" title="str_locate - 位置"></a>str_locate - 位置</h3><blockquote>
+<p>找到的模式在字符串中的<strong>位置</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_locate(string, pattern)</strong></li>
+<li><strong>str_locate_all(string, pattern)</strong><ul>
+<li>以字符串<strong>matrix格式返回</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 匹配a在字符串中的位置</span></div><div class="line">&gt; str_locate(val, <span class="string">"a"</span>)</div><div class="line">     start end</div><div class="line">[<span class="number">1</span>,]     <span class="number">1</span>   <span class="number">1</span></div><div class="line">[<span class="number">2</span>,]    <span class="literal">NA</span>  <span class="literal">NA</span></div><div class="line">[<span class="number">3</span>,]     <span class="number">3</span>   <span class="number">3</span></div><div class="line"></div><div class="line"><span class="comment"># 用向量匹配</span></div><div class="line">&gt; str_locate(val, c(<span class="string">"a"</span>, <span class="number">12</span>, <span class="string">"b"</span>))</div><div class="line">     start end</div><div class="line">[<span class="number">1</span>,]     <span class="number">1</span>   <span class="number">1</span></div><div class="line">[<span class="number">2</span>,]     <span class="number">1</span>   <span class="number">2</span></div><div class="line">[<span class="number">3</span>,]     <span class="number">2</span>   <span class="number">2</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-detect-逻辑值"><a href="#str-detect-逻辑值" class="headerlink" title="str_detect - 逻辑值"></a>str_detect - 逻辑值</h3><blockquote>
+<p><strong>匹配字符串的字符，返回逻辑值</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_detect(string, pattern)</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 检查字符串向量，是否包括a</span></div><div class="line">&gt; str_detect(val, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 检查字符串向量，是否以a为开头</span></div><div class="line">&gt; str_detect(val, <span class="string">"^a"</span>)</div><div class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="字符串提取"><a href="#字符串提取" class="headerlink" title="字符串提取"></a>字符串提取</h2><h3 id="strsub-截取位置"><a href="#strsub-截取位置" class="headerlink" title="strsub - 截取位置"></a>str<em>sub - 截取</em>位置</h3><blockquote>
+<p><strong>截取字符串</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_sub(string, start = 1L, end = -1L)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>start : 开始位置  (若只出现一个数字，默认为开始位置)</p>
+<p>end : 结束位置</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&gt; txt &lt;- <span class="string">"I am Conan."</span></div><div class="line"></div><div class="line"><span class="comment"># 截取1-6的索引位置的字符串</span></div><div class="line">&gt; str_sub(txt, end=<span class="number">6</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"I am C"</span></div><div class="line"></div><div class="line"><span class="comment"># 截取6到结束的索引位置的字符串</span></div><div class="line">&gt; str_sub(txt, <span class="number">6</span>)   <span class="comment"># 若只出现一个数字，默认为开始位置</span></div><div class="line">[<span class="number">1</span>] <span class="string">"Conan."</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 通过负坐标截取字符串</span></div><div class="line">&gt; str_sub(txt, -<span class="number">3</span>)  <span class="comment"># [截取] 最后3个字符</span></div><div class="line">[<span class="number">1</span>] <span class="string">"an."</span></div><div class="line">&gt; str_sub(txt, end = -<span class="number">3</span>)  <span class="comment"># [截止] 到最后第三个字符</span></div><div class="line">[<span class="number">1</span>] <span class="string">"I am Cona"</span></div><div class="line"></div><div class="line"><span class="comment">#----对截取的字符串进行赋值-----------------------------------------#</span></div><div class="line">&gt; x &lt;- <span class="string">"AAABBBCCC"</span></div><div class="line"></div><div class="line"><span class="comment"># 在字符串的1的位置赋值为1</span></div><div class="line">&gt; str_sub(x, <span class="number">1</span>, <span class="number">1</span>) &lt;- <span class="number">1</span>; x</div><div class="line">[<span class="number">1</span>] <span class="string">"1AABBBCCC"</span></div><div class="line"></div><div class="line">&gt; str_sub(x, <span class="number">1</span>, <span class="number">1</span>) &lt;- <span class="number">123</span>; x   <span class="comment"># [若数量超过截取的位数，则进行填充]</span></div><div class="line">[<span class="number">1</span>] <span class="string">"123AABBBCCC"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-subset-提取"><a href="#str-subset-提取" class="headerlink" title="str_subset - 提取"></a>str_subset - 提取</h3><blockquote>
+<p><strong>返回的匹配字符串</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_subset(string, pattern)</strong></li>
+</ul>
+<blockquote>
+<p>pattern: 匹配的字符</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 全文匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span> <span class="string">"cba"</span></div><div class="line"></div><div class="line"><span class="comment"># 开头匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"^a"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span></div><div class="line"></div><div class="line"><span class="comment"># 结尾匹配</span></div><div class="line">&gt; str_subset(val, <span class="string">"a$"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"cba"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-match-匹配"><a href="#str-match-匹配" class="headerlink" title="str_match - 匹配"></a>str_match - 匹配</h3><blockquote>
+<p>从字符串中<strong>提取匹配组</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_match(string, pattern)</strong></li>
+<li><strong>str_match_all(string, pattern)</strong><ul>
+<li>以字符串<strong>matrix格式返回</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 匹配字符a，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"a"</span>)</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span> </div><div class="line">[<span class="number">2</span>,] <span class="literal">NA</span>  </div><div class="line">[<span class="number">3</span>,] <span class="string">"a"</span> </div><div class="line"></div><div class="line"><span class="comment"># 匹配字符0-9，限1个，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"[0-9]"</span>)</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="literal">NA</span>  </div><div class="line">[<span class="number">2</span>,] <span class="string">"1"</span> </div><div class="line">[<span class="number">3</span>,] <span class="literal">NA</span>  </div><div class="line"></div><div class="line"><span class="comment"># 匹配字符0-9，不限数量，并返回对应的字符</span></div><div class="line">&gt; str_match(val, <span class="string">"[0-9]*"</span>)</div><div class="line">     [,<span class="number">1</span>] </div><div class="line">[<span class="number">1</span>,] <span class="string">""</span>   </div><div class="line">[<span class="number">2</span>,] <span class="string">"123"</span></div><div class="line">[<span class="number">3</span>,] <span class="string">""</span>  </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----以字符串matrix格式返回------------------------------------------#</span></div><div class="line">&gt; str_match_all(val, <span class="string">"a"</span>)</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span> </div><div class="line"></div><div class="line">[[<span class="number">2</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line"></div><div class="line">[[<span class="number">3</span>]]</div><div class="line">     [,<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>,] <span class="string">"a"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-extract-匹配-Regex"><a href="#str-extract-匹配-Regex" class="headerlink" title="str_extract - 匹配_Regex"></a>str_extract - 匹配_Regex</h3><blockquote>
+<p>从字符串中根据 <strong>[正则表达式]</strong> 提取匹配的值</p>
+</blockquote>
+<ul>
+<li><strong>str_extract(string, pattern)</strong></li>
+<li><strong>str_extract_all(string, pattern, simplify = FALSE)</strong></li>
+</ul>
+<blockquote>
+<p>simplify: 返回值，TRUE返回matrix，FALSE返回<strong>字符串向量</strong>；(默认为False)</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 返回匹配的数字</span></div><div class="line">&gt; str_extract(val, <span class="string">"\\d"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"4"</span> <span class="string">"1"</span> <span class="string">"2"</span></div><div class="line"></div><div class="line"><span class="comment"># 返回匹配的字符</span></div><div class="line">&gt; str_extract(val, <span class="string">"[a-z]+"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abca"</span> <span class="literal">NA</span>     <span class="string">"cba"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h3 id="word-单词"><a href="#word-单词" class="headerlink" title="word - 单词"></a>word - 单词</h3><blockquote>
+<p><strong>从文本中提取 [单词] </strong></p>
+</blockquote>
+<ul>
+<li><strong>word(string, start = 1L, end = start, sep = fixed(“ “))</strong></li>
+</ul>
+<blockquote>
+<p>start: 开始位置。</p>
+<p>end: 结束位置。</p>
+<p>sep: 匹配字符。  <strong>(默认为 空格)</strong></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"I am Conan."</span>, <span class="string">"http://fens.me, ok"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 默认以空格分割，取第一个位置的字符串</span></div><div class="line">&gt; word(val, <span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"I"</span>               <span class="string">"http://fens.me,"</span></div><div class="line">&gt; word(val, -<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"Conan."</span> <span class="string">"ok"</span>    </div><div class="line">&gt; word(val, <span class="number">2</span>, -<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"am Conan."</span> <span class="string">"ok"</span>       </div><div class="line"></div><div class="line"><span class="comment"># 以,分割，取第一个位置的字符串 </span></div><div class="line">&gt; val&lt;-<span class="string">'111,222,333,444'</span></div><div class="line">&gt; word(val, <span class="number">1</span>, sep = fixed(<span class="string">','</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"111"</span></div><div class="line">&gt; word(val, <span class="number">3</span>, sep = fixed(<span class="string">','</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"333"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h2><h3 id="str-replace"><a href="#str-replace" class="headerlink" title="str_replace"></a>str_replace</h3><blockquote>
+<p>字符串<strong>替换</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_replace(string, pattern, replacement)</strong><ul>
+<li>替换出现的 <strong>[第一个]</strong>字符</li>
+</ul>
+</li>
+<li><strong>str_replcae_all(string, pattern, replacement)</strong><ul>
+<li>替换出现的 <strong>[所有]</strong>字符</li>
+</ul>
+</li>
+<li><strong>str_repclea_na(string, repalcement= “NA”)</strong><ul>
+<li><strong>把NA替换为其他字符串</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>pattern: 匹配字符。</p>
+<p>replacement: 用于替换的字符。</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abc"</span>, <span class="number">123</span>, <span class="string">"cba"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 把目标字符串 [第一个] 出现的a或b，替换为- </span></div><div class="line">&gt; str_replace(val, <span class="string">"[ab]"</span>, <span class="string">"-"</span>)  <span class="comment"># 表示或者</span></div><div class="line">[<span class="number">1</span>] <span class="string">"-bc"</span> <span class="string">"123"</span> <span class="string">"c-a"</span></div><div class="line"></div><div class="line"><span class="comment"># 把目标字符串 [所有] 出现的a或b，替换为-</span></div><div class="line">&gt; str_replace_all(val, <span class="string">"[ab]"</span>, <span class="string">"-"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"--c"</span> <span class="string">"123"</span> <span class="string">"c--"</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----把NA替换为字符串------------------------#</span></div><div class="line">&gt; str_replace_na(c(<span class="literal">NA</span>,<span class="string">'NA'</span>,<span class="string">"abc"</span>),<span class="string">'x'</span>)  <span class="comment"># 把NA替换为x</span></div><div class="line">[<span class="number">1</span>] <span class="string">"x"</span>   <span class="string">"NA"</span>  <span class="string">"abc"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="字符串拆分"><a href="#字符串拆分" class="headerlink" title="字符串拆分"></a>字符串拆分</h2><h3 id="str-split-amp-str-split-fixed"><a href="#str-split-amp-str-split-fixed" class="headerlink" title="str_split &amp; str_split_fixed"></a>str_split &amp; str_split_fixed</h3><blockquote>
+<p><strong>字符串分割，同str_split_fixed</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_split(string, pattern, n = Inf)</strong><ul>
+<li>str_split()函数操作的结果类型为<strong>list</strong>  <code>&gt; class(s1)  [1] &quot;list&quot;</code></li>
+</ul>
+</li>
+<li><strong>str_split_fixed(string, pattern, n)</strong><ul>
+<li>str_split_fixed()函数分割，结果类型是<strong>matrix </strong> <code>&gt; class(s3)   [1] &quot;matrix&quot;</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>pattern: 匹配的字符。</p>
+<p>n: 分割个数</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- <span class="string">"abc,123,234,iuuu"</span></div><div class="line"></div><div class="line"><span class="comment"># 以,进行分割</span></div><div class="line">&gt; s1&lt;-str_split(val, <span class="string">","</span>);s1</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span>  <span class="string">"123"</span>  <span class="string">"234"</span>  <span class="string">"iuuu"</span></div><div class="line"></div><div class="line"><span class="comment"># 以,进行分割，保留2块</span></div><div class="line">&gt; s2&lt;-str_split(val, <span class="string">","</span>,<span class="number">2</span>);s2</div><div class="line">[[<span class="number">1</span>]]</div><div class="line">[<span class="number">1</span>] <span class="string">"abc"</span>          <span class="string">"123,234,iuuu"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h2><h3 id="str-c-amp-str-join"><a href="#str-c-amp-str-join" class="headerlink" title="str_c &amp; str_join"></a>str_c &amp; str_join</h3><blockquote>
+<p><strong>字符串拼接操作，与str_join完全相同，与paste()行为不完全一致。</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_c(…, sep = “”, collapse = NULL)</strong> </li>
+<li><strong>str_join(…, sep = “”, collapse = NULL)</strong><ul>
+<li>拼接有NA值的字符串向量时，NA还是NA    <code>&gt; str_c(c(&quot;a&quot;, NA, &quot;b&quot;), &quot;-d&quot;)    &gt; &quot;a-d&quot;   NA  &quot;b-d&quot;</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>…: 多参数的输入</p>
+<p> sep: 把多个 [字符串] 拼接为一个大的字符串，用于字符串的分割符。</p>
+<p>collapse: 把多个 [向量] 参数拼接为一个大的字符串，用于字符串的分割符。</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----------------示例--------------------------#</span></div><div class="line">多个 [字符串] 拼接为一个大的字符串</div><div class="line">&gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>,sep=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a-b"</span></div><div class="line">&gt; str_c(c(<span class="string">'a'</span>,<span class="string">'a1'</span>),c(<span class="string">'b'</span>,<span class="string">'b1'</span>),sep=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a-b"</span>   <span class="string">"a1-b1"</span></div><div class="line"></div><div class="line">多个 [向量] 参数拼接为一个大的字符串</div><div class="line">&gt; str_c(head(letters), collapse = <span class="string">", "</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"a, b, c, d, e, f"</span></div><div class="line"></div><div class="line"><span class="comment"># collapse参数，对多个字符串无效</span></div><div class="line">&gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>,collapse = <span class="string">"-"</span>)   </div><div class="line">[<span class="number">1</span>] <span class="string">"ab"</span></div><div class="line">&gt; str_c(c(<span class="string">'a'</span>,<span class="string">'a1'</span>),c(<span class="string">'b'</span>,<span class="string">'b1'</span>),collapse=<span class="string">'-'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"ab-a1b1"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>对比str_c()函数和<strong>paste()函数之间的不同点</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="comment"># [字符串] 拼接，默认的sep参数行为 [不一致]</span></div><div class="line">&gt; &gt; str_c(<span class="string">'a'</span>,<span class="string">'b'</span>)  <span class="comment"># 默认分隔符为""</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"ab"</span></div><div class="line">&gt; &gt; paste(<span class="string">'a'</span>,<span class="string">'b'</span>)  <span class="comment"># 默认分隔符为" "</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a b"</span></div><div class="line">&gt;</div><div class="line">&gt; <span class="comment"># [向量] 拼接字符串，collapse参数的行为 [一致]</span></div><div class="line">&gt; &gt; str_c(head(letters), collapse = <span class="string">""</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"abcdef"</span></div><div class="line">&gt; &gt; paste(head(letters), collapse = <span class="string">""</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"abcdef"</span></div><div class="line">&gt;</div><div class="line">&gt;</div><div class="line">&gt; <span class="comment">#拼接有 [NA值] 的字符串向量，对NA的处理行为 [不一致]</span></div><div class="line">&gt; &gt; str_c(c(<span class="string">"a"</span>, <span class="literal">NA</span>, <span class="string">"b"</span>), <span class="string">"-d"</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a-d"</span>   <span class="literal">NA</span>    <span class="string">"b-d"</span> </div><div class="line">&gt; &gt; paste(c(<span class="string">"a"</span>, <span class="literal">NA</span>, <span class="string">"b"</span>), <span class="string">"-d"</span>)  <span class="comment"># 将NA作为一个普通字符串来对待</span></div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"a -d"</span>  <span class="string">"NA -d"</span> <span class="string">"b -d"</span> </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>对比<strong>str_c() &amp; paste()</strong> 与 <strong>cat()</strong> 的区别：</p>
+<ul>
+<li>paste()：<strong>转为字符串后进行连接</strong>；</li>
+<li>cat() ：<strong>连接后输出为对象</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; paste(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)</div><div class="line">&gt; [<span class="number">1</span>] <span class="string">"hello bob \b.\n Is't R \t Great?\n !"</span></div><div class="line">&gt;</div><div class="line">&gt; &gt; cat(<span class="string">"hello"</span>, <span class="string">"bob"</span>, <span class="string">"\b.\n"</span>, <span class="string">"Is\'t R"</span>, <span class="string">"\t"</span>, <span class="string">"Great?\n"</span>,<span class="string">"!"</span>)</div><div class="line">&gt; hello bob.</div><div class="line">&gt;  Is<span class="string">'t R 	 Great?</span></div><div class="line">&gt;  !</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+</blockquote>
+<p><br></p>
+<h3 id="str-conv-转码"><a href="#str-conv-转码" class="headerlink" title="str_conv - 转码"></a>str_conv - 转码</h3><blockquote>
+<p><strong>字符编码转换</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_conv(string, encoding)</strong></li>
+</ul>
+<blockquote>
+<p>encoding: 编码名。</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----对中文进行转码处理---------------------------#</span></div><div class="line">&gt; x &lt;- charToRaw(<span class="string">'你好'</span>);x</div><div class="line">[<span class="number">1</span>] c4 e3 ba c3</div><div class="line"></div><div class="line"><span class="comment"># 默认win系统字符集为GBK，[GB2312为GBK字集]，转码正常</span></div><div class="line">&gt; str_conv(x, <span class="string">"GBK"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"你好"</span></div><div class="line">&gt; str_conv(x, <span class="string">"GB2312"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"你好"</span></div><div class="line"></div><div class="line"><span class="comment"># 转UTF-8失败</span></div><div class="line">&gt; str_conv(x, <span class="string">"UTF-8"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"���"</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#----把unicode转UTF-8------------------------------#</span></div><div class="line">&gt; x1 &lt;- <span class="string">"\u5317\u4eac"</span></div><div class="line">&gt; str_conv(x1, <span class="string">"UTF-8"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"北京"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="字符串输出"><a href="#字符串输出" class="headerlink" title="字符串输出"></a>字符串输出</h2><h3 id="str-trim-空格"><a href="#str-trim-空格" class="headerlink" title="str_trim - 空格"></a>str_trim - 空格</h3><blockquote>
+<p><strong>去掉字符串的空格和TAB(\t)</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_trim(string, side = c(“both”, “left”, “right”))</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>side: 过滤方式，both两边都过滤，left左边过滤，right右边过滤  “both”（默认）</p>
+</blockquote>
+<p><br></p>
+<h3 id="str-to-upper-title-大小写"><a href="#str-to-upper-title-大小写" class="headerlink" title="str_to_upper/title - 大小写"></a>str_to_upper/title - 大小写</h3><blockquote>
+<p><strong>字符串大小写转换</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_to_upper(string, locale = “”)</strong> ：<strong>全大写</strong></li>
+<li><strong>str_to_lower(string, locale = “”)</strong> ：<strong>全小写</strong></li>
+<li><strong>str_to_title(string, locale = “”)</strong> ：<strong>首字母大写</strong></li>
+</ul>
+<blockquote>
+<p>locale:按哪种语言习惯排序</p>
+</blockquote>
+<p><br></p>
+<h3 id="str-pad-补充长度"><a href="#str-pad-补充长度" class="headerlink" title="str_pad - 补充长度"></a>str_pad - 补充长度</h3><blockquote>
+<p><strong>补充字符串的长度</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_pad(string, width, side = c(“left”, “right”, “both”), pad = “ “)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>width: 字符串填充后的长度</p>
+<p>side: 填充方向，both两边都填充，left左边填充，right右边填充</p>
+<p>pad: 用于填充的字符 （默认为 空格）</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从左边补充空格，直到字符串长度为20</span></div><div class="line">&gt; str_pad(<span class="string">"conan"</span>, <span class="number">20</span>, <span class="string">"left"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"               conan"</span></div><div class="line"></div><div class="line"><span class="comment"># 从左右两边各补充x字符，直到字符串长度为20</span></div><div class="line">&gt; str_pad(<span class="string">"conan"</span>, <span class="number">20</span>, <span class="string">"both"</span>,<span class="string">'x'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"xxxxxxxconanxxxxxxxx"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-dup-复制"><a href="#str-dup-复制" class="headerlink" title="str_dup - 复制"></a>str_dup - 复制</h3><blockquote>
+<p><strong>复制字符串</strong> duplicate</p>
+</blockquote>
+<ul>
+<li><strong>str_dup(string, times)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>times: 复制数量</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; val &lt;- c(<span class="string">"abca4"</span>, <span class="number">123</span>, <span class="string">"cba2"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 复制2次</span></div><div class="line">&gt; str_dup(val, <span class="number">2</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"abca4abca4"</span> <span class="string">"123123"</span>     <span class="string">"cba2cba2"</span>  </div><div class="line"></div><div class="line"><span class="comment"># 按位置复制</span></div><div class="line">&gt; str_dup(val, <span class="number">1</span>:<span class="number">3</span>)  <span class="comment"># 复制的次数从1次增加到3次</span></div><div class="line">[<span class="number">1</span>] <span class="string">"abca4"</span>        <span class="string">"123123"</span>       <span class="string">"cba2cba2cba2"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="str-sort-amp-str-order-排序"><a href="#str-sort-amp-str-order-排序" class="headerlink" title="str_sort &amp; str_order - 排序"></a>str_sort &amp; str_order - 排序</h3><blockquote>
+<p><strong>字符串值排序，同str_order索引排序</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_sort(x, decreasing = FALSE, na_last = TRUE, locale = “”, …)</strong></li>
+<li><strong>str_order(x, decreasing = FALSE, na_last = TRUE, locale = “”, …)</strong></li>
+</ul>
+<blockquote>
+<p>decreasing: 排序方向。  decrease - 减少</p>
+<p>na_last:NA值的存放位置，一共3个值，TRUE放到最后，FALSE放到最前，NA过滤处理</p>
+<p>locale:按哪种语言习惯排序</p>
+<ul>
+<li>loacle = “en” - ASCII字母 / “zh” - 拼音</li>
+</ul>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 按ASCII字母排序</span></div><div class="line">&gt; str_sort(c(<span class="string">'a'</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="string">'11'</span>), locale = <span class="string">"en"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span>  <span class="string">"11"</span> <span class="string">"2"</span>  <span class="string">"a"</span> </div><div class="line"></div><div class="line"><span class="comment"># 倒序排序</span></div><div class="line">&gt; str_sort(letters,decreasing=<span class="literal">TRUE</span>)         </div><div class="line"> [<span class="number">1</span>] <span class="string">"z"</span> <span class="string">"y"</span> <span class="string">"x"</span> <span class="string">"w"</span> <span class="string">"v"</span> <span class="string">"u"</span> <span class="string">"t"</span> <span class="string">"s"</span> <span class="string">"r"</span> <span class="string">"q"</span> <span class="string">"p"</span> <span class="string">"o"</span> <span class="string">"n"</span> <span class="string">"m"</span> <span class="string">"l"</span> <span class="string">"k"</span> <span class="string">"j"</span> <span class="string">"i"</span> <span class="string">"h"</span></div><div class="line">[<span class="number">20</span>] <span class="string">"g"</span> <span class="string">"f"</span> <span class="string">"e"</span> <span class="string">"d"</span> <span class="string">"c"</span> <span class="string">"b"</span> <span class="string">"a"</span></div><div class="line"></div><div class="line"><span class="comment"># 按拼音排序</span></div><div class="line">&gt; str_sort(c(<span class="string">'你'</span>,<span class="string">'好'</span>,<span class="string">'粉'</span>,<span class="string">'丝'</span>,<span class="string">'日'</span>,<span class="string">'志'</span>),locale = <span class="string">"zh"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"粉"</span> <span class="string">"好"</span> <span class="string">"你"</span> <span class="string">"日"</span> <span class="string">"丝"</span> <span class="string">"志"</span></div><div class="line"></div><div class="line"><span class="comment">#----对NA值的排序处理------------------------#</span></div><div class="line"> <span class="comment">#把NA放最后面</span></div><div class="line">&gt; str_sort(c(<span class="literal">NA</span>,<span class="string">'1'</span>,<span class="literal">NA</span>),na_last=<span class="literal">TRUE</span>) </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span> <span class="literal">NA</span>  <span class="literal">NA</span></div><div class="line"></div><div class="line"><span class="comment">#去掉NA值 </span></div><div class="line">&gt; str_sort(c(<span class="literal">NA</span>,<span class="string">'1'</span>,<span class="literal">NA</span>),na_last=<span class="literal">NA</span>)    </div><div class="line">[<span class="number">1</span>] <span class="string">"1"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="字符串变换"><a href="#字符串变换" class="headerlink" title="字符串变换"></a>字符串变换</h2><h3 id="str-warp-格式"><a href="#str-warp-格式" class="headerlink" title="str_warp - 格式"></a>str_warp - 格式</h3><blockquote>
+<p><strong>控制字符串输出格式</strong></p>
+</blockquote>
+<ul>
+<li><strong>str_wrap(string, width = 80, indent = 0, exdent = 0)</strong></li>
+</ul>
+<blockquote>
+<p>string: 字符串，字符串向量。</p>
+<p>width: 设置一行所占的宽度。</p>
+<p>indent: 段落首行的缩进值</p>
+<p>exdent: 段落非首行的缩进值</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">txt&lt;-<span class="string">'R语言作为统计学一门语言，一直在小众领域闪耀着光芒。直到大数据的爆发，R语言变成了一门炙手可热的数据分析的利器。随着越来越多的工程背景的人的加入，R语言的社区在迅速扩大成长。现在已不仅仅是统计领域，教育，银行，电商，互联网….都在使用R语言。'</span></div><div class="line"></div><div class="line"><span class="comment"># 设置宽度为60字符，首行缩进2字符</span></div><div class="line">&gt; cat(str_wrap(txt, width = <span class="number">60</span>, indent = <span class="number">2</span>), <span class="string">"\n"</span>)</div><div class="line">  R语言作为统计学一门语言，一直在小众领域闪耀着光芒。直到大数</div><div class="line">据的爆发，R语言变成了一门炙手可热的数据分析的利器。随着越来</div><div class="line">越多的工程背景的人的加入，R语言的社区在迅速扩大成长。现在已</div><div class="line">不仅仅是统计领域，教育，银行，电商，互联网….都在使用R语言。</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="参数控制函数"><a href="#参数控制函数" class="headerlink" title="参数控制函数"></a>参数控制函数</h2><blockquote>
+<p>仅用于构造功能的参数，不能独立使用。</p>
+</blockquote>
+<h3 id="regex"><a href="#regex" class="headerlink" title="regex"></a>regex</h3><blockquote>
+<p>定义正则表达式</p>
+</blockquote>
+<p><br></p>
+<h2 id="stringr的API介绍"><a href="#stringr的API介绍" class="headerlink" title="stringr的API介绍"></a>stringr的API介绍</h2><p>stringr包1.0.0版本，一共提供了30个函数，方便我们对字符串处理。常用的字符串的处理以str_开头来命名，方便更直观理解函数的定义。我们可以根据使用习惯对函数进行分类：</p>
+<ul>
+<li>stringr包中的函数<strong><u>默认使用正则表达式</u></strong>的函数（pattern）</li>
+<li><strong>R中的转义字符则是双斜杠：<code>\\</code></strong><ul>
+<li><code>\\d</code> 代表<code>\d</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>字符串拼接函数</strong></p>
+<ul>
+<li>str_c:字符串拼接。</li>
+<li>str_join:字符串拼接，同str_c。</li>
+<li>str_trim:去掉字符串的空格和TAB(\t)</li>
+<li>str_pad:补充字符串的长度</li>
+<li>str_dup:复制字符串</li>
+<li>str_wrap:控制字符串输出格式</li>
+<li>str_sub:截取字符串</li>
+<li>str_sub&lt;-截取字符串，并赋值，同str_sub</li>
+</ul>
+<p><strong>字符串计算函数</strong></p>
+<ul>
+<li>str_count:字符串计数</li>
+<li>str_length:字符串长度</li>
+<li>str_sort:字符串值排序</li>
+<li>str_order:字符串索引排序，规则同str_sort</li>
+</ul>
+<p><strong>字符串匹配函数</strong></p>
+<ul>
+<li>str_split:    字符串分割</li>
+<li>str_split_fixed: 字符串分割，同str_split</li>
+<li>str_subset: 返回匹配的字符串</li>
+<li>word:从文本中提取单词</li>
+<li>str_detect: 检查匹配字符串的字符</li>
+<li>str_match:从字符串中提取匹配组。</li>
+<li>str_match_all: 从字符串中提取匹配组，同str_match</li>
+<li>str_replace: 字符串替换</li>
+<li>str_replace_all: 字符串替换，同str_replace</li>
+<li>str_replace_na:把NA替换为NA字符串</li>
+<li>str_locate: 找到匹配的字符串的位置。</li>
+<li>str_locate_all: 找到匹配的字符串的位置,同str_locate</li>
+<li>str_extract: 从字符串中提取匹配字符</li>
+<li>str_extract_all: 从字符串中提取匹配字符，同str_extract</li>
+</ul>
+<p><strong>字符串变换函数</strong></p>
+<ul>
+<li>str_conv:字符编码转换</li>
+<li>str_to_upper: 字符串转成大写</li>
+<li>str_to_lower: 字符串转成小写,规则同str_to_upper</li>
+<li>str_to_title: 字符串转成首字母大写,规则同str_to_upper</li>
+</ul>
+<p><strong>参数控制函数</strong>，仅用于构造功能的参数，不能独立使用。</p>
+<ul>
+<li>boundary:定义使用边界</li>
+<li>coll:定义字符串标准排序规则。</li>
+<li>fixed:定义用于匹配的字符，包括正则表达式中的转义符</li>
+<li>regex:定义正则表达式</li>
+</ul>
+<p><br></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件工具/" rel="tag"># 软件工具</a>
+          
+            <a href="/tags/r/" rel="tag"># r</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/24/R_导入&导出/" rel="next" title="R_导入&导出">
+                <i class="fa fa-chevron-left"></i> R_导入&导出
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/25/R_数据处理_basic/" rel="prev" title="R_数据处理_basic">
+                R_数据处理_basic <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本文件的读写"><span class="nav-number">1.</span> <span class="nav-text">文本文件的读写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取文件目录信息"><span class="nav-number">1.1.</span> <span class="nav-text">获取文件目录信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读入"><span class="nav-number">1.2.</span> <span class="nav-text">读入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写出"><span class="nav-number">1.3.</span> <span class="nav-text">写出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串统计"><span class="nav-number">2.</span> <span class="nav-text">字符串统计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#str-length"><span class="nav-number">2.1.</span> <span class="nav-text">str_length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-count"><span class="nav-number">2.2.</span> <span class="nav-text">str_count</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串查询"><span class="nav-number">3.</span> <span class="nav-text">字符串查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#str-locate-位置"><span class="nav-number">3.1.</span> <span class="nav-text">str_locate - 位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-detect-逻辑值"><span class="nav-number">3.2.</span> <span class="nav-text">str_detect - 逻辑值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串提取"><span class="nav-number">4.</span> <span class="nav-text">字符串提取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#strsub-截取位置"><span class="nav-number">4.1.</span> <span class="nav-text">strsub - 截取位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-subset-提取"><span class="nav-number">4.2.</span> <span class="nav-text">str_subset - 提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-match-匹配"><span class="nav-number">4.3.</span> <span class="nav-text">str_match - 匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-extract-匹配-Regex"><span class="nav-number">4.4.</span> <span class="nav-text">str_extract - 匹配_Regex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#word-单词"><span class="nav-number">4.5.</span> <span class="nav-text">word - 单词</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串替换"><span class="nav-number">5.</span> <span class="nav-text">字符串替换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#str-replace"><span class="nav-number">5.1.</span> <span class="nav-text">str_replace</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串拆分"><span class="nav-number">6.</span> <span class="nav-text">字符串拆分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#str-split-amp-str-split-fixed"><span class="nav-number">6.1.</span> <span class="nav-text">str_split & str_split_fixed</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串拼接"><span class="nav-number">7.</span> <span class="nav-text">字符串拼接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#str-c-amp-str-join"><span class="nav-number">7.1.</span> <span class="nav-text">str_c & str_join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-conv-转码"><span class="nav-number">7.2.</span> <span class="nav-text">str_conv - 转码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串输出"><span class="nav-number">8.</span> <span class="nav-text">字符串输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#str-trim-空格"><span class="nav-number">8.1.</span> <span class="nav-text">str_trim - 空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-to-upper-title-大小写"><span class="nav-number">8.2.</span> <span class="nav-text">str_to_upper/title - 大小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-pad-补充长度"><span class="nav-number">8.3.</span> <span class="nav-text">str_pad - 补充长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-dup-复制"><span class="nav-number">8.4.</span> <span class="nav-text">str_dup - 复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-sort-amp-str-order-排序"><span class="nav-number">8.5.</span> <span class="nav-text">str_sort & str_order - 排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串变换"><span class="nav-number">9.</span> <span class="nav-text">字符串变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#str-warp-格式"><span class="nav-number">9.1.</span> <span class="nav-text">str_warp - 格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数控制函数"><span class="nav-number">10.</span> <span class="nav-text">参数控制函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#regex"><span class="nav-number">10.1.</span> <span class="nav-text">regex</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stringr的API介绍"><span class="nav-number">11.</span> <span class="nav-text">stringr的API介绍</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

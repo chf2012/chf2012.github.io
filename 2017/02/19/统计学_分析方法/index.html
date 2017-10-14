@@ -1,0 +1,1740 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据分析,统计学," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1. 相关性
+What：显示两个随机变量之间线性关系的强度和方向；
+Pearson相关系数
+Spearman相关系数：衡量两个有序尺度变数的相关性；
+Kendall等级相关系数：衡量两个人为认定的有序尺度变数的相关性
+Kappa一致性系数：衡量两个类别尺度变数的相关性；
+
+
+Why ：用来衡量两个变量相对于其相互独立的距离；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="统计学_分析方法">
+<meta property="og:url" content="http://yoursite.com/2017/02/19/统计学_分析方法/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="1. 相关性
+What：显示两个随机变量之间线性关系的强度和方向；
+Pearson相关系数
+Spearman相关系数：衡量两个有序尺度变数的相关性；
+Kendall等级相关系数：衡量两个人为认定的有序尺度变数的相关性
+Kappa一致性系数：衡量两个类别尺度变数的相关性；
+
+
+Why ：用来衡量两个变量相对于其相互独立的距离；">
+<meta property="og:updated_time" content="2017-06-03T03:16:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="统计学_分析方法">
+<meta name="twitter:description" content="1. 相关性
+What：显示两个随机变量之间线性关系的强度和方向；
+Pearson相关系数
+Spearman相关系数：衡量两个有序尺度变数的相关性；
+Kendall等级相关系数：衡量两个人为认定的有序尺度变数的相关性
+Kappa一致性系数：衡量两个类别尺度变数的相关性；
+
+
+Why ：用来衡量两个变量相对于其相互独立的距离；">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/19/统计学_分析方法/"/>
+
+
+
+
+
+  <title> 统计学_分析方法 | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/统计学_分析方法/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                统计学_分析方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">
+                2017-02-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2017-06-03T11:16:24+08:00">
+                2017-06-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/统计学/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/19/统计学_分析方法/" class="leancloud_visitors" data-flag-title="统计学_分析方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-相关性"><a href="#1-相关性" class="headerlink" title="1. 相关性"></a>1. 相关性</h2><ul>
+<li>What：显示两个随机变量之间<strong>线性关系</strong>的强度和方向；<ul>
+<li>Pearson相关系数</li>
+<li>Spearman相关系数：衡量两个<strong>有序尺度</strong>变数的相关性；</li>
+<li>Kendall等级相关系数：衡量两个<strong>人为认定的有序尺度</strong>变数的相关性</li>
+<li>Kappa一致性系数：衡量两个<strong>类别尺度</strong>变数的相关性；</li>
+</ul>
+</li>
+<li>Why ：用来衡量两个变量相对于其相互独立的距离；</li>
+</ul>
+<a id="more"></a>
+<h3 id="1-1-相关系数"><a href="#1-1-相关系数" class="headerlink" title="1.1 相关系数"></a>1.1 相关系数</h3><blockquote>
+<p>R - cor()</p>
+<blockquote>
+<p><code>cor(data, use=&quot;everything&quot;, method=&quot;pearson&quot;)</code>  </p>
+<p># use,表示对缺失值的处理方式，</p>
+<ul>
+<li>everything - 结果为missing</li>
+<li>all.obs - 报错</li>
+<li>complete.obs - 行删除</li>
+<li>pairwise.complete.obs - 成对删除</li>
+</ul>
+<p># method = “spearman” / “kendall”</p>
+</blockquote>
+</blockquote>
+<p><strong>组与组之间的相关系数</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x &lt;- data[, c(<span class="string">"var1"</span>,<span class="string">"var2"</span>)]</div><div class="line">y &lt;- data[, c(<span class="string">"var3"</span>,<span class="string">"var4"</span>,<span class="string">"var5"</span>)]</div><div class="line">cor(x,y)</div></pre></td></tr></table></figure>
+<h3 id="1-2-协方差"><a href="#1-2-协方差" class="headerlink" title="1.2 协方差"></a>1.2 协方差</h3><blockquote>
+<p>R - cov()</p>
+<blockquote>
+<p><code>cov(data)</code></p>
+</blockquote>
+</blockquote>
+<h3 id="1-3-偏相关"><a href="#1-3-偏相关" class="headerlink" title="1.3 偏相关"></a>1.3 偏相关</h3><ul>
+<li>What：控制一个或多个变量时，另外两个定量变量之间的相互关系</li>
+<li>Why ：控制其他变量，单独研究某两个变量之间的关系</li>
+</ul>
+<blockquote>
+<p>R - ggm包 - pcor()</p>
+<blockquote>
+<p><code>pcor(data[,c(1,5,2,3,4)], cov(states))</code></p>
+<p># u，一个数值向，前两个数值表示要研究的两个变量，其余的数值表示要排除影响的条件变量 </p>
+<p>#S 对应的协方差矩阵，同时也表明了对应的数据</p>
+<p><code>pcor(u, S)</code>  </p>
+</blockquote>
+</blockquote>
+<p><br></p>
+<h2 id="2-均值的假设检验"><a href="#2-均值的假设检验" class="headerlink" title="2. 均值的假设检验"></a>2. 均值的假设检验</h2><h3 id="2-1-t-检验"><a href="#2-1-t-检验" class="headerlink" title="2.1 t 检验"></a>2.1 t 检验</h3><ul>
+<li>What： 一种用于小样本（样本容量&lt;30）的<strong>两个平均值差异程度</strong>的检验方法；</li>
+<li>Why ： 通过 t 理论来推断差异发生的概率，从而<strong>判断两个平均数的差异是否显著（μ~1~ - μ~2~= 0）</strong>；</li>
+<li>How ： 适用条件<ul>
+<li><strong>正态分布</strong>（常用于标准差σ未知）</li>
+<li>样本独立随机</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h4 id="2-1-1-单样本-t-检验"><a href="#2-1-1-单样本-t-检验" class="headerlink" title="2.1.1 单样本 t 检验"></a>2.1.1 单样本 t 检验</h4><ul>
+<li><p><strong>Why1</strong> ： 用于比较 <strong>抽样样本所代表的未知的总体均值μ</strong> 与 <strong>已知的总体均值μ~0~ 或 指定值</strong>的差异程度；</p>
+</li>
+<li><p><strong>Why2 ：</strong> 用于计算 可能的<strong>总体均值的范围（估计置信区间）；</strong></p>
+<blockquote>
+<p>R 语言 -<code>t.test(y, [conf.levle=0.95])</code></p>
+<p>Excel - 描述统计量 - 根据（ 均值 ± 置信度 ）来确定</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-1-2-双样本-t-检验"><a href="#2-1-2-双样本-t-检验" class="headerlink" title="2.1.2 双样本 t 检验"></a>2.1.2 双样本 t 检验</h4><ul>
+<li>What ：针对两个<strong>独立</strong>的样本；</li>
+<li>Why1 ： 确定两个<strong>独立组</strong>的<strong>均值是否存在差异（μ~1~ - μ~2~= 0）</strong>；</li>
+<li>Why2 ： 计算两个总体均值之间的<strong>差值的范围</strong>；</li>
+</ul>
+<blockquote>
+<p>R - <code>t.test(x1, x2, alternative=&quot;two.side&quot;, var.euqal=F)</code>  </p>
+<blockquote>
+<p>alternative 可选 less; greater;</p>
+<p>var.equal = F 默认两方差不相等； var.equal = T ，等方差 t 检验</p>
+</blockquote>
+</blockquote>
+<h4 id="2-1-3-双样本配对-t-检验"><a href="#2-1-3-双样本配对-t-检验" class="headerlink" title="2.1.3 双样本配对 t 检验"></a>2.1.3 双样本配对 t 检验</h4><ul>
+<li>What：针对两个<strong>不独立</strong>的样本</li>
+<li>Why1 ： 确定两个<strong>配对样本之差的均值</strong>不等于0（或目标值）（μ~1~ - μ~2~= 0）；</li>
+<li>Why2 ： 计算可能包含<strong>差异总体均值</strong>的范围；</li>
+</ul>
+<blockquote>
+<p>R -</p>
+<p><code>t.test(x1, x2, alternative=&quot;&quot;, paired=T , var.equal = F)</code>  # x1, x2 为已经分组的两个数值型向量</p>
+<p><code>t.test(x~y, data= )</code>  # x为一个数值型变量，y为一个二分变量(分组变量)；即此时数据框的格式为长格式，所有的数据y在一列中</p>
+<blockquote>
+<p>paired = T ,表示配对； 默认为F</p>
+</blockquote>
+<p>Excel - t检验：平均值的成对二样本分析</p>
+</blockquote>
+<p><br></p>
+<h3 id="2-2-z-检验"><a href="#2-2-z-检验" class="headerlink" title="2.2. z 检验"></a>2.2. z 检验</h3><ul>
+<li>What： 一种用于大样本的<strong>两个平均值差异程度</strong>的检验方法；</li>
+<li>Why ： 通过 Z 理论来推断差异发生的概率，从而<strong>判断两个平均数的差异是否显著（μ~1~ - μ~2~= 0）</strong>；</li>
+<li>How ： 适用条件 - 正态分发（常用于标准差σ未知）</li>
+</ul>
+<p><br></p>
+<h2 id="3-F-检验"><a href="#3-F-检验" class="headerlink" title="3. F 检验"></a>3. F 检验</h2><ul>
+<li>What：方差齐性检验；通过比较两个数据的方差，来确定它们的精密度是否有差异性检验；</li>
+<li>Why ：检查两个样本的<strong>方差是否有显著差异</strong>；通过F检验来确定<strong>选择何种 t 检验</strong>（等方差双样本、异方差双样本）以及<strong>确定方差检验ANOVA条件中的等方差性</strong></li>
+</ul>
+<p><br></p>
+<h2 id="5-方差分析"><a href="#5-方差分析" class="headerlink" title="5. 方差分析"></a>5. 方差分析</h2><ul>
+<li>What：基于使用方差来确定<strong>均值</strong>是否存在误差的一种方式；ANOVA<ul>
+<li>通过将 <strong>组均值之间的方差（SST）</strong> 与 <strong>组内方差（SSE）</strong> 进行比较来确定这些组都是一个更大总体的一部分还是分属具有不同特征的单独总体；</li>
+<li><strong>组间因子</strong>：一个自变量，把每个观测值<strong>分配到对应的一个组别</strong>中，<strong>一个观测值只能属于一个组别</strong>；常称为<strong>单因素方差分析</strong>；<em>例如：把治疗方案分为方案1，方案2，把每个观测值随机抽取放到方案中；</em></li>
+<li><strong>组内因子</strong>：一个自变量，不对观测值进行划分，而对<strong>所有观测值重复测量</strong>不同水平下的情况；常称为<strong>重复测量方差分析或组内方差分析</strong>；<em>例如，把时间分为1个月，3个月，所有的观测值都要观察这两个时间维度下的情况；</em><ul>
+<li>SST ：<strong>组间均值</strong>之间的差异性；对每个组的均值与<strong>所有样本观测值的总体均值</strong>之间距离的平方，乘以该组内观观测值的数量，最后把所在的结果加总；Sum of Squares for Treatments;</li>
+<li>SSE ：<strong>组内均值</strong>之间的差异性；对每个响应观测值和<strong>自身所处组的均值</strong>之间距离的平方进行加总，然后对所有观测值的奖惩的平方求和；Sum of Squares for error;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Why ：检验<strong>两个或多个</strong>总体均值相等的这一假设；通过比较不同<strong>因子水平</strong>下的响应变量均值来评估一个或多个因子的重要性；<ul>
+<li><strong>因子水平</strong>：指的是不同的自变量；<ul>
+<li>例如，球杆（一个因子水平），球（一个因子水平），击球人（一个因子水平）</li>
+<li>因子水平可以有不同的取值；球杆（木球杆，铁球杆）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>How ：试验条件<ul>
+<li>样本独立随机</li>
+<li>近似<strong>正态分布</strong>（稍有偏离也并不影响F检验的结果）</li>
+<li><strong>等方差性（敏感）</strong></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方差分析类型</th>
+<th>模型和设计属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单因子</td>
+<td>一个固定因子（由调查员设置水平），每个处理可具有不等（不平衡）或相等（平衡）的观测值数。</td>
+</tr>
+<tr>
+<td>平衡</td>
+<td>模型可包含任意数量的固定和随机因子（水平是随机选择的），以及交叉和嵌套因子，但要求平衡设计。</td>
+</tr>
+<tr>
+<td>一般线性模型</td>
+<td>通过允许不平衡设计和协变量（连续变量）来扩展平衡方差分析。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="5-1-单因素方差分析"><a href="#5-1-单因素方差分析" class="headerlink" title="5.1 单因素方差分析"></a>5.1 单因素方差分析</h3><ul>
+<li>What：针对只有<strong>一个因变量</strong>的方差分析，并且观测值被分到不同的组别中的<strong>设计实验</strong>；该变量因子也称为<strong>组间因子</strong>；</li>
+</ul>
+<blockquote>
+<p>R - aov()</p>
+<blockquote>
+<p><code>fit &lt;- aov(y~x)</code>  # y为数值型因变量，x为类别型<strong>组间因子</strong>，且必须为因子格式 <code>data$var &lt;- factor(data$var)</code></p>
+<p><code>summary(fit)</code></p>
+</blockquote>
+<p>Excel - 方差分析-单因素方差分析</p>
+<blockquote>
+<p>分组方式： 行/列； 即 组间因子</p>
+<p>标志：指的是自变量</p>
+</blockquote>
+</blockquote>
+<h3 id="5-2-随机区组方差分析"><a href="#5-2-随机区组方差分析" class="headerlink" title="5.2 随机区组方差分析"></a>5.2 随机区组方差分析</h3><ul>
+<li>What：引入区组均值<ul>
+<li>区组均值：区组中的平均值</li>
+<li>SSB：每个区组均值 与 所有样本观测值的总体均值 之间的差异的平方求，再乘以每个区组内观测值的个数，最后加总； Sum of Squares for Blocks；</li>
+</ul>
+</li>
+<li>Why ：减少每个区组内试验单元的抽样变异性，降低误差值；</li>
+</ul>
+<h3 id="5-3-双因素方差分析"><a href="#5-3-双因素方差分析" class="headerlink" title="5.3 双因素方差分析"></a>5.3 双因素方差分析</h3><ul>
+<li><p>What：有两个自变量，<strong>观测值被分配到两个变量的交叉类别组</strong>中的方差分析；例如自变量A有a个水平，自变量B个b个水平，存在一个ab个可能的处理；</p>
+<ul>
+<li>主效应：判断<strong>各因素</strong>对因变量的影响；</li>
+<li>交互效应：判断<strong>因素的组合</strong>对因变量的影响；</li>
+</ul>
+</li>
+<li><p>How ： 分析</p>
+<ol>
+<li><p>若拒绝原假设，得出两个<strong>均值不同</strong>的结论；</p>
+</li>
+<li><p>查看<strong>交互效应</strong></p>
+<p>2.1 若拒绝交互效应的原假设，得出两个变量之间<strong>有交互影响</strong>；</p>
+<p>​    2.2.1 比较组间均值的配对</p>
+<p>2.2 若无法拒绝，说明两个变量之间<strong>没有交互影响</strong>；</p>
+<p>​    2.2.1 分别查看变量A 、变量B 单独对因变量的影响，</p>
+<p>​    2.2.2 使用多重比较来比较均值的配对，得出哪个变量对均值的影响大</p>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>R - aov()</p>
+<blockquote>
+<p> <code>fit &lt;- aov(y ~ x1*x2, data= )</code>   # y为因变量，x1,x2 均需为因子，故x1,x2 都被当做 组间因子来对待<code>factor(x1)</code>，而非协变量； </p>
+<p> <code>summary(fit)</code></p>
+</blockquote>
+<p>Excel - 方差分析：无重复双因素方差分析</p>
+</blockquote>
+<h3 id="5-4-双因素重复测量方差分析"><a href="#5-4-双因素重复测量方差分析" class="headerlink" title="5.4 双因素重复测量方差分析"></a>5.4 双因素重复测量方差分析</h3><ul>
+<li>What：观测值不是被分配到不同的组中，而是针对同一个自变量的多个不同水平<strong>重复测量</strong>；常为一个 <strong>组间因子</strong> + 一个<strong>组内因子</strong> 的设计试验；</li>
+</ul>
+<blockquote>
+<p>R - aov()</p>
+<blockquote>
+<p><code>fit &lt;- aov(y~x1*x2+ Error(对象列/x2), data= )</code>  </p>
+<p>#<strong>Error(Subject/x2)</strong> 表示x2为<strong>组内因子</strong>; <strong>对象列</strong>，表示用以<strong>代表重复的标记列</strong></p>
+<p><code>summary(fit)</code></p>
+</blockquote>
+<p>R处理重复测量时，需先将数据格式转为<strong>长格式</strong>；</p>
+<blockquote>
+<p>library(reshape)</p>
+<p>melt(data,id=”var1”, measure=”var2,var3”)  # id用于确定基准列，measure用于确定哪些变量组合进id列，若缺失则代表所有变量</p>
+</blockquote>
+<p>Excel - 方差分析：重复双因素方差分析</p>
+<blockquote>
+<p>每一样本的行数：表示重复测量值所在的行数（若为3，表示第4行为其他区组的观测值）</p>
+</blockquote>
+</blockquote>
+<h3 id="5-5-稳健的方差分析"><a href="#5-5-稳健的方差分析" class="headerlink" title="5.5 稳健的方差分析"></a>5.5 稳健的方差分析</h3><ul>
+<li>Why ：当方差分析的前提假设无法满足时，或者担心过多的离群点，可以用稳健或非参数的MANOVA检验</li>
+</ul>
+<blockquote>
+<p>R - </p>
+</blockquote>
+<h3 id="5-x-均值的多重比较"><a href="#5-x-均值的多重比较" class="headerlink" title="5.x 均值的多重比较"></a>5.x 均值的多重比较</h3><ul>
+<li>Why ：在发现均值不等的前提下，得出各个均值的排序大小；</li>
+</ul>
+<blockquote>
+<p>R - rrcov包 - Wilks.test()</p>
+<ul>
+<li>得出<strong>各组均值的大小</strong> - 可视化（gplots包）- plotmeans()<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt;<span class="keyword">library</span>(gplots)</div><div class="line">&gt; &gt;plotmeans(y~x)</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>&gt;</p>
+<ul>
+<li><p>得出<strong>各组均值的大小 + 两组均值差异的显著情况</strong></p>
+<p>Tukey HSD成对检验 </p>
+</li>
+<li><p>TukeyHSD()</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; &gt;TukeyHSD(fit)  <span class="comment"># 观察p值，若p&lt;0.05，说明这两个组均值之间存在差异</span></div><div class="line">&gt; &gt;par(las=<span class="number">2</span>)  <span class="comment"># 横纵坐标轴转换</span></div><div class="line">&gt; &gt;par(mar=c(<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>))  <span class="comment"># 增加左侧的边界</span></div><div class="line">&gt; &gt;plot(TukeyHSD(fit))  <span class="comment"># 可视化</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>&gt;<br>&gt;</p>
+<blockquote>
+<ul>
+<li>可视化(multcomp包)</li>
+</ul>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; <span class="keyword">library</span>(multcomp)</div><div class="line">&gt; &gt; par(mar=c(<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">2</span>))  <span class="comment"># 默认为(5,4,4,2) 增大顶部边界面具</span></div><div class="line">&gt; &gt; tuk &lt;- glht(fit, linfct = mcp(trt=<span class="string">'Tukey'</span>))  <span class="comment"># trt，组间因子</span></div><div class="line">&gt; &gt; plot(cld(tuk, level=<span class="number">0.05</span>), col=<span class="string">"lightgrey"</span>)</div><div class="line">&gt; &gt;</div><div class="line">&gt; &gt; <span class="comment"># 图形解读：</span></div><div class="line">&gt; &gt; <span class="number">2.</span> 各均值大小的分布图</div><div class="line">&gt; &gt; <span class="number">2.</span> 有相同的字母，说明均值差异不显著</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+</blockquote>
+<p><br></p>
+<h2 id="6-确定统计量"><a href="#6-确定统计量" class="headerlink" title="6. 确定统计量"></a>6. 确定统计量</h2><p><br></p>
+<h2 id="7-回归分析"><a href="#7-回归分析" class="headerlink" title="7. 回归分析"></a>7. 回归分析</h2><p> <strong>Regression Analysis</strong></p>
+<ul>
+<li>What：一个建立自变量与因变量之间的<strong>关系模型</strong>；一个或多个自变量来<strong>预测因变量</strong>的方法；</li>
+<li>Why ：<ul>
+<li><strong>描述两者相关性</strong>，它们相关的强度与方向；</li>
+<li><strong>挑选与因变量相关的自变量</strong></li>
+<li>生成一个等式，<strong>用来预测因变量</strong></li>
+</ul>
+</li>
+<li>How ：一般形式为 y = f(x,ε)，结果解释<ul>
+<li>Intercept：截距</li>
+<li>Estimate/Cofficients：系数</li>
+<li>St.Error标准误：抽样分布的标准误差，说明抽样的离散情况；</li>
+<li><strong>p值：</strong>回归分析会进行统计检验以针对每个自变量的关联系数计算出一个称为 p 的概率值；零假设为：系数与零之间无显著差异（在所有情况下，该系数均<strong>为</strong>零，因此，关联的解释变量对于模型不起任何作用）</li>
+<li><strong>决定系数$R^2$或 Adj $R^2$</strong>：给出了模型对于<strong>原数据的解释程度</strong>；越接近1，说明模型拟合越好；<ul>
+<li>Adj $R^2$，调整的多元判定系数，不会因为变量数目的增加而趋向于1；在多元分析中，若使用$R^2$必须确保样本变量数量 &gt; 模型参数个数；并且$R^2$会随着模型个数的增加而增加，也就是说即使模型对预测y不能提供任何作用，也能迫使$R^2$增加到1；</li>
+</ul>
+</li>
+<li><strong>Residual残差</strong>：表示模型<strong>无法解释的部分</strong>（指的是实际值与模型预测值的差），表示为随机误差项；可以用于确定模型的拟合程度；残差越小，说明拟合越好；</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">回归方程</th>
+<th>自变量</th>
+<th style="text-align:center">因变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">简单线性回归</td>
+<td>一个（定量）</td>
+<td style="text-align:center">一个（定量）</td>
+</tr>
+<tr>
+<td style="text-align:left">多项式回归</td>
+<td>一个（定量），n阶</td>
+<td style="text-align:center">一个（定量）</td>
+</tr>
+<tr>
+<td style="text-align:left">多元线性回归</td>
+<td>两个及以上（定量）</td>
+<td style="text-align:center">一个（定量）</td>
+</tr>
+<tr>
+<td style="text-align:left">Logistic回归</td>
+<td>一个或多个</td>
+<td style="text-align:center">一个（二值型类别）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="7-1-简单线性回归"><a href="#7-1-简单线性回归" class="headerlink" title="7.1 简单线性回归"></a>7.1 简单线性回归</h3><ul>
+<li><p>What：<strong>一个量化</strong>的自变量预测<strong>一个量化</strong>的因变量；</p>
+</li>
+<li><p>Why ：判断两个变量之间相关的强度和方向；</p>
+<p>​</p>
+</li>
+</ul>
+<blockquote>
+<p>R - lm()</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; fit &lt;- lm(y~x, data=)  <span class="comment"># formula y ~ x1+x2+...x4</span></div><div class="line">&gt; &gt; summary(fit)  </div><div class="line">&gt; &gt; fitted(fit)  <span class="comment"># fitted() 返回拟合模型的预测值</span></div><div class="line">&gt; &gt; residuals(fit)  <span class="comment"># 返回残差值（即 实际值 - 模型预测值）</span></div><div class="line">&gt; &gt; plot(data$x, data$y)</div><div class="line">&gt; &gt; abline(fit)  <span class="comment"># 模型可视化</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<p>Excel - 回归</p>
+</blockquote>
+<h3 id="7-2-多项式回归"><a href="#7-2-多项式回归" class="headerlink" title="7.2 多项式回归"></a>7.2 多项式回归</h3><ul>
+<li>What：一个量化的自变量解释一个量化的因变量，模块的观察是<strong>n阶多项式</strong></li>
+</ul>
+<blockquote>
+<p>R - lm()</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; fit &lt;- lm(y ~ x + I(x^<span class="number">2</span>), data= )  <span class="comment"># I()，表示以算术的角度来解释括号中的元素</span></div><div class="line">&gt; summary(fit)  <span class="comment"># 查看是否有不显著的变量(p&gt;0.05)</span></div><div class="line">&gt; plot(data$x, data$y)  </div><div class="line">&gt; lines(x, fitted(fit))  <span class="comment"># fitted() 返回拟合模型的预测值</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="7-3-多元线性回归"><a href="#7-3-多元线性回归" class="headerlink" title="7.3 多元线性回归"></a>7.3 多元线性回归</h3><ul>
+<li>What：<strong>两个或多个量化</strong>的自变量预测<strong>一个量化</strong>的因变量；当自变量个数大于等于2个；</li>
+<li>How ：结果解释<ul>
+<li>回归系数的含义为：当一个自变量增加一个单位，<strong>其他自变量保持不变时</strong>，因变量增加的数量；</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>R - lm()</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; fit &lt;- lm(y ~ x1 +x2 + x3 + <span class="keyword">...</span>, data= )</div><div class="line">&gt; &gt; summary(fit)</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h3 id="7-4-有交互项的多元线性回归"><a href="#7-4-有交互项的多元线性回归" class="headerlink" title="7.4 有交互项的多元线性回归"></a>7.4 有交互项的多元线性回归</h3><h3 id="7-5-Logistic回归"><a href="#7-5-Logistic回归" class="headerlink" title="7.5 Logistic回归"></a>7.5 Logistic回归</h3><ul>
+<li>What：<strong>一个或多个</strong>自变量来预测<strong>一个二值型类别</strong>因变量；</li>
+</ul>
+<blockquote>
+<p>R - glm()</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; data$var &lt;- with(data,&#123;ifelse(var &gt; n, <span class="number">1</span>,<span class="number">0</span>)&#125;)  <span class="comment"># 赋值二分法</span></div><div class="line">&gt; &gt; data$var &lt;- factor(data$var)  <span class="comment">#　因子化</span></div><div class="line">&gt; &gt; fit &lt;- glm(y ~ ., family=binomial, data= )  <span class="comment"># ~. 表示除因变量之外的所有变量； bionmial，表示逻辑回归</span></div><div class="line">&gt; &gt; summary(fit)  <span class="comment"># 查看是否有不显著的变量(p&gt;0.05)</span></div><div class="line">&gt; &gt; fit.reduced &lt;- setp(fit)  <span class="comment"># 采用逐步逻辑回归生成一个包含更少自变量的模型；目的是通过增加或移除变量来得到一个更新的AIC值</span></div><div class="line">&gt; &gt; coef(fit.reduced)  <span class="comment"># 查看回归系数，含义是当其他自变量不变时，一单位自变量的变化引起的因变量的对数优势比的变量</span></div><div class="line">&gt; &gt; exp(coef(fit.reduced))  <span class="comment"># 将回归系数指数化，自变量增加n个单位，变为引起因变量的指数比的变化为 x^n ； 若n=1，则直接乘以x</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h2 id="9-多种条件假设检验"><a href="#9-多种条件假设检验" class="headerlink" title="9. 多种条件假设检验"></a>9. 多种条件假设检验</h2><h3 id="9-1-独立性检验"><a href="#9-1-独立性检验" class="headerlink" title="9.1 独立性检验"></a>9.1 独立性检验</h3><ul>
+<li>常规情况下可通过<strong>经验</strong>来判断各个变量是否独立；<em>例如，我们没有理由去相信，一位女性的体重会影响我们选取的下一位女性的体重；</em></li>
+</ul>
+<p><strong>Durbin-Watson检验</strong></p>
+<ul>
+<li>What：通过确定<strong>两个相邻误差项的相关性</strong>是否为<strong>零</strong>，来检验<strong>回归残差</strong>是否存在<strong>自相关</strong>；</li>
+<li>Why ：可以检测误差的序列相关性；</li>
+<li>How ：该检验适用于时间独立的数据<ul>
+<li>滞后项（lag=1），表示数据集中的每个数据都是与后一个数据进行比较的</li>
+<li>p值，<strong>若p值&gt;0.05</strong>，说明不拒绝假设；即说明两者之间相关性为0，即<strong>独立</strong>；</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>R - durbinWatsonTest - car包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; durbinWatsonTest(fit)</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="9-2-正态性检验"><a href="#9-2-正态性检验" class="headerlink" title="9.2 正态性检验"></a>9.2 正态性检验</h3><ul>
+<li>What：当自变量固定时，因变量呈正态分布；所以，<strong>残差值也应该是一个均值为0的正态分布</strong>；<ul>
+<li>正态Q-Q图：在正态分布对应的值下，显示<strong>标准化残差的概率图</strong>；</li>
+<li>样本分位数(Sample Quantiles)-纵轴；理论分位数(Theoretical Quantiles)-横轴</li>
+</ul>
+</li>
+<li>How ：若满足正态性假设，标准化残差的<strong>概率点应该落在呈45度角的直线上</strong>；</li>
+</ul>
+<blockquote>
+<p>R - <strong>plot()</strong></p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; plot(fit)   <span class="comment"># 观察正态Q-Q图</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<hr>
+<p>R - <strong>qqPlot() - car包</strong></p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; qqPlot(fit, labels=row.names(states), id.method=<span class="string">"identify"</span>, simulate=<span class="literal">T</span>, main=<span class="string">"Q-Q plot"</span>)</div><div class="line">&gt; &gt; <span class="comment"># id.method="identify"，表示能够交互式绘图</span></div><div class="line">&gt; &gt; <span class="comment"># simulate=T, 表示95%的置信区间用参数自助法生成</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>#  纵坐标为学生化残差值； rstudent(fit)[“Nevada”]   # 特定行的学生化残差值</p>
+</blockquote>
+</blockquote>
+<h3 id="9-3-方差齐性检验"><a href="#9-3-方差齐性检验" class="headerlink" title="9.3 方差齐性检验"></a>9.3 方差齐性检验</h3><blockquote>
+<p><strong>R - bartlett.test()</strong></p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &gt;bartlett.test(y ~ x , data= )  <span class="comment"># 若p&lt;0.05，说明变量方差之间有差异，不满足方差齐性；</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<p><strong>R - plot()</strong></p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; plot(fit)  <span class="comment"># 观察位置尺度图（预测值vs√标准化残差 图）</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>若<strong>水平线周围的点是随机分布</strong>的，则说明方差相等；</p>
+</blockquote>
+<p><strong>R - nevTest() - car包</strong></p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; nevTest(fit)  </div><div class="line">&gt; &gt; spreadLevelPlot(fit)</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>观察p值，若<strong>p&gt;0.05</strong>，说明接受原假设，即方差是相等的；</p>
+<p>观察图形，若点在水平的最佳拟合曲线周围<strong>呈水平随机分布</strong>，说明方差是相等的；</p>
+</blockquote>
+</blockquote>
+<h3 id="9-4-线性检验"><a href="#9-4-线性检验" class="headerlink" title="9.4 线性检验"></a>9.4 线性检验</h3><blockquote>
+<p><strong>R - plot()</strong></p>
+<blockquote>
+<p><code>plot(fit)</code>  # 观察 预测值vs残差图；</p>
+<p>若两者之间<strong>没有任何关联</strong>，则说明是自变量与因变量是<strong>线性的</strong>；</p>
+<p><em>因当自变量与因变量线性相关，则残差值（实际值-模型预测值）与模型预测的值就没有任何关系；</em></p>
+</blockquote>
+<hr>
+<p><strong>R - crPlots() - car包</strong></p>
+<blockquote>
+<p><code>crPlots(fit)</code>  # 得出成分残差图；</p>
+<p>若<strong>两条线很接近</strong>，说明数据是<strong>线性</strong>的；</p>
+</blockquote>
+</blockquote>
+<h3 id="9-1-9-4-线性模型的综合检验"><a href="#9-1-9-4-线性模型的综合检验" class="headerlink" title="9.1-9.4 线性模型的综合检验"></a>9.1-9.4 线性模型的综合检验</h3><blockquote>
+<p>R - gvlma() - gvlma包</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; gvlma(fit)</div><div class="line">&gt; &gt; summary(gvlma(fit))</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>观察p值，若p&gt;0.05，说明是满足假设的；</p>
+<p>Skewness偏度：对应正态性</p>
+<p>Kurtosis峰态：</p>
+<p>Link Function线性；</p>
+<p>Heteroscedasticity异方差性；</p>
+</blockquote>
+</blockquote>
+<h3 id="9-5-异常值"><a href="#9-5-异常值" class="headerlink" title="9.5 异常值"></a>9.5 异常值</h3><h4 id="9-5-1-离群点"><a href="#9-5-1-离群点" class="headerlink" title="9.5.1 离群点"></a>9.5.1 离群点</h4><ul>
+<li>What：地域预测模型效果不佳的点，它们通常有很大的正或负的残差；</li>
+<li>Why ：<strong>正的残差</strong>（观测值-预测值）说明模型<strong>低估</strong>了因变量； </li>
+<li>How1：一种简单的判别方法是，<strong>标准化残差值大于2或小于-2</strong>的点可能是离群点。</li>
+<li>How2：Q-Q图中落在置信区间带外部的点；</li>
+</ul>
+<blockquote>
+<p><strong>R - outlierTest() - car包</strong></p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt;outlierTest(fit)  <span class="comment"># fit为拟合后的对象 </span></div><div class="line">&gt; &gt;<span class="comment"># 若p&lt;0.05，说明有离群点；当p&gt;1时，将产生NA；</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+<p>该函数只判断<strong>单个</strong>最大（正或负）残差值的显著性来判断是否有离群点；</p>
+<p>若不显著，说明没有离群点；</p>
+<p><strong>若显著，必须要删除离群点</strong>，然后再检验是否有离群点；</p>
+</blockquote>
+</blockquote>
+<h4 id="9-5-2-高杠杆值点"><a href="#9-5-2-高杠杆值点" class="headerlink" title="9.5.2 高杠杆值点"></a>9.5.2 高杠杆值点</h4><ul>
+<li>What：与其他<strong>自变量有关</strong>的离群点；它们是有许多异常的预测变量值组合起来的，但是与因变量没有关系；</li>
+<li>How ：可以通过<strong>帽子统计量（hat statistic）</strong>来判断；</li>
+</ul>
+<h4 id="9-5-3-强影响点"><a href="#9-5-3-强影响点" class="headerlink" title="9.5.3 强影响点"></a>9.5.3 强影响点</h4><ul>
+<li>What：对模型参数估计值影响比较大的的点；例如，若移除一个观测点，会对模型产生很大的影响；</li>
+<li>How1：Cook距离/D统计量；</li>
+<li>How2：变量添加图</li>
+</ul>
+<h3 id="9-6-相关性检验"><a href="#9-6-相关性检验" class="headerlink" title="9.6 相关性检验"></a>9.6 相关性检验</h3><ul>
+<li>Why ：得出相关系数后，对其进行<strong>显著性检验</strong>，H~0~ ：变量间不相关，相关系数=0</li>
+</ul>
+<ul>
+<li>两变量</li>
+</ul>
+<p><code>cor(x,y, alternative=&quot;two.side&quot;, method=&quot;pearson&quot;)</code>  </p>
+<p># less/greater; pearson/spearman/kenall; 每一次只能检验一种相关系数</p>
+<ul>
+<li>多变量两两检验</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(psych)  <span class="comment"># 加载psych包</span></div><div class="line">corr.test(table, use=<span class="string">""</span>, method=<span class="string">""</span>) </div><div class="line"><span class="comment"># use="complete","pairwise"  针对缺失值的处理，行删除/成对删除</span></div></pre></td></tr></table></figure>
+<ul>
+<li>偏相关检验 </li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(ggm)  <span class="comment">#加载ggm包</span></div><div class="line">pcor.test(r, q_num, n_num)</div><div class="line"><span class="comment"># r，pcor得到的相关系数； q_num，要控制的变量数（以数值表示位置）； n，样本大小；</span></div></pre></td></tr></table></figure>
+<h2 id="10-多种模型评判"><a href="#10-多种模型评判" class="headerlink" title="10. 多种模型评判"></a>10. 多种模型评判</h2><h3 id="10-1-多重共线性"><a href="#10-1-多重共线性" class="headerlink" title="10.1 多重共线性"></a>10.1 多重共线性</h3><ul>
+<li><p>What：自变量之间存在一定的相关性；</p>
+</li>
+<li><p>Why ：会导致模型参数的置信区间过大，使单个系数解释起来困难；</p>
+</li>
+<li><p>How ：用方差膨胀因子VIF(Variance Inflation Factor)进行检测；$\sqrt {VIF}$ 表示变量回归参数的置信区间能膨胀为与模型无关的预测变量的程度。</p>
+<p>​</p>
+</li>
+</ul>
+<blockquote>
+<p>R - vif() - car包</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; vif(fit)</div><div class="line">&gt; &gt; sqrt(vif(fit))</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>若$\sqrt {vif}$ &gt; 2，表明存在多重共线性问题；</strong></p>
+</blockquote>
+<h2 id="12-时间序列"><a href="#12-时间序列" class="headerlink" title="12. 时间序列"></a>12. 时间序列</h2><ul>
+<li>What：数据随着时间的变化<strong>反复测量</strong>变量值；</li>
+<li>Why ：1.对数据的描述（这段时间发生了什么？）；2.对数据的预测（接下来会发生什么？）</li>
+</ul>
+<p><strong>生成时序对象</strong></p>
+<blockquote>
+<p>R - ts()</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; tsales &lt;- ts(scale, start=c(<span class="number">2003</span>,<span class="number">1</span>), frequency=<span class="number">12</span>)  <span class="comment"># 生成时序对象</span></div><div class="line">&gt; &gt; tsales</div><div class="line">&gt; &gt; plot(tsales)</div><div class="line">&gt; &gt; start(tsales)/ end(tsales) / frequency(tsalse)  <span class="comment"># 可通过这三个函数查看性质</span></div><div class="line">&gt; &gt; tsales.subset &lt;- window(tsales, start=c(<span class="number">2003</span>,<span class="number">5</span>), end=c(<span class="number">2004</span>,<span class="number">6</span>))  <span class="comment"># 取子集</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><code>ts(data, start=, end=, frequency= )</code>  </p>
+<p># start/end=可以是一个数值a，或一个含两个整数的向量c(a,b)</p>
+<p># frequency= 1-数据对应年度数据；4-数据对应季度数据；12-数据对应月度数据；</p>
+</blockquote>
+</blockquote>
+<h3 id="12-1-简单移动平均"><a href="#12-1-简单移动平均" class="headerlink" title="12.1 简单移动平均"></a>12.1 简单移动平均</h3><ul>
+<li>Why ：对数据进行平滑处理，移除那些波动，从而<strong>探究总体趋势</strong>；</li>
+</ul>
+<p><strong>居中移动平均</strong></p>
+<ul>
+<li>What：每个数据用<strong>这一点</strong>和其<strong>前后两个点</strong>的<strong>平均值</strong>来表示；它的代价是会损失最后(k-1)/2个观测值；</li>
+</ul>
+<p>$$S<em>t = (Y</em>{t-q}+…+Y<em>t+Y</em>{t+q})/(2q+1)$$</p>
+<p>$S_t$是时间点t的平滑值； k=2q+1，每次用来平均的观测值的个数，一般设置一个奇数；</p>
+<blockquote>
+<p>R - ma() - forecast包</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; opar &lt;- par(no.readonly=<span class="literal">T</span>)</div><div class="line">&gt; &gt; par(mfrow=c(<span class="number">2</span>,<span class="number">2</span>))</div><div class="line">&gt; &gt; ylim &lt;- c(min(Nile), max(Nile))</div><div class="line">&gt; &gt; plot(Nile)</div><div class="line">&gt; &gt; plot(ma(Nile, <span class="number">3</span>))</div><div class="line">&gt; &gt; plot(ma(Nile, <span class="number">7</span>))</div><div class="line">&gt; &gt; plot(ma(Nile, <span class="number">15</span>))</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><code>ma(data, k)</code></p>
+</blockquote>
+<p>随着k的增加，图像会越来越平滑；我们需要尝试多个k值，再决定一个最好的k值；</p>
+</blockquote>
+<h3 id="12-2-季节性分解"><a href="#12-2-季节性分解" class="headerlink" title="12.2 季节性分解"></a>12.2 季节性分解</h3><ul>
+<li>What：对于间隔大于1的时序数据（季度数据、月度数据），会存在季节性情况；可以被分解为<strong>趋势因子、季节性因子、随机因子</strong>；<ul>
+<li>趋势因子（Tread Component）：能捕捉到长期变化</li>
+<li>季节性因子（Seasonal Component）：捕捉到一年内的周期性变化</li>
+<li>随机误差因子（irregular/error Component）：捕捉那些不能被趋势和季节性效应解释的变化；</li>
+</ul>
+</li>
+<li>Why ：观察数据的<strong>季节性波动</strong> + <strong>总体趋势</strong>；</li>
+<li>How ：通过相加 或 相乘 来分解数据<ul>
+<li>相加模型：$Y_t = Trend + Seasonal + Irregular$</li>
+<li>相乘模型：$Y_t = Trend $ $\times$ $Seasonal $ $\times$ $Irregular$ ;相乘模型<strong>以比例</strong>的形式来呈现，很多时候效果更好；</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>R - stl()</p>
+<blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; stl()</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+</blockquote>
+</blockquote>
+<h3 id="12-3-指数预测模型"><a href="#12-3-指数预测模型" class="headerlink" title="12.3 指数预测模型"></a>12.3 指数预测模型</h3><h4 id="12-3-1-单指数平滑"><a href="#12-3-1-单指数平滑" class="headerlink" title="12.3.1 单指数平滑"></a>12.3.1 单指数平滑</h4><ul>
+<li>What：根据现有的<strong>时序值的加权平均</strong>对未来值做短期预测；权数选择的标准是<strong>使得距离现在越远的观测值对现在的影响越小</strong>；<ul>
+<li>阻尼<strong>$\alpha$</strong>：<strong>控制权数下降的速度</strong>；$\alpha$<strong>越接近1</strong>，表明<strong>近期观测值的权重越大</strong>；</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+            <a href="/tags/统计学/" rel="tag"># 统计学</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/19/统计学_基本概念/" rel="next" title="统计学_基本概念">
+                <i class="fa fa-chevron-left"></i> 统计学_基本概念
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/19/MySQL_基本语法/" rel="prev" title="MySQL梳理_基本语法">
+                MySQL梳理_基本语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-相关性"><span class="nav-number">1.</span> <span class="nav-text">1. 相关性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-相关系数"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 相关系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-协方差"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 协方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-偏相关"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 偏相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-均值的假设检验"><span class="nav-number">2.</span> <span class="nav-text">2. 均值的假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-t-检验"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 t 检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-单样本-t-检验"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1 单样本 t 检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-双样本-t-检验"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2 双样本 t 检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-双样本配对-t-检验"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3 双样本配对 t 检验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-z-检验"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. z 检验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-F-检验"><span class="nav-number">3.</span> <span class="nav-text">3. F 检验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-方差分析"><span class="nav-number">4.</span> <span class="nav-text">5. 方差分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-单因素方差分析"><span class="nav-number">4.1.</span> <span class="nav-text">5.1 单因素方差分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-随机区组方差分析"><span class="nav-number">4.2.</span> <span class="nav-text">5.2 随机区组方差分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-双因素方差分析"><span class="nav-number">4.3.</span> <span class="nav-text">5.3 双因素方差分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-双因素重复测量方差分析"><span class="nav-number">4.4.</span> <span class="nav-text">5.4 双因素重复测量方差分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-稳健的方差分析"><span class="nav-number">4.5.</span> <span class="nav-text">5.5 稳健的方差分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-x-均值的多重比较"><span class="nav-number">4.6.</span> <span class="nav-text">5.x 均值的多重比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-确定统计量"><span class="nav-number">5.</span> <span class="nav-text">6. 确定统计量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-回归分析"><span class="nav-number">6.</span> <span class="nav-text">7. 回归分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-简单线性回归"><span class="nav-number">6.1.</span> <span class="nav-text">7.1 简单线性回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-多项式回归"><span class="nav-number">6.2.</span> <span class="nav-text">7.2 多项式回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-多元线性回归"><span class="nav-number">6.3.</span> <span class="nav-text">7.3 多元线性回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-有交互项的多元线性回归"><span class="nav-number">6.4.</span> <span class="nav-text">7.4 有交互项的多元线性回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-Logistic回归"><span class="nav-number">6.5.</span> <span class="nav-text">7.5 Logistic回归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-多种条件假设检验"><span class="nav-number">7.</span> <span class="nav-text">9. 多种条件假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-独立性检验"><span class="nav-number">7.1.</span> <span class="nav-text">9.1 独立性检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-正态性检验"><span class="nav-number">7.2.</span> <span class="nav-text">9.2 正态性检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-方差齐性检验"><span class="nav-number">7.3.</span> <span class="nav-text">9.3 方差齐性检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-线性检验"><span class="nav-number">7.4.</span> <span class="nav-text">9.4 线性检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-9-4-线性模型的综合检验"><span class="nav-number">7.5.</span> <span class="nav-text">9.1-9.4 线性模型的综合检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-5-异常值"><span class="nav-number">7.6.</span> <span class="nav-text">9.5 异常值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-1-离群点"><span class="nav-number">7.6.1.</span> <span class="nav-text">9.5.1 离群点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-2-高杠杆值点"><span class="nav-number">7.6.2.</span> <span class="nav-text">9.5.2 高杠杆值点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-5-3-强影响点"><span class="nav-number">7.6.3.</span> <span class="nav-text">9.5.3 强影响点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-6-相关性检验"><span class="nav-number">7.7.</span> <span class="nav-text">9.6 相关性检验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-多种模型评判"><span class="nav-number">8.</span> <span class="nav-text">10. 多种模型评判</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-多重共线性"><span class="nav-number">8.1.</span> <span class="nav-text">10.1 多重共线性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-时间序列"><span class="nav-number">9.</span> <span class="nav-text">12. 时间序列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#12-1-简单移动平均"><span class="nav-number">9.1.</span> <span class="nav-text">12.1 简单移动平均</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-2-季节性分解"><span class="nav-number">9.2.</span> <span class="nav-text">12.2 季节性分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-3-指数预测模型"><span class="nav-number">9.3.</span> <span class="nav-text">12.3 指数预测模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-3-1-单指数平滑"><span class="nav-number">9.3.1.</span> <span class="nav-text">12.3.1 单指数平滑</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

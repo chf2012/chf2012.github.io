@@ -1,0 +1,1806 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件应用,r," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="dplyr：轻松地处理data.frame, data.table以及多种数据库为基础的数据，实现选择、变换、分组等
+plry：轻松地在vector, list, data.frame之间做分组变换，实现拆分、变换、合并的操作
+reshpae2：横向、纵向做数据变换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R_数据处理_dplyr&reshape2&tidyr">
+<meta property="og:url" content="http://yoursite.com/2017/07/24/R_数据处理_dplyr&reshape2/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="dplyr：轻松地处理data.frame, data.table以及多种数据库为基础的数据，实现选择、变换、分组等
+plry：轻松地在vector, list, data.frame之间做分组变换，实现拆分、变换、合并的操作
+reshpae2：横向、纵向做数据变换">
+<meta property="og:updated_time" content="2017-07-30T08:39:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R_数据处理_dplyr&reshape2&tidyr">
+<meta name="twitter:description" content="dplyr：轻松地处理data.frame, data.table以及多种数据库为基础的数据，实现选择、变换、分组等
+plry：轻松地在vector, list, data.frame之间做分组变换，实现拆分、变换、合并的操作
+reshpae2：横向、纵向做数据变换">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/24/R_数据处理_dplyr&reshape2/"/>
+
+
+
+
+
+  <title> R_数据处理_dplyr&reshape2&tidyr | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/R_数据处理_dplyr&reshape2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                R_数据处理_dplyr&reshape2&tidyr
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T00:00:00+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2017-07-30T16:39:08+08:00">
+                2017-07-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/r/" itemprop="url" rel="index">
+                    <span itemprop="name">r</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/24/R_数据处理_dplyr&reshape2/" class="leancloud_visitors" data-flag-title="R_数据处理_dplyr&reshape2&tidyr">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>dplyr：轻松地处理data.frame, data.table以及多种数据库为基础的数据，实现选择、变换、分组等</li>
+<li>plry：轻松地在vector, list, data.frame之间做分组变换，实现<strong>拆分、变换、合并</strong>的操作</li>
+<li>reshpae2：横向、纵向做数据变换</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>非特别标注，默认为dplyr包</p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li><p><strong>tbl_df(iris)</strong> ：数据类型转化</p>
+<blockquote>
+<p>将数据转化为tbl类型，更易于查看</p>
+</blockquote>
+</li>
+<li><p><strong>glimpse(iris)</strong>：tbl数据的信息密集概括</p>
+</li>
+<li><p><strong>View(iris)</strong>：以电子表格的样式显示数据集</p>
+</li>
+<li><p><strong>%&gt;%</strong> ：管道函数，将左边对象的第一个参数传递到右边的函数中</p>
+</li>
+<li><p><strong>summary()</strong>：数据统计摘要；区别对待不同类型的数据变量- <strong>(1)数值型：相关极值等信息；(2)名义型/有序型：显示的是各水平的频数值</strong></p>
+</li>
+</ul>
+<p><br></p>
+<h2 id="重组数据"><a href="#重组数据" class="headerlink" title="重组数据"></a>重组数据</h2><blockquote>
+<p><strong>改变数据集的布局</strong></p>
+</blockquote>
+<h3 id="布局转换-reshpae2-（数据透视）"><a href="#布局转换-reshpae2-（数据透视）" class="headerlink" title="布局转换 - reshpae2 （数据透视）"></a>布局转换 - reshpae2 （数据透视）</h3><ul>
+<li><strong>melt(data, id.vars, measure.vars, factorsAsStrings = TRUE)</strong>：以id.vars为基准，转为<strong>长格式</strong>形式<ul>
+<li><strong>melt(data, id=c(“”), measure=c(“”) )</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>id=c(“”,””) 或 id.vars=c()  以该变量为 [基准] 进行重构；<strong>其他的列均摞起来</strong></p>
+<p>measure=c(“”)  或 measure.vars=c()  ：组合进id列的变量；若measure缺失，表示所有字段</p>
+<p>varaiable.name ，表示将 各个变量的列名 放在这个列下面；</p>
+<p>value.name，表示对应观测值的具体数值</p>
+<p>na.rm = FALSE,</p>
+<p>factorsAsStrings = TRUE,将因子转化为字符串</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">names(airquality) &lt;- tolower(names(airquality))</div><div class="line">View(airquality)</div><div class="line">airquality_1 &lt;- head(airquality,<span class="number">3</span>)</div><div class="line">aqm &lt;- melt(airquality_1, id=c(<span class="string">"month"</span>,<span class="string">"day"</span>))  <span class="comment"># 以该变量为 [基准] 进行重构；其他的列均 [摞起来]</span></div><div class="line"></div><div class="line">&gt; melt(airquality_1, id=c(<span class="string">"month"</span>,<span class="string">"day"</span>))  <span class="comment"># measure缺失时，默认选择所有的列</span></div><div class="line">   month day variable value</div><div class="line"><span class="number">1</span>      <span class="number">5</span>   <span class="number">1</span>    ozone  <span class="number">41.0</span></div><div class="line"><span class="number">2</span>      <span class="number">5</span>   <span class="number">2</span>    ozone  <span class="number">36.0</span></div><div class="line"><span class="number">3</span>      <span class="number">5</span>   <span class="number">3</span>    ozone  <span class="number">12.0</span></div><div class="line"><span class="number">4</span>      <span class="number">5</span>   <span class="number">1</span>  solar.r <span class="number">190.0</span></div><div class="line"><span class="number">5</span>      <span class="number">5</span>   <span class="number">2</span>  solar.r <span class="number">118.0</span></div><div class="line"><span class="number">6</span>      <span class="number">5</span>   <span class="number">3</span>  solar.r <span class="number">149.0</span></div><div class="line"><span class="number">7</span>      <span class="number">5</span>   <span class="number">1</span>     wind   <span class="number">7.4</span></div><div class="line"><span class="number">8</span>      <span class="number">5</span>   <span class="number">2</span>     wind   <span class="number">8.0</span></div><div class="line"><span class="number">9</span>      <span class="number">5</span>   <span class="number">3</span>     wind  <span class="number">12.6</span></div><div class="line"><span class="number">10</span>     <span class="number">5</span>   <span class="number">1</span>     temp  <span class="number">67.0</span></div><div class="line"><span class="number">11</span>     <span class="number">5</span>   <span class="number">2</span>     temp  <span class="number">72.0</span></div><div class="line"><span class="number">12</span>     <span class="number">5</span>   <span class="number">3</span>     temp  <span class="number">74.0</span></div><div class="line"></div><div class="line">&gt; melt(airquality_1, id.vars =c(<span class="string">"month"</span>,<span class="string">"day"</span>), measure=c(<span class="string">"wind"</span>,<span class="string">"temp"</span>))</div><div class="line">  month day variable value</div><div class="line"><span class="number">1</span>     <span class="number">5</span>   <span class="number">1</span>     wind   <span class="number">7.4</span></div><div class="line"><span class="number">2</span>     <span class="number">5</span>   <span class="number">2</span>     wind   <span class="number">8.0</span></div><div class="line"><span class="number">3</span>     <span class="number">5</span>   <span class="number">3</span>     wind  <span class="number">12.6</span></div><div class="line"><span class="number">4</span>     <span class="number">5</span>   <span class="number">1</span>     temp  <span class="number">67.0</span></div><div class="line"><span class="number">5</span>     <span class="number">5</span>   <span class="number">2</span>     temp  <span class="number">72.0</span></div><div class="line"><span class="number">6</span>     <span class="number">5</span>   <span class="number">3</span>     temp  <span class="number">74.0</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>dcast(data, formula, fun.aggregate = NULL)</strong>：以formula中的rowvar为基准列，重铸为<strong>宽格式</strong> [excel统计表单的格式]；<strong>若加上FUN，则为 [数据透视表] 的格式</strong><ul>
+<li><strong>dcast(data, ID~variable, mean)</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong><u>dcast的功能相当于 group_by + summarise 的功能</u></strong></p>
+<p>formula , rowvar1+rowvar2 ~ colvar1+colvar2的格式；</p>
+<ul>
+<li>rowvar ：以此为基准的id列；</li>
+<li>colvar ：需要重构的变量列；将该变量中的元素 <strong>[分类] 映射到 [列]</strong> 上去<ul>
+<li>运行后的结果：出现的变量，原本为<strong>变量的列名</strong>，融合后是不参与计算的；<strong>参与的是对应的value列</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>若整个formula表达是中，均没有出现 variable列，默认即对其他所有的列默认做 [统计计数length] </strong></p>
+<p>除非指定具体的FUN函数</p>
+</blockquote>
+<p>fun.aggregate（聚合函数）：直接列出聚合函数的名称；默认为计数 [length]</p>
+<p>margins = NULL；向量形式的变量名字；</p>
+<ul>
+<li><strong>若为TRUE，则计算所有的合计</strong></li>
+<li><strong>margins= “colname”  / “rowname”  即表达式中出现的变量名</strong></li>
+</ul>
+<p>subset = NULL；针对<strong>特定的变量类别</strong>做重铸；但<strong>需要加载plyr包</strong>去接收函数</p>
+<ul>
+<li>选择 <strong>行中分类值</strong> 或者 <strong>variable列中的分类 “length”</strong> 进行重铸<ul>
+<li><code>subset = .(variable==&quot;length&quot;)</code>  或者 <code>subset = .(month == 5 )</code></li>
+<li><code>subset = .(time &lt; 10 &amp; chick &lt; 20)</code> </li>
+</ul>
+</li>
+</ul>
+<p>fill = NULL； 填充NA的值</p>
+<p>drop = TRUE；对缺失值的处理；drop or Not</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">names(airquality) &lt;- tolower(names(airquality))</div><div class="line">View(airquality)</div><div class="line">aqm &lt;- melt(airquality, id=c(<span class="string">"month"</span>, <span class="string">"day"</span>), na.rm=<span class="literal">TRUE</span>) <span class="comment"># 除了month和day两列，其他列摞起来，为了等长，m和d列循环对齐</span></div><div class="line"></div><div class="line">dcast(aqm, day + variable ~ month) <span class="comment"># 保持day和variable不变，按month中的元素 [分类] 映射到列上去(若month有5、6两个月，则分别有2列)</span></div><div class="line">dcast(aqm, variable + day ~ month) <span class="comment"># 换一下顺序，重复的variable连在一起，对应不一样的day，这样的方式排列</span></div><div class="line">dcast(aqm, day ~ variable + month) <span class="comment"># 只保留day列</span></div><div class="line">dcast(aqm, day+month ~ variable)  <span class="comment"># 还原为原本的样子</span></div><div class="line"></div><div class="line"><span class="comment"># 表达式中均未出现variable列，即默认把其他列的每一行看做一个整体进行计算-#</span></div><div class="line">dcast(aqm, day ~ month)  <span class="comment"># 当整个formula表达是中，均没有出现 variable列，即对其他所有的列默认做长度计算length</span></div><div class="line">   day <span class="number">5</span> <span class="number">6</span></div><div class="line"><span class="number">1</span>    <span class="number">1</span> <span class="number">4</span> <span class="number">3</span>   <span class="comment"># 表示day为1，month为5时，共有4个变量</span></div><div class="line"><span class="number">2</span>    <span class="number">2</span> <span class="number">4</span> <span class="number">3</span></div><div class="line"><span class="number">3</span>    <span class="number">3</span> <span class="number">4</span> <span class="number">3</span></div><div class="line"><span class="number">4</span>    <span class="number">4</span> <span class="number">4</span> <span class="number">3</span></div><div class="line"></div><div class="line">dcast(aqm, day ~ month, mean) <span class="comment"># 对所有没有出现的变量做函数mean</span></div><div class="line">   day         <span class="number">5</span>         <span class="number">6</span></div><div class="line"><span class="number">1</span>    <span class="number">1</span>  <span class="number">76.35000</span> <span class="number">124.20000</span></div><div class="line"><span class="number">2</span>    <span class="number">2</span>  <span class="number">58.50000</span> <span class="number">123.56667</span></div><div class="line"><span class="number">3</span>    <span class="number">3</span>  <span class="number">61.90000</span> <span class="number">108.36667</span></div><div class="line"><span class="number">4</span>    <span class="number">4</span> <span class="number">101.12500</span>  <span class="number">93.06667</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># -------加入计算：等价于group_by + summarise------------------------------#</span></div><div class="line"><span class="comment">## 正常情况下含variable</span></div><div class="line">&gt; dcast(aqm , month~variable) </div><div class="line">Aggregation <span class="keyword">function</span> missing: defaulting to length  <span class="comment"># 默认为计数</span></div><div class="line">  month ozone solar.r wind temp</div><div class="line"><span class="number">1</span>     <span class="number">5</span>    <span class="number">26</span>      <span class="number">27</span>   <span class="number">31</span>   <span class="number">31</span></div><div class="line"><span class="number">2</span>     <span class="number">6</span>     <span class="number">9</span>      <span class="number">29</span>   <span class="number">29</span>   <span class="number">29</span></div><div class="line">  </div><div class="line">&gt; dcast(aqm , month~variable, mean)</div><div class="line">  month    ozone  solar.r     wind     temp</div><div class="line"><span class="number">1</span>     <span class="number">5</span> <span class="number">23.61538</span> <span class="number">181.2963</span> <span class="number">11.62258</span> <span class="number">65.54839</span></div><div class="line"><span class="number">2</span>     <span class="number">6</span> <span class="number">29.44444</span> <span class="number">191.9655</span> <span class="number">10.34483</span> <span class="number">78.96552</span></div><div class="line">  </div><div class="line">  </div><div class="line"><span class="comment"># ------加入合计：margins-------------------</span></div><div class="line">&gt; dcast(aqm , month~variable,sum, margins = <span class="literal">T</span>)</div><div class="line">  month ozone solar.r  wind temp   (all)</div><div class="line"><span class="number">1</span>     <span class="number">5</span>   <span class="number">614</span>    <span class="number">4895</span> <span class="number">360.3</span> <span class="number">2032</span>  <span class="number">7901.3</span></div><div class="line"><span class="number">2</span>     <span class="number">6</span>   <span class="number">265</span>    <span class="number">5567</span> <span class="number">300.0</span> <span class="number">2290</span>  <span class="number">8422.0</span></div><div class="line"><span class="number">3</span> (all)   <span class="number">879</span>   <span class="number">10462</span> <span class="number">660.3</span> <span class="number">4322</span> <span class="number">16323.3</span></div><div class="line">  </div><div class="line">dcast(aqm , month~variable,sum, margins = <span class="string">"month"</span>)</div><div class="line">  </div><div class="line"><span class="comment"># --------加入子集的选取subset-------------------</span></div><div class="line"><span class="keyword">library</span>(plyr) <span class="comment"># needed to access . function</span></div><div class="line">dcast(aqm, variable ~ month, mean, subset = .(variable == <span class="string">"ozone"</span>))</div><div class="line">dcast(aqm, variable ~ month, mean, subset = .(month == <span class="number">5</span>))</div><div class="line"></div><div class="line">names(ChickWeight) &lt;- tolower(names(ChickWeight))</div><div class="line">chick_m &lt;- melt(ChickWeight, id=<span class="number">2</span>:<span class="number">4</span>, na.rm=<span class="literal">TRUE</span>)</div><div class="line">dcast(chick_m, chick ~ time, mean, subset = .(time &lt; <span class="number">10</span> &amp; chick &lt; <span class="number">20</span>))  <span class="comment"># 多条件选取</span></div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><strong>dcast 和 acast区别</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; dcast(aqm, variable + month ~ day) </div><div class="line">&gt; acast(aqm, variable + month ~ day) <span class="comment"># acast和dcast的功能基本上相同，只是dcast会把 [分组信息] 作为一列或几列显示，而acast会将其作为行名</span></div><div class="line">&gt; acast(aqm, day ~ month, mean) <span class="comment"># 保留的列作为合并在一起作为列名（少了day列，不建议使用）</span></div><div class="line">&gt; acast(aqm, variable ~ month ~ day) <span class="comment"># acast 多出来的功能，生成一个三维数组，按照day的值分成31个矩阵</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p><br></p>
+<ul>
+<li><strong>t(x)</strong> ：<strong>转置</strong></li>
+<li><strong>mtcars &lt;- mtacrs[, c(12,1:11) ]</strong> ：<strong>列重新排序</strong></li>
+</ul>
+<p><br></p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
+<li><strong>arrange(mtcars, desc(mpg),var)</strong> ：根据变量进行排序</li>
+<li>arrange(flights, <strong>desc(dep_delay - arr_delay)</strong>)：对<strong>计算的数据</strong>进行计算</li>
+</ul>
+<blockquote>
+<p>默认为升序，aes</p>
+</blockquote>
+<p><br></p>
+<h3 id="返回行-列名-Basic"><a href="#返回行-列名-Basic" class="headerlink" title="返回行/列名 - Basic"></a>返回行/列名 - Basic</h3><ul>
+<li><strong>colnames(object)</strong>：返回所有<strong>列</strong>的名称<ul>
+<li>names(object) </li>
+</ul>
+</li>
+<li><strong>rownames(object)</strong>：返回所有<strong>行</strong>的名称 [二维以上的任何对象]<ul>
+<li>row.names(object) </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="重命名列变量"><a href="#重命名列变量" class="headerlink" title="重命名列变量"></a>重命名列变量</h3><ul>
+<li><strong>rename(tbl, y=year)</strong>：将变量名year变更为y</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rename(data, newname=oldname)  <span class="comment"># 新的列名在前</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>select(df2tbl, x1 = x, y1 = y)</strong>：选择变量时，重命名；x1为新的列名</li>
+<li><strong><u>fix(object)</u></strong>：可以同时改变格式 numeric / character <strong>【Basic】</strong></li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>data_frame</strong>(a=1:3, b=3:5)：将向量合并为数据框</li>
+</ul>
+<p><br></p>
+<h3 id="合并-amp-分割-Tidyr"><a href="#合并-amp-分割-Tidyr" class="headerlink" title="合并 &amp; 分割 - Tidyr"></a>合并 &amp; 分割 - Tidyr</h3><ul>
+<li><strong>separate(data, col, into, sep=”[^[:alnum:]]+”, remove=TRUE, convert=FALSE, extra=”warm”, fill=”warm”)</strong>：<strong>将一列分隔为几列</strong></li>
+</ul>
+<blockquote>
+<p>data：</p>
+<p>col ：待分隔的列</p>
+<p>into=c(“”,””)：新的列名</p>
+<p>sep：分隔符；</p>
+<ul>
+<li>若为字符串，作为正则表达式进行匹配（默认）</li>
+<li>若为数值型，则根据位置进行匹配（-1代表最后一位）</li>
+</ul>
+<p>remove =TRUE，移除原来的待分隔的列</p>
+<p>convert=FALSE， 若为TRUE，则进行格式转换</p>
+</blockquote>
+<ul>
+<li><strong>separate_rows(data, …, sep=””, convert=FASLE)</strong>：把一列<strong>分隔为若干行</strong></li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>unite(data, col, …, sep=”_”, remove=TRUE)</strong>：把几列<strong>合并为一列</strong></li>
+</ul>
+<blockquote>
+<p>… : 指定需要合并的列名</p>
+<p>col=”” :合并后新增的列名</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unite(table, century, year, col=<span class="string">"year"</span>, sep=<span class="string">""</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="重编码-amp-排名-参见-创建新变量"><a href="#重编码-amp-排名-参见-创建新变量" class="headerlink" title="重编码&amp;排名 - 参见 [创建新变量]"></a>重编码&amp;排名 - 参见 [创建新变量]</h3><p><br></p>
+<h2 id="合并数据集"><a href="#合并数据集" class="headerlink" title="合并数据集"></a>合并数据集</h2><h3 id="合并联接-Join"><a href="#合并联接-Join" class="headerlink" title="合并联接 -  Join"></a>合并联接 -  Join</h3><blockquote>
+<p>等价于SQL中的join联接</p>
+</blockquote>
+<ul>
+<li><strong>inner_join(a, b，by=”x1”)</strong> ：内联接 合并数据，仅保留匹配的数据</li>
+<li><strong>left_join(a, b, by=”x1”)</strong> ：以a表为基准表，加入与a表中x1列匹配的数据集b的记录</li>
+<li><strong>right_join</strong>(a, b, by=”x1”) ：以b表为基准表，加入与b表中x1列匹配的数据集b的记录</li>
+<li><strong>outer_join</strong>(a,b, by=”x1”)：保留所有数据，所有行</li>
+</ul>
+<blockquote>
+<p>by = NUll（默认）；表示为 自联接，自动选取 [相同的列] 作为索引</p>
+<ul>
+<li>by=c(‘col1’, ‘col2’)：两个表中<strong>相同名称列</strong>的匹配</li>
+<li>by=c(‘col1’ = ‘col2’) ：两个表中<strong>不同名称列</strong>之间的匹配</li>
+</ul>
+<p>copy=False(默认)； 若为True, 当a与b不为同一张表，会自动创建一个y的表</p>
+</blockquote>
+<p><br></p>
+<h3 id="集处理-行"><a href="#集处理-行" class="headerlink" title="集处理 - 行"></a>集处理 - 行</h3><ul>
+<li><strong>intersect(y, z)</strong>：<strong>均出现</strong>在数据集y和z中的记录行</li>
+<li><strong>union(y, z)</strong>：出现在y<strong>或者</strong>z中的记录，<strong>自动删除重复的值</strong></li>
+<li><strong>setdiff(y, z)</strong>：<strong>仅</strong>出现在数据集y 而不在z中的记录行</li>
+</ul>
+<p><br></p>
+<h3 id="合并与筛选"><a href="#合并与筛选" class="headerlink" title="合并与筛选"></a>合并与筛选</h3><blockquote>
+<p>仅返回<strong>匹配列</strong>的记录</p>
+</blockquote>
+<ul>
+<li><strong>semi_join(a, b, by=”x1”)</strong>： 数据集a中能与b匹配的记录，以a表中”x1”列的值为索引</li>
+<li><strong>anti_join</strong>(a, b, by=”x1”) ：数据集a中能与b<strong>不能匹配</strong>的记录，以a表中”x1”列的值为索引</li>
+</ul>
+<p><br></p>
+<h3 id="插入行-列"><a href="#插入行-列" class="headerlink" title="插入行/列"></a>插入行/列</h3><ul>
+<li><strong>bind_rows(y, z)</strong> ：<strong>插入新行</strong>；把数据集 z 作为新的行添加到y中</li>
+<li><strong>bind_cols(y, z)</strong>： <strong>添加新列</strong>；把数据集 z 作为新的行添加到y中（注意：<strong>数据按所在位置匹配</strong>）</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h2 id="数据选取"><a href="#数据选取" class="headerlink" title="数据选取"></a>数据选取</h2><h3 id="子集观测值-行"><a href="#子集观测值-行" class="headerlink" title="子集观测值 - 行"></a>子集观测值 - 行</h3><ul>
+<li><strong>filter(tbl_df, cond &amp; cond) </strong>：根据<strong>逻辑条件</strong>选取，使用 <code>&amp;</code>或者<code>|</code> 来进行设置<ul>
+<li>filter(hflights_df, Month == 1, DayofMonth == 1)</li>
+<li>filter(tbl_df,  x <strong>%in%</strong> c(“a”,”b”)) ：表示x中<strong>包含</strong>“a”<strong>或者</strong>“b”的值，返回为<strong>逻辑为真</strong></li>
+<li>filter(iris,Species<strong>!=”</strong>setosa”) / filter(iris,<strong>!Species %in%</strong> c(“setosa”))：<strong>排除某些行</strong> <code>!</code></li>
+<li><strong>filter() %&gt;% select(., var)</strong>：<strong>选中子集中的特定列</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>对于多条件的选择，需要完整条件的，然后使用集合运算符将条件拼接起来。</p>
+<p><code>&amp;</code> 、<code>|</code></p>
+<p><code>==</code>、 <code>&gt;=</code>、<code>&lt;&gt;</code>、<code>!=</code></p>
+<p><code>%in%</code></p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><strong>sample_frac(iris, 0.5, replace=False)</strong>：按<strong>比例</strong>进行<strong>随机选取</strong></li>
+<li><strong>sample_n(iris, 10, replace=True)</strong> ：按<strong>数量</strong>进行<strong>随机选取</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## replace = False(默认)，表示是否替换</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>slice(mtcars, n:n)</strong>： 通过<strong>行数的位置</strong>进行选取， 等价于data[n:n, ]</li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>top_n(mtcars, 1, desc(carb) )</strong>：<strong>选取并排列前n条</strong>记录；相当于<strong>先按某变量进行排序，然后选择前n条记录。</strong></p>
+<ul>
+<li>top_n(tbl_df, n [,wt])</li>
+</ul>
+<blockquote>
+<p>若为分组数据，则按组排序</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wt，用于进行排序的变量，可选；若不指定，默认为最后一个变量</span></div><div class="line"><span class="comment">## -n，从底部开始选择n个数据</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="子集变量-列"><a href="#子集变量-列" class="headerlink" title="子集变量 - 列"></a>子集变量 - 列</h3><blockquote>
+<p>Selection <strong>drops variables that are not in the selection</strong> while renaming retains them</p>
+</blockquote>
+<ul>
+<li><strong>select(mtcars, hp)</strong> ：通过<strong>列名或帮助函数</strong>选取列变量<ul>
+<li>select(tbl_df, <strong>mpg:hp</strong>)：；选取在mpg和hp之间的<strong>连续多个</strong>变量 （包含mpg&amp;hp；用<code>:</code>连接</li>
+<li>select(tbl_df, <strong>-var</strong>)  / select(tbl_df, -(var1:var4))：通过<code>-</code>来<strong>排除</strong>某个变量列</li>
+</ul>
+</li>
+<li><strong>select</strong>(tbl, <strong>xxx</strong> )：通过<strong>帮助函数</strong>进行选择<ul>
+<li><strong>starts_with(“x”)</strong>：列名中以元素x为首的列</li>
+<li><strong>ends_with(“x”)</strong>：列名中以元素x结尾的列</li>
+<li><strong>contains(“x”)</strong>：包含元素x的列</li>
+<li><strong>matches(“.t”)</strong>：符合指定<strong>匹配正则表达式</strong>的列 </li>
+<li><strong>one_of(c(“mpg,”hp”) )</strong>：名字在指定组中的列，等价于 select(tbl, mpg, hp)</li>
+<li><strong>everything()</strong>：所有列，一般调整数据集中变量顺序时使用<ul>
+<li><strong>select(df2tbl,y,everything())  #将变量y放到最前</strong></li>
+</ul>
+</li>
+<li><strong>num_range(“x”, 1:5)</strong>：选取名为x1、x2、x3、x4、x5的列</li>
+</ul>
+</li>
+<li><strong>select_if()</strong>：选取<strong>不同条件的列</strong><ul>
+<li><strong>hflights %&gt;% select_if(is.factor)</strong>：选取hflights数据中<strong>为因子</strong>的列 / is.numeric</li>
+<li><em>hflights %&gt;% select_if(function(col) is.numeric(col) &amp;&amp; mean(col) &gt; 3.5)：选取hflights数据中某一变量列</em> ？？</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="唯一值"><a href="#唯一值" class="headerlink" title="唯一值"></a>唯一值</h3><ul>
+<li><strong>distinct(iris)</strong>：删除<strong>重复记录</strong><ul>
+<li><strong>distinct(hflights_df, Month, .keep_all = TRUE)</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## .keep_all = TRUE,指保留除Month以外的其它列的内容。默认的情况是不保存其他列的。</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>指各个变量列均相同的记录</p>
+</blockquote>
+<ul>
+<li><strong>unique(x)</strong>：只对<strong>向量</strong>可用；或对各行中各变量完全相同的行取一行</li>
+<li><strong>!duplicated(x)</strong>： 返回逻辑值；若完全相同则为TRUE，可对data.frame使用<ul>
+<li><strong>x[!duplicated(x)]</strong> ：选取不重复值的值</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>返回data中所有不相同的值，然后在进行行选取data[x, ]</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 删除各行中变量完全相同的值 = unique(x)</span></div><div class="line">data &lt;- data[!duplicated(data), ]    --<span class="comment"># 返回各列所有相同的值 data[duplicated(test),]</span></div><div class="line"></div><div class="line"><span class="comment"># 删除某变量中相同的值</span></div><div class="line">data &lt;- data[!duplicated(test[, <span class="string">"var"</span>]), ]  </div><div class="line"></div><div class="line"><span class="comment"># 删除某两个变量完全相同的行</span></div><div class="line"> data &lt;- data[!duplicated(test[, c(<span class="string">"var1"</span>,<span class="string">"var2"</span>)], ]</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="创建新变量"><a href="#创建新变量" class="headerlink" title="创建新变量"></a>创建新变量</h2><blockquote>
+<p>根据是否删除原列进行区分</p>
+</blockquote>
+<h3 id="计算并添加新列"><a href="#计算并添加新列" class="headerlink" title="计算并添加新列"></a>计算并添加新列</h3><blockquote>
+<p><strong>若要将多个单元格中的值合并，用<code>stringr</code>包中的<code>str_c()</code></strong></p>
+</blockquote>
+<ul>
+<li><strong>运用<code>$</code>直接创建</strong>   <code>mtcars$new &lt;- sqtr(mtcars$carb)</code></li>
+</ul>
+<ul>
+<li><strong>mutate(tbl_df, var3=var1+var2, var4=var3+..)</strong>：优势在于可<strong>对刚添加的列</strong>进行<strong>变换</strong></li>
+<li><strong>mutate_each</strong>(iris, <strong>funs(min_rank), [var1,var2]</strong>)：对<strong>每一列</strong>运行<strong>窗口函数</strong></li>
+<li><strong>mutate_all()</strong>：对<strong>每一列</strong>运行窗口函数</li>
+<li><strong>mutate_at()</strong>：对<strong>指定的列</strong>运行窗口函数</li>
+<li><strong>mutate_if()</strong>：对<strong>指定类型的列</strong>运行窗口函数</li>
+</ul>
+<blockquote>
+<p><strong>窗口函数:</strong></p>
+<p>min_rank  # 排序，并列时，其他序号延号</p>
+<p>dense_rank  #无缝排序</p>
+<p>row_number # 排序。并列时将并列数在前的序号在前</p>
+<p>percent_rank  # 把数据在[0,1]中重组，并排序</p>
+<p>lead  # 把除第一个值以外的所有元素提前，最后一位为NA</p>
+<p>lag  # 把除最后一位以外的所有数据延后，第一个元素为NA</p>
+<p>between()  # 数据在a、b之间</p>
+<p>ntile  # 把数据分为n分</p>
+<p>cute_dist  # 累计分布</p>
+<hr>
+<p><strong>cummean  # 累积mean函数</strong></p>
+<p>cumsum   # 累积sum函数</p>
+<p>cusmax   # 累积max函数</p>
+<p>cusmin   # 累积min函数</p>
+<p>cumall  # 累积all函数</p>
+<p>cumany   # 累积any函数</p>
+<p>cumprod  # 累计prod函数</p>
+<p>pmax  # 针对元素的max函数；返回输入中最大的值，并将其长度自动扩大到输入中长度最大的那个向量</p>
+<p>pmin  # 针对元素的min函数</p>
+</blockquote>
+<p>​</p>
+<p><br></p>
+<h3 id="计算并删除其他列"><a href="#计算并删除其他列" class="headerlink" title="计算并删除其他列"></a>计算并删除其他列</h3><ul>
+<li><strong>transmute(df, var3=var1+var2)</strong>：该函数扩展新变量的同时，将<strong>删除原始变量</strong> ；常伴有<strong>na.rm=T</strong></li>
+</ul>
+<blockquote>
+<p>na.rm= True 计算时排除NA值</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; mutate(head(airquality),Temp=Temp - <span class="number">32</span>)</div><div class="line">  Ozone Solar.R Wind Temp Month Day</div><div class="line"><span class="number">1</span>    <span class="number">41</span>     <span class="number">190</span>  <span class="number">7.4</span>   <span class="number">35</span>     <span class="number">5</span>   <span class="number">1</span></div><div class="line"><span class="number">2</span>    <span class="number">36</span>     <span class="number">118</span>  <span class="number">8.0</span>   <span class="number">40</span>     <span class="number">5</span>   <span class="number">2</span></div><div class="line"><span class="number">3</span>    <span class="number">12</span>     <span class="number">149</span> <span class="number">12.6</span>   <span class="number">42</span>     <span class="number">5</span>   <span class="number">3</span></div><div class="line"><span class="number">4</span>    <span class="number">18</span>     <span class="number">313</span> <span class="number">11.5</span>   <span class="number">30</span>     <span class="number">5</span>   <span class="number">4</span></div><div class="line"><span class="number">5</span>    <span class="literal">NA</span>      <span class="literal">NA</span> <span class="number">14.3</span>   <span class="number">24</span>     <span class="number">5</span>   <span class="number">5</span></div><div class="line"><span class="number">6</span>    <span class="number">28</span>      <span class="literal">NA</span> <span class="number">14.9</span>   <span class="number">34</span>     <span class="number">5</span>   <span class="number">6</span></div><div class="line"></div><div class="line">&gt;transmute(head(airquality),Temp=Temp - <span class="number">32</span>)</div><div class="line">  Temp</div><div class="line"><span class="number">1</span>   <span class="number">35</span></div><div class="line"><span class="number">2</span>   <span class="number">40</span></div><div class="line"><span class="number">3</span>   <span class="number">42</span></div><div class="line"><span class="number">4</span>   <span class="number">30</span></div><div class="line"><span class="number">5</span>   <span class="number">24</span></div><div class="line"><span class="number">6</span>   <span class="number">34</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="排名"><a href="#排名" class="headerlink" title="排名"></a>排名</h3><ul>
+<li><strong>row_number()</strong>：对于相同的值，<strong>位置在前的排名在前</strong>。</li>
+<li><strong>min_rank()</strong>：对于相同的值，均<strong>显示排名较前</strong>的值。</li>
+<li><strong>dense_rank()</strong>：对于相同的值，类似于<code>min_rank()</code>，均<strong>显示排名较小的值</strong>；但<strong>与后一位之间没有间隔</strong>；</li>
+<li><strong>percent_rank()</strong>：将排名<strong>缩放为[0,1]</strong>之间的值</li>
+<li><strong>cume_dist()</strong>：<strong>累计的分布函数</strong></li>
+<li><strong>ntile(x,n)</strong>：将x划<strong>分为n个组块</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&gt; x &lt;- c(<span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="literal">NA</span>)</div><div class="line">&gt; row_number(x)</div><div class="line">[<span class="number">1</span>]  <span class="number">5</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">2</span>  <span class="number">3</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; min_rank(x)  <span class="comment"># 相同的值，排名较前的值</span></div><div class="line">[<span class="number">1</span>]  <span class="number">5</span>  <span class="number">1</span>  <span class="number">4</span>  <span class="number">2</span>  <span class="number">2</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; dense_rank(x)  <span class="comment"># 相同的值，排名较前的值，但与后一位没有间隔</span></div><div class="line">[<span class="number">1</span>]  <span class="number">4</span>  <span class="number">1</span>  <span class="number">3</span>  <span class="number">2</span>  <span class="number">2</span> <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; percent_rank(x)</div><div class="line">[<span class="number">1</span>] <span class="number">1.00</span> <span class="number">0.00</span> <span class="number">0.75</span> <span class="number">0.25</span> <span class="number">0.25</span>   <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; cume_dist(x)</div><div class="line">[<span class="number">1</span>] <span class="number">1.0</span> <span class="number">0.2</span> <span class="number">0.8</span> <span class="number">0.6</span> <span class="number">0.6</span>  <span class="literal">NA</span></div><div class="line"></div><div class="line">&gt; ntile(x, <span class="number">2</span>)</div><div class="line">[<span class="number">1</span>]  <span class="number">2</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">1</span>  <span class="number">1</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="重编码"><a href="#重编码" class="headerlink" title="重编码"></a>重编码</h3><blockquote>
+<p><code>if_else()</code> &amp; <code>case_when()</code> 适合进行重编码，但缺少对象的输入，可结合<code>within()</code></p>
+<p>因为recode是<strong>面向 [向量] </strong>的函数</p>
+</blockquote>
+<h4 id="常规编码-within"><a href="#常规编码-within" class="headerlink" title="常规编码 - within / $"></a>常规编码 - within / $</h4><ul>
+<li><strong>within(x, {})</strong> ：对x中的对象做运算<ul>
+<li><strong>within</strong>：能对<strong>原始数据进行修改</strong></li>
+<li>with()：<strong>不能</strong>对原始数据进行修改，创建的变量<strong>只能在花括号之内有效</strong>（即使进行赋值也是如此）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&gt; aq&lt;-with(head(airquality), &#123;   </div><div class="line">+   lOzone &lt;- log(Ozone)</div><div class="line">+   Month &lt;- factor(month.abb[Month])</div><div class="line">+   cTemp &lt;- round((Temp - <span class="number">32</span>) * <span class="number">5</span>/<span class="number">9</span>, <span class="number">1</span>)</div><div class="line">+   S.cT &lt;- Solar.R / cTemp  </div><div class="line">+   rm(Day, Temp)</div><div class="line">+   <span class="comment">#head(aq)</span></div><div class="line">+ &#125;)</div><div class="line">&gt; aq</div><div class="line"><span class="literal">NULL</span>  <span class="comment"># 显示为NULL，即aq不存在</span></div><div class="line"></div><div class="line"></div><div class="line">&gt; aq&lt;-within(head(airquality), &#123;     <span class="comment"># Notice that multiple vars can be changed</span></div><div class="line">+   lOzone &lt;- log(Ozone)</div><div class="line">+   Month &lt;- factor(month.abb[Month])</div><div class="line">+   cTemp &lt;- round((Temp - <span class="number">32</span>) * <span class="number">5</span>/<span class="number">9</span>, <span class="number">1</span>) <span class="comment"># From Fahrenheit to Celsius</span></div><div class="line">+   S.cT &lt;- Solar.R / cTemp  <span class="comment"># using the newly created variable</span></div><div class="line">+   rm(Day, Temp)</div><div class="line">+ &#125;)</div><div class="line">&gt; aq</div><div class="line">  Ozone Solar.R Wind Month      S.cT cTemp   lOzone</div><div class="line"><span class="number">1</span>    <span class="number">41</span>     <span class="number">190</span>  <span class="number">7.4</span>   May  <span class="number">9.793814</span>  <span class="number">19.4</span> <span class="number">3.713572</span></div><div class="line"><span class="number">2</span>    <span class="number">36</span>     <span class="number">118</span>  <span class="number">8.0</span>   May  <span class="number">5.315315</span>  <span class="number">22.2</span> <span class="number">3.583519</span></div><div class="line"><span class="number">3</span>    <span class="number">12</span>     <span class="number">149</span> <span class="number">12.6</span>   May  <span class="number">6.394850</span>  <span class="number">23.3</span> <span class="number">2.484907</span></div><div class="line"><span class="number">4</span>    <span class="number">18</span>     <span class="number">313</span> <span class="number">11.5</span>   May <span class="number">18.742515</span>  <span class="number">16.7</span> <span class="number">2.890372</span></div><div class="line"><span class="number">5</span>    <span class="literal">NA</span>      <span class="literal">NA</span> <span class="number">14.3</span>   May        <span class="literal">NA</span>  <span class="number">13.3</span>       <span class="literal">NA</span></div><div class="line"><span class="number">6</span>    <span class="number">28</span>      <span class="literal">NA</span> <span class="number">14.9</span>   May        <span class="literal">NA</span>  <span class="number">18.9</span> <span class="number">3.332205</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>Recode(var, recodes, as.factor.result, as.numeric.result=TRUE, levels) </strong>：car包中的Recode函数，用法与car包中的recode函数相同；无需通过指定car包来运行；</li>
+</ul>
+<blockquote>
+<p>var：字符型、数值型、因子型 向量</p>
+<p>recodes：<strong>字符串格式的</strong>重编码方式；即编码内容需用 <strong>引号<code>&quot; &quot;</code>包括起来</strong>，多个条件之间用<strong>分号<code>;</code>分隔</strong></p>
+<ul>
+<li>单个变量：<code>&quot;0=NA&quot;</code></li>
+<li>一组向量：<code>&quot;c(7,8,9)=&#39;high&#39;&quot;</code></li>
+<li>一组序列变量：<code>&quot;7:9=&#39;C&#39;&quot;</code></li>
+<li>未匹配的值： <code>&quot;else=NA&quot;</code></li>
+<li>字符串变量：<code>&quot;&#39;a&#39;=&#39;b&#39; &quot;</code>  <strong>若编码的内容为字符串格式，需要用引号括起来；而最外面的引号也是必不可少的</strong></li>
+</ul>
+<p>as.factor.result = T/F；当输入的var为因子格式时，默认为TRUE,否则默认为FALSE</p>
+<p>as.numeric.result=T/F；当输入的var为数值格式时，默认为TRUE,否则默认为FALSE</p>
+<p>levels：可选的，默认为原本的顺序</p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><strong>recode(.x,  a= ‘apple’, .default = NULL, .missing = NULL)</strong>：保持原有的顺序水平；</li>
+<li><strong>recode_factor(.x, …, .default = NULL, .missing = NULL, .ordered = FALSE)</strong>：</li>
+</ul>
+<blockquote>
+<ol>
+<li>.x : 进行处理的向量<ul>
+<li><strong>对于数值型向量，你可以基于位置替换它</strong></li>
+<li><strong>对于字符串，你可以基于字符串的名称来替换它</strong></li>
+</ul>
+</li>
+<li>指定替换的变量为<strong>字符串</strong> <code>a = &#39;apple&#39;</code> : a为对象中要变更的值；’apple’为变更后的值</li>
+<li>.default=NULL: <strong>对未匹配的值不做变更</strong>；<ul>
+<li>.default=NA<em>character</em> ：<strong>用NA替换未匹配的</strong>值</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>.default= ‘others’ : 可以指定替换的值</li>
+<li>.default = level(x) ：支持对默认的顺序进行因子化</li>
+</ul>
+<ol>
+<li>指定替换的变量为<strong>数值</strong> `2` =20 或 20L<ul>
+<li><em>若对象x为向量<code>is.vector()</code> ，若不加L，则对于未匹配的值默认用NA替换；加L，对其他未匹配的值不做变更；</em> ？？？</li>
+</ul>
+</li>
+<li>.missing = NULL(默认) ：对<strong>缺失值NA</strong>不做处理，<strong>默认为NA</strong>；<ul>
+<li>.missing = “missing”：指定具体的值<strong>对NA进行替换</strong> </li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>若不指定替换的变量，默认按照<strong>位置顺序</strong>进行重编码；<strong>但对未匹配的值默认用NA替换</strong></p>
+</blockquote>
+<hr>
+<p>.order=FALSE(默认)：若为TRUE，则创建<strong>有序的因子</strong></p>
+<blockquote>
+<p>当输入的向量是可比较的，它的因子会被重新定义为默认的</p>
+</blockquote>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 指定替换的变量 - 字符串</span></div><div class="line">&gt; x &lt;- sample(c(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>), <span class="number">10</span>, replace = <span class="literal">TRUE</span>)</div><div class="line">&gt; x</div><div class="line"> [<span class="number">1</span>] <span class="string">"a"</span> <span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"b"</span> <span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"a"</span> <span class="string">"a"</span> <span class="string">"a"</span> <span class="string">"c"</span></div><div class="line"></div><div class="line">&gt; recode(x, a = <span class="string">"Apple"</span>)</div><div class="line"> [<span class="number">1</span>] <span class="string">"Apple"</span> <span class="string">"Apple"</span> <span class="string">"b"</span>     <span class="string">"b"</span>     <span class="string">"Apple"</span> <span class="string">"b"</span>     <span class="string">"Apple"</span> <span class="string">"Apple"</span> <span class="string">"Apple"</span> <span class="string">"c"</span>    </div><div class="line"></div><div class="line">&gt; recode(x, a = <span class="string">"Apple"</span>, .default = <span class="literal">NA_character_</span>)</div><div class="line"> [<span class="number">1</span>] <span class="string">"Apple"</span> <span class="string">"Apple"</span> <span class="literal">NA</span>      <span class="literal">NA</span>      <span class="string">"Apple"</span> <span class="literal">NA</span>      <span class="string">"Apple"</span> <span class="string">"Apple"</span> <span class="string">"Apple"</span> <span class="literal">NA</span>     </div><div class="line"></div><div class="line"><span class="comment">## 指定替换的变量 - 数值型</span></div><div class="line">&gt; x &lt;- c(<span class="number">1</span>:<span class="number">5</span>)</div><div class="line">&gt; recode(x, <span class="string">'2'</span>= <span class="number">20L</span>, <span class="string">'4'</span> = <span class="number">40L</span>)   <span class="comment"># 加上L之后，对未匹配的值不做变更</span></div><div class="line">[<span class="number">1</span>]  <span class="number">1</span> <span class="number">20</span>  <span class="number">3</span> <span class="number">40</span>  <span class="number">5</span></div><div class="line"></div><div class="line">&gt; recode(x, <span class="string">'2'</span>= <span class="number">20</span>, <span class="string">'4'</span> = <span class="number">40</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">NA</span> <span class="number">20</span> <span class="literal">NA</span> <span class="number">40</span> <span class="literal">NA</span></div><div class="line"></div><div class="line"><span class="comment">## 若不指定替换的变量，默认按照顺序进行重编码</span></div><div class="line">&gt; recode(x, <span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>)    <span class="comment"># 但对未匹配的值默认用NA替换</span></div><div class="line">[<span class="number">1</span>] <span class="string">"a"</span> <span class="string">"b"</span> <span class="string">"c"</span> <span class="literal">NA</span>  <span class="literal">NA</span>  <span class="literal">NA</span> </div><div class="line"></div><div class="line"><span class="comment">#--------recode_factor------------------------------------------#</span></div><div class="line">&gt; recode_factor(factor(letters[<span class="number">1</span>:<span class="number">3</span>]), b = <span class="string">"z"</span>, c = <span class="string">"y"</span>)  <span class="comment"># 当输入的向量是可比较的，它的因子会被重新定义为默认的</span></div><div class="line">[<span class="number">1</span>] a z y</div><div class="line">Levels: z y a</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="条件编码"><a href="#条件编码" class="headerlink" title="条件编码"></a>条件编码</h4><ul>
+<li><strong>if_else(cond, true_value, false_value, missing=NULL)</strong>：对于逻辑值的重编码</li>
+</ul>
+<blockquote>
+<p>cond :  条件</p>
+<p>missing = NULL(默认)； 若对缺失值替换为某个值，需指定 “x”</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 常规重编码</span></div><div class="line">leadership&lt;-within(leadership,&#123;</div><div class="line">agecat&lt;-<span class="literal">NA</span></div><div class="line">agecat[age&gt;<span class="number">75</span>] &lt;- “Elder”</div><div class="line">agecat[age&gt;=<span class="number">55</span> &amp; age&lt;=<span class="number">75</span>] &lt;- “Middle aged”</div><div class="line">agecat[age&lt;<span class="number">55</span>]&lt;-“young”</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">y$new&lt;- if_else(y$new&lt;=<span class="number">1</span>, <span class="number">10</span>, y$new)</div><div class="line"></div><div class="line"><span class="comment"># 搭配within使用</span></div><div class="line">within(y,&#123; </div><div class="line">  carb &lt;- if_else(carb&lt;=<span class="number">2</span>,<span class="number">20</span>,carb)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>case_when(cond ~ “”, TRUE ~ “”)</strong>：<strong>多条件的重编码</strong><ul>
+<li>类同于SQL的case when；多条件之间<strong>按顺序</strong>进行执行。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>~ ：表示<strong>赋值</strong></p>
+<p>TRUE ：类同于 Else的功能</p>
+<p>配合<code>list()</code> 与 <code>!!!</code>，将语句进行<strong>拼接</strong>，然后<strong>执行</strong></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">x &lt;- <span class="number">1</span>:<span class="number">10</span></div><div class="line">case_when(</div><div class="line">  x %% <span class="number">3</span> == <span class="number">0</span> ~ <span class="string">"fizz buzz"</span>,</div><div class="line">  x %% <span class="number">5</span> == <span class="number">0</span> ~ <span class="string">"fizz"</span>,</div><div class="line">  x %% <span class="number">7</span> == <span class="number">0</span> ~ <span class="string">"buzz"</span>,</div><div class="line">  <span class="literal">TRUE</span> ~ as.character(x)  </div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">## 创建一个新变量</span></div><div class="line">starwars %&gt;%</div><div class="line">  select(name:mass, gender, species) %&gt;%</div><div class="line">  mutate(</div><div class="line">    type = case_when(</div><div class="line">      height &gt; <span class="number">200</span> | mass &gt; <span class="number">200</span> ~ <span class="string">"large"</span>,</div><div class="line">      species == <span class="string">"Droid"</span>        ~ <span class="string">"robot"</span>,</div><div class="line">      <span class="literal">TRUE</span>                      ~  <span class="string">"other"</span></div><div class="line">    )</div><div class="line">  )</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 配合list() 与 !!!，将语句进行拼接，然后执行</span></div><div class="line">patterns &lt;- list(        <span class="comment"># 先将语句拼接</span></div><div class="line">  <span class="literal">TRUE</span> ~ as.character(x),</div><div class="line">  x %%  <span class="number">5</span> == <span class="number">0</span> ~ <span class="string">"fizz"</span>,</div><div class="line">  x %%  <span class="number">7</span> == <span class="number">0</span> ~ <span class="string">"buzz"</span>,</div><div class="line">  x %% <span class="number">35</span> == <span class="number">0</span> ~ <span class="string">"fizz buzz"</span></div><div class="line">)</div><div class="line">case_when(!!! patterns)   <span class="comment"># 用 !!! 执行</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="缺失值"><a href="#缺失值" class="headerlink" title="缺失值"></a>缺失值</h3><h4 id="检查与判断"><a href="#检查与判断" class="headerlink" title="检查与判断"></a>检查与判断</h4><ul>
+<li><strong>is.na(x)</strong>：逻辑判断</li>
+<li><strong>colSums(is.na(x))</strong>：求该列缺失值的数量</li>
+<li><strong>mean(is.na(x))</strong>：求该列缺失值的比例</li>
+<li><strong>is.nan(x)</strong>：判断不可能值</li>
+<li><strong>is.infinite(x)</strong> ：判断无穷值</li>
+</ul>
+<p><br></p>
+<h4 id="移除"><a href="#移除" class="headerlink" title="移除"></a>移除</h4><ul>
+<li><strong>na.rm=T</strong>：在计算之前将缺失值移除，可用在<strong>函数内部</strong></li>
+<li><strong>na.omit(x)</strong>： 移除所有含缺失值所在的行 [删除整行]</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> <span class="comment"># 用来存储没有缺失值的数据</span></div><div class="line">newdata &lt;- na.omit(mydata)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="缺失值重编码"><a href="#缺失值重编码" class="headerlink" title="缺失值重编码"></a>缺失值重编码</h4><ul>
+<li><strong>na_if(x, y)</strong>：把<strong>对象x中的y替换为NA</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; x &lt;- c(<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">10</span>)</div><div class="line">[<span class="number">1</span>]  <span class="number">1</span> -<span class="number">1</span>  <span class="number">0</span> <span class="number">10</span></div><div class="line"></div><div class="line">&gt; na_if(x,<span class="number">0</span>)</div><div class="line">[<span class="number">1</span>]  <span class="number">1</span> -<span class="number">1</span> <span class="literal">NA</span> <span class="number">10</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>coalesce(x,y)</strong>：把对象x中的NA替换为y</li>
+</ul>
+<blockquote>
+<p>x, y ：均为<strong>向量</strong></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 把x中的NA替换为y</span></div><div class="line">&gt; x &lt;- sample(c(<span class="number">1</span>:<span class="number">5</span>, <span class="literal">NA</span>, <span class="literal">NA</span>, <span class="literal">NA</span>)); x</div><div class="line">[<span class="number">1</span>]  <span class="number">5</span>  <span class="number">3</span> <span class="literal">NA</span>  <span class="number">4</span>  <span class="number">2</span> <span class="literal">NA</span>  <span class="number">1</span> <span class="literal">NA</span>  </div><div class="line">&gt; coalesce(x, <span class="number">0L</span>) </div><div class="line">[<span class="number">1</span>] <span class="number">5</span> <span class="number">3</span> <span class="number">0</span> <span class="number">4</span> <span class="number">2</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span></div><div class="line"></div><div class="line"><span class="comment"># 将NA匹配为对应位置的值  （y, z 两者长度必须相同）</span></div><div class="line">&gt; y &lt;- c(<span class="number">1</span>, <span class="number">2</span>, <span class="literal">NA</span>, <span class="literal">NA</span>, <span class="number">5</span>)</div><div class="line">&gt; z &lt;- c(<span class="literal">NA</span>, <span class="literal">NA</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</div><div class="line">&gt; coalesce(y, z)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment"># 配合list() 与 !!!，将语句进行拼接，然后执行</span></div><div class="line">vecs &lt;- list(</div><div class="line">  c(<span class="number">1</span>, <span class="number">2</span>, <span class="literal">NA</span>, <span class="literal">NA</span>, <span class="number">5</span>),</div><div class="line">  c(<span class="literal">NA</span>, <span class="literal">NA</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</div><div class="line">)</div><div class="line">coalesce(!!! vecs)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><strong>pmin/pmax(.., na.rm=FALSE)</strong>：返回输入中最小/最大值的向量组合，并将其长度自动扩大到输入中长度最大的那个向量<ul>
+<li>min/max()：只返回单一长度的值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; pmax(5:1,10) </div><div class="line">[1] 10 10 10 10 10</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="概述函数-summairse"><a href="#概述函数-summairse" class="headerlink" title="概述函数 - summairse"></a>概述函数 - summairse</h2><ul>
+<li><strong>summarise(iris, avg=mean(Sepal.Length))</strong> ：对数据进行概述，并<strong>创建新的子集</strong>  （将数据概括为单行数值）</li>
+<li><strong>summarise_all(.tbl, .funs, …)</strong>：对<strong>每一列</strong>运行概述概述<ul>
+<li><strong>summarise_each(iris, funs(mean))</strong> ：对<strong>每一列</strong>运行概述函数</li>
+</ul>
+</li>
+<li><strong>summarise_at(.tbl, .vars, .funs, …, .cols=NULL)</strong>：对<strong>指定的列</strong>运行概述函数<ul>
+<li><strong>summarise_at(mtcars, vars(hp,mpg), mean, …, .cols=NULL)</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>vars() : 表示需要进行概述的列</p>
+<p><strong>.funs的用法</strong></p>
+<ul>
+<li>直接在函数中写明需要运行的函数 <code>summarise(., vars(), mean)</code></li>
+<li>结合funs写出调用的函数 <code>summarise(., vars(), funs(mean))</code></li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>summarise_if(.tbl, .predicate, .funs)</strong>：对<strong>指令类型的列</strong>运行概述函数</li>
+</ul>
+<blockquote>
+<p><strong>funs的用法</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; summarise_all(df1[,-<span class="number">1</span>],funs(mean,sum))  <span class="comment"># 若出现两个及以上的函数，列名中自动添加后缀</span></div><div class="line">&gt; summarise_all(df1[,-<span class="number">1</span>],funs(sum(.*<span class="number">2</span>))) <span class="comment"># 所有数据用.表示</span></div><div class="line">&gt; summarise_all(df1[,-<span class="number">1</span>],funs(medi=median)) <span class="comment"># 指定得到的列后缀名</span></div><div class="line">&gt; summarise_all(df1[,-<span class="number">1</span>],funs(<span class="string">"in"</span>=median)) <span class="comment"># 或者加引号 (因为in在R中表示其他含义)</span></div><div class="line">&gt; mutate_all(df1[,-<span class="number">1</span>],funs(.^<span class="number">2</span>))</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>min / max / mean / median  / sd / var /  sum / IQR (向量的四分位距离)</p>
+<p> n （向量中元素的个数）/ n_distinct （不同元素的个数）</p>
+<p>first / last / nth （向量的第n个值）</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">name1 &lt;- c(<span class="string">"Bob"</span>,<span class="string">"Mary"</span>,<span class="string">"Jane"</span>,<span class="string">"Kim"</span>)</div><div class="line">weight &lt;- c(<span class="number">60</span>,<span class="number">65</span>,<span class="number">45</span>,<span class="number">55</span>)</div><div class="line">height &lt;- c(<span class="number">170</span>,<span class="number">165</span>,<span class="number">140</span>,<span class="number">135</span>)</div><div class="line">weta &lt;- <span class="number">1</span>:<span class="number">4</span></div><div class="line">df1 &lt;- data.frame(name1,weight,height,weta);df1</div><div class="line"></div><div class="line"><span class="comment">## 需指定要进行计算的列</span></div><div class="line">summarise(df1,avg_weight=mean(weight),avg_height=mean(height)) </div><div class="line"></div><div class="line"><span class="comment">## 对选出来的 [每一列] 都进行计算</span></div><div class="line">summarise_all(select(df1,-<span class="number">1</span>), mean)</div><div class="line"></div><div class="line"><span class="comment">## 配合vars函数，一次选择多列</span></div><div class="line">summarise_at(df1,vars(weight,height,weta),mean) </div><div class="line">summarise_at(df1,vars(weight:weta),mean)</div><div class="line">u &lt;- c(<span class="string">"weight"</span>,<span class="string">"height"</span>)</div><div class="line">summarise_at(df1,vars(one_of(u)),mean) <span class="comment"># 可以接字符串向量</span></div><div class="line">summarise_at(df1,u,mean) <span class="comment"># 也可以直接接字符串向量</span></div><div class="line">summarise_at(df1,u,mean,trim=<span class="number">1</span>) <span class="comment"># mean的参数可以接在后面</span></div><div class="line"></div><div class="line">summarise_at(df1,vars(contains(<span class="string">"eig"</span>)),mean) <span class="comment"># 匹配含有的</span></div><div class="line">summarise_at(df1,vars(matches(<span class="string">".t."</span>)),mean) <span class="comment"># 使用正则表达式</span></div><div class="line">summarise_at(df1,vars(starts_with(<span class="string">"w"</span>)),mean) <span class="comment"># 匹配以此为开头的</span></div><div class="line">summarise_at(df1,vars(ends_with(<span class="string">"ht"</span>)),mean) <span class="comment"># 匹配以此为结尾的</span></div><div class="line">summarise_at(df1[,-<span class="number">1</span>],vars(everything()),mean) <span class="comment"># 选择所有列</span></div><div class="line"></div><div class="line"><span class="comment">## 检验出所有是数值的列，全部求均值</span></div><div class="line">summarise_if(df1,is.numeric,mean)</div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><p><strong>count(iris, Species [, wt=Sepal.Length])</strong> ：计算变量中每一个<strong>特定值的行数/频率/求和</strong> （带或不带权重）</p>
+<ul>
+<li>若出现wt，表示进行 <strong>[求和]</strong> ；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## wt=""  可选；若缺失，则计算频率</span></div><div class="line">count(iris, Species)  <span class="comment"># 分组计算Species列中各类别的频量；类似于基本函数包中的table函数</span></div><div class="line"></div><div class="line"><span class="comment">## wt="",若指定某一列，则会通过计算非缺失值的总和来比对权重(weighted)；</span></div><div class="line"><span class="comment"># wt = var2 ， 表示按var中的类别来分组，计算var2中未缺失值的对应的 [求和]</span></div><div class="line">count(iris, Species, wt=Sepal.Length)  <span class="comment"># 即按Species分组后，求对应Sepal.Length中的值的总和</span></div><div class="line">--等价于  iris %&gt;% group_by(., Species) %&gt;% summarize(., sum(Sepal.Length))</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## sort = False</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h3><ul>
+<li><strong>length(x)</strong>：返回一组<strong>向量（包括列表）或因子的长度</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 返回对象的个数 或者 某个列的的观测值行数</span></div><div class="line">length(object/data$col)</div><div class="line"></div><div class="line"><span class="comment"># 返回非空置的行数</span></div><div class="line">length(na.omit(object/data$col))</div><div class="line"></div><div class="line"><span class="comment"># 返回对象的唯一值的行数  </span></div><div class="line">length(unique(data$col/object))  <span class="comment"># 等价于 n_distinct()</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>nrow() / ncol()</strong>：总行数/总列数</li>
+</ul>
+<ul>
+<li><strong>n()</strong>：返回观测行的行数，<strong>不能单独使用</strong>（可被用于 <code>summarise()、mutate()、filter()</code> ）</li>
+<li><strong>n_distinct(x, na.rm=FALSE)</strong>：返回不重复的行数 <ul>
+<li><strong>sum(!is.na())</strong>：计算非空值的行数</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="分布"><a href="#分布" class="headerlink" title="分布"></a>分布</h3><ul>
+<li><strong>mean(x, na.rm=FALSE)</strong> ：返回均值； <ul>
+<li><strong>mean(!is.na())</strong> ：非空值的均值</li>
+</ul>
+</li>
+<li><strong>median(x, na.rm=FASLE)</strong>：返回中位数</li>
+<li><strong>sum(x, na.rm=FALSE)</strong>：返回求和</li>
+<li><strong>range(object)</strong>：值域</li>
+<li><strong>colSums(x) / rowSums(x)</strong>：各列/行求和</li>
+<li><strong>colMeans(x) / rowMeans(x)</strong>：各列/行求均值</li>
+</ul>
+<p><br></p>
+<h3 id="位置与序列"><a href="#位置与序列" class="headerlink" title="位置与序列"></a>位置与序列</h3><ul>
+<li><strong>first(x)/last(x)</strong>：最前/后的值</li>
+<li><strong>nth(x, n)</strong>：从开始数的第n个值</li>
+<li><strong>quantile(x, probs=seq(0, 1, 0.25), na.rm=FALSE)</strong>：显示x中处于[0,0.25,0.5,0.75,1]的值</li>
+</ul>
+<blockquote>
+<p>probs = seq(0,1, 0.25) 或者 = c(0.25,0.5) ：指定要显示的所处位置的值</p>
+</blockquote>
+<ul>
+<li><strong>min/max(x, na.rm=FALSE)</strong>：返回最大/最小值</li>
+</ul>
+<p><br></p>
+<h3 id="趋势"><a href="#趋势" class="headerlink" title="趋势"></a>趋势</h3><ul>
+<li><strong>IQR()</strong>：四分位距离</li>
+<li><strong>var()</strong>：方差</li>
+<li><strong>sd()</strong>：标准差</li>
+<li><strong>mad()</strong>：绝对均方差</li>
+</ul>
+<p><br></p>
+<h3 id="数字处理"><a href="#数字处理" class="headerlink" title="数字处理"></a>数字处理</h3><ul>
+<li><strong>options(digits=7)</strong> ：默认有效位数为7位</li>
+<li><strong>trunc(x)</strong>：取整  <code>trunc(3.531) [1] 3</code><ul>
+<li><strong>floor(x)</strong>：向下取整</li>
+<li><strong>ceiling(x)</strong>：向上取整</li>
+</ul>
+</li>
+<li><strong>sigif(x, digits=n)</strong>：指定最小值的有效位数</li>
+<li><strong>abs(x)</strong>：绝对值</li>
+<li><strong>x %% y</strong> ：求余数</li>
+<li><strong>x^n</strong>：幂次方</li>
+<li><strong>exp(x)</strong>：指数</li>
+<li><strong>ln(x) / log(x, y)</strong>：对数</li>
+<li><strong>sqrt(x)</strong>：平方根</li>
+</ul>
+<p><br></p>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><ul>
+<li><strong>group_by(.data, …, add=FALSE)</strong>：根据Species进行分组<ul>
+<li>group_by(mtacrs, cyl,vs )</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>… ： 表示用于分组的列名；</p>
+<p>add= FALSE(默认) </p>
+<ul>
+<li>FALSE，表示会覆盖原来的分组，相当于对源数据重新分组；</li>
+<li>若为TRUE,则不覆盖，相当于在原来的基础上在进行分组；</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="comment">## 先对mtcars按cyl 进行分组</span></div><div class="line">&gt; by_cyl &lt;- mtcars %&gt;% groupby(cyl)  </div><div class="line">&gt;</div><div class="line">&gt; <span class="comment"># --------add=FALSE (默认)-------------------------#</span></div><div class="line">&gt; by_cyl %&gt;%  group_by(vs, am) %&gt;%   <span class="comment"># add默认为FALSE，即对 mtcars进行 vs,am 两个变量进行分组；</span></div><div class="line">&gt;   summarise_at(.,vars(new),funs(mean) )</div><div class="line">&gt; <span class="comment"># A tibble: 4 x 3</span></div><div class="line">&gt; <span class="comment"># Groups:   vs [?]</span></div><div class="line">&gt;      vs    am      new</div><div class="line">&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</div><div class="line">&gt; <span class="number">1</span>     <span class="number">0</span>     <span class="number">0</span> <span class="number">1.737751</span></div><div class="line">&gt; <span class="number">2</span>     <span class="number">0</span>     <span class="number">1</span> <span class="number">2.115355</span></div><div class="line">&gt; <span class="number">3</span>     <span class="number">1</span>     <span class="number">0</span> <span class="number">1.404061</span></div><div class="line">&gt; <span class="number">4</span>     <span class="number">1</span>     <span class="number">1</span> <span class="number">1.177520</span></div><div class="line">&gt;</div><div class="line">&gt; <span class="comment"># 与如上等价</span></div><div class="line">&gt; &gt; group_by(mtcars, vs,am) %&gt;% summarise_at(.,vars(new),funs(mean) )</div><div class="line">&gt; <span class="comment"># A tibble: 4 x 3</span></div><div class="line">&gt; <span class="comment"># Groups:   vs [?]</span></div><div class="line">&gt;      vs    am      new</div><div class="line">&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</div><div class="line">&gt; <span class="number">1</span>     <span class="number">0</span>     <span class="number">0</span> <span class="number">1.737751</span></div><div class="line">&gt; <span class="number">2</span>     <span class="number">0</span>     <span class="number">1</span> <span class="number">2.115355</span></div><div class="line">&gt; <span class="number">3</span>     <span class="number">1</span>     <span class="number">0</span> <span class="number">1.404061</span></div><div class="line">&gt; <span class="number">4</span>     <span class="number">1</span>     <span class="number">1</span> <span class="number">1.177520</span></div><div class="line">&gt;</div><div class="line">&gt; <span class="comment"># --------add=TRUE ----------------------#</span></div><div class="line">&gt; &gt; by_cyl %&gt;%  group_by(vs, am, add=<span class="literal">TRUE</span>) %&gt;% </div><div class="line">&gt; +   summarise_at(.,vars(new),funs(mean) )</div><div class="line">&gt; <span class="comment"># A tibble: 7 x 4</span></div><div class="line">&gt; <span class="comment"># Groups:   cyl, vs [?]    # 分组变量有3个</span></div><div class="line">&gt;     cyl    vs    am      new</div><div class="line">&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</div><div class="line">&gt; <span class="number">1</span>     <span class="number">4</span>     <span class="number">0</span>     <span class="number">1</span> <span class="number">1.414214</span></div><div class="line">&gt; <span class="number">2</span>     <span class="number">4</span>     <span class="number">1</span>     <span class="number">0</span> <span class="number">1.276142</span></div><div class="line">&gt; <span class="number">3</span>     <span class="number">4</span>     <span class="number">1</span>     <span class="number">1</span> <span class="number">1.177520</span></div><div class="line">&gt; <span class="number">4</span>     <span class="number">6</span>     <span class="number">0</span>     <span class="number">1</span> <span class="number">2.149830</span></div><div class="line">&gt; <span class="number">5</span>     <span class="number">6</span>     <span class="number">1</span>     <span class="number">0</span> <span class="number">1.500000</span></div><div class="line">&gt; <span class="number">6</span>     <span class="number">8</span>     <span class="number">0</span>     <span class="number">0</span> <span class="number">1.737751</span></div><div class="line">&gt; <span class="number">7</span>     <span class="number">8</span>     <span class="number">0</span>     <span class="number">1</span> <span class="number">2.414214</span></div><div class="line">&gt;</div><div class="line">&gt; &gt; group_by(mtcars, cyl,vs,am) %&gt;% summarise_at(.,vars(new),funs(mean) )</div><div class="line">&gt; <span class="comment"># A tibble: 7 x 4 </span></div><div class="line">&gt; <span class="comment"># Groups:   cyl, vs [?]    # 分组变量有3个</span></div><div class="line">&gt;     cyl    vs    am      new    </div><div class="line">&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</div><div class="line">&gt; <span class="number">1</span>     <span class="number">4</span>     <span class="number">0</span>     <span class="number">1</span> <span class="number">1.414214</span></div><div class="line">&gt; <span class="number">2</span>     <span class="number">4</span>     <span class="number">1</span>     <span class="number">0</span> <span class="number">1.276142</span></div><div class="line">&gt; <span class="number">3</span>     <span class="number">4</span>     <span class="number">1</span>     <span class="number">1</span> <span class="number">1.177520</span></div><div class="line">&gt; <span class="number">4</span>     <span class="number">6</span>     <span class="number">0</span>     <span class="number">1</span> <span class="number">2.149830</span></div><div class="line">&gt; <span class="number">5</span>     <span class="number">6</span>     <span class="number">1</span>     <span class="number">0</span> <span class="number">1.500000</span></div><div class="line">&gt; <span class="number">6</span>     <span class="number">8</span>     <span class="number">0</span>     <span class="number">0</span> <span class="number">1.737751</span></div><div class="line">&gt; <span class="number">7</span>     <span class="number">8</span>     <span class="number">0</span>     <span class="number">1</span> <span class="number">2.414214</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+</blockquote>
+<ul>
+<li><strong>ungroup(iris)</strong>：<strong>移除</strong>数据框的分组信息</li>
+<li><strong>group_by_all()</strong>：</li>
+<li><strong>group_by_at(.tbl, .vars, .funs = list(), …, .add = FALSE)</strong>：<ul>
+<li>group_by_at(df, vars(accept,weight)) %&gt;% summarise(., var=mean(height),count=n())</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>group_by_at()  与 group_by 的区别，仅在与at中将分组的变量用 <code>vars()</code> 包含起来，利于查看</p>
+</blockquote>
+<ul>
+<li><strong>group_by_if()</strong>：</li>
+<li><strong>iris %&gt;% group_by(., Species) %&gt;% summarize(., sum(Sepal.Length))</strong>：对<strong>每一个分组</strong>分别进行<strong>概述</strong>计算</li>
+<li>iris %&gt;% group_by(., Species) %&gt;% <strong>mutate(., …)</strong>：按组计算<strong>新变量</strong></li>
+</ul>
+<p><br></p>
+<h3 id="分组-amp-概述函数"><a href="#分组-amp-概述函数" class="headerlink" title="分组&amp;概述函数"></a>分组&amp;概述函数</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="plyr-分隔-操作-合并"><a href="#plyr-分隔-操作-合并" class="headerlink" title="plyr - 分隔-操作-合并"></a>plyr - 分隔-操作-合并</h2><blockquote>
+<p>用来切割、计算、合并数据的包</p>
+<p>在一个函数内同时解决<strong>spilt-apply-combine</strong>的三个步骤</p>
+<ol>
+<li>Spilt：把要处理的数据分割成小的片段</li>
+<li>Apply：对每个小片段进行操作</li>
+<li>Combine:把片段重新组合</li>
+</ol>
+</blockquote>
+<ul>
+<li><strong>a*plyr(.data, .margins, .fun, …, .progress = “none”)</strong> </li>
+<li><strong>d*plyr(.data, .variables, .fun, …, .progress = “none”)</strong> </li>
+<li><strong>l*plyr(.data, .fun, …, .progress = “none”)</strong></li>
+</ul>
+<blockquote>
+<p>首字母代表输入的待处理的数据格式，第二个字母-输出的数据格式；</p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><strong>ddply</strong>(.data, .variables, .fun = NULL, …, .progress = “none”,  .inform = FALSE, .drop = TRUE, .parallel = FALSE, .paropts = NULL)：以ddplyr为例<ul>
+<li>ddply()函数会自动的<strong>将分割后的每一小部分的计算结果汇总</strong>，以<strong>data.frame的格式保存</strong>。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## .data, 要操作的原始数据集</span></div><div class="line"><span class="comment">## .variables, 是按照某个/几个变量，对数据集 [分割]; 比如按照year对数据集分割，可以写成.(year)的形式</span></div><div class="line"><span class="comment">## .fun, 具体执行操作的函数，对分割后的 [每一个子数据集，调用该函数]</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h3><h4 id="重复和循环"><a href="#重复和循环" class="headerlink" title="重复和循环"></a>重复和循环</h4><ul>
+<li><strong>for结构</strong> ：<code>for (var in seq) statement</code><ul>
+<li>循环执行某语句statement，直到某个变量var的值不在包含在序列seq中为止</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">10</span>) print(<span class="string">"hello"</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>while结构</strong> ：<code>while (cond) statment</code><ul>
+<li>必须确保cond中的条件语句能【被改变】（即它在某个时刻不在为真），否则循环将永不停止</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h4 id="条件执行"><a href="#条件执行" class="headerlink" title="条件执行"></a>条件执行</h4><ul>
+<li><strong>if-else结构</strong>：<code>if (cond) statement</code> 或者 <code>for (cond) statement1 else statement2</code></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!is.factor(grade)) gerade &lt;- as.factor(grade) <span class="keyword">else</span> print(<span class="string">"Grade already is a factor"</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>ifelse结构</strong>：<code>ifelse(cond, statement1, statement2)</code></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifelse(sorce&gt;<span class="number">0.5</span>, print(<span class="string">"Passed"</span>), print(<span class="string">"Failed"</span>))</div><div class="line">outcome &lt;- ifelse(socre&gt;<span class="number">0.5</span>, <span class="string">"Passed"</span>, <span class="string">"Failed"</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>switch结构</strong>：根据一个表达式的值<strong>选择</strong>语句执行<code>switch(expr,...)</code></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">feelings &lt;- c(<span class="string">"sad"</span>, <span class="string">"afraid"</span>)</div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> feelings)</div><div class="line">  print(</div><div class="line">  	<span class="keyword">switch</span>(i,</div><div class="line">          happy  = <span class="string">"I am glad you are happpy"</span>,  <span class="comment"># 用逗号分隔</span></div><div class="line">          afraid = <span class="string">"There is nothing to fear"</span>,</div><div class="line">          sad    = <span class="string">"Cheer Up"</span>,</div><div class="line">           angry = <span class="string">"Calm down now"</span></div><div class="line">          )</div><div class="line">  )</div><div class="line"><span class="comment">## expr之后的…是expr的可能取值，后接等号（=），表示执行的行为</span></div><div class="line"><span class="comment">## switch语句中，不同条件末尾要有 [逗号]</span></div><div class="line"><span class="comment">## 若expr为文本形式，输入时需加 [引号]</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="逻辑判断"><a href="#逻辑判断" class="headerlink" title="逻辑判断"></a>逻辑判断</h4><ul>
+<li><strong>which()</strong>： 返回为真的逻辑对象，允许对数组array使用</li>
+</ul>
+<p><br></p>
+<h3 id="自编函数"><a href="#自编函数" class="headerlink" title="自编函数"></a>自编函数</h3><ul>
+<li><strong>结构</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">myfunction &lt;- <span class="keyword">function</span>(arg1, arg2, <span class="keyword">...</span>)&#123;</div><div class="line">  statements</div><div class="line">  <span class="keyword">return</span>(object)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="数据拆分"><a href="#数据拆分" class="headerlink" title="数据拆分"></a>数据拆分</h2><ul>
+<li><strong>pretty(x, n)</strong> ：将<strong>连续型变量</strong>x分给为<strong>n个区间</strong>；</li>
+<li><strong>cut(x, n,[order_result=TRUE])</strong>：将连续型变量x分割成有<strong>n个水平的因子</strong></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件应用/" rel="tag"># 软件应用</a>
+          
+            <a href="/tags/r/" rel="tag"># r</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/23/《麦肯锡精英的39个工作习惯》_摘抄/" rel="next" title="《麦肯锡精英的39个工作习惯》_摘抄">
+                <i class="fa fa-chevron-left"></i> 《麦肯锡精英的39个工作习惯》_摘抄
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/24/R_导入&导出/" rel="prev" title="R_导入&导出">
+                R_导入&导出 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重组数据"><span class="nav-number">2.</span> <span class="nav-text">重组数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局转换-reshpae2-（数据透视）"><span class="nav-number">2.1.</span> <span class="nav-text">布局转换 - reshpae2 （数据透视）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">2.2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回行-列名-Basic"><span class="nav-number">2.3.</span> <span class="nav-text">返回行/列名 - Basic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重命名列变量"><span class="nav-number">2.4.</span> <span class="nav-text">重命名列变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并-amp-分割-Tidyr"><span class="nav-number">2.5.</span> <span class="nav-text">合并 & 分割 - Tidyr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重编码-amp-排名-参见-创建新变量"><span class="nav-number">2.6.</span> <span class="nav-text">重编码&排名 - 参见 [创建新变量]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并数据集"><span class="nav-number">3.</span> <span class="nav-text">合并数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#合并联接-Join"><span class="nav-number">3.1.</span> <span class="nav-text">合并联接 -  Join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集处理-行"><span class="nav-number">3.2.</span> <span class="nav-text">集处理 - 行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并与筛选"><span class="nav-number">3.3.</span> <span class="nav-text">合并与筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入行-列"><span class="nav-number">3.4.</span> <span class="nav-text">插入行/列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据选取"><span class="nav-number">4.</span> <span class="nav-text">数据选取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子集观测值-行"><span class="nav-number">4.1.</span> <span class="nav-text">子集观测值 - 行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子集变量-列"><span class="nav-number">4.2.</span> <span class="nav-text">子集变量 - 列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一值"><span class="nav-number">4.3.</span> <span class="nav-text">唯一值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建新变量"><span class="nav-number">5.</span> <span class="nav-text">创建新变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算并添加新列"><span class="nav-number">5.1.</span> <span class="nav-text">计算并添加新列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算并删除其他列"><span class="nav-number">5.2.</span> <span class="nav-text">计算并删除其他列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排名"><span class="nav-number">5.3.</span> <span class="nav-text">排名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重编码"><span class="nav-number">5.4.</span> <span class="nav-text">重编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常规编码-within"><span class="nav-number">5.4.1.</span> <span class="nav-text">常规编码 - within / $</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件编码"><span class="nav-number">5.4.2.</span> <span class="nav-text">条件编码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺失值"><span class="nav-number">5.5.</span> <span class="nav-text">缺失值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查与判断"><span class="nav-number">5.5.1.</span> <span class="nav-text">检查与判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除"><span class="nav-number">5.5.2.</span> <span class="nav-text">移除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺失值重编码"><span class="nav-number">5.5.3.</span> <span class="nav-text">缺失值重编码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">5.6.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概述函数-summairse"><span class="nav-number">6.</span> <span class="nav-text">概述函数 - summairse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计数"><span class="nav-number">6.1.</span> <span class="nav-text">计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布"><span class="nav-number">6.2.</span> <span class="nav-text">分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置与序列"><span class="nav-number">6.3.</span> <span class="nav-text">位置与序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#趋势"><span class="nav-number">6.4.</span> <span class="nav-text">趋势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字处理"><span class="nav-number">6.5.</span> <span class="nav-text">数字处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组"><span class="nav-number">7.</span> <span class="nav-text">分组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分组-amp-概述函数"><span class="nav-number">7.1.</span> <span class="nav-text">分组&概述函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plyr-分隔-操作-合并"><span class="nav-number">8.</span> <span class="nav-text">plyr - 分隔-操作-合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制流"><span class="nav-number">8.1.</span> <span class="nav-text">控制流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重复和循环"><span class="nav-number">8.1.1.</span> <span class="nav-text">重复和循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件执行"><span class="nav-number">8.1.2.</span> <span class="nav-text">条件执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑判断"><span class="nav-number">8.1.3.</span> <span class="nav-text">逻辑判断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自编函数"><span class="nav-number">8.2.</span> <span class="nav-text">自编函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据拆分"><span class="nav-number">9.</span> <span class="nav-text">数据拆分</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
