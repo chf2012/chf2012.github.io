@@ -669,7 +669,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/MySQL_结构与关联/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/MySQL_基本语法/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jerry_Cai">
@@ -694,8 +694,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/19/MySQL_结构与关联/" itemprop="url">
-                  MySQL梳理_结构与关联
+                <a class="post-title-link" href="/2017/02/19/MySQL_基本语法/" itemprop="url">
+                  MySQL梳理_基本语法
                 </a>
               
             
@@ -727,7 +727,7 @@
               
                 <span class="post-meta-item-text">更新</span>
               
-              <time title="更新" itemprop="dateModified" datetime="2017-06-03T11:08:11+08:00">
+              <time title="更新" itemprop="dateModified" datetime="2017-06-03T11:07:57+08:00">
                 2017-06-03
               </time>
             
@@ -785,7 +785,7 @@
 
           
           
-             <span id="/2017/02/19/MySQL_结构与关联/" class="leancloud_visitors" data-flag-title="MySQL梳理_结构与关联">
+             <span id="/2017/02/19/MySQL_基本语法/" class="leancloud_visitors" data-flag-title="MySQL梳理_基本语法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -815,15 +815,10 @@
 
       
         
-          <h2 id="1-数据库设计"><a href="#1-数据库设计" class="headerlink" title="1. 数据库设计"></a>1. 数据库设计</h2><h3 id="1-1-外键"><a href="#1-1-外键" class="headerlink" title="1.1 外键"></a>1.1 外键</h3><ul>
-<li>What：表中的某一列；但该列是引用到另一个表的主键列</li>
-<li>Why ：用于确定一张表中的行与另一张表中的行相对应的值</li>
-<li>How ：创建外键</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">（1）创建带有外键的表</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> intersts(</div><div class="line">  int_id <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> ATUO_INCREMENT PARIMARY <span class="keyword">KEY</span>,</div><div class="line">  interests <span class="built_in">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  cont_id <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,  # 新建的列名</div><div class="line">  <span class="keyword">CONSTRAINT</span> my_contacts_fk  # 约束名_fk为父表中的列</div><div class="line">  FOREIGN <span class="keyword">KEY</span> (cont_id)  # 指定外键</div><div class="line">  REFREENCE my_contacts (contact_id)  # 引用外键的 父表名 (列名)</div><div class="line">  <span class="keyword">ON</span> <span class="keyword">DELETE</span> casecade <span class="keyword">ON</span> UPDATEA casecade  # 设参数casecade跟随父键改动</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">---</span></div><div class="line">（2）在已有表中建立外键</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> interests</div><div class="line"><span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> 约束名_fk</div><div class="line">FOREIGN <span class="keyword">KEY</span> (外键名)</div><div class="line"><span class="keyword">REFERENCE</span> 父表名 （列名）</div></pre></td></tr></table></figure>
+          <h2 id="1-数据库"><a href="#1-数据库" class="headerlink" title="1. 数据库"></a>1. 数据库</h2><h3 id="1-1-创建"><a href="#1-1-创建" class="headerlink" title="1.1 创建"></a>1.1 创建</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE DATABASE gregs_list;</div><div class="line">USE gregs_list;</div><div class="line"></div><div class="line">CREATE TABLE my_contact;</div><div class="line"></div><div class="line">CREATE VIEW view_c;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/19/MySQL_结构与关联/#more" rel="contents">
+            <a class="btn" href="/2017/02/19/MySQL_基本语法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1402,7 +1397,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1411,7 +1406,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
