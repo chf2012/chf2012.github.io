@@ -1,0 +1,1598 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件应用,程序编程,r," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="运用R语言完成数据的统计分析。
+包括统计函数、交叉表、相关性等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言_统计分析">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/新建文件夹/R语言_统计分析/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="运用R语言完成数据的统计分析。
+包括统计函数、交叉表、相关性等。">
+<meta property="og:updated_time" content="2017-06-03T03:09:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R语言_统计分析">
+<meta name="twitter:description" content="运用R语言完成数据的统计分析。
+包括统计函数、交叉表、相关性等。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/20/新建文件夹/R语言_统计分析/"/>
+
+
+
+
+
+  <title> R语言_统计分析 | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/新建文件夹/R语言_统计分析/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                R语言_统计分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-20T00:00:00+08:00">
+                2017-03-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2017-06-03T11:09:14+08:00">
+                2017-06-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/" itemprop="url" rel="index">
+                    <span itemprop="name">程序编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/r/" itemprop="url" rel="index">
+                    <span itemprop="name">r</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/03/20/新建文件夹/R语言_统计分析/" class="leancloud_visitors" data-flag-title="R语言_统计分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>运用R语言完成数据的统计分析。</p>
+<p>包括统计函数、交叉表、相关性等。</p>
+<a id="more"></a>
+<h2 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h2><h3 id="基本统计量"><a href="#基本统计量" class="headerlink" title="基本统计量"></a>基本统计量</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mean(x)</td>
+<td>均值</td>
+<td></td>
+</tr>
+<tr>
+<td>median(x)</td>
+<td>中位数</td>
+<td></td>
+</tr>
+<tr>
+<td>sd(x)</td>
+<td>标准差</td>
+<td></td>
+</tr>
+<tr>
+<td>var(x)</td>
+<td>方差</td>
+<td></td>
+</tr>
+<tr>
+<td>mad(x)</td>
+<td>绝对中位差</td>
+<td></td>
+</tr>
+<tr>
+<td>quantile(x,)</td>
+<td>分位数，probs是0-1之间的数值向量</td>
+<td>quantile(x,probs)    quantile(x,c(.3,.7))</td>
+</tr>
+<tr>
+<td>range(x)</td>
+<td>求值域</td>
+<td>rang(c(1,2,3,4))，返回(1,4)</td>
+</tr>
+<tr>
+<td>sum(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>diff(x,)</td>
+<td>滞后分差；</td>
+<td>diff(x,lag=n)    1)diff(c(1,5,23,29),lag=2)</td>
+</tr>
+<tr>
+<td>min(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>max(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>scale(x,)</td>
+<td>为数据对象x按列进行中心化或标准化</td>
+<td>scale(x,center=TRUE,scale=TRUE)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>scale</strong></p>
+<blockquote>
+<p>默认情况下，scale对矩阵或数据框的指定列进行均值=0，标准差=1的标准化；</p>
+<blockquote>
+<p><strong>中心化 center=T</strong> </p>
+<p><strong>标准化 center=T,scale=T</strong></p>
+</blockquote>
+<p>若对任意均值，SD为标准差，M为均值</p>
+<blockquote>
+<p>newdata &lt;- scale(mydata)*SD+M</p>
+</blockquote>
+</blockquote>
+<p><strong>mad( ) - 绝对中位差</strong></p>
+<blockquote>
+<p>1.求原样本S1中位数，记为m1<br>2.原样本S1各元素减去m1，得到的值去绝对值，得到新的样本S2<br>3.求新样本S2的中位数m2<br>4.返回的值=1.4826*m2</p>
+</blockquote>
+</blockquote>
+<h3 id="概率函数"><a href="#概率函数" class="headerlink" title="概率函数"></a>概率函数</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+<th>全称</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>d</strong></td>
+<td><strong>概率函数</strong></td>
+<td><strong>density</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>p</strong></td>
+<td><strong>分布函数</strong></td>
+<td><strong>distribution  function</strong></td>
+<td>pnorm(x,mean=a,sd=b)</td>
+<td>生成mean=a,sd=b的x【左侧的面积值】；pnorm(1.96)=0.975</td>
+</tr>
+<tr>
+<td><strong>q</strong></td>
+<td><strong>分位数函数</strong></td>
+<td><strong>quantile  function</strong></td>
+<td>qnorm(0.x,mean=a,sd=b)</td>
+<td>生成0.x分位数，mean=a，sd=b的情况下；默认为标准正态</td>
+</tr>
+<tr>
+<td><strong>r</strong></td>
+<td><strong>生成随机数</strong></td>
+<td><strong>random</strong></td>
+<td>rnorm(x,mean=a,sd=b)</td>
+<td>生成x个mean=a,sd=b的随机数；默认情况下a=0,b=1，且mean/sd可省略</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>概率函数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beta</td>
+<td>Beta分布</td>
+</tr>
+<tr>
+<td>binom</td>
+<td>二项分布</td>
+</tr>
+<tr>
+<td>nbinom</td>
+<td>负二项分布</td>
+</tr>
+<tr>
+<td>multinom</td>
+<td>多项分布</td>
+</tr>
+<tr>
+<td>norm</td>
+<td>正态分布</td>
+</tr>
+<tr>
+<td>lnorm</td>
+<td>对数正态分布</td>
+</tr>
+<tr>
+<td>unif</td>
+<td>均匀分布</td>
+</tr>
+<tr>
+<td>t</td>
+<td>t分布</td>
+</tr>
+<tr>
+<td>f</td>
+<td>F分布</td>
+</tr>
+<tr>
+<td>logis</td>
+<td>Logistic分布</td>
+</tr>
+<tr>
+<td>exp</td>
+<td>指数分布</td>
+</tr>
+<tr>
+<td>chisq</td>
+<td>（非中心）卡方分布</td>
+</tr>
+<tr>
+<td>pois</td>
+<td>泊松分布</td>
+</tr>
+<tr>
+<td>geom</td>
+<td>几何分布</td>
+</tr>
+<tr>
+<td>hyper</td>
+<td>超几何分布</td>
+</tr>
+<tr>
+<td>cauchy</td>
+<td>柯西分布</td>
+</tr>
+<tr>
+<td>signrank</td>
+<td>Wilcoxon符号秩分布</td>
+</tr>
+<tr>
+<td>wilcox</td>
+<td>Wilcoxon秩和分布</td>
+</tr>
+<tr>
+<td>weibull</td>
+<td>Weibull分布</td>
+</tr>
+</tbody>
+</table>
+<h3 id="通用函数"><a href="#通用函数" class="headerlink" title="通用函数"></a>通用函数</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 截尾</span></div><div class="line">trim=<span class="number">0.</span>n  <span class="comment"># 在统计函数中加入trim表示截去最高和最低各n%，计算中间(1-n)%的值</span></div><div class="line">c&lt;-matrix(rnorm(<span class="number">12</span>),<span class="number">1</span>,mean,trim=<span class="number">0.2</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="交叉表"><a href="#交叉表" class="headerlink" title="交叉表"></a>交叉表</h2><ul>
+<li>what ：一种分类汇总的表格 Cross Tabulations</li>
+<li>why  ：用于查看变量的频数、占比</li>
+</ul>
+<h3 id="多结果列联表"><a href="#多结果列联表" class="headerlink" title="多结果列联表"></a>多结果列联表</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(gmodels)</div><div class="line"></div><div class="line">CrossTable(x,y, digtis=<span class="number">3</span>, max.width=<span class="number">5</span>, expected=<span class="literal">F</span>, prop.r=<span class="literal">T</span>, prop.c=<span class="literal">T</span>, prop.t=<span class="literal">T</span>, prop.chisq=<span class="literal">TRUE</span>, chisq=<span class="literal">F</span>, fisher=<span class="literal">F</span>, mcnemar=<span class="literal">F</span>, missing.include=<span class="literal">F</span>, format=c(<span class="string">"SAS"</span>,<span class="string">"SPSS"</span>), dnn=<span class="literal">NULL</span>,<span class="keyword">...</span>) </div><div class="line"></div><div class="line"><span class="comment"># x，一个矩阵或向量。如果出现y，则x必须是一个向量</span></div><div class="line"><span class="comment"># max.width= ，如果想要一个单柱立式表，可设为1</span></div><div class="line"><span class="comment"># expected=F/T, 如果为T，chisq将被设置为TRUE和Chi-Square单元计数将被纳入</span></div><div class="line"><span class="comment"># prop.r - 行比例 ; prop.c - 列比例;  prop.t - 表比例; </span></div><div class="line"><span class="comment"># prop.chisq - 卡方贡献的每个单元格</span></div><div class="line"><span class="comment"># format="SAS" / "SPSS" ,默认输出格式为"SAS"</span></div><div class="line"><span class="comment"># 独立性检验  chisq=F / fisher=F / mcnemar= F</span></div><div class="line"></div><div class="line">CrossTable(data$col, data$col); / with(data, CrossTable(col1, col2))</div><div class="line">CrossTable(HR_data$sales, HR_data$salary, prop.r=<span class="literal">T</span>,prop.c=<span class="literal">F</span>, prop.t=<span class="literal">F</span>, prop.chisq=<span class="literal">F</span>)  <span class="comment"># 只有prop.r=T ,表示对每一行求比例</span></div></pre></td></tr></table></figure>
+<h3 id="单结果列联表"><a href="#单结果列联表" class="headerlink" title="单结果列联表"></a>单结果列联表</h3><ul>
+<li><strong>表格紧凑化 -  ftable(table)</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">计算频数</div><div class="line"></div><div class="line">table(object1, object2, object3, [useNA=ifany])</div><div class="line"><span class="comment"># 若出现useNA=ifany，则将NA视为一个有效类别</span></div><div class="line"><span class="comment"># x &lt;- with(data, table(col))</span></div><div class="line"></div><div class="line"></div><div class="line">xtabs(formula, data=matrix/df )  <span class="comment"># 从矩阵/数据框中提取</span></div><div class="line">xtabs(~col1+col2, data=frame_name)</div><div class="line"></div><div class="line"></div><div class="line">-----------------------------------------------------------------------------------</div><div class="line">计算占比</div><div class="line"></div><div class="line">prop.table(table, margins) </div><div class="line"><span class="comment"># 一般都需指定所求变量的比例（默认为表比例）</span></div><div class="line"><span class="comment">## prop.table(table) --对所有变量求比例</span></div><div class="line"><span class="comment">## prop.table(table, 1) --对第一个变量求比例</span></div><div class="line"><span class="comment">## porp.table(table, 2） --对第二个变量求比例</span></div><div class="line"><span class="comment">## prop.table(table, c(1,2)) -对第一、第二个变量求比例；当维度大于2时</span></div><div class="line"><span class="comment">## prop.table(table)*100 -- 得到百分比形式</span></div><div class="line"></div><div class="line"></div><div class="line">-----------------------------------------------------------------------------------</div><div class="line">计算边际和</div><div class="line">margin.table(table, margins)</div><div class="line"></div><div class="line"></div><div class="line">添加新的结果</div><div class="line">addmargins(table, margins)</div><div class="line"><span class="comment"># addmargins(table) -对所有变量创建边际和</span></div><div class="line"><span class="comment"># addmargins(prop.table(table, 1), 2) -对table表中第一个变量求比例，并对第二个变量创建边际和</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="相关性"><a href="#相关性" class="headerlink" title="相关性"></a>相关性</h2><ul>
+<li>what ： 描述<strong>定量变量</strong>之间的关系；衡量两个样本之间的相关性；若为0，则表示两者不相关，即独立<ul>
+<li>相关系数<ul>
+<li>线性相关程度-Pearson积差相关系数</li>
+<li>分级定序变量的相关程度-Spearman等级相关系数</li>
+<li>非参数等级相关程度-Kendall’s Tau相关系数</li>
+</ul>
+</li>
+<li><strong>协方差：一个变量的偏离程度，会对另一个变量的偏离程度产生多大的影响；</strong><ul>
+<li>如果其中一个大于自身的期望值，另外一个也大于自身的期望值，那么两个变量之间的协方差就是正值。</li>
+<li>如果X 与Y 是统计独立的，那么二者之间的协方差就是0</li>
+<li>但是反过来并不成立，即如果X 与Y 的协方差为0，二者并不一定是统计独立的。取决于协方差的相关性η</li>
+</ul>
+</li>
+<li>方差：当两个变量是相关的特殊情况</li>
+<li><strong>偏相关：控制一个变量或多个定量变量时，另外两个变量之间的关系</strong></li>
+</ul>
+</li>
+<li>why  ：确定变量之间的<strong>影响程度的强弱</strong>，以得出变量的重要性[为后续分析提供变量选择]</li>
+</ul>
+<h3 id="相关系数"><a href="#相关系数" class="headerlink" title="相关系数"></a>相关系数</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">cor(matrix/df, use=<span class="string">"everything"</span>, method=<span class="string">"pearson"</span>)</div><div class="line"><span class="comment"># 先选择定量变量的数据集 data&lt;- select(data, )</span></div><div class="line"></div><div class="line"><span class="comment"># use= ，表示对缺失值NULL的处理方式</span></div><div class="line"><span class="comment">## use="everything"(默认) , 结果为missing;</span></div><div class="line"><span class="comment">## use="all.obs",结果报错;  </span></div><div class="line"><span class="comment">## use="complete.obs"--行删除; </span></div><div class="line"><span class="comment">## use="pairwise.complete.obs"--成对删除</span></div><div class="line"></div><div class="line"><span class="comment"># method=， 表示选择的相关系数种类</span></div><div class="line"><span class="comment">## method="pearson"（默认）</span></div><div class="line"><span class="comment">## method-"spearman"</span></div><div class="line"><span class="comment">## method="kendall"</span></div><div class="line"></div><div class="line"></div><div class="line">cor(matr/df) - 得到一个两两计算相关性的方阵</div><div class="line">cor(HR_comma[ , <span class="number">1</span>:<span class="number">8</span>]) <span class="comment"># 只可对定量变量做相关性</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 求一组变量与另一组（非两两）的相关矩阵</span></div><div class="line">x &lt;- states[ , c(<span class="string">"col"</span>, <span class="string">"col"</span>)]</div><div class="line">y &lt;- states[ , c(<span class="string">"col"</span>, <span class="string">"col"</span>, <span class="string">"col"</span>]</div><div class="line">cor(x, y)</div><div class="line">     </div><div class="line">                 </div><div class="line">-----------------------------------------------------------------------------------              </div><div class="line">cov(matrix/df, use=<span class="string">"everything"</span>, method=<span class="string">"pearson"</span>)</div></pre></td></tr></table></figure>
+<p>–</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">偏相关</div><div class="line"></div><div class="line"><span class="keyword">library</span>(ggm)</div><div class="line">pcor(vector, S)</div><div class="line"><span class="comment"># vector，一个数值型向量, 数值代表变量的序数；前两个数值表示要计算的变量下标，其余为要排除的变量</span></div><div class="line"><span class="comment"># S，变量的协方差阵</span></div><div class="line">colnames(data)</div><div class="line">pcor(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>), cov(data))</div></pre></td></tr></table></figure>
+<h3 id="相关图-可视化"><a href="#相关图-可视化" class="headerlink" title="相关图 - 可视化"></a>相关图 - 可视化</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(corrgram)</div><div class="line"></div><div class="line">corrgram(dataX, order=<span class="literal">TRUE</span>, lower.panel=, upper.panel=, text.panel=, diag.panel=, main=<span class="string">""</span>)</div><div class="line"></div><div class="line"><span class="comment"># dataX，是一行一个观测值的数据框，即长格式  或者是一个 相关性矩阵</span></div><div class="line"><span class="comment">## [reshape2包] - melt(data, [id="" / c("", "")] </span></div><div class="line"></div><div class="line"><span class="comment"># order=TRUE, 相关矩阵使用【主成分分析法】对变量进行重排序</span></div><div class="line"></div><div class="line"><span class="comment"># lower/upper.panel=,控制非对角线的设置</span></div><div class="line"><span class="comment">## NULL - 不显示</span></div><div class="line"><span class="comment">## panel.shade - 用阴影深度表示相关性大小</span></div><div class="line"><span class="comment">## panel.pie - 用饼图填充比例表示相关性大小（顺时针，正相关）</span></div><div class="line"><span class="comment">## panel.pts - 画一个散点图</span></div><div class="line"><span class="comment">## panel.ellipse - 画一个置信椭圆+平滑曲线</span></div><div class="line"><span class="comment">## panel.conf - 画出相关性+置信区间（用数值表示，而非图片）</span></div><div class="line"></div><div class="line"><span class="comment"># text.panel=panel.txt - 输出变量名</span></div><div class="line"><span class="comment"># cex.labels=num，变量名的大小</span></div><div class="line"></div><div class="line"><span class="comment"># diag.panel=，控制主对角线的设置</span></div><div class="line"><span class="comment">## panel.minmax - 输出变量的最大最小值和变量名</span></div><div class="line"><span class="comment">## panel.ednsty - 输出核密度曲面和变量名</span></div><div class="line"></div><div class="line">corrgram(mtcars /cor(data), order=<span class="literal">TRUE</span>, lower.panel=panel.pei, upper.panel=panel.conf, text.panel=panel.txt, main=<span class="string">""</span>)</div><div class="line"></div><div class="line"></div><div class="line">-----------------------------------------------------------------------------------  </div><div class="line"><span class="keyword">library</span>(corrplot)</div><div class="line"></div><div class="line">corrplot(corr, method=<span class="string">"number"</span>, order=<span class="string">"FPC"</span> tl.col=<span class="string">"black"</span>, title=<span class="string">""</span>,tl.srt=<span class="number">45</span>，mar=c(<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>)<span class="keyword">...</span>)</div><div class="line"></div><div class="line"><span class="comment"># corr，是一个相关性矩阵，且必须是方形；</span></div><div class="line"><span class="comment"># method="", 可视化的图形，circle（默认），square, ellipse, number, shade, color, pie</span></div><div class="line"><span class="comment"># type=""，图形矩阵的位置，full（默认，全部完整矩阵），lower/upper,显示下三角/上三角</span></div><div class="line"><span class="comment"># order=""，相关矩阵的排序方法，original(默认,原来的顺序), FPC(第一主成分), hclust(层次聚类次序), AOE(特征向量角的顺序)</span></div><div class="line"><span class="comment"># add=FALSE(默认)，不添加到现有的图形中（即创建一个新的图形），若为TRUE，则添加到现有的图形</span></div><div class="line"><span class="comment"># mar=c(1,1,3,1)  # 用来调节边界大小，以放下标题</span></div><div class="line"></div><div class="line"><span class="comment"># tl. 文本标签</span></div><div class="line"><span class="comment">## tl.cex= # 文本标签的大小</span></div><div class="line"><span class="comment">## tl.col= 文本标签的颜色</span></div><div class="line"></div><div class="line">corrplot(corr,method=<span class="string">"circle"</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="类别变量"><a href="#类别变量" class="headerlink" title="类别变量"></a>类别变量</h2><p><br></p>
+<h2 id="总体均值对比"><a href="#总体均值对比" class="headerlink" title="总体均值对比"></a>总体均值对比</h2><p><br></p>
+<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><ul>
+<li>what ：建立因变数Y与自变数 X之间关系的模型</li>
+<li>why  ：<ul>
+<li>了解变量之间是否相关？相关的方向与强度？</li>
+<li>并建立数学模型以观察特定变量来预测因变量；（可以给出自变量来估计因变量的条件期望）</li>
+</ul>
+</li>
+<li>how  ：分析步骤</li>
+</ul>
+<ol>
+<li><strong>确定因变量与自变量，选择回归方程</strong></li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">因变量 - 二值型数值/类别型变量</div><div class="line"><span class="comment"># Logistic回归</span></div><div class="line"></div><div class="line">因变量</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>整理数据格式</strong></li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Logistic回归</div><div class="line"></div><div class="line">赋值 - 二分法 </div><div class="line"><span class="comment"># data$col[data$col cond] &lt;- 1</span></div><div class="line"><span class="comment"># data$col[data$col cond] &lt;- 0</span></div><div class="line"></div><div class="line">因子化</div><div class="line"><span class="comment"># data$col &lt;- as.factor(data$col)</span></div></pre></td></tr></table></figure>
+<ol>
+<li><strong>拟合模型</strong></li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Logistic回归 </div><div class="line"><span class="comment"># fit &lt;- glm(formula, data=, family=binomail)</span></div></pre></td></tr></table></figure>
+<ol>
+<li><strong>查看统计量，并重新选择自变量</strong></li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">summary(fit)</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>重新拟合模型，并查看统计量</strong></li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Logistic回归 - </div><div class="line"><span class="comment"># fit2 &lt;- glm(formula, data=, family=binomal)</span></div><div class="line"><span class="comment"># summary(fit2)</span></div></pre></td></tr></table></figure>
+<ol>
+<li><strong>模型选择 - 嵌套对比</strong></li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Logistic回归 - 卡方检验(若p值&lt;<span class="number">0.05</span>，说明多余的变量对方程有显著影响，不能舍去)</div><div class="line"><span class="comment"># anova(fit, fit2, test="Chisq")</span></div></pre></td></tr></table></figure>
+<ol>
+<li><strong>解释模型</strong></li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Logisctic回归</div><div class="line"><span class="comment"># 指数化 - exp(coef(fit))</span></div></pre></td></tr></table></figure>
+<ol>
+<li><strong>深层次分析</strong></li>
+</ol>
+<ul>
+<li>交叉验证：- 评价回归方程的泛化能力；即，回归方程对新观测样本的预测能力</li>
+<li>模型评价：评价预测变量对结果概率的影响【在选择最佳模型之后】</li>
+<li>过度离势 [ Logistic回归 ]<ul>
+<li>[what] - 过度离势：观测到的<strong>响应变量的方差 &gt; 期望的二项分布的方差</strong>(σ²=npq)；</li>
+<li>[why] - 过度离势会导致<strong>标准误检验和不精确的显著性检验</strong>；若出现过度离势，可用类二项分布来代替，即glm(,,family=quasibinomial)</li>
+<li>[how] - 比较模型的<strong>残差偏差与残差自由度的比值</strong>；若比值非常接近1，则没有过度离势；若比1大很多，则存在过度离势；deviance(fit) / df.residual(fit)</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>预测模型</strong></li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Logistic回归</div><div class="line"><span class="comment"># predict(fit, newdata=, type="response")</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="确定统计量"><a href="#确定统计量" class="headerlink" title="确定统计量"></a>确定统计量</h2><p><br></p>
+<p><br></p>
+<p><br></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><br></p>
+<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><ul>
+<li><strong>常见表达式</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>作用</th>
+<th>示例</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>～</td>
+<td>分隔符号</td>
+<td>y～x+z+w</td>
+<td>左边-因变量/响应变量    右边-自变量/解释变量</td>
+</tr>
+<tr>
+<td>+</td>
+<td>分隔预测变量</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>：</td>
+<td>预测变量的交互项</td>
+<td>y～x+z+x:z</td>
+<td></td>
+</tr>
+<tr>
+<td>*</td>
+<td>所有可能交互项的表达方式</td>
+<td>y～x<em>z</em>w—y～x+z+w+x:z+x:w+z:w</td>
+<td></td>
+</tr>
+<tr>
+<td>^</td>
+<td>交互项的某个次数</td>
+<td>y～(x+z+w)^2—y～x+z+w+x:z+x:w+z:w</td>
+<td>交互项最高次为2次</td>
+</tr>
+<tr>
+<td>.</td>
+<td>包含除因变量之外的所有变量</td>
+<td>y～.—y～x+z+w</td>
+<td>当一个数据框包含y,x,z,w这四个变量时</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减号，从等式中移除某个变量</td>
+<td>y～(x+z+w)^2-x:w—    y～x+z+w+x:z+z:w</td>
+<td></td>
+</tr>
+<tr>
+<td>-1</td>
+<td>删除截距项</td>
+<td>y～x-1</td>
+<td>拟合y在x上的回归，并强制直线通过原点</td>
+</tr>
+<tr>
+<td>I()   [大写i ]</td>
+<td>从算术（而非表示式）的角度来解释括号中的元素</td>
+<td>y～x+I((z+w)^2)</td>
+<td>表示的是x+(z+w)²，而非x+z+w+z:w</td>
+</tr>
+<tr>
+<td>function</td>
+<td>可以在表达式中运用的数学函数</td>
+<td>log(y)～x+z+w</td>
+<td></td>
+</tr>
+<tr>
+<td>mpg ~ wt \</td>
+<td>cyl</td>
+<td>表示按条件（cyl）绘图；</td>
+<td></td>
+<td>即按cyl的水平为【分组条件】分别绘制mpg和wt的关系图</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<ul>
+<li><strong>研究设计表达式</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>y～A</td>
+<td>单因素ANOVA</td>
+<td></td>
+</tr>
+<tr>
+<td>y～x+A</td>
+<td>含单个协变量的单因素ANCOVA</td>
+<td></td>
+</tr>
+<tr>
+<td>y～A * B</td>
+<td>双因素ANOVA</td>
+<td>展开为 ~A+B+A:B</td>
+</tr>
+<tr>
+<td>y～x1+x2+A*B</td>
+<td>含两个协变量的双因素ANCOVA</td>
+<td></td>
+</tr>
+<tr>
+<td>y～B+A（B是区组因子）</td>
+<td>随机化区组</td>
+<td></td>
+</tr>
+<tr>
+<td>y～A +  Error(Subject/A)</td>
+<td>单因素组内ANOVA</td>
+<td></td>
+</tr>
+<tr>
+<td>y～B*W+Error(Subject/W)</td>
+<td>含单个组内因子(W)和单个组间因子(B)的重复测量ANOVA</td>
+<td>展开为 ~B+W+B:W</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>1.小写字母，定量变量    </p>
+<p>2.大写字母，组别因子（若不转换为factor，则默认为定量协变量）    </p>
+<p>3.Subject，被试者独有的标志变量    </p>
+<p>4.Error(Subject/A)，表示组内因子</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件应用/" rel="tag"># 软件应用</a>
+          
+            <a href="/tags/程序编程/" rel="tag"># 程序编程</a>
+          
+            <a href="/tags/r/" rel="tag"># r</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/19/新建文件夹/R语言_数据处理/" rel="next" title="R语言_数据处理">
+                <i class="fa fa-chevron-left"></i> R语言_数据处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/25/新建文件夹/罗辑思维_创新是怎么发生的？/" rel="prev" title="罗辑思维_创新是怎么发生的？">
+                罗辑思维_创新是怎么发生的？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计函数"><span class="nav-number">1.</span> <span class="nav-text">统计函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本统计量"><span class="nav-number">1.1.</span> <span class="nav-text">基本统计量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概率函数"><span class="nav-number">1.2.</span> <span class="nav-text">概率函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用函数"><span class="nav-number">1.3.</span> <span class="nav-text">通用函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉表"><span class="nav-number">2.</span> <span class="nav-text">交叉表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多结果列联表"><span class="nav-number">2.1.</span> <span class="nav-text">多结果列联表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单结果列联表"><span class="nav-number">2.2.</span> <span class="nav-text">单结果列联表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关性"><span class="nav-number">3.</span> <span class="nav-text">相关性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关系数"><span class="nav-number">3.1.</span> <span class="nav-text">相关系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关图-可视化"><span class="nav-number">3.2.</span> <span class="nav-text">相关图 - 可视化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类别变量"><span class="nav-number">4.</span> <span class="nav-text">类别变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总体均值对比"><span class="nav-number">5.</span> <span class="nav-text">总体均值对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">6.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确定统计量"><span class="nav-number">7.</span> <span class="nav-text">确定统计量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式"><span class="nav-number">8.1.</span> <span class="nav-text">表达式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

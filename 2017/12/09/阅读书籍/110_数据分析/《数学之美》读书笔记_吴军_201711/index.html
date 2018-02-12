@@ -1,0 +1,1776 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="阅读数据," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="《数学之美》_吴军
+
+ 阅于2017年11月
+
+
+相关性（概率）、权重 是核心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《数学之美》读书笔记_吴军">
+<meta property="og:url" content="http://yoursite.com/2017/12/09/阅读书籍/110_数据分析/《数学之美》读书笔记_吴军_201711/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="《数学之美》_吴军
+
+ 阅于2017年11月
+
+
+相关性（概率）、权重 是核心">
+<meta property="og:updated_time" content="2018-02-12T08:23:06.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《数学之美》读书笔记_吴军">
+<meta name="twitter:description" content="《数学之美》_吴军
+
+ 阅于2017年11月
+
+
+相关性（概率）、权重 是核心">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/09/阅读书籍/110_数据分析/《数学之美》读书笔记_吴军_201711/"/>
+
+
+
+
+
+  <title> 《数学之美》读书笔记_吴军 | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/09/阅读书籍/110_数据分析/《数学之美》读书笔记_吴军_201711/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《数学之美》读书笔记_吴军
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-09T00:00:00+08:00">
+                2017-12-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-12T16:23:06+08:00">
+                2018-02-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/阅读数据/" itemprop="url" rel="index">
+                    <span itemprop="name">阅读数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/09/阅读书籍/110_数据分析/《数学之美》读书笔记_吴军_201711/" class="leancloud_visitors" data-flag-title="《数学之美》读书笔记_吴军">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>《数学之美》_吴军</p>
+<blockquote>
+<p> 阅于2017年11月</p>
+</blockquote>
+<ol>
+<li><strong>相关性（概率）、权重 是核心</strong></li>
+</ol>
+<a id="more"></a>
+<blockquote>
+<p>理解当前网络机理的同时，也深刻认识到自己在数理知识与编程上的不足。不应该在这个方向深入太久；</p>
+</blockquote>
+<p><br></p>
+<h1 id="语言处理"><a href="#语言处理" class="headerlink" title="语言处理"></a>语言处理</h1><blockquote>
+<p>第1章 ~ 第7章 </p>
+</blockquote>
+<h2 id="第1章-文字和语言-Vs-数学和信息"><a href="#第1章-文字和语言-Vs-数学和信息" class="headerlink" title="第1章 文字和语言 Vs.  数学和信息"></a>第1章 文字和语言 Vs.  数学和信息</h2><blockquote>
+<p>数学、文字和自然语言一样，都是信息的载体。区别只是信息编码的不同单位而已；</p>
+<p>数学和语言的产生都是为了同一个目的：记录和传播信息</p>
+<p>直到香农博士提出信息论，人们才把数学和信息系统自觉地联系起来。</p>
+</blockquote>
+<ol>
+<li>信息传播的模型： $$ 信息源 \to 编码 \to 信道 \to 解码 \to 接收者$$</li>
+<li><strong>翻译这件事之所以能达成，仅仅是因为不同的文字在记录信息上的能力是等价的。</strong><ul>
+<li>文字只是信息的载体，而非信息本身</li>
+<li>那不用文字，而用其他载体（比如数字）也是可以存储相同意义的信息</li>
+</ul>
+</li>
+<li>古印度人发明了0 - 10 个 阿拉伯数字</li>
+<li>象形文字到拼音文字是一个飞越；因为人类在描述物体的方式上，从物体的外表进化到了抽象的概念</li>
+</ol>
+<p><br></p>
+<h2 id="第2章-自然语言处理"><a href="#第2章-自然语言处理" class="headerlink" title="第2章 自然语言处理"></a>第2章 自然语言处理</h2><blockquote>
+<p>任何一种语言度是一种编码的方式；而语言的语法规则是编解码的算法。这是语言的数学本质；</p>
+</blockquote>
+<ol>
+<li>图灵测试（Turning Test）</li>
+<li>从规则到统计<ul>
+<li>原先都是通过定义语法的方式去进行自然语言识别</li>
+<li>之后是基于有向图的统计模型</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第3章-统计语言模型"><a href="#第3章-统计语言模型" class="headerlink" title="第3章 统计语言模型"></a>第3章 统计语言模型</h2><ol>
+<li><p><strong>从数学的方法描述语言规律：贾里尼克</strong></p>
+<ul>
+<li>一个句子是否合理，就看它的可能性大小</li>
+<li>可能性用概率来衡量</li>
+</ul>
+</li>
+<li><p>假设$S$ 表示一个有意义的句子，有一连串特定顺序排列的词 $w_1, w_2, …, w_n$ 组成，$n$ 是句子的长度；</p>
+<ul>
+<li><p>现在想知道 $S$ 在文本中出现的可能性，即概率 $P(S)$ </p>
+</li>
+<li><p>$S = w_1,w_2,…$ 即 $P(S) = P(w_1,w_2,…)$</p>
+</li>
+<li><p>利用条件概率公式，展开为 </p>
+<p>$$P(S) = P(w_1) P(w_2|w_1) P(w_3|w_1,w_2) … P(w_n|w_1,w_2,…)$$</p>
+<blockquote>
+<p>$P(w_1)$ 表示第一个词 $w_1$ 出现的概率； $P(w_2|w_1)$ 表示在已知第一个词的前提下出现的概率；以此类推， $w_n$ 的出现概率取决于它前面的所有词</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>安德烈.马尔科夫 ( Andrey Markov ) 19世纪 俄国数学家 </p>
+<ul>
+<li><p>假设任意一个词 $w<em>i$ 出现的概率只同它前面的词 $w</em>{i-1}$ 有关；即<strong>马尔科夫假设</strong></p>
+<p>$$P(S) = P(w_1) P(w_2|w_1) P(w_3|w_2) … P(w<em>n|w</em>{n-1})$$</p>
+<blockquote>
+<p>也可以假设一个词由前面 $N-1$ 个词决定；则称为 $N$ 元模型</p>
+</blockquote>
+</li>
+<li><p>问题转化为如何估计条件概率 $P(w<em>i|w</em>{i-1})$</p>
+<p>$$P(w<em>i|w</em>{i-1}) = {P(w_{i-1},w<em>i) \over P(w</em>{i-1})}$$</p>
+<blockquote>
+<p>若有大量机读文本（即语料库），只要做统计即可得出相应的概率</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>延伸阅读</p>
+<ul>
+<li>高阶语言模型：实际应用中最多选取 $N=3$  的三元模型，更高阶的很少使用；<ul>
+<li>当模型从3到4时，效果的提升不显著，但资源的耗费量却增加地很快</li>
+</ul>
+</li>
+<li>模型训练、零概率问题和平滑方法<ul>
+<li>统计中若  # $(w_{i-1},w_i)$ 的次数等于0，但并不意味着出现的概率为0</li>
+<li>古德 - 图灵估计 ( Good - Turning Estimate) ：对于没有看见的事件，我们不能认为它发生的概率为零；因此需要从概率的总量中分配一个很小的比例给这些没有看见的事件。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第4章-分词"><a href="#第4章-分词" class="headerlink" title="第4章 分词"></a>第4章 分词</h2><ol>
+<li>分词的一致性：统计模型被广泛应用后，不同的分词器产生记过的差异远远小于不同人之间看法的差异</li>
+<li>词的颗粒度与层级：不同的应用中要选择不同的颗粒度标准<ul>
+<li>“清华大学” 可以看做一个整体，也可以看做由2个词组成的</li>
+<li>在机器翻译中，一般颗粒度大的翻译效果好；</li>
+<li>在网页搜索中，小的颗粒度效果比大的好<ul>
+<li>当用户查询 “清华” 时，若使用较大的颗粒度，是找不到清华大学的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第5章-隐含马尔科夫模型"><a href="#第5章-隐含马尔科夫模型" class="headerlink" title="第5章 隐含马尔科夫模型"></a>第5章 隐含马尔科夫模型</h2><blockquote>
+<p>美国数学家 鲍姆 ( Leonard E. Baum )等人在20世纪六十七年代提出的</p>
+</blockquote>
+<ol>
+<li>马尔科夫假设与马尔科夫链<ul>
+<li>一个状态到另一个状态是有一定概率的，并且只与前一个状态有关</li>
+</ul>
+</li>
+<li><strong>隐含马尔科夫假设</strong><ul>
+<li>任意时刻 t 的状态 $s_t$ 是不可见的；观察者没办法通过观察到一个状态序列 $s_1, s_2,…$ 来推测转移概率</li>
+<li>但是，会在每个时刻t 输出一个符号 $o_t$ ，且仅跟 $s_t$ 相关；即<strong>独立输出假设</strong></li>
+<li>因此，通过计算出某个特定的状态序列所产生的输出符号 $o_1, o_2,…$ 的概率 来推测 $s_1, s_2,…$ 发生的概率</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="【精】第6章-信息的度量和作用"><a href="#【精】第6章-信息的度量和作用" class="headerlink" title="【精】第6章 信息的度量和作用"></a>【精】第6章 信息的度量和作用</h2><blockquote>
+<p>信息熵不仅是对信息的量化度量，而且是整个信息论的基础；</p>
+<p>信息熵的物理含义是对一个信息系统不确定性的度量</p>
+</blockquote>
+<h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h3><ol>
+<li><p><strong>信息量等于不确定性的多少；</strong> 一条信息的信息量与其不确定性有着直接的关系；</p>
+<ul>
+<li>我们对一件事一无所知，就需要了解大量信息；如果了解很多，不需要太多信息就能把它搞清楚</li>
+</ul>
+</li>
+<li><p>香农用 “比特” (Bit) 来度量信息量</p>
+<ul>
+<li><p>一个比特是一位<strong>二进制数</strong></p>
+</li>
+<li><p>信息量的比特数 和 所有可能情况的对数函数 $log$ 有关  （$log_232=5$）</p>
+<ul>
+<li>一共32个球队，哪个球队会获胜？这条消息的信息量是5比特 <em>用二分法，先猜在1-16号中，若正确则继续二分；若错误则跳到另一半进行二分；最后需要用5次即可获得正确答案；</em></li>
+<li>当每个球队获胜的概率不等时，“谁是冠军” 的信息量比5比特少</li>
+</ul>
+<p><strong>准确的信息量 ：</strong> $$H = -(p_1 log_2{p_1} + p_2 log_2{p_2} + …)$$</p>
+</li>
+</ul>
+</li>
+<li><p>信息熵的概念 ：  $$H(X) = - \sum_x P(x) log_2{P(x)}$$</p>
+<blockquote>
+<p>变量的不确定性越大，熵就越大</p>
+</blockquote>
+</li>
+<li><p>有了熵的概念，就可以回答这样一个问题 “一本50万字的中文书平均有多少信息量” </p>
+<ul>
+<li>常用的汉字大约有7000个；若每个概率相等，则需要约13比特 $2^{13} = 8192$  表示一个汉字</li>
+<li>但汉字的使用频率是不相等的；一般前10%的汉字占常用文本的95%以上</li>
+<li>假设每个汉字的信息熵为 9 比特；在考虑上下文关系，每个汉字的信息熵就只有 5 比特</li>
+<li>结论：一本50万字的中文书有大约250万比特，大约2M的内容</li>
+</ul>
+<blockquote>
+<p>汉语是最简洁的语言；一本英文书，如果字体大小相同，那么中译本一般都会薄很多</p>
+</blockquote>
+<p>​</p>
+</li>
+</ol>
+<h3 id="信息的作用"><a href="#信息的作用" class="headerlink" title="信息的作用"></a>信息的作用</h3><blockquote>
+<p>信息的作用在于消除不确定性</p>
+<p>自然语言处理的大量问题就是寻找相关的信息</p>
+</blockquote>
+<ol>
+<li>信息是消除系统不确定性的唯一办法；在没有获得任何信息前，一个系统就像一个黑匣子，不确定性为$U$；需要引入的信息量$I$ 取决于这个不确定性的大小 <ul>
+<li>当 $I &gt; U$ 可以完全消除</li>
+<li>当 $I &lt; U$ 可以消除部分不确定性</li>
+</ul>
+</li>
+<li>相关性能够消除不确定性；<ul>
+<li>在自然语言的统计模型中，一元模型就是通过某个词自身的概率分布来消除不确定性；二元即高阶的语言模型还使用了上下文的信息</li>
+<li>联合概率分布是小于等于单一概率的；即 $P(X|Y) \leq P(X)$</li>
+<li><strong>可以证明条件熵 $H(X|Y) \leq H(X)$ ； 即由于多了 $Y$ 这个信息，关于 $X$ 的不确定性下降了</strong></li>
+<li>当增加的信息是完全无关的时候，等号成立；</li>
+</ul>
+</li>
+</ol>
+<h3 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h3><blockquote>
+<p>相关性的度量</p>
+</blockquote>
+<p>$ I(X;Y) = \sum_{x,y} P(x,y) log_2 {P(x,y) \over P(x)P(y)} $</p>
+<p>$$I(X;Y) = H(X) - H(X|Y) $$ </p>
+<blockquote>
+<p>互信息是的取值 在 0 到 min( (H(X), H(Y)) 之间</p>
+<p>当X和Y 完全相关时，它的取值为 H(X) ；此时由于Y的出现，使得条件信息熵 H(X|Y) = 0</p>
+<p>当两者挖暖无关时，它的取值为 0</p>
+</blockquote>
+<h3 id="相对熵"><a href="#相对熵" class="headerlink" title="相对熵"></a>相对熵</h3><blockquote>
+<p>用来衡量两个取值为正的函数的相似性</p>
+</blockquote>
+<ol>
+<li>对于两个完全相同的函数，它们的相对熵等于零</li>
+<li>相对熵越大，两个函数的差异越大；反之则越小</li>
+<li>对于概率分布或者概率密度函数，如果取值均大于零，相对熵可以度量两个随机分布的差异性</li>
+</ol>
+<p><br></p>
+<h2 id="第7章-贾里尼克和现代语言处理"><a href="#第7章-贾里尼克和现代语言处理" class="headerlink" title="第7章 贾里尼克和现代语言处理"></a>第7章 贾里尼克和现代语言处理</h2><ol>
+<li>去思索作为一个孩子，他应该有的时间分配；尤其在学习上；为自己的孩子做思考</li>
+<li>贾里尼克教授告诉吴军最多的是：<strong>什么方法不好</strong>；（避免走弯路）<ul>
+<li>巴菲特和那些投资人讲，你们都非常聪明，不需要我告诉你们做什么，我只需要告诉你们不要去做什么；这是巴菲特从一生的经验教训中得出的；</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h1 id="网络搜搜"><a href="#网络搜搜" class="headerlink" title="网络搜搜"></a>网络搜搜</h1><blockquote>
+<p>第8章 ~ 第13章</p>
+</blockquote>
+<h2 id="第8章-简单之美：布尔代数与搜索引擎"><a href="#第8章-简单之美：布尔代数与搜索引擎" class="headerlink" title="第8章 简单之美：布尔代数与搜索引擎"></a>第8章 简单之美：布尔代数与搜索引擎</h2><blockquote>
+<p>布尔代数 与 搜索引擎</p>
+<p><strong>牛顿：（人们）发觉真理在形式上从来都是简单的，而不是复杂和含混的；</strong> ( Truth  is ever to be found in simplicity, and not in the multiplicity and confusion of things)</p>
+</blockquote>
+<h3 id="布尔代数"><a href="#布尔代数" class="headerlink" title="布尔代数"></a>布尔代数</h3><blockquote>
+<p>布尔代数将我们对世界的认识<strong>从连续状态扩展到离散状态</strong>，它对数学的意义等同于量子力学对物理学的意义；</p>
+<p>布尔运算非常简单，但它把数学和逻辑合二为一，而且给了我们一个看待世界全新的视角，开创了数字化的时代；</p>
+</blockquote>
+<ol>
+<li>世界上最简单的计数方法：二进制（0和1）</li>
+<li>布尔代数运算的元素：1 （True，真）、0 （False，假）</li>
+<li>基本的运算：与（And）、或（or）、非（Not）</li>
+</ol>
+<blockquote>
+<p>And ：必须同为一个属性；一真一假，则为假；</p>
+<p>Or  ： 只要一个属性存在即可；</p>
+<p>布尔 ( George Boole ) 19世纪英国人；</p>
+<p>1854年 《思维规律》 ( An Investigation of the Laws of Thought , on which are founded the Mathematical Theories of Logic Probabilities ) 本书第一次向人们展示了如何运用数学的方法解决逻辑问题</p>
+</blockquote>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ol>
+<li>数据库的查询语言（SQL）支持各种复杂的逻辑组合，但它背后的基本原理是基于布尔运算的</li>
+<li>计算机做布尔运算是非常快的</li>
+</ol>
+<p><br></p>
+<h2 id="第9章-图论和网络爬虫"><a href="#第9章-图论和网络爬虫" class="headerlink" title="第9章 图论和网络爬虫"></a>第9章 图论和网络爬虫</h2><h3 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h3><blockquote>
+<p> 大数学家 欧拉 (Leonhard Euler) ；1973年普鲁士的哥尼斯堡的七座桥，每座桥恰好走过一遍并返回原点；欧拉证明了这种走法是不可能的；</p>
+</blockquote>
+<ol>
+<li><strong>广度优先搜索</strong>（Breadth-First Search，BFS）：尽可能 <strong>“广”</strong> 地访问与每个节点<strong>直接连接</strong>的其他节点<ul>
+<li>先访问与之相邻的所有节点，然后在访问与之间接相连的节点</li>
+</ul>
+</li>
+<li><strong>深度优先搜索</strong>（Depth-First Search，DFS）：<strong>一路走到底</strong>，直到找不到更远的节点；再往回找，看是否还有其他尚未访问的节点<ul>
+<li>先随机选取一个相邻的节点，然后作用为下一个要访问的节点；</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h3 id="网络爬虫"><a href="#网络爬虫" class="headerlink" title="网络爬虫"></a>网络爬虫</h3><blockquote>
+<p>麻省理工的学生 马休.格雷 （Matthew Gray）在1993年 完成第一个网络爬虫；取名为 互联网漫游者（www Wanderer）</p>
+</blockquote>
+<ol>
+<li>把互联网作为一张大图；把每一个网页作为一个节点，把那些超链接作为连接网页的弧；有了超链接，我们可以从任何一个网页出发，用图的遍历算法，自动地访问到每一个网页并它它们存起来；</li>
+<li>网络爬虫下载互联网的过程<ul>
+<li>假定从一家门户网站的首页出发，先下载这个网页</li>
+<li>然后通过分析这个网页，可以找到里面所有的超链接，就等于知道了其所直接链接的全部网页</li>
+<li>接下来访问、下载分析这些门户网站的邮件等网页，又能找到其他相连的网页</li>
+<li>同时记录哪个网页下载过了，避免重复；使用一种 “散列表” （Hash Table，哈希表）来记录</li>
+</ul>
+</li>
+<li>构建网络爬虫的工程要点（延伸阅读）<ul>
+<li>考虑的问题是：如何在有限的时间里更多地爬下最重要的网页</li>
+<li>一般情况下BFS由于DFS</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第10章-PageRank：Google的民主表决式网页排名技术"><a href="#第10章-PageRank：Google的民主表决式网页排名技术" class="headerlink" title="第10章 PageRank：Google的民主表决式网页排名技术"></a>第10章 PageRank：Google的民主表决式网页排名技术</h2><blockquote>
+<p>Google的民主表决式网页排名技术</p>
+</blockquote>
+<ol>
+<li>PageRank算法的核心思想：在互联网上，<strong>如果一个网页被很多其他网页所链接，说明它受到普遍的承认和信赖，那么它的排名就高。</strong>  对不同网页的链接区别对待，排名高的网页给予较大的权重（因为那些排名高的网页的链接更可靠）</li>
+<li>网页排名算法的高明之处：它把整个互联网当做一个整体来对待。这无意中符合了系统论的观点；以前的信息检索大多把每一个网页当做独立的个体对待，大部分人当初只注意了网页内容和查询语句的相关性，而忽略了网页之间的关系；</li>
+</ol>
+<p><br></p>
+<h2 id="第11章-确定网页和查询的相关性：TF-IDF"><a href="#第11章-确定网页和查询的相关性：TF-IDF" class="headerlink" title="第11章 确定网页和查询的相关性：TF-IDF"></a>第11章 确定网页和查询的相关性：TF-IDF</h2><ol>
+<li><p>度量网页和查询的相关性的简单方法：直接使用各个关键词在网页中出现的总词频；</p>
+<blockquote>
+<p>例如查询 “原子能的应用”</p>
+</blockquote>
+<ul>
+<li>如果一个查询包含 N 个关键词 $w_1, w_2,…$ ，它们在一个特定网页中的词频分别是 $TF_1,TF_2,…$ （TF : Term Frequency ，词频）</li>
+<li>这个查询和该网页的相关性 = $TF_1 + TF_2 + …$</li>
+</ul>
+</li>
+<li><p>优化：权重的设定</p>
+<ul>
+<li>对于不同的词设定不同的权重；一个词预测主题的能力越强，权重越大；（例如 ”原子能“ 应有较大的权重；”应用“ 的权重较小）</li>
+<li>停止词的权重应为零 （例如 ”的“）</li>
+</ul>
+<blockquote>
+<p>若一个词在很少的网页中出现，通过它容易锁定搜索目标，它的权重应该越大；如果一个词在大量网页中出现，看到它仍然不清楚要找什么内容，权重应该更小；</p>
+</blockquote>
+</li>
+<li><p>信息检索中常用的权重：逆文本频率指数 （Inverse Document Frequency，IDF）</p>
+<p>$$IDF = log {D \over D_w}$$ </p>
+<blockquote>
+<p>D 所有网页的数量；$D_w$ 该词频出现的网页数量；</p>
+<p>若中文网页的数量为D=10亿，而“的“出现的次数 $D_w$ =10亿；则 IDF = log(1) = 0 </p>
+</blockquote>
+</li>
+<li><p>TF - IDF ：衡量最终的相关性（即加权求和）；被公认为信息检索中最重要的发明</p>
+<p>$$TF_1\cdot IDF_1 + TF_2 \cdot IDF_2 + …$$</p>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第12章-有限状态机和动态规划：地图与本地搜索"><a href="#第12章-有限状态机和动态规划：地图与本地搜索" class="headerlink" title="第12章 有限状态机和动态规划：地图与本地搜索"></a>第12章 有限状态机和动态规划：地图与本地搜索</h2><p><br></p>
+<h2 id="第13章-Google-AK-47的设计者：阿米特-辛格"><a href="#第13章-Google-AK-47的设计者：阿米特-辛格" class="headerlink" title="第13章 Google AK-47的设计者：阿米特.辛格"></a>第13章 Google AK-47的设计者：阿米特.辛格</h2><blockquote>
+<p>Google内部的排序算法 Ascorer 中A便是他的名字首字母</p>
+</blockquote>
+<p>辛格做事情的哲学：<strong>先帮助用户解决80%的问题，再慢慢解决剩下20%的问题，是在工业街成功的秘诀；</strong></p>
+<ul>
+<li>很多人失败并不是因为他们不优秀，而是做事情的方法不对。一开始追求大而全的解决方法，之后长时间不能完成，不了了之；</li>
+</ul>
+<p><br></p>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><blockquote>
+<p>第14、15章</p>
+</blockquote>
+<h2 id="第14章-余弦定理和新闻的分类"><a href="#第14章-余弦定理和新闻的分类" class="headerlink" title="第14章 余弦定理和新闻的分类"></a>第14章 余弦定理和新闻的分类</h2><blockquote>
+<p>分类就是把相似的内容归入同一类中</p>
+</blockquote>
+<ol>
+<li><p><strong>向量</strong>：实际上是<strong>多维空间</strong>中从原点出发的<strong>有向线段</strong>；</p>
+<ul>
+<li>如果两个向量的方向一致，则说明响应的新闻的用词比例基本一致</li>
+<li>可通过计算两个向量的夹角来判断对应新闻主题的接近程度（涉及到余弦定理）</li>
+</ul>
+</li>
+<li><p>新闻分类的过程</p>
+<ul>
+<li><p>已有一些新闻类别的特征向量：进行的是分类；</p>
+<ul>
+<li>对于任何一个要被分类的新闻Y，计算它和各类新闻特征向量的余弦相似性，并进行归类</li>
+</ul>
+</li>
+<li><p>缺少新闻类别的特征向量：进行的是聚类</p>
+<ul>
+<li>计算所有新闻之间两两的余弦相似性，把相似性大于一个阈值的新闻合成一个小类；N篇新闻被合并成 $N_1$ 个小类</li>
+<li>把每个小类作为一个整体，计算小类的特征向量，在计算小类两两之间的余弦相似性，然后合并成大一点的小类，即$N_2$</li>
+</ul>
+<blockquote>
+<p>$N_2 &lt; N_1 &lt; N$</p>
+</blockquote>
+<ul>
+<li>这样做下去，类别越来也少，每个类越来越大；当某一类太大时，这一类里的新闻之间的相似性就很小了，这时就要停止迭代的过程。至此，自动分类完成；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h1 id="其他内容"><a href="#其他内容" class="headerlink" title="其他内容"></a>其他内容</h1><blockquote>
+<p>无法进行划分的内容</p>
+</blockquote>
+<h2 id="第16章-信息指纹及应用"><a href="#第16章-信息指纹及应用" class="headerlink" title="第16章 信息指纹及应用"></a>第16章 信息指纹及应用</h2><ol>
+<li><p>找到一个函数，将5000一个网址随机映射到128位二进制（即128比特，即16个字节的整数空间）；这16个随机数被称为该网址的信息指纹；可以证明，只要产生随机数的算法够好，就能保证几乎不可能有两个字符串的指纹相同；</p>
+</li>
+<li><p><strong>伪随机数产生器算法（Pseudo-Random Number Generator，PRNG）</strong> ： 它将任意很长的整数转化为特定长度的伪随机数</p>
+<ul>
+<li>最早的PRNG由 冯 $\cdot$ 诺依曼 提出。他将一个数的平方掐头去尾，取中间的几位数；例如一个四位的二进制数1001（相关于十进制的9），其平方为01010001（十进制的81）；掐头去尾剩下中间的4为0100；当然这种方法产生的不很随机</li>
+<li>常用的是梅森旋转算法（Mersenne Twister）</li>
+</ul>
+<blockquote>
+<p>从十进制的理解看二进制：333（<strong>虽然3个数字都是3，但表达的含义是不同的</strong>）</p>
+<ul>
+<li>最后一个3 ：表示这个数中有3个 $10^0$ ；</li>
+<li>第二个3 ： 表示这个数中有3个 $10^1$</li>
+<li>第三个3 ：表示这个数中有3个 $10^2$</li>
+</ul>
+<p>$333 = 3 \times 10^2 + 3 \times 10^1 + 3 \times 10^0$</p>
+<p>$01010001 = 0 \times2^7 + 1\times2^6+ 0 + 1\times2^4 + 0 + 0 + 0 + 1\times2^0 = 64 + 16 + 1 = 81$</p>
+</blockquote>
+</li>
+<li><p>信息指纹的特征是<strong>不可逆性</strong>；即无法根据信息指纹推断出原有的信息；这种性质正是网络加密传输所需要的</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第17章-谈谈秘密学的原理"><a href="#第17章-谈谈秘密学的原理" class="headerlink" title="第17章 谈谈秘密学的原理"></a>第17章 谈谈秘密学的原理</h2><ol>
+<li>当密码之间分布均匀并且统计独立时，提供的信息最少；<ul>
+<li>均匀分布使得无法统计</li>
+<li>统计独立使得即使知道了加密算法，并且看到一段密码和明码后，也无法破译另一段密码</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第18章-搜索引擎反作弊和搜索结果权威性问题"><a href="#第18章-搜索引擎反作弊和搜索结果权威性问题" class="headerlink" title="第18章 搜索引擎反作弊和搜索结果权威性问题"></a>第18章 搜索引擎反作弊和搜索结果权威性问题</h2><ol>
+<li>在原始信号中混入了噪音，在数学上相当于给两个信号做了卷积。噪音消除的过程就是一个解卷积的过程。<ul>
+<li>如果在发动机很吵的汽车里打电话，对方可能听不清楚。但如果知道了发动机的频率，加上一个与之频率相同、振幅相反的信号，就能够很容易消除发动机的噪音</li>
+<li>消噪：首发动机的频率是固定的；其次这个频率的噪音重复出现；因此只要采集几秒钟的信号进行处理就能做到</li>
+<li>广义上讲，只要噪音不是随机并且相关的，就可以检测到并消除；（事实上，完全随机不相关的高斯白噪音是很难消除的）</li>
+</ul>
+</li>
+<li>度量搜索结果的权威性：<strong>提及</strong> （若一个词 作为<strong>信息源</strong>被多次 “提及”，那么我们有理由相信它是这个主题的权威机构）</li>
+</ol>
+<p><br></p>
+<h2 id="第20章-最大熵模型"><a href="#第20章-最大熵模型" class="headerlink" title="第20章 最大熵模型"></a>第20章 最大熵模型</h2><blockquote>
+<p>不要把鸡蛋放在一个篮子里，是最大熵原理的一个朴素说法；即当我们遇到不确定时，就要保留各种可能性</p>
+</blockquote>
+<ol>
+<li><strong>最大熵的原理：保留全部的不确定性，将风险降到最低</strong>；</li>
+<li>最大熵原理指出：<strong>对一个随机事件的概率分布进行预测时，我们的预测应当满足全部已知的条件；而对未知的情况不要做任何假设。</strong> 在这种情况下，概率分布最均匀，预测的风险最小；因为此时概率分布的信息熵最大，成为最大熵模型<ul>
+<li>一个骰子 “每个面朝上的概率分别是多少？” ；等概率的1/6</li>
+<li>为什么这么回答，因为我们对这个 <strong>“一无所知”</strong> 的骰子，假定它每个面超上的<strong>概率均等是最安全的做法</strong><ul>
+<li>从信息论上看，这是保留了最大的不确定性，即让熵达到最大</li>
+</ul>
+</li>
+<li>继续说，对整个骰子做过处理，“ 已知4点朝上的概率是1/3 ， 这种情况下每个面朝上的概率是多少？” ；4点的概率为1/3，其他的为2/15</li>
+<li>因为已知的条件必须满足（4点的概率为1/3），其余的点仍然未知；所以不过任何假设，因此只好认为它们均等；</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第21章-拼音输入方法的数学原理"><a href="#第21章-拼音输入方法的数学原理" class="headerlink" title="第21章 拼音输入方法的数学原理"></a>第21章 拼音输入方法的数学原理</h2><h3 id="输入法与编码"><a href="#输入法与编码" class="headerlink" title="输入法与编码"></a>输入法与编码</h3><ol>
+<li><p>对于汉字最直接的编码方式：</p>
+<ul>
+<li>让26个字母对应拼音</li>
+<li>用10个数字键来消除歧异（汉字一音多意的问题）</li>
+</ul>
+<blockquote>
+<p>对汉字的编码分为如上两部分：对拼音的编码、消除歧异的编码</p>
+<p>这决定了一个汉字编码的长度</p>
+</blockquote>
+</li>
+<li><p>拼音法早期出现的是双拼，原因是为了缩短对拼音的编码；这些输入法看似节省了一点编码长度，但输入一点也不快，因为它们<strong>只是局部优化，而伤害了整体</strong>；</p>
+<ul>
+<li>双拼增加了编码上的歧异性：键盘只有与26个字母，但汉语得到声母和韵母有50多个；结果是很多韵母必须共享一个字母键；增加歧异性的结果就是要从更多候选字中找到想要输入的字</li>
+<li>增加了每一次击键的时间。因为双拼的方法不自然；研究表明，<strong>在脱稿输入时，拆字的思维过程会使思维变慢。</strong>（这也是自己之前觉得打字用双拼累的原因）</li>
+<li>双拼的容错性不好</li>
+</ul>
+<blockquote>
+<p>语言和文字作为通信的编码手段，一个重要的目的是帮助思维和记忆。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="一个汉字要敲多少个键盘"><a href="#一个汉字要敲多少个键盘" class="headerlink" title="一个汉字要敲多少个键盘"></a>一个汉字要敲多少个键盘</h3><ol>
+<li>香农第一定律指出：<strong>对于一个信息，任何编码的长度都大于等于它的信息熵；</strong>任何输入法都不可能突破信息熵给定的极限<ul>
+<li>平均编码长度的最小值就是汉字的信息熵</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第23章-布隆过滤器"><a href="#第23章-布隆过滤器" class="headerlink" title="第23章 布隆过滤器"></a>第23章 布隆过滤器</h2><blockquote>
+<p>布隆过滤器只要 散列表 1/8 ~ 1/4的大小就能解决同样的问题</p>
+<p>伯顿$\cdot$布隆（Burton Bloom）于1970年提出</p>
+</blockquote>
+<ol>
+<li>实质是一个很长的二进制向量和一系列随机映射函数</li>
+<li>工作原理<ul>
+<li>假定存储1亿个邮件地址，先建立一个16亿个比特位（即2亿字节）的向量，然后将其全部清零</li>
+<li>对每一个邮件地址X，用8个不同的随机数产生器 ($F_1,F_2,…$) 产生8个信息指纹($f_1, f_2,..$)  </li>
+<li>再用一个随机数产生器G把这8个信息指纹映射到1-16亿中的8个自然数 $g_1, g_2,…$</li>
+<li>现在这8个位置的比特位全部变为1</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第24章-马尔科夫链的扩展：贝叶斯网络"><a href="#第24章-马尔科夫链的扩展：贝叶斯网络" class="headerlink" title="第24章 马尔科夫链的扩展：贝叶斯网络"></a>第24章 马尔科夫链的扩展：贝叶斯网络</h2><blockquote>
+<p><strong>马尔科夫链（Markov Chain）描述了一种状态序列：每个状态的取值取决于前面有限个状态；</strong></p>
+</blockquote>
+<ol>
+<li>当假定每个状态<strong>只与其直接相连</strong>的状态有关，而与它间接相连的状态没有直接关系，那么它就是贝叶斯网络。</li>
+<li>马尔科夫链是贝叶斯网络的特例，而贝叶斯网络是马尔科夫链的推广<ul>
+<li>相同点：均值考虑了前面一个状态</li>
+<li>区别：贝叶斯网络的拓扑结构比马尔科夫链灵活，它<strong>不受马尔科夫链的链状结构的约束</strong></li>
+</ul>
+</li>
+<li>从数学层面来讲，贝叶斯网络是一个<strong>加权的有向图</strong>，是马尔科夫链的扩展；从认识论的层面看，贝叶斯网络克<strong>服了马尔科夫链的线性约束，它可以把任何有关联的事件统一到它的框架下面；</strong></li>
+</ol>
+<p><br></p>
+<h2 id="第25章-条件随机法、文法分析"><a href="#第25章-条件随机法、文法分析" class="headerlink" title="第25章 条件随机法、文法分析"></a>第25章 条件随机法、文法分析</h2><ol>
+<li>条件随机场是一个特殊的概率图模型；<ul>
+<li>它<strong>遵从马尔科夫假设</strong>：每个状态的转移概率只取决于相邻的状态</li>
+<li>与贝叶斯网络的区别在于，它是<strong>无向图</strong></li>
+</ul>
+</li>
+<li>先验概率 与 后验概率<ul>
+<li><strong>先验概率：从原因到结果的论证，是先验的；即<u>根据以往的经验和分析得到的概率；即固定的和已知的；</u></strong></li>
+<li><strong>后验概率：从结果到原因的论证，是后验的；即在得到结果的信息之后，<u>重新修正</u>的概率；</strong></li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第27章-期望最大算法：上帝的算法"><a href="#第27章-期望最大算法：上帝的算法" class="headerlink" title="第27章 期望最大算法：上帝的算法"></a>第27章 期望最大算法：上帝的算法</h2><ol>
+<li>期望最大化和收敛的必然性<ul>
+<li>如果我们的距离函数足够好，它能保证同一类相对距离较近，而不同类的相对距离较远</li>
+<li>最终结果：相近的点被聚集到了同一类，同一类中各个点到中心的平均距离$d$ 较近；而不同类中心之间的平均距离$D$ 较远； </li>
+</ul>
+</li>
+<li>EM算法中，若目标函数是<strong>凸函数</strong>，一定能够得到<strong>全局最优解</strong>；<ul>
+<li>熵函数一个是凸函数（即向上凸）；如果在N维空间以欧氏距离做度量，聚类中试图优化的两个函数也是凸函数</li>
+<li>文本分类中的余弦距离不是凸函数，可能得到局部最优解</li>
+</ul>
+</li>
+<li>以最大化(Maximization) 期望值(Expectation) 的算法：EM算法<ul>
+<li>因为它只需要一些训练数据，定义一个最大化函数，剩下的事情交给计算机；经过若干次迭代之后，我们需要的模型就训练好了；这太神奇了，所有称它为上帝的算法</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第28章-逻辑回归和搜索广告"><a href="#第28章-逻辑回归和搜索广告" class="headerlink" title="第28章 逻辑回归和搜索广告"></a>第28章 逻辑回归和搜索广告</h2><ol>
+<li><p>搜索广告的三个阶段</p>
+<ul>
+<li>竞价排名</li>
+<li>根据哪个广告可能被点击，综合出价和点击率（Click Through Rate：CTR）来决定</li>
+<li>全局最优</li>
+</ul>
+</li>
+<li><p><strong>逻辑回归模型：将一个事件出现的概率逐渐适应到一条逻辑曲线（Logistic Curve）上，其值域在[0,1]之间</strong></p>
+<ul>
+<li><p>逻辑曲线是一条 $S$ 型曲线</p>
+</li>
+<li><p>特点：<strong>一开始变化快，逐渐减慢，最后饱和</strong></p>
+</li>
+<li><p>优点：将值域限制在 [0,1] 之间</p>
+<p>$$f(z) = {e^z \over e^z+1} = {1 \over 1 + e^{-z}}$$</p>
+<p>$ z= \beta_0 + \beta_1x_1 + …$</p>
+</li>
+</ul>
+<blockquote>
+<p>逻辑回归模型，一种将影响概率的不同因素结合在一起的指数模型；</p>
+<p>z 可以是用线性的办法将各个因素组合起来</p>
+</blockquote>
+</li>
+</ol>
+<p><br></p>
+<h2 id="第29章-各个击破算法与云计算"><a href="#第29章-各个击破算法与云计算" class="headerlink" title="第29章 各个击破算法与云计算"></a>第29章 各个击破算法与云计算</h2><ol>
+<li>云计算的关键之一：<strong>如何把一个非常大的计算问题，自动分解到许多计算能力不是很强的计算机上面来共同完成</strong></li>
+<li>分治算法的基本原理：将一个复杂的问题分成若干个简单的子问题进行解决；然后对问题的结果进行合并，得到原有问题的解。</li>
+</ol>
+<p><br></p>
+<h2 id="第30章-Google大脑和人工神经网络"><a href="#第30章-Google大脑和人工神经网络" class="headerlink" title="第30章 Google大脑和人工神经网络"></a>第30章 Google大脑和人工神经网络</h2><h3 id="人工神经网络"><a href="#人工神经网络" class="headerlink" title="人工神经网络"></a>人工神经网络</h3><blockquote>
+<p>大多数与 “智能” 有点关系的问题，都可以<strong>归结为一个多维空间进行模式分类的问题</strong>；</p>
+<p>人工神经网络所擅长的正是这种分类；</p>
+<ul>
+<li>它的模式分类的能力等价于最大熵模型；</li>
+<li>如果把不同输出节点上的值看成是一个概率分布，那人工神经网络就等价于一个概率模型</li>
+</ul>
+</blockquote>
+<ol>
+<li>本质是一种<strong>有向图</strong>，但是一种<strong>特殊的</strong>有向图；<ul>
+<li>图中的所有节点都是<strong>分层的</strong>；<ul>
+<li>每一层节点可以<strong>通过有向弧指向上一层节点，但同一层节点之间没有弧相连接，并且每个节点不能约过一层连接到上上一层的节点上</strong></li>
+</ul>
+</li>
+<li>每个弧上有一个<strong>值（权重）</strong>，根据这些值可以用一个非常简单的公式<strong>算出所指节点的值</strong></li>
+</ul>
+</li>
+<li>通过输入层进行输入，通过中间层，最后到达输出层，输出结果</li>
+<li><strong>人工神经网络（总结）</strong>：<strong>一个分层的有向图；</strong><ul>
+<li>第一层输入节点$X_1, X_2, ..$ 接受输入的信息；<ul>
+<li>来自这些点的数值 ($x_1,x_2,…$) 按照它们输出弧的权重($w_1,w_2,…$)，根据公式 $G = w_0 + x_1w_1+…+x_nw_n$ 进行<strong>线性加权</strong>（得到G）</li>
+<li>然后再做<strong>一次非线性</strong>变换 $f(G)$ ，赋值给第二层的节点 $Y$</li>
+</ul>
+</li>
+<li>第二层的节点将此数值向后传递，直至第三层节点，直到输出层</li>
+<li>在模式分类时，<strong>最后在输出层哪个节点的数值最大，输入模式就被分在哪一类</strong></li>
+</ul>
+</li>
+<li>需要设计的部分只有两个：<ul>
+<li>它的结构：即网络分几层、每层几个节点、节点之间如何连接（权重）</li>
+<li>非线性函数$f(G)$的设计：常用的是指数函数 $f(G) = e^G = e ^{w_0+x_1w_1+…}$</li>
+</ul>
+</li>
+</ol>
+<h3 id="训练人工神经网络"><a href="#训练人工神经网络" class="headerlink" title="训练人工神经网络"></a>训练人工神经网络</h3><blockquote>
+<p>确定弧上的权重 w</p>
+<p>人工神经网络的训练可以分为监督训练、无监督训练</p>
+</blockquote>
+<ol>
+<li>监督训练：在训练之前需要先取得一个批注好的样本（训练数据），有输入数据和输出数据；训练的目的是找到一组参数w，使得模型给出的输出值的函数（$y(w)$ ）和这组训练数据中的输出值尽可能地一致<ul>
+<li>即得到一个成本函数$C$ ，使得得到的结果与真实的结果的差距最小化； 例如可以定义 $C = \sum(y(w)-y)^2$ （即欧几里得距离）</li>
+<li>现在就变成了一个最优化问题：找最值；<ul>
+<li>梯度下降法（Gradient Descent）：每一次向 “最陡” 的方向走一步，使得最快达到山顶</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>无监督学习：没有输出数据；所以要设计一个成本函数<ul>
+<li>成本函数遵从的原则：既然人工神经网络解决的是分类问题，那么希望分类之后，同一类样本（训练数据）之间的距离尽可能的近，不同类的样本应该尽可能的远</li>
+</ul>
+</li>
+</ol>
+<h3 id="人工神经网络与贝叶斯网络"><a href="#人工神经网络与贝叶斯网络" class="headerlink" title="人工神经网络与贝叶斯网络"></a>人工神经网络与贝叶斯网络</h3><ol>
+<li>共同点<ul>
+<li>都是有向图，每一个节点的取值只取决于前一级的节点，而且与更前一级的节点无关；即遵从马尔科夫假设</li>
+<li>训练方法相似</li>
+<li>对于很多分类问题，两者在效果上也是相似的；但效率可能不同</li>
+<li>计算量都比较大</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>人工神经网络在结构上是完全标准化的，而贝叶斯网络更灵活；<em>Google大脑选用人工神经网络就是因为看重它的标准化这一特点</em></li>
+<li>人工神经网络虽然神经元函数是非线性的，但各个变量只能先进行线性组合，最后对一个变量（即前面组合出来的结果）进行非线性变换，因此计算机比较容易实现；贝叶斯网络中变量可以组成任意的函数，在获得灵活性的同时也增加了复杂性</li>
+<li>人工神经网络的输出相对孤立，它可以识别一个个字，但内难以处理一个序列；因此主要用于估计一个概率模型的参数（语音中声学模型参数的训练、机器翻译中语言模型参数的训练）；贝叶斯网络更容易考虑前后的相关性，因此可以解码一个输入的序列（比如将一段语言识别为文字，或将一个英语句子翻译成中文）</li>
+</ul>
+</li>
+</ol>
+<h3 id="Google大脑"><a href="#Google大脑" class="headerlink" title="Google大脑"></a>Google大脑</h3><ol>
+<li><p>Google大脑本质是一种<strong>大规模$^1$并行处理$^2$的人工神经网络</strong>$^3$。</p>
+</li>
+<li><p>选用人工神经网络的原因</p>
+<ul>
+<li>理论上讲可以在多维空间画出各种形状的分类边界，有很好的<strong>通用性</strong></li>
+<li>在过去20多年里，人工神经网络的算法<strong>非常稳定</strong>，几乎没有改变；google希望自己开发的工具能够设计一次，长时期使用</li>
+<li>人工神经网络的算法简单，容易实现<strong>并行化</strong></li>
+</ul>
+</li>
+<li><p>Google大脑的实现</p>
+<ul>
+<li>Google大脑中每一块的计算并不是完全独立的，而是要考虑周边的很多块，当切的块数比较多以后，相互的关联总数大致跟块数的平方成正比；而MapReduce中每块的计算是独立的；<ul>
+<li>这让块与块之间的计算变得复杂，但是能把一个原本无法在一台服务器上完成的大问题分解成大量可在一台服务器上完成的小问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>两点改进</p>
+<ul>
+<li><strong>降低每一次的迭代量：</strong>采用随机梯度下降法（Stochastic Gradient Descent）：在计算成本函数时只需要随机抽取少量    的数据来计算，而非像梯度下降法那样对所有的样本都计算一遍，可以大大减少计算量但会牺牲一点准确度<ul>
+<li>由于训练的数据量非常大，综合考虑时间与准确性之后，采取了相对较快的这种算法</li>
+</ul>
+</li>
+<li><strong>减少了训练的迭代次数</strong>；采用 L-BFGS（Limited-memory Broyden Fletcher Goldfarb Shanno Method） 比一般梯度下降收敛法更快<ul>
+<li>原理与随机梯度下降相似，但它能根据离最后目标的 “远近” 调整每次迭代的步长；这样经过很少次的迭代就能收敛，但它每次的计算量会增加一点；并且L-BFGS更容易实现并行化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>Google大脑中的存储：输入数据存储在本地、模型参数存储在服务器</li>
+<li><strong>在生活中，真正能够通用的工具在形式上都是简单的。</strong></li>
+</ol>
+<p><br></p>
+<h2 id="第31章-数据的重要性"><a href="#第31章-数据的重要性" class="headerlink" title="第31章 数据的重要性"></a>第31章 数据的重要性</h2><ol>
+<li><p>在Google内部，产品经理都遵循：在没有数据之前，不要给出任何结论。</p>
+<ul>
+<li>对常识/常规现象的理解</li>
+<li>对未知事件的估计</li>
+</ul>
+<blockquote>
+<p>【共鸣】因为很多基于直觉的并不一定是真实的；</p>
+</blockquote>
+</li>
+<li><p>在搜索行业容易形成一种马太效应；即搜索量不足的搜索引擎因为用户点击数据量的不足，搜索质量会越来越差。相反，搜索质量好的会越来越好。一些公司做出了激动的办法：通过搜索条、浏览器、甚至是输入法来搜索用户的点击行为；这些做法的好处在于不仅可以收集到使用该公司搜索引擎本身的点击数据，还能得到用其他搜索引擎的数据。搜索质量的竞争变成了浏览器或者其他客户端软件市场占有率的竞争；</p>
+</li>
+<li><p>医疗 - 世界性难题：(1) 不同人的细胞&amp;体制 是不同的；(2) 疾病的阶段是不同的；(3) 病毒的变异性</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/阅读数据/" rel="tag"># 阅读数据</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/30/阅读书籍/110_数据分析/《智能时代》读书笔记_吴军_201711/" rel="next" title="《智能时代》读书笔记_吴军">
+                <i class="fa fa-chevron-left"></i> 《智能时代》读书笔记_吴军
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/29/阅读书籍/10_思维意识/20_精要主义/《最重要的事只有一件》读书笔记_加里.凯勒_Gray.Keller/" rel="prev" title="《最重要的事只有一件》读书笔记_加里.凯勒">
+                《最重要的事只有一件》读书笔记_加里.凯勒 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#语言处理"><span class="nav-number">1.</span> <span class="nav-text">语言处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-文字和语言-Vs-数学和信息"><span class="nav-number">1.1.</span> <span class="nav-text">第1章 文字和语言 Vs.  数学和信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-自然语言处理"><span class="nav-number">1.2.</span> <span class="nav-text">第2章 自然语言处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-统计语言模型"><span class="nav-number">1.3.</span> <span class="nav-text">第3章 统计语言模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-分词"><span class="nav-number">1.4.</span> <span class="nav-text">第4章 分词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第5章-隐含马尔科夫模型"><span class="nav-number">1.5.</span> <span class="nav-text">第5章 隐含马尔科夫模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【精】第6章-信息的度量和作用"><span class="nav-number">1.6.</span> <span class="nav-text">【精】第6章 信息的度量和作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息熵"><span class="nav-number">1.6.1.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息的作用"><span class="nav-number">1.6.2.</span> <span class="nav-text">信息的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#互信息"><span class="nav-number">1.6.3.</span> <span class="nav-text">互信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对熵"><span class="nav-number">1.6.4.</span> <span class="nav-text">相对熵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第7章-贾里尼克和现代语言处理"><span class="nav-number">1.7.</span> <span class="nav-text">第7章 贾里尼克和现代语言处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络搜搜"><span class="nav-number">2.</span> <span class="nav-text">网络搜搜</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第8章-简单之美：布尔代数与搜索引擎"><span class="nav-number">2.1.</span> <span class="nav-text">第8章 简单之美：布尔代数与搜索引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔代数"><span class="nav-number">2.1.1.</span> <span class="nav-text">布尔代数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">2.1.2.</span> <span class="nav-text">索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第9章-图论和网络爬虫"><span class="nav-number">2.2.</span> <span class="nav-text">第9章 图论和网络爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图论"><span class="nav-number">2.2.1.</span> <span class="nav-text">图论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络爬虫"><span class="nav-number">2.2.2.</span> <span class="nav-text">网络爬虫</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第10章-PageRank：Google的民主表决式网页排名技术"><span class="nav-number">2.3.</span> <span class="nav-text">第10章 PageRank：Google的民主表决式网页排名技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第11章-确定网页和查询的相关性：TF-IDF"><span class="nav-number">2.4.</span> <span class="nav-text">第11章 确定网页和查询的相关性：TF-IDF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第12章-有限状态机和动态规划：地图与本地搜索"><span class="nav-number">2.5.</span> <span class="nav-text">第12章 有限状态机和动态规划：地图与本地搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第13章-Google-AK-47的设计者：阿米特-辛格"><span class="nav-number">2.6.</span> <span class="nav-text">第13章 Google AK-47的设计者：阿米特.辛格</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类"><span class="nav-number">3.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第14章-余弦定理和新闻的分类"><span class="nav-number">3.1.</span> <span class="nav-text">第14章 余弦定理和新闻的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他内容"><span class="nav-number">4.</span> <span class="nav-text">其他内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第16章-信息指纹及应用"><span class="nav-number">4.1.</span> <span class="nav-text">第16章 信息指纹及应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第17章-谈谈秘密学的原理"><span class="nav-number">4.2.</span> <span class="nav-text">第17章 谈谈秘密学的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第18章-搜索引擎反作弊和搜索结果权威性问题"><span class="nav-number">4.3.</span> <span class="nav-text">第18章 搜索引擎反作弊和搜索结果权威性问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第20章-最大熵模型"><span class="nav-number">4.4.</span> <span class="nav-text">第20章 最大熵模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第21章-拼音输入方法的数学原理"><span class="nav-number">4.5.</span> <span class="nav-text">第21章 拼音输入方法的数学原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入法与编码"><span class="nav-number">4.5.1.</span> <span class="nav-text">输入法与编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个汉字要敲多少个键盘"><span class="nav-number">4.5.2.</span> <span class="nav-text">一个汉字要敲多少个键盘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第23章-布隆过滤器"><span class="nav-number">4.6.</span> <span class="nav-text">第23章 布隆过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第24章-马尔科夫链的扩展：贝叶斯网络"><span class="nav-number">4.7.</span> <span class="nav-text">第24章 马尔科夫链的扩展：贝叶斯网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第25章-条件随机法、文法分析"><span class="nav-number">4.8.</span> <span class="nav-text">第25章 条件随机法、文法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第27章-期望最大算法：上帝的算法"><span class="nav-number">4.9.</span> <span class="nav-text">第27章 期望最大算法：上帝的算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第28章-逻辑回归和搜索广告"><span class="nav-number">4.10.</span> <span class="nav-text">第28章 逻辑回归和搜索广告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第29章-各个击破算法与云计算"><span class="nav-number">4.11.</span> <span class="nav-text">第29章 各个击破算法与云计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第30章-Google大脑和人工神经网络"><span class="nav-number">4.12.</span> <span class="nav-text">第30章 Google大脑和人工神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人工神经网络"><span class="nav-number">4.12.1.</span> <span class="nav-text">人工神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#训练人工神经网络"><span class="nav-number">4.12.2.</span> <span class="nav-text">训练人工神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人工神经网络与贝叶斯网络"><span class="nav-number">4.12.3.</span> <span class="nav-text">人工神经网络与贝叶斯网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google大脑"><span class="nav-number">4.12.4.</span> <span class="nav-text">Google大脑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第31章-数据的重要性"><span class="nav-number">4.13.</span> <span class="nav-text">第31章 数据的重要性</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

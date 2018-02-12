@@ -1,0 +1,1473 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件应用,r," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="R_日期处理_lubridate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R_日期处理_lubridate">
+<meta property="og:url" content="http://yoursite.com/2017/07/31/新建文件夹/R_日期处理_lubridate/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="R_日期处理_lubridate">
+<meta property="og:updated_time" content="2017-08-01T07:38:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R_日期处理_lubridate">
+<meta name="twitter:description" content="R_日期处理_lubridate">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/31/新建文件夹/R_日期处理_lubridate/"/>
+
+
+
+
+
+  <title> R_日期处理_lubridate | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/31/新建文件夹/R_日期处理_lubridate/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                R_日期处理_lubridate
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-31T00:00:00+08:00">
+                2017-07-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2017-08-01T15:38:08+08:00">
+                2017-08-01
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/r/" itemprop="url" rel="index">
+                    <span itemprop="name">r</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/31/新建文件夹/R_日期处理_lubridate/" class="leancloud_visitors" data-flag-title="R_日期处理_lubridate">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> R_日期处理_lubridate</p>
+<a id="more"></a>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="时间概念"><a href="#时间概念" class="headerlink" title="时间概念"></a>时间概念</h2><p>UTC：（英文“<strong>C</strong>oordinated <strong>U</strong>niversal <strong>T</strong>ime”／法文“<strong>T</strong>emps <strong>U</strong>niversel <strong>C</strong>oordonné”），<strong>协调世界时</strong>，又称<strong>世界标准时间</strong>或<strong>世界协调时间</strong></p>
+<ul>
+<li>最主要的世界时间标准，其以 <strong>[原子时]</strong> 秒长为基础，在时刻上尽量接近于<strong>格林尼治标准时间</strong>。</li>
+</ul>
+<ul>
+<li>协调世界时把时间分为天、小时、分钟和秒</li>
+</ul>
+<p> <strong>格林威治标准时间</strong>；英语：<strong>G</strong>reenwich <strong>M</strong>ean <strong>T</strong>ime，<strong>GMT</strong>）是指位于英国伦敦郊区的皇家格林尼治天文台当地的标准时间，因为本初子午线被定义为通过那里的经线。</p>
+<ul>
+<li>理论上来说，格林尼治标准时间的正午是指当太阳横穿格林尼治子午线时（也就是在格林尼治上空最高点时）的时间。但由于地球在它的椭圆轨道里的运动速度不均匀，这个时刻可能与实际的太阳时有误差，最大误差达16分钟。原因在于地球每天的自转是有些不规则的，而且正在缓慢减速，因此格林尼治时间基于天文观测本身的缺陷，已经不再被作为标准时间使用。</li>
+<li><strong>现在的标准时间，是由  [原子钟] 报时的协调世界时（UTC）来决定。</strong></li>
+</ul>
+<p><br></p>
+<h2 id="R语言中的时间"><a href="#R语言中的时间" class="headerlink" title="R语言中的时间"></a>R语言中的时间</h2><p>R语言的基础包中提供了两种类型的时间数据</p>
+<ol>
+<li><strong>Date类型</strong>，仅包括日期数据，它不包括时间和时区信息</li>
+<li><strong>POSIXct / POSIXlt 类型</strong>，其中包括了日期、时间和时区信息。</li>
+</ol>
+<blockquote>
+<p>日期-时间=不可运算</p>
+<p>默认情况下，<strong>日期是以<code>/</code>或者<code>-</code>进行分隔，而时间则以<code>:</code>进行分隔；</strong></p>
+</blockquote>
+<p><br></p>
+<h3 id="POSIXct-POSIXlt-strptime-的区别"><a href="#POSIXct-POSIXlt-strptime-的区别" class="headerlink" title="POSIXct / POSIXlt / strptime 的区别"></a>POSIXct / POSIXlt / strptime 的区别</h3><ul>
+<li><strong>POSXIct</strong> ：它存储自UNIX纪元(+其他数据)以来的<strong>秒数</strong> ；用<strong>数字</strong>表示，一个较大的整数，可以<strong>存储到数据框中</strong></li>
+<li><strong>POSIXlt</strong> ：日期时间类，精确到秒，用<strong>列表</strong>表示，可以更精确地存储日/月/年/小时/分钟/秒等</li>
+</ul>
+<p><strong>函数运行 - POSIXlt</strong> </p>
+<ul>
+<li><strong>strptime</strong> ：字符向量(各种格式)直接转换为<strong>POSIXlt</strong>格式的函数</li>
+<li><strong>as.POSIXlt</strong>：将各种数据类型转换为<strong>POSIXlt</strong>。</li>
+</ul>
+<p><strong>函数运行 - POSIXct</strong> </p>
+<ul>
+<li><strong>as.POSIXct</strong>：将各种数据类型转换为<strong>POSIXct</strong>。<ul>
+<li>它首先运行<code>strptime</code>，然后从<code>POSIXlt</code>到<code>POSIXct</code>的转换</li>
+</ul>
+</li>
+<li><strong>parse_date_time</strong>：将各种类型的数据转为为<strong>POSIXct</strong></li>
+</ul>
+<p><br></p>
+<p>lubridate包主要有两类函数：</p>
+<ol>
+<li>处理<strong>时点数据（time instants）</strong></li>
+<li>处理<strong>时段数据（time spans）</strong></li>
+</ol>
+<p><br></p>
+<h1 id="时点类"><a href="#时点类" class="headerlink" title="时点类"></a>时点类</h1><p><br></p>
+<h2 id="解析与提取日期-Prasing"><a href="#解析与提取日期-Prasing" class="headerlink" title="解析与提取日期 - Prasing"></a>解析与提取日期 - Prasing</h2><blockquote>
+<p> 解析日期， <code>year(x)</code></p>
+<p> 设定日期，通过赋值进行设定 <code>year(x) &lt;- value</code></p>
+</blockquote>
+<p><br></p>
+<h3 id="解析日期-排列"><a href="#解析日期-排列" class="headerlink" title="解析日期 + 排列"></a>解析日期 + 排列</h3><ul>
+<li><strong>ymd(“…”, tz=NULL) / dmy() / mdy()</strong>  ：<strong>处理不同顺序的日期数据</strong>，使之按年月日的形式<strong>排列</strong><ul>
+<li><strong>dym() / ydm()</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>tz = NULL； 或为 指定的时区</p>
+<p>locale = Sys.getlocale(“LC_TIME”) ：默认；</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 处理日期，使之按年月日的形式排列</span></div><div class="line">&gt; mdy(<span class="string">"06-04-2011"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2011-06-04"</span></div><div class="line"></div><div class="line">&gt; dmy(<span class="string">"04/06/2011"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2011-06-04"</span></div><div class="line"></div><div class="line">ymd(<span class="string">'20170208'</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2017-02-08"</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>hms(“…”, roll=FALSE) / hm() / ms()</strong> ：处理不同顺序的时间数据</li>
+</ul>
+<blockquote>
+<p>roll=FALSE 默认；若为TRUE，则根据规则进行换算</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 处理时间</span></div><div class="line">&gt; hms(<span class="string">"14:20:01"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"14H 20M 1S"</span></div><div class="line"></div><div class="line">&gt; hms(<span class="string">"01:59:120"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"1H 59M 120S"</span></div><div class="line"></div><div class="line">&gt; hms(<span class="string">"01:59:120"</span>,roll=<span class="literal">T</span>)  <span class="comment"># roll=T,进行换算</span></div><div class="line">[<span class="number">1</span>] <span class="string">"2H 1M 0S"</span></div><div class="line"></div><div class="line">ymd_hms(<span class="string">"20161120220000"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2016-11-20 22:00:00 UTC"</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>ymd_hms(“…”, tz=”UTC”, locale=Sys.getlocale(“LC_TIME”), truncated = 0)</strong> / ymd_hm / ymd_h ：处理不同顺序的<strong>日期时间数据</strong><ul>
+<li>dmy_hms /dmy_hm /dmy_h</li>
+<li>mdy_hms / mdy_hm / mdy_h</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>… : 一个字符串向量 in year, month, day, hour, minute, second format</p>
+<p>tz =”UTC” ：世界标准时间</p>
+</blockquote>
+<p><br></p>
+<h3 id="提取日期"><a href="#提取日期" class="headerlink" title="提取日期"></a>提取日期</h3><ul>
+<li><strong>year(“”) / month() / week() / day() / hour()  / minute() / second()</strong> ：<strong>解析日期中的部分值</strong></li>
+<li><strong>month(x, label=FALSE, abbr=TRUE)</strong></li>
+</ul>
+<blockquote>
+<p>label= FALSE，默认；将月份<strong>作为数值</strong>进行显示；若为TRUE，则作为字符串  “January.”</p>
+<p>abbr = TRUE，默认，将月份作为字符串的缩写进行显示”Jan”，当label为FALSE时忽略该参数；若为FALSE，则显示全称 “January.”；  (abbreviate ：缩写)</p>
+</blockquote>
+<ul>
+<li><strong>yday(x)</strong>：一年中的第几天</li>
+<li><strong>mday(x)</strong>：一个月中的第几天</li>
+<li><strong>wday(x)</strong>：一周中的星期几 [1, 7]</li>
+<li><strong>qday(x)</strong>：一个<strong>季度中的第几天</strong></li>
+<li><strong>days_in_month()</strong> ：返回所属月份的最大天数</li>
+<li><strong>am(x) / pm(x)</strong> ：返回逻辑值，<strong>判断是否为上午/下午</strong><ul>
+<li>12:00:00 判断为下午；<code>am(hms(&#39;11:59:59&#39;))  [1] TRUE am(hms(&#39;12:00:00&#39;)) [1] FALSE</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&gt; year(<span class="string">'2017-01-02'</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">2017</span></div><div class="line"></div><div class="line">&gt; month(<span class="string">'2017-01-02'</span>)</div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line">&gt; month(<span class="string">'2017-01-02'</span>, label=<span class="literal">T</span>)</div><div class="line">[<span class="number">1</span>] Jan</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## 设定日期-----------------------------</span></div><div class="line">&gt; x &lt;- ymd(<span class="string">'2010-04-08'</span>);  x</div><div class="line">[<span class="number">1</span>] <span class="string">"2010-04-08"</span></div><div class="line"></div><div class="line">&gt; month(x) &lt;- <span class="number">5</span>  ; x</div><div class="line">[<span class="number">1</span>] <span class="string">"2010-05-08"</span></div><div class="line"></div><div class="line"></div><div class="line">&gt; days_in_month(as.Date(<span class="string">'2017-05-10'</span>))</div><div class="line">May </div><div class="line"> <span class="number">31</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><blockquote>
+<p>parse_date_time 将格式各样的日期时间<strong>字符串转换为日期时间类型的数据</strong>，并通过orders<strong>指定显示的顺序</strong></p>
+</blockquote>
+<ul>
+<li><strong>parse_date_time(x, orders, tz = “UTC”, truncated = 0, quiet = FALSE,  locale = Sys.getlocale(“LC_TIME”), select_formats = .select_formats,  exact = FALSE)</strong>：将向量转换为<strong>POSIXct</strong>的日期时间格式<ul>
+<li>与strftime的两点区别：<ol>
+<li>指定一个特殊的排列顺序，而无需使用 <code>%</code></li>
+<li>在处理复合的日期时间数据时，可同时指定多个排列顺序</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>x ：一个字符串 或数值 向量</p>
+<p>order =c(“”): 指定的<strong>日期显示顺序</strong> ； 若涉及到日期与时间，将时间的小写改为大写； eg <code>ymd_HMS</code></p>
+<p>tz =”UTC” ：世界标准市价</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&gt; x &lt;- c(<span class="string">"09-01-01"</span>, <span class="string">"09-01-02"</span>, <span class="string">"09-01-03"</span>)</div><div class="line">&gt; parse_date_time(x, <span class="string">"ymd"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-01-01 UTC"</span> <span class="string">"2009-01-02 UTC"</span> <span class="string">"2009-01-03 UTC"</span></div><div class="line"></div><div class="line"><span class="comment">## 复合时间 </span></div><div class="line"><span class="comment"># 处理复合的日期时间数据时，可同时指定多个排列顺序</span></div><div class="line">x &lt;- c(<span class="string">"09-01-01"</span>, <span class="string">"090102"</span>, <span class="string">"09-01 03"</span>, <span class="string">"09-01-03 12:02"</span>)</div><div class="line">parse_date_time(x, c(<span class="string">"ymd"</span>, <span class="string">"ymd_HM"</span>))</div><div class="line"></div><div class="line"><span class="comment">## 不同的排序规则 - 可以同时处理</span></div><div class="line">&gt; x &lt;- c(<span class="string">"2009-01-01"</span>, <span class="string">"02022010"</span>, <span class="string">"02-02-2010"</span>)</div><div class="line">&gt; parse_date_time(x, c(<span class="string">"dmY"</span>, <span class="string">"ymd"</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-01-01 UTC"</span> <span class="string">"2010-02-02 UTC"</span> <span class="string">"2010-02-02 UTC"</span></div><div class="line"></div><div class="line"><span class="comment">## 季度与部分日期</span></div><div class="line">&gt; parse_date_time(c(<span class="string">"2016.2"</span>, <span class="string">"2016-04"</span>), orders = <span class="string">"Yq"</span>)  <span class="comment"># q 代表季度;</span></div><div class="line">[<span class="number">1</span>] <span class="string">"2016-04-01 UTC"</span> <span class="string">"2016-10-01 UTC"</span> </div><div class="line"></div><div class="line">&gt; parse_date_time(c(<span class="string">"2016"</span>, <span class="string">"2016-04"</span>), orders = c(<span class="string">"Y"</span>, <span class="string">"Ym"</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"2016-01-01 UTC"</span> <span class="string">"2016-04-01 UTC"</span></div><div class="line"></div><div class="line"><span class="comment"># Y 与 y 的区别   # Y大写表示全称；y表示缩写；</span></div><div class="line">&gt; parse_date_time(c(<span class="string">"16.2"</span>, <span class="string">"16-04"</span>), orders = <span class="string">"yq"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2016-04-01 UTC"</span> <span class="string">"2016-10-01 UTC"</span></div><div class="line">&gt; parse_date_time(c(<span class="string">"16.2"</span>, <span class="string">"16-04"</span>), orders = <span class="string">"Yq"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">NA</span> <span class="literal">NA</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>decimal_date(x)</strong>：将日期格式<strong>转化为小数格式</strong>；</li>
+</ul>
+<blockquote>
+<p>x : a POSIXlt/ct or Date object</p>
+</blockquote>
+<ul>
+<li>date_decimal(x) ：将小数<strong>转化为日期格式</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">date &lt;- ymd(<span class="string">"2009-02-10"</span>)</div><div class="line">decimal_date(date)</div><div class="line">[<span class="number">1</span>] <span class="number">2009.11</span></div><div class="line"></div><div class="line">date_decimal(decimal_date(date))</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-02-10 UTC"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>as.Date()</strong>：以<strong>数值</strong>形式存储，精确到天<ul>
+<li><strong>解析类函数，默认已完成了格式转换</strong>；eg <code>ymd(&quot;2012-04-21&quot;)</code></li>
+</ul>
+</li>
+<li><strong>as.POSIXct()</strong> ：以一个<strong>数值</strong>形式进行存储，精确到秒</li>
+<li><strong>as.POSIXlt()</strong> ：以列表的形式进行存储，精确到秒</li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>unclass(x)</strong> ：<ul>
+<li>可以将<strong>日期</strong>变成<strong>以天来计数</strong> ；</li>
+<li>可以将<strong>时点类</strong>根据<strong>最基本的组成进行拆解</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"> x&lt;-as.Date(<span class="string">"1970-01-01"</span>) </div><div class="line">&gt; unclass(x) </div><div class="line">[<span class="number">1</span>] <span class="number">0</span></div><div class="line">&gt; </div><div class="line">&gt; unclass(as.Date(<span class="string">"1970-02-01"</span>)) <span class="comment">#19700201代表第31天</span></div><div class="line">[<span class="number">1</span>] <span class="number">31</span></div><div class="line"></div><div class="line"><span class="comment"># --------对时点类时间进行拆解--------------------------------------</span></div><div class="line"><span class="comment">## POSIXct 格式；主要特点：以秒进行存储。</span></div><div class="line">&gt; unclass(now())  <span class="comment"># 等价于 unclass(as.POSIXct(now()))</span></div><div class="line">[<span class="number">1</span>] <span class="number">1501495056</span></div><div class="line">attr(,<span class="string">"tzone"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">""</span></div><div class="line"></div><div class="line"><span class="comment">## POSIXlt 格式；主要特点：以列表进行单独储存格式，可以作为时间筛选的一种</span></div><div class="line">&gt; unclass(as.POSIXlt(now()))</div><div class="line">$sec</div><div class="line">[<span class="number">1</span>] <span class="number">18.43142</span></div><div class="line"></div><div class="line">$min</div><div class="line">[<span class="number">1</span>] <span class="number">58</span></div><div class="line"></div><div class="line">$hour</div><div class="line">[<span class="number">1</span>] <span class="number">17</span></div><div class="line"></div><div class="line">$mday</div><div class="line">[<span class="number">1</span>] <span class="number">31</span></div><div class="line"></div><div class="line">$mon</div><div class="line">[<span class="number">1</span>] <span class="number">6</span></div><div class="line"></div><div class="line">$year</div><div class="line">[<span class="number">1</span>] <span class="number">117</span></div><div class="line"></div><div class="line">$wday</div><div class="line">[<span class="number">1</span>] <span class="number">1</span></div><div class="line"></div><div class="line">$yday</div><div class="line">[<span class="number">1</span>] <span class="number">211</span></div><div class="line"></div><div class="line">$isdst</div><div class="line">[<span class="number">1</span>] <span class="number">0</span></div><div class="line"></div><div class="line">$zone</div><div class="line">[<span class="number">1</span>] <span class="string">"CST"</span></div><div class="line"></div><div class="line">$gmtoff</div><div class="line">[<span class="number">1</span>] <span class="number">28800</span></div><div class="line"></div><div class="line">attr(,<span class="string">"tzone"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">""</span>    <span class="string">"CST"</span> <span class="string">"CDT"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>起始日期为1970-01-01</p>
+</blockquote>
+<p><br></p>
+<h2 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h2><ul>
+<li><strong>today( [tz=””])</strong>：返回当前系统的<strong>日期</strong>，不含时间；时区默认为当前计算机的时区</li>
+</ul>
+<ul>
+<li><strong>now( [tz=””])</strong>：作为POSIXct对象返回当前系统的<strong>日期与时间</strong> ；时区默认为当前计算机的时区</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; today()</div><div class="line">[<span class="number">1</span>] <span class="string">"2017-07-31"</span></div><div class="line"></div><div class="line">&gt; now()</div><div class="line">[<span class="number">1</span>] <span class="string">"2017-07-31 15:43:46 CST"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="舍入-Rounding"><a href="#舍入-Rounding" class="headerlink" title="舍入 - Rounding"></a>舍入 - Rounding</h2><ul>
+<li><strong>round_date(x, unit = “second”)</strong> ：<strong>根据unit对x进行四舍五入</strong>；</li>
+</ul>
+<blockquote>
+<p>unit =”” ：可选的单位</p>
+<ul>
+<li>second(s) / mintue(s) / hour(s) / day(s) </li>
+<li>week(s) / month(s) / quarter() </li>
+<li>haflyear / year</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>floor_date(x, unit = “second”)</strong>：<strong>向下舍入</strong>；<ul>
+<li>相当于取整；若unit=”hour” ，则舍去分钟的内容</li>
+</ul>
+</li>
+<li><strong>ceiling_date(x, unit = “second”, change_on_boundary = NULL)</strong>：向上舍入；<ul>
+<li><strong>向上取整</strong>； 若后面一位小数大于0，即向前进一位</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>函数实际运行的三个步骤</p>
+<ol>
+<li>转换为表示日期下限的时点：2000-01-01 –&gt; 2000-01-01 00:00:00</li>
+<li>向上舍入到下一个最接近的单位边界。  <em>if the rounding unit is month then next boundary for 2000-01-01 will be 2000-02-01 00:00:00.</em></li>
+<li>如果舍入的最小边界单位小于一天，则返回第二步的时点</li>
+</ol>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## round_date--------------------------------------------------</span></div><div class="line">x &lt;- as.POSIXct(<span class="string">"2009-08-03 12:01:59.23"</span>); x</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-08-03 12:01:59 CST"</span></div><div class="line"></div><div class="line">round_date(x, <span class="string">"minute"</span>)  <span class="comment"># 舍入到分钟</span></div><div class="line">[<span class="number">1</span>] <span class="string">"2009-08-03 12:02:00 CST"</span></div><div class="line"></div><div class="line">&gt; round_date(x, <span class="string">"5 minute"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-08-03 12:00:00 CST"</span></div><div class="line"></div><div class="line">&gt; round_date(x, <span class="string">"2 months"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-09-01 CST"</span></div><div class="line"></div><div class="line">round_date(x, <span class="string">"quarter"</span>) == round_date(x, <span class="string">"3 months"</span>)</div><div class="line">round_date(x, <span class="string">"halfyear"</span>)</div><div class="line">round_date(x, <span class="string">"year"</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## floor_date--------------------------------------------------</span></div><div class="line">x &lt;- as.POSIXct(<span class="string">"2009-08-03 12:01:59.23"</span>)</div><div class="line"></div><div class="line">&gt; floor_date(x, <span class="string">"hour"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-08-03 12:00:00 CST"</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## ceiling_date------------------------------------------------</span></div><div class="line">x &lt;- as.POSIXct(<span class="string">"2009-08-03 12:01:59.23"</span>)</div><div class="line"></div><div class="line">&gt; ceiling_date(x, <span class="string">"second"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-08-03 12:02:00 CST"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="设定时点"><a href="#设定时点" class="headerlink" title="设定时点"></a>设定时点</h2><blockquote>
+<p>设定时点的两种方法：</p>
+<ol>
+<li>通过解析函数设定</li>
+<li>通过时段类函数设定</li>
+</ol>
+</blockquote>
+<ul>
+<li><strong>通过解析函数设定</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#解析日期</span></div><div class="line">year(x)</div><div class="line"><span class="comment">#设定日期，通过赋值进行设定</span></div><div class="line">year(x) &lt;- value</div><div class="line"></div><div class="line">&gt; l &lt;- today(); l</div><div class="line">[<span class="number">1</span>] <span class="string">"2017-07-31"</span></div><div class="line">&gt; day(l) &lt;- <span class="number">10</span>; l</div><div class="line">[<span class="number">1</span>] <span class="string">"2017-07-10"</span></div><div class="line"></div><div class="line"><span class="comment"># 不可直接对today()进行赋值</span></div><div class="line">day(today())&lt;- <span class="number">10</span>  <span class="comment"># 显示报错</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>通过时段类函数直接设定</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 通过period来设定时间，一般为unit之后加s； 例如days / months</span></div><div class="line">&gt; today() + days(<span class="number">1</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"2017-08-01"</span></div><div class="line"></div><div class="line"><span class="comment">## 通过 duraction来设定时间，一般period之前加d；即对原始先加s，在加d； 例如 ddays / dyears</span></div><div class="line">&gt; today() + ddays(<span class="number">1</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"2017-08-01"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="时段类"><a href="#时段类" class="headerlink" title="时段类"></a>时段类</h1><p><br></p>
+<h2 id="间隔-Intervals"><a href="#间隔-Intervals" class="headerlink" title="间隔 - Intervals"></a>间隔 - Intervals</h2><blockquote>
+<p>interval：最简单的时段对象，它由<strong>两个时点数据</strong>构成。</p>
+</blockquote>
+<ul>
+<li><strong>间隔类型</strong>： <code>is.intervals</code> &amp; <code>as.intervals</code></li>
+<li><strong>interval(start, end, tzone = attr(start, “tzone”))</strong>：创建时间间隔</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 创建时间间隔</span></div><div class="line">&gt; x &lt;- ymd(<span class="string">'2010-04-08'</span>)</div><div class="line">&gt; interval(x,now())</div><div class="line">[<span class="number">1</span>] <span class="number">2010</span>-<span class="number">04</span>-<span class="number">08</span> <span class="number">08</span>:<span class="number">00</span>:<span class="number">00</span> CST--<span class="number">2017</span>-<span class="number">07</span>-<span class="number">31</span> <span class="number">16</span>:<span class="number">41</span>:<span class="number">43</span> CST</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>int_length()</strong> ：间隔的长度，以<strong>秒</strong>来计算</li>
+<li><p><strong>int_start() / int_end()</strong> ：返回间隔的<strong>起始/结束日期</strong>时间</p>
+</li>
+<li><p><strong>int_shift(int, by)</strong>：对间隔两端<strong>同时进行转换</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>by = duration( ): 一段持续时间或周期</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 转换</span></div><div class="line">int &lt;- interval(ymd(<span class="string">"2001-01-01"</span>), ymd(<span class="string">"2002-01-01"</span>))</div><div class="line">int_shift(int, duration(days = <span class="number">11</span>))</div><div class="line">[<span class="number">1</span>] <span class="number">2001</span>-<span class="number">01</span>-<span class="number">12</span> UTC--<span class="number">2002</span>-<span class="number">01</span>-<span class="number">12</span> UTC</div><div class="line"></div><div class="line">int_shift(int, duration(hours = -<span class="number">1</span>))</div><div class="line">[<span class="number">1</span>] <span class="number">2000</span>-<span class="number">12</span>-<span class="number">31</span> <span class="number">23</span>:<span class="number">00</span>:<span class="number">00</span> UTC--<span class="number">2001</span>-<span class="number">12</span>-<span class="number">31</span> <span class="number">23</span>:<span class="number">00</span>:<span class="number">00</span> UTC</div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>int_flip(int)</strong>：翻转；将interval的起始时间与结束时间对调</li>
+<li><strong>int_standardize()</strong>：标准化；确保间隔是正值，即结束时间大于开始时间；若非标准化，则自动调整</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int &lt;- interval(ymd(<span class="string">"2001-01-01"</span>), ymd(<span class="string">"2002-01-01"</span>))</div><div class="line">int_flip(int)</div><div class="line">[<span class="number">1</span>] <span class="number">2002</span>-<span class="number">01</span>-<span class="number">01</span> UTC--<span class="number">2001</span>-<span class="number">01</span>-<span class="number">01</span> UTC</div><div class="line"></div><div class="line">int_standardize(int_flip(int))</div><div class="line">[<span class="number">1</span>] <span class="number">2001</span>-<span class="number">01</span>-<span class="number">01</span> UTC--<span class="number">2002</span>-<span class="number">01</span>-<span class="number">01</span> UTC</div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>int_diff(times)</strong>：时间间隔对象, 包含 <strong>n-1段的时间间隔</strong></li>
+</ul>
+<blockquote>
+<p>times为POSIXct, POSIXlt 或日期格式</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; dates &lt;- now() + days(<span class="number">1</span>:<span class="number">4</span>); dates</div><div class="line">[<span class="number">1</span>] <span class="string">"2017-08-01 17:00:07 CST"</span> <span class="string">"2017-08-02 17:00:07 CST"</span> <span class="string">"2017-08-03 17:00:07 CST"</span> <span class="string">"2017-08-04 17:00:07 CST"</span></div><div class="line">&gt; int_diff(dates)</div><div class="line">[<span class="number">1</span>] <span class="number">2017</span>-<span class="number">08</span>-<span class="number">01</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">07</span> CST--<span class="number">2017</span>-<span class="number">08</span>-<span class="number">02</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">07</span> CST <span class="number">2017</span>-<span class="number">08</span>-<span class="number">02</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">07</span> CST--<span class="number">2017</span>-<span class="number">08</span>-<span class="number">03</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">07</span> CST</div><div class="line">[<span class="number">3</span>] <span class="number">2017</span>-<span class="number">08</span>-<span class="number">03</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">07</span> CST--<span class="number">2017</span>-<span class="number">08</span>-<span class="number">04</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">07</span> CST</div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><p><strong>int_overlaps(int1, int2)</strong>：判断int1与int2之间<strong>是否有重叠</strong>的部分；并返回逻辑值 T/F</p>
+</li>
+<li><p><strong>int_aligns(int1, int2)</strong>：判断int1与int2<strong>是否对齐</strong>，并返回逻辑值 T / F</p>
+</li>
+</ul>
+<blockquote>
+<p><em>aligns : 对齐</em></p>
+<p>若int1与int2 有相同的起始时间或结束时间，则返回T； 否则返回FALSE</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">int1 &lt;- interval(ymd(<span class="string">"2001-01-01"</span>), ymd(<span class="string">"2002-01-01"</span>))</div><div class="line">int2 &lt;- interval(ymd(<span class="string">"2001-06-01"</span>), ymd(<span class="string">"2002-01-01"</span>))</div><div class="line">int3 &lt;- interval(ymd(<span class="string">"2003-01-01"</span>), ymd(<span class="string">"2004-01-01"</span>))</div><div class="line"></div><div class="line">int_aligns(int1, int2) <span class="comment"># TRUE  ## 有相同的结束时间</span></div><div class="line">int_aligns(int1, int3) <span class="comment"># FALSE  </span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## 判断是否有重叠 </span></div><div class="line">int_overlaps(int1, int2) <span class="comment"># TRUE</span></div><div class="line">int_overlaps(int1, int3) <span class="comment"># FALSE</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>time_length(x, unit = “second”)</strong> ：计算两个时间之间的<strong>间隔</strong> （自定义间隔单位）</li>
+</ul>
+<blockquote>
+<p>x ：a duration, period, difftime or interval</p>
+<p>unit =  c(“second”, “minute”, “hour”,”day”, “week”,”month”, “year”)) </p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><strong>difftime(time1, time2, tz,units=c(“”) )</strong> ：计算两个时间之间的<strong>间隔</strong> （自定义间隔单位）<ul>
+<li><strong>该函数为Base函数</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>units = c(“auto”, “secs”, “mins”, “hours”,”days”, “weeks”))</strong> </p>
+</blockquote>
+<p><br></p>
+<p><strong>%within%</strong></p>
+<p><br></p>
+<h2 id="持续时间-Durations"><a href="#持续时间-Durations" class="headerlink" title="持续时间 - Durations"></a>持续时间 - Durations</h2><blockquote>
+<ul>
+<li>duration：去除了时间两端的信息，纯粹以秒为单位计算时段的长度，不考虑闰年和闰秒，它同时也兼容基本包中的difftime类型对象。</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>期间类型</strong> ： <code>is.duration(x)</code> &amp; <code>as.duration</code></li>
+<li><strong>duration(num = NULL, units = “seconds”, …)</strong>：创建持续时间</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">duration(<span class="number">90</span>, <span class="string">"seconds"</span>)</div><div class="line">duration(<span class="number">1.5</span>, <span class="string">"minutes"</span>)</div><div class="line"></div><div class="line"><span class="comment">## 比较判断</span></div><div class="line">duration(<span class="string">"day 2 sec"</span>) &gt; <span class="string">"day 1sec"</span></div><div class="line"></div><div class="line">is.duration(as.Date(<span class="string">"2009-08-03"</span>)) <span class="comment"># FALSE</span></div><div class="line">is.duration(duration(days = <span class="number">12.4</span>)) <span class="comment"># TRUE</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>dyears(x) / dweeks(x) / ddays(x) /dhours(x) / dminutes(x) / dseconds(x)</strong> ：<strong>快速创建</strong>持续时间的对象以便于<strong>进行日期时间操作</strong><ul>
+<li><strong>没有dmonths()</strong>，因为其以秒为单位来创建，而月度常在30天/31天之间变化；而年度的话此时默认为365天；</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Durations的函数，以 <strong>[秒] 为单位</strong>进行创建</p>
+<ul>
+<li><strong>minutes(2)函数表示的2个整分钟的概念，而dminutes(2)则是具体120秒</strong></li>
+<li>years(1)则是一个整年的概念<strong>而</strong>dyears(1)表示的365天**而</li>
+</ul>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 规则说明：以 [秒] 为单位进行创建</span></div><div class="line"></div><div class="line">&gt; dyears(<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"31536000s (~52.14 weeks)"</span></div><div class="line">&gt; years(<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"1y 0m 0d 0H 0M 0S"</span></div><div class="line"></div><div class="line"><span class="comment">## 具体区别</span></div><div class="line">&gt; ymd(<span class="string">'20160228'</span>)+dyears(<span class="number">1</span>)  <span class="comment"># 以秒为单位进行扩展</span></div><div class="line">[<span class="number">1</span>] <span class="string">"2017-02-27"</span></div><div class="line">&gt; ymd(<span class="string">'20160228'</span>)+years(<span class="number">1</span>)  <span class="comment"># 以年为单位进行扩展</span></div><div class="line">[<span class="number">1</span>] <span class="string">"2017-02-28"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="周期-Periods"><a href="#周期-Periods" class="headerlink" title="周期 - Periods"></a>周期 - Periods</h2><blockquote>
+<p>period：以较长的时钟周期来计算时段长度，它考虑了闰年和闰秒，适用于长期的时间计算。</p>
+</blockquote>
+<ul>
+<li><strong>周期类型</strong>： <code>is.period</code> &amp; <code>as.period</code></li>
+</ul>
+<ul>
+<li><strong>period(num = NULL, units = “second”, …)</strong>：创建周期</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; period(-<span class="number">1</span>, <span class="string">"days"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"-1d 0H 0M 0S"</span></div><div class="line"></div><div class="line">&gt; period(c(<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="number">1</span>), c(<span class="string">"second"</span>, <span class="string">"minute"</span>, <span class="string">"hour"</span>, <span class="string">"day"</span>, <span class="string">"week"</span>))</div><div class="line">[<span class="number">1</span>] <span class="string">"20d 2H 1M 3S"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>years(x) / months(x) / weeks(x) / days(x)  / hours(x) / minutes() / seconds(x)</strong>：<strong>快速</strong>创建阶段对象以便于进行日期时间<strong>操作</strong></li>
+</ul>
+<blockquote>
+<p>Durations的函数，以 <strong>[创建的函数单位] 为单位</strong>进行创建</p>
+<ul>
+<li><strong>minutes(2)函数表示的2个整分钟的概念，而dminutes(2)则是具体120秒</strong></li>
+<li><strong>years(1)则是一个整年的概念</strong>而<strong>dyears(1)表示的365天</strong>而</li>
+</ul>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 规则说明：以[创建的函数单位]为单位进行创建</span></div><div class="line">&gt; dyears(<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"31536000s (~52.14 weeks)"</span></div><div class="line">&gt; years(<span class="number">1</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"1y 0m 0d 0H 0M 0S"</span></div><div class="line"></div><div class="line"><span class="comment"># 具体应用</span></div><div class="line">&gt; x &lt;- as.POSIXct(<span class="string">"2009-08-03"</span>);x</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-08-03 CST"</span></div><div class="line">&gt; x + days(<span class="number">1</span>) + hours(<span class="number">6</span>) + minutes(<span class="number">30</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"2009-08-04 06:30:00 CST"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="时区-Time-Zones"><a href="#时区-Time-Zones" class="headerlink" title="时区 - Time Zones"></a>时区 - Time Zones</h1><blockquote>
+<p><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="external">时区索引</a></p>
+</blockquote>
+<ul>
+<li><strong>tz(x)</strong>：提取时间数据的时区</li>
+<li><strong>with_tz(time, tz=””)</strong>：将时间数据<strong>[显示] 为另一个时区的同一时间</strong></li>
+<li><strong>force_tz(timez, tz=””)</strong>：将时间数据的时区<strong>[强制转换] 为另一个时区</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">tz(x) &lt;- value  <span class="comment"># 设置时区</span></div><div class="line"></div><div class="line"></div><div class="line">&gt; meeting &lt;- ymd_hms(<span class="string">"2011-07-01 09:00:00"</span>, tz = <span class="string">"Pacific/Auckland"</span>);meeting</div><div class="line">[<span class="number">1</span>] <span class="string">"2011-07-01 09:00:00 NZST"</span></div><div class="line">&gt; with_tz(meeting, <span class="string">"America/Chicago"</span>)    <span class="comment">#显示不同的时区相同的时刻</span></div><div class="line">[<span class="number">1</span>] <span class="string">"2011-06-30 16:00:00 CDT"</span></div><div class="line"></div><div class="line"></div><div class="line">&gt; mistake &lt;- force_tz(meeting, <span class="string">"America/Chicago"</span>);mistake  <span class="comment"># 强制转化为另一个时区</span></div><div class="line">[<span class="number">1</span>] <span class="string">"2011-07-01 09:00:00 CDT"</span></div><div class="line"></div><div class="line">&gt; with_tz(mistake, <span class="string">"Pacific/Auckland"</span>)  <span class="comment"># 显示转化之后的另一个时间的同一时间，判断是否转换成功</span></div><div class="line">[<span class="number">1</span>] <span class="string">"2011-07-02 02:00:00 NZST"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h1 id="混杂的-Miscellaneous"><a href="#混杂的-Miscellaneous" class="headerlink" title="混杂的 - Miscellaneous"></a>混杂的 - Miscellaneous</h1><ul>
+<li><strong>leap_years(x)</strong> : 判断是否为<strong>闰年</strong></li>
+<li>pretty_dates() : provides a method of making pretty breaks for date-times</li>
+<li><strong>make_difftime(num = NULL, units = “auto”)</strong> :</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">make_difftime(<span class="number">3600</span>, units = <span class="string">"minute"</span>)</div><div class="line"><span class="comment"># Time difference of 60 mins</span></div><div class="line"></div><div class="line">make_difftime(second = <span class="number">3</span>, minute = <span class="number">1.5</span>, hour = <span class="number">2</span>, day = <span class="number">6</span>, week = <span class="number">1</span>)</div><div class="line"><span class="comment"># Time difference of 13.08441 days</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>%m+%</strong> ：由于每个月的最后天数不一样，如果直接在某个月份的最后一天加上指定的<strong>月数</strong>就会出现错误，这时就得考虑使用%m+%函数了。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">x &lt;- as.Date(<span class="string">'2015-01-31'</span>)</div><div class="line">y &lt;- x + months(<span class="number">0</span>:<span class="number">11</span>); y</div><div class="line"> [<span class="number">1</span>] <span class="string">"2015-01-31"</span> <span class="literal">NA</span>           <span class="string">"2015-03-31"</span> <span class="literal">NA</span>           <span class="string">"2015-05-31"</span> <span class="literal">NA</span>           <span class="string">"2015-07-31"</span> <span class="string">"2015-08-31"</span></div><div class="line"> [<span class="number">9</span>] <span class="literal">NA</span>           <span class="string">"2015-10-31"</span> <span class="literal">NA</span>           <span class="string">"2015-12-31"</span></div><div class="line"></div><div class="line">&gt; x %m+% months(<span class="number">0</span>:<span class="number">11</span>)</div><div class="line"> [<span class="number">1</span>] <span class="string">"2015-01-31"</span> <span class="string">"2015-02-28"</span> <span class="string">"2015-03-31"</span> <span class="string">"2015-04-30"</span> <span class="string">"2015-05-31"</span> <span class="string">"2015-06-30"</span> <span class="string">"2015-07-31"</span> <span class="string">"2015-08-31"</span></div><div class="line"> [<span class="number">9</span>] <span class="string">"2015-09-30"</span> <span class="string">"2015-10-31"</span> <span class="string">"2015-11-30"</span> <span class="string">"2015-12-31"</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件应用/" rel="tag"># 软件应用</a>
+          
+            <a href="/tags/r/" rel="tag"># r</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/26/阅读书籍/60_社会发展&行为与心理/90_人物传记/《你好，我是费曼》读书笔记_理查德-费曼/" rel="next" title="《你好，我是费曼》读书笔记_理查德.费曼">
+                <i class="fa fa-chevron-left"></i> 《你好，我是费曼》读书笔记_理查德.费曼
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/05/新建文件夹/个人日志_2017年7月总结/" rel="prev" title="个人日志_2017年7月总结">
+                个人日志_2017年7月总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间概念"><span class="nav-number">1.1.</span> <span class="nav-text">时间概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R语言中的时间"><span class="nav-number">1.2.</span> <span class="nav-text">R语言中的时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#POSIXct-POSIXlt-strptime-的区别"><span class="nav-number">1.2.1.</span> <span class="nav-text">POSIXct / POSIXlt / strptime 的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时点类"><span class="nav-number">2.</span> <span class="nav-text">时点类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解析与提取日期-Prasing"><span class="nav-number">2.1.</span> <span class="nav-text">解析与提取日期 - Prasing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析日期-排列"><span class="nav-number">2.1.1.</span> <span class="nav-text">解析日期 + 排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提取日期"><span class="nav-number">2.1.2.</span> <span class="nav-text">提取日期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换"><span class="nav-number">2.2.</span> <span class="nav-text">转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取"><span class="nav-number">2.3.</span> <span class="nav-text">获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#舍入-Rounding"><span class="nav-number">2.4.</span> <span class="nav-text">舍入 - Rounding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定时点"><span class="nav-number">2.5.</span> <span class="nav-text">设定时点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时段类"><span class="nav-number">3.</span> <span class="nav-text">时段类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#间隔-Intervals"><span class="nav-number">3.1.</span> <span class="nav-text">间隔 - Intervals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持续时间-Durations"><span class="nav-number">3.2.</span> <span class="nav-text">持续时间 - Durations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#周期-Periods"><span class="nav-number">3.3.</span> <span class="nav-text">周期 - Periods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时区-Time-Zones"><span class="nav-number">4.</span> <span class="nav-text">时区 - Time Zones</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#混杂的-Miscellaneous"><span class="nav-number">5.</span> <span class="nav-text">混杂的 - Miscellaneous</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

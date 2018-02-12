@@ -1,0 +1,1218 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="S_系统设置," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="mklink介绍mklink是Windows 7下的一个类似于linux下In的命令，其作用是在NTFS文件系统中创建文件或目录的链接（类似于桌面快捷方式）。如果加以利用其发挥的作用是非常的大的，不仅可以帮助我们节省不少时间，而且可以使我们重装系统后不再丢失用户文件。
+Windows 7下的mklink命令通过指定参数可以建立出不同形式的文件或目录链接，分为硬链接(hard link)、符号链接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mklink命令">
+<meta property="og:url" content="http://yoursite.com/2018/02/12/mkllink命令/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="mklink介绍mklink是Windows 7下的一个类似于linux下In的命令，其作用是在NTFS文件系统中创建文件或目录的链接（类似于桌面快捷方式）。如果加以利用其发挥的作用是非常的大的，不仅可以帮助我们节省不少时间，而且可以使我们重装系统后不再丢失用户文件。
+Windows 7下的mklink命令通过指定参数可以建立出不同形式的文件或目录链接，分为硬链接(hard link)、符号链接">
+<meta property="og:updated_time" content="2018-02-12T05:46:29.205Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mklink命令">
+<meta name="twitter:description" content="mklink介绍mklink是Windows 7下的一个类似于linux下In的命令，其作用是在NTFS文件系统中创建文件或目录的链接（类似于桌面快捷方式）。如果加以利用其发挥的作用是非常的大的，不仅可以帮助我们节省不少时间，而且可以使我们重装系统后不再丢失用户文件。
+Windows 7下的mklink命令通过指定参数可以建立出不同形式的文件或目录链接，分为硬链接(hard link)、符号链接">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/12/mkllink命令/"/>
+
+
+
+
+
+  <title> mklink命令 | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/12/mkllink命令/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mklink命令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-12T00:00:00+08:00">
+                2018-02-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-12T13:46:29+08:00">
+                2018-02-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/S-系统设置/" itemprop="url" rel="index">
+                    <span itemprop="name">S_系统设置</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/02/12/mkllink命令/" class="leancloud_visitors" data-flag-title="mklink命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+<h3 id="mklink介绍"><a href="#mklink介绍" class="headerlink" title="mklink介绍"></a>mklink介绍</h3><p>mklink是Windows 7下的一个类似于linux下In的命令，其作用是在NTFS文件系统中<strong>创建文件或目录的链接</strong>（类似于桌面快捷方式）。如果加以利用其发挥的作用是非常的大的，不仅可以帮助我们节省不少时间，而且可以使我们重装系统后不再丢失用户文件。</p>
+<p>Windows 7下的mklink命令通过指定参数可以建立出不同形式的文件或目录链接，分为硬链接(hard link)、符号链接(symbolic link)和软链接（联接）(junction)三种。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mklink /j 新建目录/文档  源目录/文档</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>源目录与文档，后置</strong></p>
+</blockquote>
+<h4 id="1-符号链接-symbolic-link"><a href="#1-符号链接-symbolic-link" class="headerlink" title="1.符号链接(symbolic link)"></a>1.符号链接(symbolic link)</h4><blockquote>
+<p>类同 &lt;快捷方式&gt;</p>
+</blockquote>
+<p>　　建立一个软链接相当于建立一个文件（或目录），这个文件（或目录）用于指向别的文件（或目录），和win的快捷方式有些类似。删除这个链接，对原来的文件（或目录）没有影像没有任何影响；而当你删除原文件（或目录）时，再打开链接则会提示“位置不可用”。</p>
+<h4 id="2-软链接（联接）-junction"><a href="#2-软链接（联接）-junction" class="headerlink" title="2.软链接（联接）(junction)"></a>2.软链接（联接）(junction)</h4><blockquote>
+<p>&lt;快捷方式&gt; + 绝对路径</p>
+</blockquote>
+<p>　　作用基本和符号链接类似。区别在于，软链接在建立时会自动引用原文件（或目录）的绝对路径，而符号链接允许相对路径的引用。</p>
+<p>​    在你的 D 盘创建一个 <code>Windows</code> 文件夹，里面的内容与 <code>C:\Windows</code> 一模一样，<strong>不占空间</strong>（显示为与 <code>C:\Windows</code> 一样大）且修改也会及时同步到 C 盘。</p>
+<p><code>mklink /j D:\Windows C:\Windows</code></p>
+<blockquote>
+<ul>
+<li>执行命令 mklink link_name target_name</li>
+<li>创建链接后的图标和快捷方式很像, 都有一个箭头的标志</li>
+<li>在系统中不占用空间</li>
+<li>在文件系统中不是一个单独的文件</li>
+<li>在操作系统层解析（！？）</li>
+<li><strong>如果源文件被删除了，链接就没用了</strong></li>
+<li><strong>移除源文件不会影响符号链接</strong></li>
+<li>移除链接文件也不会影响源文件</li>
+<li>win10_x64_build10565上测试不可以右键修改图标和设置管理员运行</li>
+<li>文件大小为0字节和不占用空间</li>
+<li>文件属性的创建时间和修改时间都是软链接创建和修改时的时间</li>
+<li>文件类型是.SYMLINK</li>
+<li>可以在cmd下运行软链接(假如链接的是程序, 且运行命令是XXX即可)(win10_x64_build10565上测试通过)</li>
+</ul>
+</blockquote>
+<h4 id="3-硬链接-hard-link"><a href="#3-硬链接-hard-link" class="headerlink" title="3.硬链接(hard link)"></a>3.硬链接(hard link)</h4><blockquote>
+<p>建立别名；但只能用于文件，不能用于文件夹</p>
+</blockquote>
+<p>　　建立一个硬链接相当于给文件建立了一个别名，例如对1.TXT创建了名字为2.TXT的硬链接，若使用记事本对1.TXT进行修改，则2.TXT也同时被修改，若删除1.TXT，则2.TXT依然存在，且内容与1.TXT一样。</p>
+<p>建立链接请注意：<br>1、建立文件或目录链接限于 NTFS 文件系统，符号（软）链接的建立可以跨文件系统；<br>2、硬链接只能用于文件，不能用于目录，符号（软）链接可以为目录建立链接；<br>3、硬链接只能建立同一分区内的文件指向；<br>4、硬链接不允许对空文件建立链接，符号（软）链接可以。</p>
+<blockquote>
+<ul>
+<li>执行命令 mklink /H link_name target_name</li>
+<li>在系统中<strong>占用的空间与源文件相同，但在系统中引用的是相同的对象</strong>（不是拷贝）</li>
+<li>在操作系统层解析（！？）</li>
+<li>图标和创建快捷方式的图标不同(没有快捷方式的小箭头)</li>
+<li><strong>移除源文件不会影响硬链接</strong></li>
+<li><strong>移除硬链接不会影响源文件</strong></li>
+<li><strong>如果源文件被删除，它的内容依然通过硬链接存在</strong></li>
+<li><strong>硬链接文件的任何更改都会影响到源文件</strong></li>
+<li>文件大小, 占用空间, 创建和修改时间跟原原文件一样</li>
+<li>可以在cmd下运行硬连接(假如链接的是程序)</li>
+</ul>
+</blockquote>
+<p><br></p>
+<h4 id="硬链接与符号链接的区别"><a href="#硬链接与符号链接的区别" class="headerlink" title="硬链接与符号链接的区别"></a>硬链接与符号链接的区别</h4><p>硬链接<strong>只能用于文件，不能用于文件夹</strong>，而且硬链接和目标文件必须在同一个分区或者卷中。硬链接的目的是为了给文件创建多个目录路径，而不像符号链接是为了指向某个已有的文件。</p>
+<p>假设要给Target. txt文件创建一个硬链接，系统下载可以执行以下命令：</p>
+<p>mklink/H Link.txt Target.txt</p>
+<p>和符号链接一样，硬链接中所做的任何修改，都会自动应用到目标文件上。但是硬链接具有以下一些不同的地方。</p>
+<p>(1)硬链接必须引用同一个分区或者卷中的文件，而符号链接可以指向不同分区或者共享文件夹上的文件或者文件夹。</p>
+<p>(2) 硬链接只能引用文件，而符号链接可以引用文件或者文件夹。</p>
+<p>(3)Windows会自动维护硬链接，即使把硬链接复制到其他文件夹，硬链接和目标都可以继续访问。</p>
+<p>(4)删除目标文件，硬链接可以继续保留。只有把目标文件和所有的硬链接都删除，才能把该文件彻底删除。</p>
+<p>(5)如果win7把符号链接的目标文件删除，然后用一个同名文件替换，则符号链接会指向新的目标文件；而把硬链接的目标文件删除’再用同名文件替换，则硬链接还是会继续引用原始文件。</p>
+<p>(6)也就是说，硬链接和目标文件的地位相等。事实上，原始的目标文件本身也相当于硬链接，新建硬链接，只是相当于增加一个目录路後而已。</p>
+<p>(7)硬链接看上去和真的文件一模一样(实际上就是真实的文件)，不像符号链接那样有一个快捷方式的小箭头，但是硬链接并不会增加磁盘空间的占用。</p>
+<p>(8)对硬链接进行NTFS权限的修改，会同时影响到目标文件(因为两者等价)，而符号链接和目标文件可以设置不同的NTFS权限。</p>
+<p><br></p>
+<p><br></p>
+<h3 id="Mklink的参数定义"><a href="#Mklink的参数定义" class="headerlink" title="Mklink的参数定义"></a>Mklink的参数定义</h3><ul>
+<li><p><strong>无参数指定：</strong>建立文件的符号链接。无参数指定的默认情况下，建立的是文件的符号链接，删除链接文件不会影响源文件</p>
+<blockquote>
+<p>这个命令会让 D 盘多出 <code>BOOTMGR</code> 文件，大小为 0 字节，但编辑时确是 <code>C:\BOOTGR</code> 的内容。</p>
+<p><code>mklink D:\BOOTMGR C:\BOOTMGR</code></p>
+</blockquote>
+</li>
+<li><p><strong>/d：建立目录的符号链接符号链接(symbolic link)</strong></p>
+</li>
+<li><p><strong>/j：建立目录的软链接（联接）(junction)</strong></p>
+</li>
+<li><p><strong>/h：建立文件的硬链接(hard link)</strong></p>
+</li>
+</ul>
+<p>命令格式：mklink /d(定义参数) \MyDocs(链接文件) \Users\User1\Documents(原文件)</p>
+<p>最后，至于删除建立的链接，跟删除文件一样使用”DEL”命令。</p>
+<p><br></p>
+<h3 id="Mklink命令用途"><a href="#Mklink命令用途" class="headerlink" title="Mklink命令用途"></a>Mklink命令用途</h3><p>转移系统中的用户设置文件</p>
+<p>　　Windows 7中将用户设置与系统文件分离，所有的用户设置及用户文件都存储在C盘下的User目录（在中文版Windows　7中显示为“用户”目录），重装系统后所有的系统设置及用户文件都会消失。</p>
+<p>　　Windows 7安装完成后可以将C盘下的User目录转移到非系统分区，如D盘，这样，重装系统后只要重新将C盘下的User目录链接到D盘即可。我们在创建链接后系统在访问C：/User目录其实是在访问D:/User目录。</p>
+<h5 id="命令如下："><a href="#命令如下：" class="headerlink" title="命令如下："></a>命令如下：</h5><p>1.复制User目录到D盘：　robocopy “C:\Users” “D:\Users” /E /COPYALL /XJ<br>2.强制删除User目录：　rmdir “C:\Users” /S /Q<br>3.创建C盘下的User的软件链接，链接到D盘User目录：mklink /J “C:\Users” “D:\Users”</p>
+<p>重装系统后只需重复第二条和第三条命令及可</p>
+<p>有了这条命令就再也不怕重新系统了。</p>
+<p>一般网盘同步文件夹只能设置一个，利用这个命令可以让我们设置多个：</p>
+<p>比如说现在要备份D盘下的work文件夹，和D盘下qq文件夹，网盘设置需要同步的文件夹为E盘的abc文件夹。</p>
+<p>1、用cmd打开E:\abc</p>
+<p>2、输入mklink /d “qq” “D:\qq”（注意空格位置）</p>
+<p><br></p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><h4 id="实例-1：给-C-盘减负"><a href="#实例-1：给-C-盘减负" class="headerlink" title="实例 1：给 C 盘减负"></a>实例 1：给 C 盘减负</h4><p>不少驱动程序都会自动在 <code>C:\Program Files\InstallShield Installation Information</code> 目录中留下安装程序备份用于卸载，其实有谁没事卸载驱动玩？但这却是 C 盘主要的空间杀手，也是 InstallShield 通常被人们诟病的地方。</p>
+<p>于是，为了节省系统盘空间，可以在安全模式中 <code>C:\Program Files\InstallShield Installation Information</code>剪切到 E 盘（需要先显示系统隐藏文件夹），利用 <code>MKLINK</code> 让系统误以为没有移动（注意别清理优化时手快删了就行）。</p>
+<p>剪切完之后，执行一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mklink /j &quot;E:\InstallShield Installation Information&quot; &quot;C:\Program Files\InstallShield Installation Information&quot;</div></pre></td></tr></table></figure>
+<p>大功告成！</p>
+<p>这个方法同时适用于许多已安装的 Windows 程序（例如 Office 等），这些程序在注册表中留有许多信息，不能随意移动原来路径下的文件。但等到 C 盘空间不足时，可以考虑把他们剪切出来，再用 <code>MKLINK</code> 链回去。</p>
+<p><br></p>
+<h4 id="创建博客的硬链接"><a href="#创建博客的硬链接" class="headerlink" title="创建博客的硬链接"></a>创建博客的硬链接</h4><blockquote>
+<p>目的：实现对源文件修改时，博客中的内容自动更新。</p>
+</blockquote>
+<p>下面的命令将在link.txt和source.txt之间建立硬连接关系</p>
+<p><code>C:\Users\hoii\Desktop&gt; mklink /h link.txt gb.txt</code></p>
+<p>为link.txt《《===》》gb.txt创建了硬链接</p>
+<p>注意上面的例子：<strong>link.txt本是一个不存在的文件</strong>，但是当执行完mklink命令以后，link.txt文件也就被创建了。其实，link.txt是一个虚假的文件，它是在文件系统层面上对gb.txt文件的一个映射，而link.txt是不占硬盘空间的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/S-系统设置/" rel="tag"># S_系统设置</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/10/阅读书籍/阅读书籍文件分类说明_20180210/" rel="next" title="阅读书籍排序说明">
+                <i class="fa fa-chevron-left"></i> 阅读书籍排序说明
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mklink介绍"><span class="nav-number">1.</span> <span class="nav-text">mklink介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-符号链接-symbolic-link"><span class="nav-number">1.1.</span> <span class="nav-text">1.符号链接(symbolic link)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-软链接（联接）-junction"><span class="nav-number">1.2.</span> <span class="nav-text">2.软链接（联接）(junction)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-硬链接-hard-link"><span class="nav-number">1.3.</span> <span class="nav-text">3.硬链接(hard link)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#硬链接与符号链接的区别"><span class="nav-number">1.4.</span> <span class="nav-text">硬链接与符号链接的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mklink的参数定义"><span class="nav-number">2.</span> <span class="nav-text">Mklink的参数定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mklink命令用途"><span class="nav-number">3.</span> <span class="nav-text">Mklink命令用途</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#命令如下："><span class="nav-number">3.0.1.</span> <span class="nav-text">命令如下：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">4.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例-1：给-C-盘减负"><span class="nav-number">4.1.</span> <span class="nav-text">实例 1：给 C 盘减负</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建博客的硬链接"><span class="nav-number">4.2.</span> <span class="nav-text">创建博客的硬链接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
