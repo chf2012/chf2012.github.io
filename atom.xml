@@ -2962,6 +2962,308 @@
   </entry>
   
   <entry>
+    <title>R_导入&amp;导出</title>
+    <link href="http://yoursite.com/2017/07/24/R_%E5%AF%BC%E5%85%A5&amp;%E5%AF%BC%E5%87%BA/"/>
+    <id>http://yoursite.com/2017/07/24/R_导入&amp;导出/</id>
+    <published>2017-07-23T16:00:00.000Z</published>
+    <updated>2017-08-13T03:25:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code>  </strong></p>
+<p><strong>R本身把<code>\</code> 当做转义符，所以写pattern的时候要用<code>\\</code>进行转义</strong></p>
+<a id="more"></a>
+<p><br></p>
+<h1 id="获取文件目录信息"><a href="#获取文件目录信息" class="headerlink" title="获取文件目录信息"></a>获取文件目录信息</h1><h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><h4 id="getwd-amp-setwd"><a href="#getwd-amp-setwd" class="headerlink" title="getwd &amp; setwd"></a>getwd &amp; setwd</h4><ul>
+<li><strong>getwd()</strong>：获得<strong>当前工作目录</strong></li>
+<li><strong>setwd()</strong> ：<strong>设置</strong>当前工作目录 <code>setwd(&quot;C:/data&quot;)</code></li>
+</ul>
+<p><br></p>
+<h4 id="dir-amp-list-files-获取"><a href="#dir-amp-list-files-获取" class="headerlink" title="dir &amp; list.files - 获取"></a>dir &amp; list.files - 获取</h4><blockquote>
+<p>dir 与 list.files 功能相同；列出<strong>当前目录</strong>中所有的文件</p>
+</blockquote>
+<ul>
+<li><strong>dir()</strong> ：列出<strong>当前目录</strong>中所有的文件名</li>
+<li><strong>dir(path=”/home/conan/R”, pattern=Null, all.files=False, full.names=Fasle, recursice=Fasle, igonre.case= False, include.dirs=False, no..=False)</strong>：查看<strong>指定目录</strong>的文件</li>
+</ul>
+<blockquote>
+<p>path：查看指定<strong>路径下</strong>的文件。</p>
+<p>pattern ：匹配的正则表达式模式</p>
+<p>all.files = False(默认) ；若为True，则列出隐藏的文件名</p>
+<p>full.names=False(默认) <code>&quot;我的形状&quot;</code>；若为True，列出含相对路径的文件名 <code>&quot;./我的形状&quot;</code></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir(path=<span class="string">"/home/conan/R"</span>,pattern=<span class="string">'txt$'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="choose-dir-获取"><a href="#choose-dir-获取" class="headerlink" title="choose.dir - 获取"></a>choose.dir - 获取</h4><blockquote>
+<p>通过选取的方式获得目录</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a &lt;- choose.dir()</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="system-“tree”-获取"><a href="#system-“tree”-获取" class="headerlink" title="system(“tree”) - 获取"></a>system(“tree”) - 获取</h4><blockquote>
+<p>通过系统命令以<strong>树状结构</strong>查看目录结构</p>
+</blockquote>
+<ul>
+<li>file.info()</li>
+</ul>
+<p><br></p>
+<h4 id="dir-create-新建"><a href="#dir-create-新建" class="headerlink" title="dir.create - 新建"></a>dir.create - 新建</h4><ul>
+<li><strong>dir.create()</strong>：在当前目录下，新建一个目录</li>
+<li><strong>dir.create(path=”a1/b2/c3”,recursive = TRUE)</strong>：创建一个<strong>3级子目录</strong>./a1/b2/c3</li>
+</ul>
+<p><br></p>
+<h4 id="file-path-合并"><a href="#file-path-合并" class="headerlink" title="file.path - 合并"></a>file.path - 合并</h4><ul>
+<li><strong>file.path(…, fsep = .Platform$file.sep)</strong><ul>
+<li><strong>file.path(getwd(), dir())</strong> ：当前工作目录下的文件的路径</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>… : 字符串</p>
+<p>fsep : 用于使用的<strong>路径分隔符</strong></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; file.path(<span class="string">"C:\\Users\\long\\Desktop"</span>,<span class="string">"txt"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"C:\\Users\\long\\Desktop/txt"</span> </div><div class="line"></div><div class="line"><span class="comment">#----------------------------------------#</span></div><div class="line">&gt; file.path(getwd(),dir())</div><div class="line">[<span class="number">1</span>] <span class="string">'E:/Jupyter_notebook/test'</span> <span class="string">'E:/Jupyter_notebook/test.ipynb'</span> <span class="string">'E:/Jupyter_notebook/专项分析'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>一般用paste来生成系统路径的时候，在最终结果，结合的地方会多一个<strong>空格</strong>，当然也可以用去空格的方式排除，但是不够好。</p>
+<p>用file.path的方式直接生成，比较方便，而且绝对正确。</p>
+</blockquote>
+<p><br></p>
+<h4 id="几个特殊的目录"><a href="#几个特殊的目录" class="headerlink" title="几个特殊的目录"></a>几个特殊的目录</h4><ul>
+<li>R.home() 查看R软件的相关目录</li>
+<li>.Library 查看R核心包的目录</li>
+<li>.Library.site 查看R核心包的目录和root用户安装包目录</li>
+<li>.libPaths() 查看R所有包的存放目录</li>
+<li>system.file() 查看指定包所在的目录</li>
+</ul>
+<p><br></p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p><br></p>
+<h4 id="file-exist-存在"><a href="#file-exist-存在" class="headerlink" title="file.exist - 存在"></a>file.exist - 存在</h4><blockquote>
+<p>判断文件是否存在</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; file.exists(<span class="string">"."</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt; file.exists(<span class="string">"./a1/b2"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 目录不存在</span></div><div class="line">&gt; file.exists(<span class="string">"./aa"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="file-remove-删除"><a href="#file-remove-删除" class="headerlink" title="file.remove - 删除"></a>file.remove - 删除</h4><blockquote>
+<p>删除某目录</p>
+</blockquote>
+<p><br></p>
+<h4 id="file-create-创建"><a href="#file-create-创建" class="headerlink" title="file.create - 创建"></a>file.create - 创建</h4><blockquote>
+<p>创建文件</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 创建一个空文件 A.txt</span></div><div class="line">&gt; file.create(<span class="string">"A.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 创建一个有内容的文件 B.txt</span></div><div class="line">&gt; cat(<span class="string">"file B\n"</span>, file = <span class="string">"B.txt"</span>)  <span class="comment"># 把字符串输出到file</span></div><div class="line"><span class="comment"># 打印B.txt</span></div><div class="line">&gt; readLines(<span class="string">"B.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"file B"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="file-copy-复制"><a href="#file-copy-复制" class="headerlink" title="file.copy - 复制"></a>file.copy - 复制</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; file.copy(<span class="string">"A.txt"</span>, <span class="string">"C.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="file-append"><a href="#file-append" class="headerlink" title="file.append"></a>file.append</h4><p><br></p>
+<h4 id="file-rename-重命名"><a href="#file-rename-重命名" class="headerlink" title="file.rename - 重命名"></a>file.rename - 重命名</h4><blockquote>
+<p>对文件重命名</p>
+</blockquote>
+<ul>
+<li>file.rename(“old_name”, “new_name”)：将old_name变更为new_name</li>
+</ul>
+<p><br></p>
+<h3 id="压缩与解压"><a href="#压缩与解压" class="headerlink" title="压缩与解压"></a>压缩与解压</h3><blockquote>
+<p>unzip(),zip() 两个函数，可以压缩和解压缩</p>
+</blockquote>
+<p><br></p>
+<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><p><br></p>
+<h2 id="导入-数据表"><a href="#导入-数据表" class="headerlink" title="导入 - 数据表"></a>导入 - 数据表</h2><ol>
+<li>要导入的数据必须<strong>存放在getwd()目录下</strong></li>
+<li>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code></li>
+</ol>
+<p><br></p>
+<h3 id="readr"><a href="#readr" class="headerlink" title="readr"></a>readr</h3><blockquote>
+<p>library(readr)</p>
+</blockquote>
+<ul>
+<li><strong>read_delim(“filename.xxx”, delim=””)</strong> : <strong>自由分隔符</strong><ul>
+<li><code>delim= &quot;|&quot;</code>或其他任何形式</li>
+</ul>
+</li>
+<li><strong>read_csv(“filename.csv”, col_names=T, col_types=NULL, skip = 0, locale(), na=c(“”,”NA”))：分隔符-逗号</strong></li>
+</ul>
+<blockquote>
+<p>col_names = True(默认) / False 或者 <strong>c(“”,””)</strong> 指定的 [向量]列名</p>
+<p>col_types = cols(colname=col<em>character() ) / cols(colename= “c”, colname=”</em>“) ：指定某个列的类型；</p>
+<ul>
+<li>可以使用简写 each character represents one column: c = character, i = integer, n = number, d = double, l = logical, D = date, T = date time, t = time, ? = guess, or _/- to skip the column.</li>
+<li>cols(colname=col_skip() ) 跳过某个列不进行选取；</li>
+</ul>
+<p>skip = n 跳过的行数</p>
+<p><strong>locale= locale</strong>(encoding=”UTF-8”, date_format=”%AD”,time_format=”%AT”)  (默认为US-centric)</p>
+<ul>
+<li><strong>encoding=”UTF-8” / “gb2312”</strong></li>
+</ul>
+<p>na = c(“”, “NA”)  ：设置 <code>&quot;&quot;</code> 与<code>&quot;NA&quot;</code> 显示为NA；也可自定义</p>
+</blockquote>
+<ul>
+<li><strong>read_tsv()：制表符</strong></li>
+<li><strong>read_csv2()：分号</strong></li>
+<li><strong>read_table()</strong>  </li>
+<li><strong>read_fwf()</strong></li>
+</ul>
+<p><br></p>
+<h3 id="readxl"><a href="#readxl" class="headerlink" title="readxl"></a>readxl</h3><blockquote>
+<p>.xls和.xlsx格式的Excel工作表</p>
+</blockquote>
+<ul>
+<li><strong>read_excel(path, sheet = NULL, range = NULL, col_names = TRUE,  col_types = NULL, na = “”, trim_ws = TRUE, skip = 0, n_max = Inf,  guess_max = min(1000, n_max))</strong> ：读取xls/xlsx的工作表</li>
+</ul>
+<blockquote>
+<p>path：Path to the xls/xlsx file</p>
+<p>sheet：Sheet to read；整数或者字符串</p>
+<p>range：读取的范围，例如 “B3:D87”</p>
+<p>col_names：True/Fasle，或者输入自定义的列名，长度需要与col_types相同</p>
+<p>col_types：</p>
+<p>na = “ ”：默认将<code>空格</code>视为NULL</p>
+<p>skip=0：跳过行数；若给定了<code>range</code>则忽略</p>
+</blockquote>
+<ul>
+<li><strong>excel_sheet(path)</strong> ：显示表中的sheet名称</li>
+</ul>
+<p><br></p>
+<h2 id="导入-非表格式"><a href="#导入-非表格式" class="headerlink" title="导入 - 非表格式"></a>导入 - 非表格式</h2><blockquote>
+<p>非表格式的（Non-Tabular）；这里的文本文件指的是非表格式的文件，如纯文本文件，html文件</p>
+</blockquote>
+<p><br></p>
+<h3 id="readr-1"><a href="#readr-1" class="headerlink" title="readr"></a>readr</h3><ul>
+<li><strong>read_file(file, locale=default_locale())</strong>：读入为一个<strong>单一的字符串</strong></li>
+</ul>
+<blockquote>
+<p>file ： 文档路径，一个连接或一个文本数据</p>
+<ul>
+<li>Files ending in .gz, .bz2, .xz, or .zip 将自动被解压</li>
+<li>Files starting with http://, https://, ftp://, or ftps:// 将自动被下载</li>
+<li>Remote gz files 也能被自动下载</li>
+</ul>
+<p>locale=locale()  : 默认为US-centric</p>
+</blockquote>
+<ul>
+<li><strong>read_file_raw(file)</strong>：读入为一个<strong>未加工的向量</strong></li>
+<li><strong>read_lines(file, skip=0, n_max=-1L, locale=default_locale(), na=character(), progress=interactive())</strong>：<strong>逐行读入</strong>，每一行作为一个<strong>单一的字符串</strong></li>
+<li><strong>read_lines_raw()</strong>：逐行读入，每一行作为一个<strong>未加工的向量</strong></li>
+<li><strong>read_log(file, col_names=FALSE, col_types=NULL, skip=0, n_max=-1L)</strong>：读入日志文档</li>
+</ul>
+<p><br></p>
+<h3 id="scan"><a href="#scan" class="headerlink" title="scan"></a>scan</h3><ul>
+<li><p><strong>scan(“file.xxx”, what=double(), seq=””, n=-1, nmax=-1, skip=0, encoding=”UTF-8”)</strong></p>
+<blockquote>
+<p>读取文本文件，<strong>默认</strong>情况下读取文件中以<strong>[空格分割]</strong> 所有<strong>[浮点数值]</strong></p>
+</blockquote>
+<ul>
+<li>如果文件中包<strong>含非数值</strong>，可以字符串形式读入 <code>scan(&quot;a.txt&quot;,what=&quot;&quot;)</code></li>
+<li>指定分隔符为换行，<code>scan(“a.txt”,what=””,sep=”\n”)</code> 返回以换行分割的字符串向量</li>
+<li>如果数据为<strong>表格形式：因为有表头，用scan不能读入</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>what：读入的数据类型；The supported types are [ logical, integer, numeric, complex, character, raw and list. ]</p>
+<ul>
+<li>character(0)：每个单词作为字符向量的一个元素</li>
+</ul>
+<p>sep：分隔符，默认为空格<code>&quot; &quot;</code> </p>
+<p>n = -1：显示至最后一行</p>
+<p>nmax = -1：读取至最后一行</p>
+<p>skip=0：跳过的行数</p>
+<p>encoding=”UTF-8” / “Latin1”</p>
+<p>quote =’’  : 若提示 EOF within quoted string可将<code>quote = &#39;&#39;</code> </p>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<h3 id="readline"><a href="#readline" class="headerlink" title="readline"></a>readline</h3><blockquote>
+<p>可以从键盘<strong>读取单行数据</strong></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">age&lt;-readline(<span class="string">"input the age: "</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="readLines"><a href="#readLines" class="headerlink" title="readLines"></a>readLines</h3><ul>
+<li><strong>readLines(“file.xxx”, encoding=”UTF-8”)</strong> ：<strong>每一行当做一个字符串</strong>。等价于scan中指定分隔符为换行<ul>
+<li>用于<strong>读取</strong>字符型的格式文件；常用于文本文件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>encoding = “UTF-8” / “Latin1” ; Lattin1是[ISO-8859-1]的别名，有些环境下写作Latin-1。ISO-8859-1编码是单字节编码，<strong>向下兼容ASCII</strong></p>
+</blockquote>
+<p><br></p>
+<h1 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h1><p><br></p>
+<h2 id="导出-数据表"><a href="#导出-数据表" class="headerlink" title="导出 - 数据表"></a>导出 - 数据表</h2><h3 id="readr-2"><a href="#readr-2" class="headerlink" title="readr"></a>readr</h3><ul>
+<li><strong>write_delim(x, path, delim = “ “, na = “NA”, append = FALSE,  col_names = !append)</strong> ：默认分隔符为 <code>&quot; &quot;</code></li>
+<li><strong>write_csv(x, path, na = “NA”, append = FALSE, col_names = !append)</strong> ：导出为<strong>逗号分隔符</strong>的文档</li>
+</ul>
+<blockquote>
+<p>path：Path or connection to write to.</p>
+<p>append=False (默认), 覆盖已有的文件；若为True，增加已经存在的文件</p>
+<p>col_names = !append 写入的时候不写入列名</p>
+</blockquote>
+<ul>
+<li>write_tsv()  ：分隔符为制表符<code>\t</code></li>
+<li>write_excel_csv()：导出为csv文档</li>
+</ul>
+<blockquote>
+<p>All columns are encoded as UTF-8</p>
+</blockquote>
+<p><br></p>
+<h2 id="导出-文本-amp-文本文件"><a href="#导出-文本-amp-文本文件" class="headerlink" title="导出 - 文本&amp;文本文件"></a>导出 - 文本&amp;文本文件</h2><h3 id="readr-3"><a href="#readr-3" class="headerlink" title="readr"></a>readr</h3><ul>
+<li><p><strong>write_file(x, path)</strong>：导出为<strong>字符串文档</strong></p>
+</li>
+<li><p><strong>write_lines()</strong>：导出为<strong>字符串向量，每一个元素一行</strong></p>
+</li>
+<li><p><strong>write_rds()</strong>：导出为RDS文档</p>
+<p>​</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
+<li><strong>cat(x, file=””, sep=””, fill=False, labels=NULL, append=False)</strong>：<ul>
+<li>拼接后<strong>输出</strong>对象</li>
+<li><strong>把结果写到指定的文件中</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>x：R的对象</p>
+<p>file：一个连接，或命名的文件打印到一个字符串；默认情况下打印到标准输出连接</p>
+<p>sep=” “：默认为<strong>空格</strong>； 每个元素后追加一个字符串的字符向量；</p>
+<p>append = False 覆盖file内容；若为True，表示附加到file</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; cat(c(<span class="string">"AB"</span>, <span class="string">"C"</span>), c(<span class="string">"E"</span>, <span class="string">"F"</span>), <span class="string">"\n"</span>, sep=<span class="string">""</span>)</div><div class="line">[<span class="number">1</span>] ABCDEF</div><div class="line"></div><div class="line"><span class="comment">#----可以把结果写到指定的文件中-----------------#</span></div><div class="line">cat(<span class="string">"i = "</span>, <span class="number">1</span>, <span class="string">"\n"</span>, file=<span class="string">"c:/work/result.txt"</span>)</div><div class="line"><span class="comment"># 加上一个append=TRUE参数可以不覆盖原文 件而是在文件末尾附加，这很适用于运行中的结果记录。</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="cat-vs-paste"><a href="#cat-vs-paste" class="headerlink" title="cat vs. paste"></a>cat vs. paste</h4><ul>
+<li>cat是<strong>输出</strong>，paste连接成一个<strong>字符串</strong><ul>
+<li>显示结果是：一个没有引号的结果（cat），另一个是有引号的字符串（paste）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">a&lt;-c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div><div class="line">b&lt;-c(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)</div><div class="line">c&lt;-c(<span class="string">'hi'</span>,<span class="string">'hello'</span>)</div><div class="line">&gt; paste(a,b,c)</div><div class="line">[<span class="number">1</span>] <span class="string">"1 4 hi"</span>    <span class="string">"2 5 hello"</span> <span class="string">"3 6 hi"</span>    <span class="string">"4 7 hello"</span></div><div class="line"></div><div class="line">&gt; cat(a,b,c)</div><div class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> hi hello</div><div class="line"></div><div class="line"></div><div class="line">&gt; cat(LETTERS, letters)</div><div class="line">A B C D E <span class="literal">F</span> G H I J K L M N O P Q R S <span class="literal">T</span> U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z</div><div class="line">&gt; paste(LETTERS, letters)</div><div class="line"> [<span class="number">1</span>] <span class="string">"A a"</span> <span class="string">"B b"</span> <span class="string">"C c"</span> <span class="string">"D d"</span> <span class="string">"E e"</span> <span class="string">"F f"</span> <span class="string">"G g"</span> <span class="string">"H h"</span> <span class="string">"I i"</span> <span class="string">"J j"</span> <span class="string">"K k"</span> <span class="string">"L l"</span></div><div class="line">[<span class="number">13</span>] <span class="string">"M m"</span> <span class="string">"N n"</span> <span class="string">"O o"</span> <span class="string">"P p"</span> <span class="string">"Q q"</span> <span class="string">"R r"</span> <span class="string">"S s"</span> <span class="string">"T t"</span> <span class="string">"U u"</span> <span class="string">"V v"</span> <span class="string">"W w"</span> <span class="string">"X x"</span></div><div class="line">[<span class="number">25</span>] <span class="string">"Y y"</span> <span class="string">"Z z"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="cat-vs-print"><a href="#cat-vs-print" class="headerlink" title="cat vs. print"></a>cat vs. print</h4><ul>
+<li>cat被认为是更低级别的print，会<strong>识别转义符并进行执行</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; x &lt;- <span class="string">"a b\tc\nd"</span></div><div class="line">&gt; print(x)</div><div class="line">[<span class="number">1</span>] <span class="string">"a b\tc\nd"</span></div><div class="line"></div><div class="line">&gt; cat(x)</div><div class="line">a b	c</div><div class="line">d</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="writeLines"><a href="#writeLines" class="headerlink" title="writeLines"></a>writeLines</h3><h1 id="案例-获取指定目录下的csv文档，并合并输出"><a href="#案例-获取指定目录下的csv文档，并合并输出" class="headerlink" title="案例 - 获取指定目录下的csv文档，并合并输出"></a>案例 - 获取指定目录下的csv文档，并合并输出</h1><ul>
+<li><strong>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code>  </strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----获取指定目录下的csv文档，并合并输出----------#</span></div><div class="line"></div><div class="line"><span class="comment">## 获取当前工作目录下所有文件名的路径</span></div><div class="line">file.path(getwd(),dir())</div><div class="line"><span class="string">'E:/Jupyter_notebook/test'</span> <span class="string">'E:/Jupyter_notebook/test.ipynb'</span> <span class="string">'E:/Jupyter_notebook/专项分析'</span></div><div class="line"></div><div class="line">path &lt;- file.path(getwd(),dir())[<span class="number">1</span>]</div><div class="line"><span class="string">'E:/Jupyter_notebook/test'</span></div><div class="line"></div><div class="line"><span class="comment">## 获取该路径下的所有csv文件名</span></div><div class="line">name &lt;- dir(path, pattern=<span class="string">".*\\.csv$"</span>); name</div><div class="line"><span class="string">'2016-01-11-IC_1.csv'</span> <span class="string">'2016-01-11-IH_1.csv'</span> <span class="string">'2016-01-12-TF_1.csv'</span> <span class="string">'2016-01-13-T_1.csv'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## 合并文件名路径 + 文件名</span></div><div class="line">path_name &lt;- file.path(path, name); path_name</div><div class="line"></div><div class="line"><span class="comment">## 省去定义data.frame的时间，我选择先读入一个文件</span></div><div class="line">table0 &lt;- read_csv(path_name[<span class="number">1</span>], locale=locale(encoding=<span class="string">'gb2312'</span>)) </div><div class="line"></div><div class="line"><span class="comment">## 写循环写入该文件中</span></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> path_name[<span class="number">2</span>:length(paht_name)])&#123;       <span class="comment"># 大括号表示代码块的起止</span></div><div class="line">  table1 &lt;- read_csv(path_name[<span class="number">1</span>], locale=locale(encoding=<span class="string">'gb2312'</span>)) </div><div class="line">  table0 &lt;- bind_rows(table0, talbe1)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">## 写出文档</span></div><div class="line">write_csv(table0, file.path(path, <span class="string">'test.csv'</span>), append=<span class="literal">F</span>)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Windows下路径要用斜杠&lt;code&gt;/&lt;/code&gt;或者双反斜杠&lt;code&gt;\\&lt;/code&gt;  &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;R本身把&lt;code&gt;\&lt;/code&gt; 当做转义符，所以写pattern的时候要用&lt;code&gt;\\&lt;/code&gt;进行转义&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="r" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/r/"/>
+    
+    
+      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="r" scheme="http://yoursite.com/tags/r/"/>
+    
+  </entry>
+  
+  <entry>
     <title>R_数据处理_dplyr&amp;reshape2&amp;tidyr</title>
     <link href="http://yoursite.com/2017/07/24/R_%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86_dplyr&amp;reshape2/"/>
     <id>http://yoursite.com/2017/07/24/R_数据处理_dplyr&amp;reshape2/</id>
@@ -3655,308 +3957,6 @@
 &lt;li&gt;plry：轻松地在vector, list, data.frame之间做分组变换，实现&lt;strong&gt;拆分、变换、合并&lt;/strong&gt;的操作&lt;/li&gt;
 &lt;li&gt;reshpae2：横向、纵向做数据变换&lt;/li&gt;
 &lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="r" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/r/"/>
-    
-    
-      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="r" scheme="http://yoursite.com/tags/r/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R_导入&amp;导出</title>
-    <link href="http://yoursite.com/2017/07/24/R_%E5%AF%BC%E5%85%A5&amp;%E5%AF%BC%E5%87%BA/"/>
-    <id>http://yoursite.com/2017/07/24/R_导入&amp;导出/</id>
-    <published>2017-07-23T16:00:00.000Z</published>
-    <updated>2017-08-13T03:25:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code>  </strong></p>
-<p><strong>R本身把<code>\</code> 当做转义符，所以写pattern的时候要用<code>\\</code>进行转义</strong></p>
-<a id="more"></a>
-<p><br></p>
-<h1 id="获取文件目录信息"><a href="#获取文件目录信息" class="headerlink" title="获取文件目录信息"></a>获取文件目录信息</h1><h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><h4 id="getwd-amp-setwd"><a href="#getwd-amp-setwd" class="headerlink" title="getwd &amp; setwd"></a>getwd &amp; setwd</h4><ul>
-<li><strong>getwd()</strong>：获得<strong>当前工作目录</strong></li>
-<li><strong>setwd()</strong> ：<strong>设置</strong>当前工作目录 <code>setwd(&quot;C:/data&quot;)</code></li>
-</ul>
-<p><br></p>
-<h4 id="dir-amp-list-files-获取"><a href="#dir-amp-list-files-获取" class="headerlink" title="dir &amp; list.files - 获取"></a>dir &amp; list.files - 获取</h4><blockquote>
-<p>dir 与 list.files 功能相同；列出<strong>当前目录</strong>中所有的文件</p>
-</blockquote>
-<ul>
-<li><strong>dir()</strong> ：列出<strong>当前目录</strong>中所有的文件名</li>
-<li><strong>dir(path=”/home/conan/R”, pattern=Null, all.files=False, full.names=Fasle, recursice=Fasle, igonre.case= False, include.dirs=False, no..=False)</strong>：查看<strong>指定目录</strong>的文件</li>
-</ul>
-<blockquote>
-<p>path：查看指定<strong>路径下</strong>的文件。</p>
-<p>pattern ：匹配的正则表达式模式</p>
-<p>all.files = False(默认) ；若为True，则列出隐藏的文件名</p>
-<p>full.names=False(默认) <code>&quot;我的形状&quot;</code>；若为True，列出含相对路径的文件名 <code>&quot;./我的形状&quot;</code></p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir(path=<span class="string">"/home/conan/R"</span>,pattern=<span class="string">'txt$'</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="choose-dir-获取"><a href="#choose-dir-获取" class="headerlink" title="choose.dir - 获取"></a>choose.dir - 获取</h4><blockquote>
-<p>通过选取的方式获得目录</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a &lt;- choose.dir()</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="system-“tree”-获取"><a href="#system-“tree”-获取" class="headerlink" title="system(“tree”) - 获取"></a>system(“tree”) - 获取</h4><blockquote>
-<p>通过系统命令以<strong>树状结构</strong>查看目录结构</p>
-</blockquote>
-<ul>
-<li>file.info()</li>
-</ul>
-<p><br></p>
-<h4 id="dir-create-新建"><a href="#dir-create-新建" class="headerlink" title="dir.create - 新建"></a>dir.create - 新建</h4><ul>
-<li><strong>dir.create()</strong>：在当前目录下，新建一个目录</li>
-<li><strong>dir.create(path=”a1/b2/c3”,recursive = TRUE)</strong>：创建一个<strong>3级子目录</strong>./a1/b2/c3</li>
-</ul>
-<p><br></p>
-<h4 id="file-path-合并"><a href="#file-path-合并" class="headerlink" title="file.path - 合并"></a>file.path - 合并</h4><ul>
-<li><strong>file.path(…, fsep = .Platform$file.sep)</strong><ul>
-<li><strong>file.path(getwd(), dir())</strong> ：当前工作目录下的文件的路径</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>… : 字符串</p>
-<p>fsep : 用于使用的<strong>路径分隔符</strong></p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; file.path(<span class="string">"C:\\Users\\long\\Desktop"</span>,<span class="string">"txt"</span>)  </div><div class="line">[<span class="number">1</span>] <span class="string">"C:\\Users\\long\\Desktop/txt"</span> </div><div class="line"></div><div class="line"><span class="comment">#----------------------------------------#</span></div><div class="line">&gt; file.path(getwd(),dir())</div><div class="line">[<span class="number">1</span>] <span class="string">'E:/Jupyter_notebook/test'</span> <span class="string">'E:/Jupyter_notebook/test.ipynb'</span> <span class="string">'E:/Jupyter_notebook/专项分析'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>一般用paste来生成系统路径的时候，在最终结果，结合的地方会多一个<strong>空格</strong>，当然也可以用去空格的方式排除，但是不够好。</p>
-<p>用file.path的方式直接生成，比较方便，而且绝对正确。</p>
-</blockquote>
-<p><br></p>
-<h4 id="几个特殊的目录"><a href="#几个特殊的目录" class="headerlink" title="几个特殊的目录"></a>几个特殊的目录</h4><ul>
-<li>R.home() 查看R软件的相关目录</li>
-<li>.Library 查看R核心包的目录</li>
-<li>.Library.site 查看R核心包的目录和root用户安装包目录</li>
-<li>.libPaths() 查看R所有包的存放目录</li>
-<li>system.file() 查看指定包所在的目录</li>
-</ul>
-<p><br></p>
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p><br></p>
-<h4 id="file-exist-存在"><a href="#file-exist-存在" class="headerlink" title="file.exist - 存在"></a>file.exist - 存在</h4><blockquote>
-<p>判断文件是否存在</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; file.exists(<span class="string">"."</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line">&gt; file.exists(<span class="string">"./a1/b2"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 目录不存在</span></div><div class="line">&gt; file.exists(<span class="string">"./aa"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">FALSE</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="file-remove-删除"><a href="#file-remove-删除" class="headerlink" title="file.remove - 删除"></a>file.remove - 删除</h4><blockquote>
-<p>删除某目录</p>
-</blockquote>
-<p><br></p>
-<h4 id="file-create-创建"><a href="#file-create-创建" class="headerlink" title="file.create - 创建"></a>file.create - 创建</h4><blockquote>
-<p>创建文件</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 创建一个空文件 A.txt</span></div><div class="line">&gt; file.create(<span class="string">"A.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div><div class="line"></div><div class="line"><span class="comment"># 创建一个有内容的文件 B.txt</span></div><div class="line">&gt; cat(<span class="string">"file B\n"</span>, file = <span class="string">"B.txt"</span>)  <span class="comment"># 把字符串输出到file</span></div><div class="line"><span class="comment"># 打印B.txt</span></div><div class="line">&gt; readLines(<span class="string">"B.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="string">"file B"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="file-copy-复制"><a href="#file-copy-复制" class="headerlink" title="file.copy - 复制"></a>file.copy - 复制</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; file.copy(<span class="string">"A.txt"</span>, <span class="string">"C.txt"</span>)</div><div class="line">[<span class="number">1</span>] <span class="literal">TRUE</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="file-append"><a href="#file-append" class="headerlink" title="file.append"></a>file.append</h4><p><br></p>
-<h4 id="file-rename-重命名"><a href="#file-rename-重命名" class="headerlink" title="file.rename - 重命名"></a>file.rename - 重命名</h4><blockquote>
-<p>对文件重命名</p>
-</blockquote>
-<ul>
-<li>file.rename(“old_name”, “new_name”)：将old_name变更为new_name</li>
-</ul>
-<p><br></p>
-<h3 id="压缩与解压"><a href="#压缩与解压" class="headerlink" title="压缩与解压"></a>压缩与解压</h3><blockquote>
-<p>unzip(),zip() 两个函数，可以压缩和解压缩</p>
-</blockquote>
-<p><br></p>
-<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><p><br></p>
-<h2 id="导入-数据表"><a href="#导入-数据表" class="headerlink" title="导入 - 数据表"></a>导入 - 数据表</h2><ol>
-<li>要导入的数据必须<strong>存放在getwd()目录下</strong></li>
-<li>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code></li>
-</ol>
-<p><br></p>
-<h3 id="readr"><a href="#readr" class="headerlink" title="readr"></a>readr</h3><blockquote>
-<p>library(readr)</p>
-</blockquote>
-<ul>
-<li><strong>read_delim(“filename.xxx”, delim=””)</strong> : <strong>自由分隔符</strong><ul>
-<li><code>delim= &quot;|&quot;</code>或其他任何形式</li>
-</ul>
-</li>
-<li><strong>read_csv(“filename.csv”, col_names=T, col_types=NULL, skip = 0, locale(), na=c(“”,”NA”))：分隔符-逗号</strong></li>
-</ul>
-<blockquote>
-<p>col_names = True(默认) / False 或者 <strong>c(“”,””)</strong> 指定的 [向量]列名</p>
-<p>col_types = cols(colname=col<em>character() ) / cols(colename= “c”, colname=”</em>“) ：指定某个列的类型；</p>
-<ul>
-<li>可以使用简写 each character represents one column: c = character, i = integer, n = number, d = double, l = logical, D = date, T = date time, t = time, ? = guess, or _/- to skip the column.</li>
-<li>cols(colname=col_skip() ) 跳过某个列不进行选取；</li>
-</ul>
-<p>skip = n 跳过的行数</p>
-<p><strong>locale= locale</strong>(encoding=”UTF-8”, date_format=”%AD”,time_format=”%AT”)  (默认为US-centric)</p>
-<ul>
-<li><strong>encoding=”UTF-8” / “gb2312”</strong></li>
-</ul>
-<p>na = c(“”, “NA”)  ：设置 <code>&quot;&quot;</code> 与<code>&quot;NA&quot;</code> 显示为NA；也可自定义</p>
-</blockquote>
-<ul>
-<li><strong>read_tsv()：制表符</strong></li>
-<li><strong>read_csv2()：分号</strong></li>
-<li><strong>read_table()</strong>  </li>
-<li><strong>read_fwf()</strong></li>
-</ul>
-<p><br></p>
-<h3 id="readxl"><a href="#readxl" class="headerlink" title="readxl"></a>readxl</h3><blockquote>
-<p>.xls和.xlsx格式的Excel工作表</p>
-</blockquote>
-<ul>
-<li><strong>read_excel(path, sheet = NULL, range = NULL, col_names = TRUE,  col_types = NULL, na = “”, trim_ws = TRUE, skip = 0, n_max = Inf,  guess_max = min(1000, n_max))</strong> ：读取xls/xlsx的工作表</li>
-</ul>
-<blockquote>
-<p>path：Path to the xls/xlsx file</p>
-<p>sheet：Sheet to read；整数或者字符串</p>
-<p>range：读取的范围，例如 “B3:D87”</p>
-<p>col_names：True/Fasle，或者输入自定义的列名，长度需要与col_types相同</p>
-<p>col_types：</p>
-<p>na = “ ”：默认将<code>空格</code>视为NULL</p>
-<p>skip=0：跳过行数；若给定了<code>range</code>则忽略</p>
-</blockquote>
-<ul>
-<li><strong>excel_sheet(path)</strong> ：显示表中的sheet名称</li>
-</ul>
-<p><br></p>
-<h2 id="导入-非表格式"><a href="#导入-非表格式" class="headerlink" title="导入 - 非表格式"></a>导入 - 非表格式</h2><blockquote>
-<p>非表格式的（Non-Tabular）；这里的文本文件指的是非表格式的文件，如纯文本文件，html文件</p>
-</blockquote>
-<p><br></p>
-<h3 id="readr-1"><a href="#readr-1" class="headerlink" title="readr"></a>readr</h3><ul>
-<li><strong>read_file(file, locale=default_locale())</strong>：读入为一个<strong>单一的字符串</strong></li>
-</ul>
-<blockquote>
-<p>file ： 文档路径，一个连接或一个文本数据</p>
-<ul>
-<li>Files ending in .gz, .bz2, .xz, or .zip 将自动被解压</li>
-<li>Files starting with http://, https://, ftp://, or ftps:// 将自动被下载</li>
-<li>Remote gz files 也能被自动下载</li>
-</ul>
-<p>locale=locale()  : 默认为US-centric</p>
-</blockquote>
-<ul>
-<li><strong>read_file_raw(file)</strong>：读入为一个<strong>未加工的向量</strong></li>
-<li><strong>read_lines(file, skip=0, n_max=-1L, locale=default_locale(), na=character(), progress=interactive())</strong>：<strong>逐行读入</strong>，每一行作为一个<strong>单一的字符串</strong></li>
-<li><strong>read_lines_raw()</strong>：逐行读入，每一行作为一个<strong>未加工的向量</strong></li>
-<li><strong>read_log(file, col_names=FALSE, col_types=NULL, skip=0, n_max=-1L)</strong>：读入日志文档</li>
-</ul>
-<p><br></p>
-<h3 id="scan"><a href="#scan" class="headerlink" title="scan"></a>scan</h3><ul>
-<li><p><strong>scan(“file.xxx”, what=double(), seq=””, n=-1, nmax=-1, skip=0, encoding=”UTF-8”)</strong></p>
-<blockquote>
-<p>读取文本文件，<strong>默认</strong>情况下读取文件中以<strong>[空格分割]</strong> 所有<strong>[浮点数值]</strong></p>
-</blockquote>
-<ul>
-<li>如果文件中包<strong>含非数值</strong>，可以字符串形式读入 <code>scan(&quot;a.txt&quot;,what=&quot;&quot;)</code></li>
-<li>指定分隔符为换行，<code>scan(“a.txt”,what=””,sep=”\n”)</code> 返回以换行分割的字符串向量</li>
-<li>如果数据为<strong>表格形式：因为有表头，用scan不能读入</strong></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>what：读入的数据类型；The supported types are [ logical, integer, numeric, complex, character, raw and list. ]</p>
-<ul>
-<li>character(0)：每个单词作为字符向量的一个元素</li>
-</ul>
-<p>sep：分隔符，默认为空格<code>&quot; &quot;</code> </p>
-<p>n = -1：显示至最后一行</p>
-<p>nmax = -1：读取至最后一行</p>
-<p>skip=0：跳过的行数</p>
-<p>encoding=”UTF-8” / “Latin1”</p>
-<p>quote =’’  : 若提示 EOF within quoted string可将<code>quote = &#39;&#39;</code> </p>
-</blockquote>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<h3 id="readline"><a href="#readline" class="headerlink" title="readline"></a>readline</h3><blockquote>
-<p>可以从键盘<strong>读取单行数据</strong></p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">age&lt;-readline(<span class="string">"input the age: "</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="readLines"><a href="#readLines" class="headerlink" title="readLines"></a>readLines</h3><ul>
-<li><strong>readLines(“file.xxx”, encoding=”UTF-8”)</strong> ：<strong>每一行当做一个字符串</strong>。等价于scan中指定分隔符为换行<ul>
-<li>用于<strong>读取</strong>字符型的格式文件；常用于文本文件</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>encoding = “UTF-8” / “Latin1” ; Lattin1是[ISO-8859-1]的别名，有些环境下写作Latin-1。ISO-8859-1编码是单字节编码，<strong>向下兼容ASCII</strong></p>
-</blockquote>
-<p><br></p>
-<h1 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h1><p><br></p>
-<h2 id="导出-数据表"><a href="#导出-数据表" class="headerlink" title="导出 - 数据表"></a>导出 - 数据表</h2><h3 id="readr-2"><a href="#readr-2" class="headerlink" title="readr"></a>readr</h3><ul>
-<li><strong>write_delim(x, path, delim = “ “, na = “NA”, append = FALSE,  col_names = !append)</strong> ：默认分隔符为 <code>&quot; &quot;</code></li>
-<li><strong>write_csv(x, path, na = “NA”, append = FALSE, col_names = !append)</strong> ：导出为<strong>逗号分隔符</strong>的文档</li>
-</ul>
-<blockquote>
-<p>path：Path or connection to write to.</p>
-<p>append=False (默认), 覆盖已有的文件；若为True，增加已经存在的文件</p>
-<p>col_names = !append 写入的时候不写入列名</p>
-</blockquote>
-<ul>
-<li>write_tsv()  ：分隔符为制表符<code>\t</code></li>
-<li>write_excel_csv()：导出为csv文档</li>
-</ul>
-<blockquote>
-<p>All columns are encoded as UTF-8</p>
-</blockquote>
-<p><br></p>
-<h2 id="导出-文本-amp-文本文件"><a href="#导出-文本-amp-文本文件" class="headerlink" title="导出 - 文本&amp;文本文件"></a>导出 - 文本&amp;文本文件</h2><h3 id="readr-3"><a href="#readr-3" class="headerlink" title="readr"></a>readr</h3><ul>
-<li><p><strong>write_file(x, path)</strong>：导出为<strong>字符串文档</strong></p>
-</li>
-<li><p><strong>write_lines()</strong>：导出为<strong>字符串向量，每一个元素一行</strong></p>
-</li>
-<li><p><strong>write_rds()</strong>：导出为RDS文档</p>
-<p>​</p>
-</li>
-</ul>
-<p><br></p>
-<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
-<li><strong>cat(x, file=””, sep=””, fill=False, labels=NULL, append=False)</strong>：<ul>
-<li>拼接后<strong>输出</strong>对象</li>
-<li><strong>把结果写到指定的文件中</strong></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>x：R的对象</p>
-<p>file：一个连接，或命名的文件打印到一个字符串；默认情况下打印到标准输出连接</p>
-<p>sep=” “：默认为<strong>空格</strong>； 每个元素后追加一个字符串的字符向量；</p>
-<p>append = False 覆盖file内容；若为True，表示附加到file</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; cat(c(<span class="string">"AB"</span>, <span class="string">"C"</span>), c(<span class="string">"E"</span>, <span class="string">"F"</span>), <span class="string">"\n"</span>, sep=<span class="string">""</span>)</div><div class="line">[<span class="number">1</span>] ABCDEF</div><div class="line"></div><div class="line"><span class="comment">#----可以把结果写到指定的文件中-----------------#</span></div><div class="line">cat(<span class="string">"i = "</span>, <span class="number">1</span>, <span class="string">"\n"</span>, file=<span class="string">"c:/work/result.txt"</span>)</div><div class="line"><span class="comment"># 加上一个append=TRUE参数可以不覆盖原文 件而是在文件末尾附加，这很适用于运行中的结果记录。</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="cat-vs-paste"><a href="#cat-vs-paste" class="headerlink" title="cat vs. paste"></a>cat vs. paste</h4><ul>
-<li>cat是<strong>输出</strong>，paste连接成一个<strong>字符串</strong><ul>
-<li>显示结果是：一个没有引号的结果（cat），另一个是有引号的字符串（paste）</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">a&lt;-c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div><div class="line">b&lt;-c(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)</div><div class="line">c&lt;-c(<span class="string">'hi'</span>,<span class="string">'hello'</span>)</div><div class="line">&gt; paste(a,b,c)</div><div class="line">[<span class="number">1</span>] <span class="string">"1 4 hi"</span>    <span class="string">"2 5 hello"</span> <span class="string">"3 6 hi"</span>    <span class="string">"4 7 hello"</span></div><div class="line"></div><div class="line">&gt; cat(a,b,c)</div><div class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> hi hello</div><div class="line"></div><div class="line"></div><div class="line">&gt; cat(LETTERS, letters)</div><div class="line">A B C D E <span class="literal">F</span> G H I J K L M N O P Q R S <span class="literal">T</span> U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z</div><div class="line">&gt; paste(LETTERS, letters)</div><div class="line"> [<span class="number">1</span>] <span class="string">"A a"</span> <span class="string">"B b"</span> <span class="string">"C c"</span> <span class="string">"D d"</span> <span class="string">"E e"</span> <span class="string">"F f"</span> <span class="string">"G g"</span> <span class="string">"H h"</span> <span class="string">"I i"</span> <span class="string">"J j"</span> <span class="string">"K k"</span> <span class="string">"L l"</span></div><div class="line">[<span class="number">13</span>] <span class="string">"M m"</span> <span class="string">"N n"</span> <span class="string">"O o"</span> <span class="string">"P p"</span> <span class="string">"Q q"</span> <span class="string">"R r"</span> <span class="string">"S s"</span> <span class="string">"T t"</span> <span class="string">"U u"</span> <span class="string">"V v"</span> <span class="string">"W w"</span> <span class="string">"X x"</span></div><div class="line">[<span class="number">25</span>] <span class="string">"Y y"</span> <span class="string">"Z z"</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="cat-vs-print"><a href="#cat-vs-print" class="headerlink" title="cat vs. print"></a>cat vs. print</h4><ul>
-<li>cat被认为是更低级别的print，会<strong>识别转义符并进行执行</strong></li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; x &lt;- <span class="string">"a b\tc\nd"</span></div><div class="line">&gt; print(x)</div><div class="line">[<span class="number">1</span>] <span class="string">"a b\tc\nd"</span></div><div class="line"></div><div class="line">&gt; cat(x)</div><div class="line">a b	c</div><div class="line">d</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="writeLines"><a href="#writeLines" class="headerlink" title="writeLines"></a>writeLines</h3><h1 id="案例-获取指定目录下的csv文档，并合并输出"><a href="#案例-获取指定目录下的csv文档，并合并输出" class="headerlink" title="案例 - 获取指定目录下的csv文档，并合并输出"></a>案例 - 获取指定目录下的csv文档，并合并输出</h1><ul>
-<li><strong>Windows下路径要用斜杠<code>/</code>或者双反斜杠<code>\\</code>  </strong></li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#----获取指定目录下的csv文档，并合并输出----------#</span></div><div class="line"></div><div class="line"><span class="comment">## 获取当前工作目录下所有文件名的路径</span></div><div class="line">file.path(getwd(),dir())</div><div class="line"><span class="string">'E:/Jupyter_notebook/test'</span> <span class="string">'E:/Jupyter_notebook/test.ipynb'</span> <span class="string">'E:/Jupyter_notebook/专项分析'</span></div><div class="line"></div><div class="line">path &lt;- file.path(getwd(),dir())[<span class="number">1</span>]</div><div class="line"><span class="string">'E:/Jupyter_notebook/test'</span></div><div class="line"></div><div class="line"><span class="comment">## 获取该路径下的所有csv文件名</span></div><div class="line">name &lt;- dir(path, pattern=<span class="string">".*\\.csv$"</span>); name</div><div class="line"><span class="string">'2016-01-11-IC_1.csv'</span> <span class="string">'2016-01-11-IH_1.csv'</span> <span class="string">'2016-01-12-TF_1.csv'</span> <span class="string">'2016-01-13-T_1.csv'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">## 合并文件名路径 + 文件名</span></div><div class="line">path_name &lt;- file.path(path, name); path_name</div><div class="line"></div><div class="line"><span class="comment">## 省去定义data.frame的时间，我选择先读入一个文件</span></div><div class="line">table0 &lt;- read_csv(path_name[<span class="number">1</span>], locale=locale(encoding=<span class="string">'gb2312'</span>)) </div><div class="line"></div><div class="line"><span class="comment">## 写循环写入该文件中</span></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> path_name[<span class="number">2</span>:length(paht_name)])&#123;       <span class="comment"># 大括号表示代码块的起止</span></div><div class="line">  table1 &lt;- read_csv(path_name[<span class="number">1</span>], locale=locale(encoding=<span class="string">'gb2312'</span>)) </div><div class="line">  table0 &lt;- bind_rows(table0, talbe1)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">## 写出文档</span></div><div class="line">write_csv(table0, file.path(path, <span class="string">'test.csv'</span>), append=<span class="literal">F</span>)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;Windows下路径要用斜杠&lt;code&gt;/&lt;/code&gt;或者双反斜杠&lt;code&gt;\\&lt;/code&gt;  &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;R本身把&lt;code&gt;\&lt;/code&gt; 当做转义符，所以写pattern的时候要用&lt;code&gt;\\&lt;/code&gt;进行转义&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
