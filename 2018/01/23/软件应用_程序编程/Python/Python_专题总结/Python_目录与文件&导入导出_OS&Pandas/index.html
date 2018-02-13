@@ -1,0 +1,1371 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件应用,程序编程,Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Python_导入导出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python_文件与目录操作_OS">
+<meta property="og:url" content="http://yoursite.com/2018/01/23/软件应用_程序编程/Python/Python_专题总结/Python_目录与文件&导入导出_OS&Pandas/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="Python_导入导出">
+<meta property="og:updated_time" content="2018-02-13T13:11:56.060Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python_文件与目录操作_OS">
+<meta name="twitter:description" content="Python_导入导出">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/23/软件应用_程序编程/Python/Python_专题总结/Python_目录与文件&导入导出_OS&Pandas/"/>
+
+
+
+
+
+  <title> Python_文件与目录操作_OS | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/软件应用_程序编程/Python/Python_专题总结/Python_目录与文件&导入导出_OS&Pandas/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python_文件与目录操作_OS
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T00:00:00+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:11:56+08:00">
+                2018-02-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/" itemprop="url" rel="index">
+                    <span itemprop="name">程序编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/23/软件应用_程序编程/Python/Python_专题总结/Python_目录与文件&导入导出_OS&Pandas/" class="leancloud_visitors" data-flag-title="Python_文件与目录操作_OS">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Python_导入导出</p>
+<a id="more"></a>
+<h1 id="目录与文件操作-OS模块"><a href="#目录与文件操作-OS模块" class="headerlink" title="目录与文件操作 - OS模块"></a>目录与文件操作 - OS模块</h1><h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><blockquote>
+<p>“./” 表示当前目录</p>
+<p>“../“ 表示上一目录</p>
+<p>Windows 中路径需要两个<code>\\</code>  如下为示例：</p>
+<p><code>E:\\my_computer\\1_工作学习</code></p>
+</blockquote>
+<p><br></p>
+<h4 id="getcwd-amp-os-chdir-工作目录"><a href="#getcwd-amp-os-chdir-工作目录" class="headerlink" title="getcwd &amp; os.chdir - 工作目录"></a>getcwd &amp; os.chdir - 工作目录</h4><ul>
+<li><strong>os.getcwd()</strong> 函数得到当前工作目录，即当前Python脚本工作的目录路径。</li>
+<li><strong>os.chdir(dirname)</strong>: 改变工作目录到dirname</li>
+</ul>
+<p><br></p>
+<h4 id="listdir-文件与目录名"><a href="#listdir-文件与目录名" class="headerlink" title="listdir - 文件与目录名"></a>listdir - 文件与目录名</h4><ul>
+<li><strong>os.listdir()</strong> 返回指定目录下的所有文件和目录名</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 返回当前目录下的文件名</span></div><div class="line">os.listdir()   </div><div class="line">os.listdir(<span class="string">'./'</span>)    </div><div class="line"></div><div class="line"><span class="comment"># 返回上一目录下的文件名</span></div><div class="line">os.listdir(<span class="string">'../'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<blockquote>
+<p>目录结构</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="comment"># 参考</span></div><div class="line">&gt; <span class="comment">## 工作目录为 /Users/ethan/coding/python</span></div><div class="line">&gt;</div><div class="line">&gt; Users/ethan</div><div class="line">&gt; └── coding</div><div class="line">&gt;     └── python</div><div class="line">&gt;         ├── hello.py    - 文件</div><div class="line">&gt;         └── web         - 目录</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p><br></p>
+<h4 id="path-abspath-绝对路径"><a href="#path-abspath-绝对路径" class="headerlink" title="path.abspath -  绝对路径"></a>path.abspath -  绝对路径</h4><ul>
+<li><strong>os.path.abspath(file)</strong> ：获取<strong>文件或目录</strong>的<strong>绝对路径</strong></li>
+<li><strong>os.path.abspath(‘.’)</strong> ：获取<strong>当前目录</strong>的绝对路径</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 文件的绝对绝对路径</span></div><div class="line">os.path.abspath(<span class="string">'hello.py'</span>)</div><div class="line"><span class="string">'/Users/ethan/coding/python/hello.py'</span></div><div class="line"></div><div class="line"><span class="comment"># 文件夹的绝对路径</span></div><div class="line">os.path.abspath(<span class="string">'web'</span>)</div><div class="line"><span class="string">'/Users/ethan/coding/python/web'</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="path-dirname-文件路径"><a href="#path-dirname-文件路径" class="headerlink" title="path.dirname - 文件路径"></a>path.dirname - 文件路径</h4><ul>
+<li><strong>os.path.dirname(path)</strong>：获取<strong>文件或文件夹</strong>的<strong>所在的路径</strong></li>
+</ul>
+<blockquote>
+<p>对比<code>os.path.abspath</code>  hellp.py 得到的结果不同；</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取文件所在的路径</span></div><div class="line">os.path.dirname(<span class="string">'/Users/ethan/coding/python/hello.py'</span>)</div><div class="line"><span class="string">'/Users/ethan/coding/python'</span></div><div class="line"></div><div class="line"><span class="comment"># 获取文件夹的路径</span></div><div class="line">os.path.dirname(<span class="string">'/Users/ethan/coding/python'</span>)</div><div class="line"><span class="string">'/Users/ethan/coding'</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="path-basename-文件名称"><a href="#path-basename-文件名称" class="headerlink" title="path.basename - 文件名称"></a>path.basename - 文件名称</h4><ul>
+<li><strong>os.path.basename(path)</strong>：获取<strong>文件名或文件夹名</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从一个 绝对路径 中获取该 [文件] 的名称</span></div><div class="line">os.path.basename(<span class="string">'/Users/ethan/coding/python/hello.py'</span>)</div><div class="line"><span class="string">'hello.py'</span></div><div class="line"></div><div class="line"><span class="comment"># 从一个 绝对路径 中获取该 [文件夹] 的名称</span></div><div class="line">os.path.basename(<span class="string">'/Users/ethan/coding/python'</span>)</div><div class="line"><span class="string">'python'</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="path-split-目录与文件名"><a href="#path-split-目录与文件名" class="headerlink" title="path.split - 目录与文件名"></a>path.split - 目录与文件名</h4><ul>
+<li><strong>os.path.split(path)</strong>：获取分离后的<strong>目录与文件名</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取分离后的目录与文件名</span></div><div class="line">os.path.split(<span class="string">'/Users/ethan/coding/python/hello.py'</span>)</div><div class="line">(<span class="string">'/Users/ethan/coding/python'</span>, <span class="string">'hello.py'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 获取分离后的目录与文件夹名</span></div><div class="line">os.path.split(<span class="string">'/Users/ethan/coding/python'</span>)</div><div class="line">(<span class="string">'/Users/ethan/coding'</span>, <span class="string">'python'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="path-splitext-分离"><a href="#path-splitext-分离" class="headerlink" title="path.splitext - 分离"></a>path.splitext - 分离</h4><ul>
+<li><strong>os.path.splitext(path)</strong>：分离<strong>文件名与扩展名</strong></li>
+</ul>
+<blockquote>
+<p>事实上，如果你完全使用目录，它也会将最后一个目录作为文件名而分离，同时它不会判断文件或目录是否存在</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取分离后的文件名与扩展名</span></div><div class="line">os.path.splitext(<span class="string">'/Users/ethan/coding/python/hello.py'</span>)</div><div class="line">(<span class="string">'/Users/ethan/coding/python/hello'</span>, <span class="string">'.py'</span>)</div><div class="line"></div><div class="line">os.path.splitext(<span class="string">'/Users/ethan/coding/python'</span>)</div><div class="line">(<span class="string">'/Users/ethan/coding/python'</span>, <span class="string">''</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="path-join-连接"><a href="#path-join-连接" class="headerlink" title="path.join - 连接"></a>path.join - 连接</h4><ul>
+<li><strong>os.path.join(path, name)</strong> ：连接<strong>目录与文件名</strong>或目录</li>
+</ul>
+<p><br></p>
+<p>####walk - 遍历</p>
+<ul>
+<li><strong>os.walk()</strong>  遍历目录常用的模块，它返回一个包含 3 个元素的元祖：(dirpath, dirnames, filenames)。</li>
+</ul>
+<blockquote>
+<p>dirpath 是以 string 字符串形式返回该目录下所有的<strong>绝对路径</strong>；</p>
+<p>dirnames 是以列表 list 形式返回每一个绝对路径下的<strong>文件夹名字</strong>；</p>
+<p>filesnames 是以列表 list 形式返回该路径下所有<strong>文件名字</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">'/Users/ethan/coding'</span>):</div><div class="line">	<span class="keyword">print</span> root</div><div class="line">	<span class="keyword">print</span> dirs</div><div class="line">	<span class="keyword">print</span> files</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="path-sidir-判断目录"><a href="#path-sidir-判断目录" class="headerlink" title="path.sidir - 判断目录"></a>path.sidir - 判断目录</h4><ul>
+<li><strong>os.path.isdir(name)</strong>： 判断name是不是目录，不是目录就返回false</li>
+</ul>
+<p><br></p>
+<h4 id="path-exists-判断存在"><a href="#path-exists-判断存在" class="headerlink" title="path.exists - 判断存在"></a>path.exists - 判断存在</h4><ul>
+<li><strong>os.path.exists(name)</strong> :判断是否存在文件或目录name</li>
+</ul>
+<p><br></p>
+<h4 id="path-isfile-判断存在"><a href="#path-isfile-判断存在" class="headerlink" title="path.isfile - 判断存在"></a>path.isfile - 判断存在</h4><ul>
+<li><strong>os.path.isfile(name)</strong> :判断name这个文件是否存在，不存在返回false</li>
+</ul>
+<p><br></p>
+<h4 id="mkdir-创建"><a href="#mkdir-创建" class="headerlink" title="mkdir - 创建"></a>mkdir - 创建</h4><ul>
+<li><strong>os.mkdir(‘file’)</strong> ：创建目录</li>
+</ul>
+<p><br></p>
+<h4 id="rename-重命名"><a href="#rename-重命名" class="headerlink" title="rename - 重命名"></a>rename - 重命名</h4><ul>
+<li><strong>os.rename(“oldname”,”newname”)</strong> ：重命名文件（目录）</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p><br></p>
+<h4 id="moknod-创建"><a href="#moknod-创建" class="headerlink" title="moknod - 创建"></a>moknod - 创建</h4><ul>
+<li><strong>os.moknod(‘text.txt’)</strong> : 创建空文件</li>
+</ul>
+<p><br></p>
+<h4 id="remove-移除"><a href="#remove-移除" class="headerlink" title="remove - 移除"></a>remove - 移除</h4><ul>
+<li><strong>os.remove()</strong>：函数用来删除一个文件</li>
+</ul>
+<p><br></p>
+<h4 id="open-打开"><a href="#open-打开" class="headerlink" title="open - 打开"></a>open - 打开</h4><blockquote>
+<p>要以任何方式打开文件（即使是打印文档），都必须<strong>先打开文件</strong>，这样才能访问它。</p>
+<p>读取文本文件时，Python将其中的所有文本都解读为<strong>字符串。如果你读取的是数字，需要转为int/float</strong></p>
+</blockquote>
+<ul>
+<li><strong>open(file, [w])</strong> ：以某种方式打开文件</li>
+<li><strong>with open(file, [w])</strong> ： with 关键字<strong>不再需要访问文件后将其关闭的操作；会自动关闭</strong></li>
+</ul>
+<blockquote>
+<p>r - 只读模式</p>
+<p>w - 只写模式。覆盖之前的同名文件（即删除里面的所有内容）。如果文件不存在就创建文件</p>
+<p>a - 追加模式打开。附加到现有文件；若文件不存在则创建一个；添加到文件末尾</p>
+<p>r+ - 读写模式</p>
+<p>w+ 以读写模式打开<br>a+ 以读写模式打开<br>rb 以二进制读模式打开<br>wb 以二进制写模式打开 (参见 w )<br>ab 以二进制追加模式打开 (参见 a )<br>rb+ 以二进制读写模式打开 (参见 r+ )<br>wb+ 以二进制读写模式打开 (参见 w+ )<br>ab+ 以二进制读写模式打开 (参见 a+ )</p>
+</blockquote>
+<p><br></p>
+<h4 id="read-读取"><a href="#read-读取" class="headerlink" title="read - 读取"></a>read - 读取</h4><blockquote>
+<p>要以任何方式打开文件（即使是打印文档），都必须<strong>先打开文件</strong>，这样才能访问它。</p>
+<p>读取文本文件时，Python将其中的所有文本都解读为<strong>字符串。如果你读取的是数字，需要转为int/float</strong></p>
+<ul>
+<li>所谓字符串，是指可以在内部查找的文档格式。</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>tb0.realine()</strong>： 读取第一行的数据，以 <strong>( 字符串str )</strong> 形式返回文件数据 ； 此时<strong>源数据 tb0已经缺少了第一行的数据</strong></li>
+<li><strong>tb0.readlines()</strong>：按行读取所有的数据，以<strong>[ 列表list ]</strong>，准确的说<strong>包含字符串str的列表list</strong>，并且也包含<strong>换行符(\n)，制表符(\t)</strong> 形式返回文件数据</li>
+<li><strong>tb0.read() </strong>：一次性读取所有数据，类型为 <strong>( 字符串str )</strong><ul>
+<li>末尾多一行空行</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'filename.csv'</span>) <span class="keyword">as</span> tb01:  <span class="comment"># with 关键字不再需要访问文件后将其关闭的操作；会自动关闭</span></div><div class="line">    a = tb01.readline() <span class="comment"># 此时源数据tb01已经缺少了第一行的数据</span></div><div class="line">    b = tb01.readlinse() </div><div class="line">    c = tb01.read() <span class="comment"># 此时已经为空</span></div><div class="line"></div><div class="line"><span class="comment"># ----【 重要概念 】--------------------------------------    </span></div><div class="line">b[<span class="number">0</span>]  <span class="comment"># 获得列表中的第一个字符串 '003888800000798,160999900163133\n'</span></div><div class="line">b[<span class="number">0</span>][<span class="number">0</span>] <span class="comment"># 获得列表中第一个字符串的第一个字符 '0'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 读取与替换】--------------------------------</span></div><div class="line"><span class="comment">## 创建里面为列表的列表</span></div><div class="line">l = []   <span class="comment"># 创建空列表</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> b:  <span class="comment"># b为列表，对每个对象进行逐一操作</span></div><div class="line">    m = re.sub(<span class="string">r'\n'</span>,<span class="string">''</span>,i)   <span class="comment"># 完成一系列对字符串的操作，结果仍为字符串string</span></div><div class="line"><span class="comment">#   p = re.split(',',m)  若需要，可对字符串进行分割，结果为列表list</span></div><div class="line">    l.append(m)</div><div class="line">l</div><div class="line">[<span class="string">',,,会员简称,成交量,比上一交易日增减,会员简称,持买单量,比上一交易日增减,会员简称,持卖单量,比上一交易日增减'</span>,</div><div class="line"> <span class="string">'20160111,IC1601                        ,1,海通期货    ,1581,31,上海东证    ,1287,-17,中信期货    ,2137,-95'</span>,</div><div class="line"> <span class="string">'20160111,IC1601                        ,2,中信期货    ,1437,-13,华泰期货    ,1124,-70,广发期货    ,1583,-194'</span>,</div><div class="line"> <span class="string">'20160111,IC1601                        ,3,国泰君安    ,1231,-55,海通期货    ,993,-16,国泰君安    ,831,-52'</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 用循环读取的结果为字符串格式</span></div><div class="line">l = <span class="string">''</span></div><div class="line"><span class="keyword">with</span> open(filename) <span class="keyword">as</span> file_object:</div><div class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> file_object:</div><div class="line">		l = l + line</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="write-写入"><a href="#write-写入" class="headerlink" title="write - 写入"></a>write - 写入</h4><ul>
+<li>write 不会在文本末尾添加换行符(\n)，若<strong>写入多行时，建议在最后添加换行符 \n.</strong><ul>
+<li><code>tb1.write(&#39;I love programming.\n&#39;)</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>r - 只读模式<br>w - 只写模式。覆盖之前的同名文件（即删除里面的所有内容）。如果文件不存在就创建文件<br>a - 追加模式打开。附加到现有文件；若文件不存在则创建一个；添加到文件末尾<br>r+ - 读写模式<br>w+ 以读写模式打开</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'path\filename.csv'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> tb1:</div><div class="line">    tb1.write(<span class="string">'I love programming!'</span>)   <span class="comment"># 直接在该文件中最后写入</span></div><div class="line">    </div><div class="line"></div><div class="line"><span class="comment"># --------------若要写入文档，先完成数据的提取-----------------</span></div><div class="line">b = <span class="string">''</span>  <span class="comment"># 空字符串；因为文本文档均为字符串格式</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'path\filename.csv'</span>) <span class="keyword">as</span> f:</div><div class="line">    a = f.readlines()  <span class="comment"># 此时a为列表list格式； 也可为 a = f.read()，则该处a为字符串格式</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</div><div class="line">        b = b + str(i) + a[i]</div><div class="line"><span class="keyword">with</span> open(<span class="string">'path\filename.csv'</span>) <span class="keyword">as</span> f:</div><div class="line">    f1 = f.write(b)</div></pre></td></tr></table></figure>
+<p><br> </p>
+<p>##【实战演练】</p>
+<p><strong>【获取上一层次目录中，test文件夹内的所有文件，并选取csv格式的文档】</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="comment"># 方法一</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>os.listdir(<span class="string">'../'</span>) </div><div class="line">[<span class="string">'.ipynb_checkpoints'</span>,</div><div class="line"> <span class="string">'.Rhistory'</span>,</div><div class="line"> <span class="string">'Python'</span>,</div><div class="line"> <span class="string">'R_dir'</span>,</div><div class="line"> <span class="string">'test'</span>,</div><div class="line"> <span class="string">'test.ipynb'</span>]</div><div class="line"></div><div class="line"><span class="comment">## 手动添加目录</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>file_name = os.listdir(<span class="string">'../test'</span>)</div><div class="line">[<span class="string">'2016-01-11-IC_1.csv'</span>,</div><div class="line"> <span class="string">'2016-01-11-IH_1.csv'</span>,</div><div class="line"> <span class="string">'2016-01-12-TF_1.csv'</span>,</div><div class="line"> <span class="string">'2016-01-13-T_1.csv'</span>]</div><div class="line"></div><div class="line"><span class="comment">## 用Re模块匹配符合的文档</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>k = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> file_name:</div><div class="line">    <span class="keyword">if</span> re.findall(<span class="string">r'.*\.csv$'</span>,i):</div><div class="line">        k.append(<span class="string">'../test/'</span>+i) </div><div class="line">k</div><div class="line"></div><div class="line">[<span class="string">'../test/2016-01-11-IC_1.csv'</span>,</div><div class="line"> <span class="string">'../test/2016-01-11-IH_1.csv'</span>,</div><div class="line"> <span class="string">'../test/2016-01-12-TF_1.csv'</span>,</div><div class="line"> <span class="string">'../test/2016-01-13-T_1.csv'</span>]</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># -------获得绝对路径的文件名-------------------------------------------------------</span></div><div class="line">dir_name = os.path.abspath(<span class="string">'../test/'</span>)</div><div class="line">dir_name</div><div class="line">k = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> file_name:</div><div class="line">    <span class="keyword">if</span> re.findall(<span class="string">r'.*\.csv$'</span>,i):</div><div class="line">        k.append(dir_name+i) </div><div class="line">k</div><div class="line">[<span class="string">'E:\\Jupyter_notebook\\test2016-01-11-IC_1.csv'</span>,</div><div class="line"> <span class="string">'E:\\Jupyter_notebook\\test2016-01-11-IH_1.csv'</span>,</div><div class="line"> <span class="string">'E:\\Jupyter_notebook\\test2016-01-12-TF_1.csv'</span>,</div><div class="line"> <span class="string">'E:\\Jupyter_notebook\\test2016-01-13-T_1.csv'</span>,</div><div class="line"> <span class="string">'E:\\Jupyter_notebook\\testtest - 副本.csv'</span>]</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ------------------------------------------------------</span></div><div class="line"><span class="comment"># 方法二</span></div><div class="line">dir_name1 = os.path.abspath(<span class="string">'../'</span>)</div><div class="line"><span class="string">'E:\\Jupyter_notebook'</span></div><div class="line"></div><div class="line">os.listdir(<span class="string">'../'</span>)  <span class="comment"># 结果同上</span></div><div class="line">test_dir  = os.path.join(dir_name1, <span class="string">'test'</span>)</div><div class="line">os.listdir(test_dir)</div><div class="line">[<span class="string">'2016-01-11-IC_1.csv'</span>,</div><div class="line"> <span class="string">'2016-01-11-IH_1.csv'</span>,</div><div class="line"> <span class="string">'2016-01-12-TF_1.csv'</span>,</div><div class="line"> <span class="string">'2016-01-13-T_1.csv'</span>]</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><strong>【获取其他目录下的文件】</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取当前工作目录</span></div><div class="line">os.getcwd()</div><div class="line"></div><div class="line"><span class="comment"># 变更工作目录</span></div><div class="line">os.chdir(<span class="string">'E:\Others'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h1 id="导入与导出-pandas"><a href="#导入与导出-pandas" class="headerlink" title="导入与导出 - pandas"></a>导入与导出 - pandas</h1><h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><blockquote>
+<p>pandas默认将表格型数据读取为<strong>数据框格式（DataFrame）</strong></p>
+<p>“./” 表示当前目录</p>
+<p>“../“ 表示上一目录</p>
+<p>import pandas as pd<br>import numpy as np</p>
+<p>df：任意的Pandas DataFrame对象<br>s：任意的Pandas Series对象</p>
+</blockquote>
+<ul>
+<li><strong>pd.read_csv(“./filename.txt”, sep=’,’, header=0, names=[‘a’,’b’], skiprows=0, index_col=’a’, na_values=’NULL’, nrows=1000, encoding=’gb2312’, thousands= ‘,’)</strong> ：从CSV文件导入数据</li>
+</ul>
+<blockquote>
+<p>sep =’\s+’ 正则表达式的空白字符串 </p>
+<p>header=0，表示默认第一行为列名； header=None 没有列名行</p>
+<p>names=[‘a’, ‘b’] 用于指定列名，与header=None结合使用</p>
+<p>skiprows=0, skiprows=[0,2,3] 表示跳过的观测行； </p>
+<p>skip_footer=0，表示忽略的行数（从文件末尾算起）</p>
+<p>index_col =[‘a’,’b’] 表示指定为索引列</p>
+<p>na_valuse = [‘Null’] 一组将NA值替换为指定的字符’Null’ 或其他任意形式</p>
+<p>nrows=1000 表示读取的行数，从文件开始处算起</p>
+<p>thousands=’,’ / ‘.’ 千分位分隔符</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tb01 = pd.read_csv(<span class="string">"./filename.txt"</span>, sep=<span class="string">','</span>, header=<span class="number">0</span>, names=[<span class="string">'a'</span>,<span class="string">'b'</span>], skiprows=<span class="number">0</span>, index_col=<span class="string">'a'</span>, na_values=<span class="string">'NULL'</span>, nrows=<span class="number">1000</span>, encoding=<span class="string">'gb2312'</span>, thousands= <span class="string">','</span>)  <span class="comment"># 默认分隔符为逗号；  </span></div><div class="line">tb01 = pd.read_table() 　<span class="comment">#</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>pd.read_exce</strong>l(filename)：从Excel文件导入数据</li>
+<li><strong>pd.read_table</strong>(filename)：从限定分隔符（默认为制表符 “\t”）的文本文件导入数据； 也可读csv格式的文档，但建议将sep=’,’</li>
+<li><strong>pd.read_sql</strong>(query, connection_object)：从SQL表/库导入数据</li>
+<li><strong>pd.read_json</strong>(json_string)：从JSON格式的字符串导入数据</li>
+<li><strong>pd.read_html</strong>(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格</li>
+<li><strong>pd.read_clipboard</strong>()：从你的粘贴板获取内容，并传给read_table()</li>
+<li><strong>pd.DataFrame</strong>(dict)：从字典对象导入数据，Key是列名，Value是数据</li>
+</ul>
+<p><br></p>
+<p>####数据清洗</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'关联客户0522.csv'</span>) <span class="keyword">as</span> tb0:</div><div class="line">    tb1 = tb0.readlines()  <span class="comment"># 将tb0中的内容按行读取为列表；(此时自动生成了一个换行符\n)</span></div><div class="line">    tb3 = []</div><div class="line">    <span class="keyword">for</span> tb <span class="keyword">in</span> tb1:  <span class="comment"># 一次访问列表list中的元素（此时各元素为字符串格式，故可以对其进行操作）</span></div><div class="line">        tb2 = tb.replace(<span class="string">'"'</span>, <span class="string">''</span>).replace(<span class="string">'\n'</span>,<span class="string">''</span>).strip().split(<span class="string">','</span>)  <span class="comment"># 依次完成各个操作 替换” - 替换\n - 去空格 - 按分隔符','将元素转化为列表</span></div><div class="line">        tb3.append(tb2)  <span class="comment"># 在列表tb3中添加以将各元素转为列表的值；最终类型为列表的列表</span></div><div class="line">print(tb3)</div><div class="line">tb3[<span class="number">1</span>][<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="显示所有行数"><a href="#显示所有行数" class="headerlink" title="显示所有行数"></a>显示所有行数</h4><blockquote>
+<p>pandas默认会隐去中间的部分。如果希望能显示完整，可以使用下面的方法：</p>
+</blockquote>
+<ul>
+<li>一次性设置Pandas运行环境，以便输出所有记录；</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pd.set_option(<span class="string">'display.max_columns'</span>, <span class="keyword">None</span>)</div><div class="line">pd.set_option(<span class="string">'display.max_rows'</span>, <span class="keyword">None</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li>针对特定输出，设置Pandas参数。<strong>运行之后，再恢复到默认值</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> pd.option_context(<span class="string">'display.max_rows'</span>, <span class="keyword">None</span>, <span class="string">'display.max_columns'</span>, <span class="number">3</span>):  <span class="comment"># None 为全部；或者指定具体的数值</span></div><div class="line">    <span class="keyword">print</span> (df)</div></pre></td></tr></table></figure>
+<br>
+
+
+
+<h2 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h2><blockquote>
+<p><strong>缺失值 在输出结果中为 空字符串；</strong></p>
+</blockquote>
+<ul>
+<li><strong>DataFrame.to_cvs(‘filename.csv’, sep=’,’, na_rep=’NULL’, index=False, header=False, cols=[‘a’,’b’,’c’])</strong>：导出数据到CSV文件</li>
+</ul>
+<ul>
+<li><strong>df.to_exce</strong>l(filename)：导出数据到Excel文件<ul>
+<li>DataFrame.to_excel(<em>excel_writer</em>, <em>sheet_name=’Sheet1’</em>, <em>na_rep=’’</em>, <em>float_format=None</em>, <em>columns=None</em>, <em>header=True</em>, <em>index=True</em>, <em>index_label=None</em>, <em>startrow=0</em>, <em>startcol=0</em>, <em>engine=None</em>, <em>merge_cells=True</em>, <em>encoding=None</em>, <em>inf_rep=’inf’</em>, <em>verbose=True</em>, <em>freeze_panes=None</em>)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>excel_writer</strong> : string or ExcelWriter object. File path or existing ExcelWriter</p>
+<p><strong>na_rep</strong> : string, default ‘’ . Missing data representation</p>
+<p><strong>float_format</strong> : string, default None. Format string for floating point numbers</p>
+<p><strong>columns</strong> : sequence, optional. Columns to write ；表示需要导出的列</p>
+<p><strong>header</strong> : boolean or list of string, default True； 表示可以<strong><u>重命名列名</u></strong></p>
+<p><strong>index</strong> : boolean, default True   ；是否包含索引列</p>
+<p><strong>index_label</strong> : string or sequence, default None</p>
+<p><strong>startrow :</strong>upper left cell row to dump data frame</p>
+<p><strong>encoding: string, default None</strong></p>
+</blockquote>
+<ul>
+<li><strong>df.to_sql</strong>(table_name, connection_object)：导出数据到SQL表</li>
+<li><strong>df.to_json</strong>(filename)：以Json格式导出数据到文本文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导出数据</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dir_name</div><div class="line"><span class="string">'E:\\my_computer\\1_工作学习\\10_工作文档\\5 银天下-数据分析\\30_专项分析\\0102_股今中外链接统计\\人员信息\\历史数据'</span></div><div class="line">lj01.to_excel(dir_name+<span class="string">'\\'</span>+<span class="string">'lj02.xls'</span>,index=<span class="keyword">False</span>)</div><div class="line">qian_all_data.to_csv(<span class="string">'qianguqg.csv'</span>, index=<span class="keyword">False</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 导入到同一Excel的多个sheet</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>writer = pd.ExcelWriter(<span class="string">'output.xlsx'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>df1.to_excel(writer,<span class="string">'Sheet1'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>df2.to_excel(writer,<span class="string">'Sheet2'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>writer.save()</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="【实战演练】"><a href="#【实战演练】" class="headerlink" title="【实战演练】"></a>【实战演练】</h2><h4 id="将所有CSV文档读入到同一个对象"><a href="#将所有CSV文档读入到同一个对象" class="headerlink" title="将所有CSV文档读入到同一个对象"></a>将所有CSV文档读入到同一个对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line"><span class="comment"># 读取csv的文件，并写入到一个列表 name2</span></div><div class="line">name2 = []</div><div class="line">l = re.compile(<span class="string">'.*\.csv'</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> name:</div><div class="line">    <span class="keyword">if</span> re.findall(l, i):</div><div class="line">        name2.append(i)</div><div class="line">        </div><div class="line"><span class="comment"># 读入到同一个对象        </span></div><div class="line">table1 = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> name2:</div><div class="line"><span class="comment">#    print(i)</span></div><div class="line"><span class="comment">#      need_table = pd.read_csv(i)</span></div><div class="line">    table0 = pd.read_csv(<span class="string">'../future-exchange/'</span>+i, encoding = <span class="string">'gb2312'</span>)</div><div class="line">    table1.append(table0)</div></pre></td></tr></table></figure>
+<p><br></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件应用/" rel="tag"># 软件应用</a>
+          
+            <a href="/tags/程序编程/" rel="tag"># 程序编程</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/22/软件应用_程序编程/Hive/Hive_介绍/" rel="next" title="Hive_介绍">
+                <i class="fa fa-chevron-left"></i> Hive_介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_安装设置&Jupyter/" rel="prev" title="Python_安装设置&jupyter">
+                Python_安装设置&jupyter <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目录与文件操作-OS模块"><span class="nav-number">1.</span> <span class="nav-text">目录与文件操作 - OS模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录操作"><span class="nav-number">1.1.</span> <span class="nav-text">目录操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#getcwd-amp-os-chdir-工作目录"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">getcwd & os.chdir - 工作目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#listdir-文件与目录名"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">listdir - 文件与目录名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-abspath-绝对路径"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">path.abspath -  绝对路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-dirname-文件路径"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">path.dirname - 文件路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-basename-文件名称"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">path.basename - 文件名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-split-目录与文件名"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">path.split - 目录与文件名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-splitext-分离"><span class="nav-number">1.1.0.7.</span> <span class="nav-text">path.splitext - 分离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-join-连接"><span class="nav-number">1.1.0.8.</span> <span class="nav-text">path.join - 连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-sidir-判断目录"><span class="nav-number">1.1.0.9.</span> <span class="nav-text">path.sidir - 判断目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-exists-判断存在"><span class="nav-number">1.1.0.10.</span> <span class="nav-text">path.exists - 判断存在</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-isfile-判断存在"><span class="nav-number">1.1.0.11.</span> <span class="nav-text">path.isfile - 判断存在</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdir-创建"><span class="nav-number">1.1.0.12.</span> <span class="nav-text">mkdir - 创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rename-重命名"><span class="nav-number">1.1.0.13.</span> <span class="nav-text">rename - 重命名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">1.2.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#moknod-创建"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">moknod - 创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-移除"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">remove - 移除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open-打开"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">open - 打开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#read-读取"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">read - 读取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#write-写入"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">write - 写入</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入与导出-pandas"><span class="nav-number">2.</span> <span class="nav-text">导入与导出 - pandas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入数据"><span class="nav-number">2.1.</span> <span class="nav-text">导入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示所有行数"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">显示所有行数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导出数据"><span class="nav-number">2.2.</span> <span class="nav-text">导出数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【实战演练】"><span class="nav-number">2.3.</span> <span class="nav-text">【实战演练】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将所有CSV文档读入到同一个对象"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">将所有CSV文档读入到同一个对象</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

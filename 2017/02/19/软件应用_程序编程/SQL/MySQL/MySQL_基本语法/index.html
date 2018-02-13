@@ -1,0 +1,1230 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件应用,程序编程,SQL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1. 数据库1.1 创建123456CREATE DATABASE gregs_list;USE gregs_list;CREATE TABLE my_contact;CREATE VIEW view_c;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL梳理_基本语法">
+<meta property="og:url" content="http://yoursite.com/2017/02/19/软件应用_程序编程/SQL/MySQL/MySQL_基本语法/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="1. 数据库1.1 创建123456CREATE DATABASE gregs_list;USE gregs_list;CREATE TABLE my_contact;CREATE VIEW view_c;">
+<meta property="og:updated_time" content="2018-02-13T13:08:20.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL梳理_基本语法">
+<meta name="twitter:description" content="1. 数据库1.1 创建123456CREATE DATABASE gregs_list;USE gregs_list;CREATE TABLE my_contact;CREATE VIEW view_c;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/19/软件应用_程序编程/SQL/MySQL/MySQL_基本语法/"/>
+
+
+
+
+
+  <title> MySQL梳理_基本语法 | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/软件应用_程序编程/SQL/MySQL/MySQL_基本语法/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MySQL梳理_基本语法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">
+                2017-02-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:08:20+08:00">
+                2018-02-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/" itemprop="url" rel="index">
+                    <span itemprop="name">程序编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/19/软件应用_程序编程/SQL/MySQL/MySQL_基本语法/" class="leancloud_visitors" data-flag-title="MySQL梳理_基本语法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-数据库"><a href="#1-数据库" class="headerlink" title="1. 数据库"></a>1. 数据库</h2><h3 id="1-1-创建"><a href="#1-1-创建" class="headerlink" title="1.1 创建"></a>1.1 创建</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CREATE DATABASE gregs_list;</div><div class="line">USE gregs_list;</div><div class="line"></div><div class="line">CREATE TABLE my_contact;</div><div class="line"></div><div class="line">CREATE VIEW view_c;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="1-2-删除"><a href="#1-2-删除" class="headerlink" title="1.2 删除"></a>1.2 删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DROP DATABASE gregs_list;</div><div class="line">DROP TABLE my_contacts;</div><div class="line">DROP VIEW view_c</div></pre></td></tr></table></figure>
+<h3 id="1-3-展示"><a href="#1-3-展示" class="headerlink" title="1.3 展示"></a>1.3 展示</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SHOW DATABASE;  # 显示所有数据库</div><div class="line">SHOW TABLES;  # 显示当前数据库所有的表</div><div class="line">SHOW TABLES FROM geregs_list;  # 显示该数据库中的所有表</div></pre></td></tr></table></figure>
+<h3 id="1-4-创建过程"><a href="#1-4-创建过程" class="headerlink" title="1.4 创建过程"></a>1.4 创建过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SHOW CREATE TALBE my_contacts;</div></pre></td></tr></table></figure>
+<p><strong>展示表的结构</strong></p>
+<p><code>DESC my_contacts</code></p>
+<p><br></p>
+<h2 id="2-表的基本操作"><a href="#2-表的基本操作" class="headerlink" title="2. 表的基本操作"></a>2. 表的基本操作</h2><h3 id="2-1-创建"><a href="#2-1-创建" class="headerlink" title="2.1 创建"></a>2.1 创建</h3><h4 id="2-1-1-直接创建"><a href="#2-1-1-直接创建" class="headerlink" title="2.1.1 直接创建"></a>2.1.1 直接创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE my_contacts(</div><div class="line">  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY  # 非NULL,自动填充数字，并设为主键</div><div class="line">  name VARCHAR(10),  # VARCHAR 可变动字符串，长度最大为10，若有abc，则只占用3个字符</div><div class="line">  sex CHAR(2)，  # CHAR,固定字符串，长度为2；若只有a，则另一个用空格来表示</div><div class="line">  age INT,</div><div class="line">  birthday DATA,  # DATA,日期</div><div class="line">  pirce1 DEC(3,2),  # Decimal数字，数字共3位，其中2为位是小数点后的</div><div class="line">  price2 DEC(3,2) DEFAULT 1.00,  # DEFAULT 默认的格式</div><div class="line">  interests BOLG,  # BOLG 大文本</div><div class="line">);</div></pre></td></tr></table></figure>
+<p><strong>其他文本属性</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">其他</div><div class="line">PRIMARY KEY (id)  # 创建主键</div><div class="line">UNIQUE  # 唯一值</div><div class="line"></div><div class="line">时间格式</div><div class="line">TIME  # 时间</div><div class="line">DATETIME  # 日期与时间</div><div class="line">TIMESTAMP  # 当下时刻</div></pre></td></tr></table></figure>
+<h4 id="2-1-2-AS-SELECT-创建"><a href="#2-1-2-AS-SELECT-创建" class="headerlink" title="2.1.2 AS SELECT 创建"></a>2.1.2 AS SELECT 创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE table AS </div><div class="line">  SELECT col_name FROM table GROUP BY col_name ORDER BY col_name;  # 直接复制原表单的格式</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="2-2-新增"><a href="#2-2-新增" class="headerlink" title="2.2 新增"></a>2.2 新增</h3><h4 id="2-2-1-值"><a href="#2-2-1-值" class="headerlink" title="2.2.1 值"></a>2.2.1 值</h4><p>INSERT INTO 插入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">INSERT INTO my_contacts</div><div class="line">(name,sex)</div><div class="line">VALUES</div><div class="line">(&quot;小明&quot;,&quot;男&quot;),  # 用逗号分隔</div><div class="line">(&quot;小红&quot;,&quot;女&quot;), </div><div class="line">();</div></pre></td></tr></table></figure></p>
+<h4 id="2-2-2-列-值"><a href="#2-2-2-列-值" class="headerlink" title="2.2.2 列(值)"></a>2.2.2 列(值)</h4><p><strong><em>ADD COLUMN</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE my_contacts ADD COLUMN name VARCHAR(30);  # 新增列</div></pre></td></tr></table></figure></p>
+<p><strong><em>UPDATE…SET…</em></strong> 直接新增<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UPDATE TABLE my_contacts SET interset1 = LEFT(interset,4);</div></pre></td></tr></table></figure></p>
+<p><strong><em>SELECT</em></strong> 多表返回<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT mc.*, projcet.color FROM mc CROSS JOIN projcet;  # 返回原表格所有的值 + 其他表单中的列值</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT mc.*, &apos;100&apos; AS c FROM mc;  # 插入固定值为100的列，并命名为c；</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="2-3-删除"><a href="#2-3-删除" class="headerlink" title="2.3 删除"></a>2.3 删除</h3><h4 id="2-3-1-删除行"><a href="#2-3-1-删除行" class="headerlink" title="2.3.1 删除行"></a>2.3.1 删除行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DELETE FROM my_contacts;  # 删除所有行</div><div class="line"></div><div class="line">DELETE FROM my_contacts WHERE age = 30 AND/OR sex=&quot;男&quot;;  # 删除特定行</div></pre></td></tr></table></figure>
+<h4 id="2-3-2-删除列"><a href="#2-3-2-删除列" class="headerlink" title="2.3.2 删除列"></a>2.3.2 删除列</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE my_contacts DROP COLUMN name;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="2-4-格式"><a href="#2-4-格式" class="headerlink" title="2.4 格式"></a>2.4 格式</h3><h4 id="2-4-1-结构展示"><a href="#2-4-1-结构展示" class="headerlink" title="2.4.1 结构展示"></a>2.4.1 结构展示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DESC my_contacts;</div></pre></td></tr></table></figure>
+<h4 id="2-4-2-改变表的名称"><a href="#2-4-2-改变表的名称" class="headerlink" title="2.4.2 改变表的名称"></a>2.4.2 改变表的名称</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE my_contacts RENAME TO new;</div></pre></td></tr></table></figure>
+<h4 id="2-4-3-改变列的格式"><a href="#2-4-3-改变列的格式" class="headerlink" title="2.4.3 改变列的格式"></a>2.4.3 改变列的格式</h4><p><strong><em>CHANGE 改变列的 名称、格式</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TALBE my_contacts CHANGE name new_name VARCHAR(30);  # CHANGE 改变列的 名称、格式</div></pre></td></tr></table></figure>
+<p><strong><em>MODIFY 改变列的 格式、位置</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ALTER TALBE my_contacts MODIFY name VARCHAR(30) BEFORE id;  # MODIFY 改变列的 格式、位置</div><div class="line">  位置属性可为 BEFOR/AFTER/FIRST/SECOND</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="2-5-替换"><a href="#2-5-替换" class="headerlink" title="2.5 替换"></a>2.5 替换</h3><p><strong><em>UPDATE…SET</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UPDATE my_contacts SET price = 3</div><div class="line">  WHERE projcet = &apos;ball&apos;  AND/OR sex = &apos;男&apos;;</div></pre></td></tr></table></figure></p>
+<p><strong><em>UPDATE…SET…CASE WHEN…THEN…</em></strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> my_contacts <span class="keyword">SET</span> price = </div><div class="line">  <span class="keyword">CASE</span> </div><div class="line">    <span class="keyword">WHEN</span> projcet =<span class="string">'ball'</span> <span class="keyword">THEN</span> <span class="number">3</span></div><div class="line">    <span class="keyword">WHEN</span> <span class="keyword">project</span> = <span class="string">'sing'</span> <span class="keyword">THEN</span> <span class="number">5</span></div><div class="line">  <span class="keyword">ELSE</span> <span class="string">'0'</span></div><div class="line"><span class="keyword">END</span>;</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="3-查询"><a href="#3-查询" class="headerlink" title="3. 查询"></a><strong>3. 查询</strong></h2><h3 id="3-1-单元格属性"><a href="#3-1-单元格属性" class="headerlink" title="3.1 单元格属性"></a>3.1 单元格属性</h3><h4 id="3-1-1-行数-count"><a href="#3-1-1-行数-count" class="headerlink" title="3.1.1 行数-count()"></a>3.1.1 行数-count()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT COUNT(name) FROM my_contacts;</div></pre></td></tr></table></figure>
+<h4 id="3-1-2-字符串长度-length"><a href="#3-1-2-字符串长度-length" class="headerlink" title="3.1.2 字符串长度-length()"></a>3.1.2 字符串长度-length()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT LENGTH(name) FROM my_contacts;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="3-2-单元格的值"><a href="#3-2-单元格的值" class="headerlink" title="3.2 单元格的值"></a>3.2 单元格的值</h3><h4 id="3-2-1-左部分-left"><a href="#3-2-1-左部分-left" class="headerlink" title="3.2.1 左部分 -left()"></a>3.2.1 左部分 -left()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT LEFT(name,3) FROM my_contacts;</div></pre></td></tr></table></figure>
+<h4 id="3-2-2-右部分-right-substr"><a href="#3-2-2-右部分-right-substr" class="headerlink" title="3.2.2 右部分-right()/substr()"></a>3.2.2 右部分-right()/substr()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT SUBSTR(name,3) FROM my_contacts;  </div><div class="line"># SBUSTR(strings,length_num) 返回移除前3个长度的值之后，余下右侧的值</div></pre></td></tr></table></figure>
+<h4 id="3-2-3-指定位置的值-substring"><a href="#3-2-3-指定位置的值-substring" class="headerlink" title="3.2.3 指定位置的值-substring()"></a>3.2.3 指定位置的值-substring()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT SUBSTRING(name,1,2) FROM my_contacts;  </div><div class="line"># SUBSTRING(strings,start_num,length_num) 返回从指位置1开始，长度2的值</div></pre></td></tr></table></figure>
+<h4 id="3-2-4-特定符号之前的值-substring-index"><a href="#3-2-4-特定符号之前的值-substring-index" class="headerlink" title="3.2.4 特定符号之前的值-substring_index()"></a>3.2.4 特定符号之前的值-substring_index()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT SUBSTRING_INDEX(name,&apos;x&apos;,2) FROM my_contacts;  </div><div class="line"># SUBSTRING_INDEX(string,&apos;x&apos;,num) 返回单元格中x第二次出现之前的值</div></pre></td></tr></table></figure>
+<h4 id="3-2-5-去除空格的值-trim"><a href="#3-2-5-去除空格的值-trim" class="headerlink" title="3.2.5 去除空格的值-trim()"></a>3.2.5 去除空格的值-trim()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT TRIM(name) FROM my_contacts;  # TRIM 去除两边的空格； LTRIM/RTRIM 去除左侧/右侧的空格</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><strong>示例1：提取 Kadet(102)AD, Cide(31)DF 两侧的值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UPDATE my_contacts SET </div><div class="line">side = SUBSTRING_INDEX(name,&quot;(&quot;,1)  # 返回第一个左括号（之前的值</div><div class="line">city = SUBSTR(name,LENGTH(SUBSTRING_INDEX(name,&quot;)&quot;,1)+1)  #返回第一个右括号）之前的长度，加上右括号的长度</div></pre></td></tr></table></figure>
+<p><strong>示例2：分列，提取同一列football, sing, reading 中的值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UPDATE my_contacts SET</div><div class="line">  interest1 = SUBSTRING_INDEX(interset, &quot;,&quot;, 1)  # 返回第一个逗号之前的值</div><div class="line">  interest = SUBSTR(interest, LENGTH(interest1)+1)  # 移除第一个兴趣的字符串 + 逗号 长度的值</div><div class="line">  interset2 = SUBSTRING_INDEX(interest,&quot;,&quot;, 1)  </div><div class="line">  interest3 = SUBSTR(interest, LENGHT(interest2)+1);</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="3-3-特定条件的值"><a href="#3-3-特定条件的值" class="headerlink" title="3.3 特定条件的值"></a><strong>3.3 特定条件的值</strong></h3><h4 id="3-3-1-特定范围-含日期"><a href="#3-3-1-特定范围-含日期" class="headerlink" title="3.3.1 特定范围(含日期)"></a>3.3.1 特定范围(含日期)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SELECT name FROM my_contacts</div><div class="line">  WHERE name &gt;= &quot;L&quot; AND name &lt;&quot;N&quot; ;  # 名字开头为L-M的人</div><div class="line">---</div><div class="line"></div><div class="line">SELECT name FROM my_contacts</div><div class="line">  WHERE BETWEEN &quot;L&quot; AND &quot;M&quot;;  # 大于等于L，小于等于M</div></pre></td></tr></table></figure>
+<h4 id="3-3-2-通配符-like"><a href="#3-3-2-通配符-like" class="headerlink" title="3.3.2 通配符-like"></a>3.3.2 通配符-like</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT name FROM my_contacts</div><div class="line">  WHERE [NOT] name LIKE &quot;A%&quot; / &quot;_A%&quot;;  # 返回名字以A为开头字母的人/ 第二个字母为A的人</div></pre></td></tr></table></figure>
+<h4 id="3-3-3-相等-amp-不相等的值"><a href="#3-3-3-相等-amp-不相等的值" class="headerlink" title="3.3.3 相等&amp;不相等的值"></a>3.3.3 相等&amp;不相等的值</h4><p><strong>小范围</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT name FROM my_contacts</div><div class="line">  WHERE name [NOT] IN LIKE (&quot;A%&quot;,&quot;B%&quot;,&quot;C%&quot;)</div></pre></td></tr></table></figure>
+<p><strong>两个表之间</strong></p>
+<p>查询选修了c02号课程的学生的姓名和所在系，学生表(student)，课程表(sc)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 子查询</div><div class="line">SELECT Sname, Sdept FROM student</div><div class="line">  WHERE Sno IN (SELECT Sno FROM sc WHERE Cno = &apos;C02&apos;);  # 可在IN之前加NOT；即 WHERE sno NOT IN ...</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 联接</div><div class="line">SELECT st.Sname, st.Sdept FROM student AS st</div><div class="line">  INNER JOIN sc ON st.Sno = sc.Sno</div><div class="line">  WHERE sc.Cno = &apos;C02&apos;;</div></pre></td></tr></table></figure>
+<p><strong>两个表之间 - 不相等：not exists</strong></p>
+<p>查询所有未讲课的教师的Tname和Depart</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT TNAME,DEPART FROM teacher   # 一种常用于外层查询结果不存在于关联表里的方法</div><div class="line">  WHERE NOT EXISTS (SELECT * FROM course WHERE teacher.TNO = course.TNO);</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="4-查询：表格相关"><a href="#4-查询：表格相关" class="headerlink" title="4. 查询：表格相关"></a>4. 查询：表格相关</h2><h3 id="4-1-分组、排序"><a href="#4-1-分组、排序" class="headerlink" title="4.1 分组、排序"></a>4.1 分组、排序</h3><p><strong>分组</strong> <code>GRUOP BY</code></p>
+<p><strong>排序</strong> <code>ORDER BY name, degree DESC, SUM(age) DESC</code>  # 默认为升序排序（ASC）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GROUP BY name</div><div class="line">ORDER BY name</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>where 用于分组之前</strong></p>
+<p><strong>having 用于分组之后</strong></p>
+</blockquote>
+<h3 id="4-2-显示数量-limit"><a href="#4-2-显示数量-limit" class="headerlink" title="4.2 显示数量-limit()"></a>4.2 显示数量-limit()</h3><p><strong><em>LIMIT</em></strong></p>
+<ul>
+<li><p><code>LIMIT n1</code>  # 返回前n1行，并且MySQL是从0开始的</p>
+</li>
+<li><p><code>LIMIT n1,n2</code>  # 返回从第n1+1行(MySQL从0开始)，之后的n2行</p>
+</li>
+<li><p><code>LIMIT n1,n1</code>  # 返回特定行的值 </p>
+</li>
+</ul>
+<p><strong>Limit结合排序Order by 往往有不错的效果</strong></p>
+<p><br></p>
+<h2 id="5-数字处理"><a href="#5-数字处理" class="headerlink" title="5. 数字处理"></a>5. 数字处理</h2><h3 id="5-1常规统计函数"><a href="#5-1常规统计函数" class="headerlink" title="5.1常规统计函数"></a>5.1常规统计函数</h3><ul>
+<li><code>rand() [0,1]之间的随机值</code>, </li>
+<li><code>round(x,[y]) 取整；y为小数位数，y可以为负数</code>, <code>floor(x) 向下取整，小于x的最大整数</code>, <code>ceiling(x) 向上取整</code></li>
+<li><code>truncate(x,[y]),截断至y指定的小数位数后的值</code></li>
+<li><code>mod(x,y) x/y的余数</code></li>
+<li><code>sum()</code>, <code>avg()</code>, <code>sqrt()平方根</code>, <code>exp()指数</code>, <code>ln(x) / log(x,y) 对数</code>, </li>
+<li><code>power(x,y) x的y次方</code>, <code>abs() 绝对值</code>, <code>pi() π</code></li>
+</ul>
+<p><br></p>
+<h2 id="6-数据清洗"><a href="#6-数据清洗" class="headerlink" title="6. 数据清洗"></a>6. 数据清洗</h2><h3 id="6-1-缺失值"><a href="#6-1-缺失值" class="headerlink" title="6.1 缺失值"></a>6.1 缺失值</h3><p><strong>删除缺失值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DELETE FROM my_contacts </div><div class="line">  WHERE name IS NULL OR sex IS NULL;</div></pre></td></tr></table></figure>
+<h3 id="6-2-重复值-唯一值"><a href="#6-2-重复值-唯一值" class="headerlink" title="6.2 重复值/唯一值"></a>6.2 重复值/唯一值</h3><p><strong>返回唯一值：distinct()</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT DISTINCT(name) FROM my_contacts;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="7-日期"><a href="#7-日期" class="headerlink" title="7. 日期"></a>7. 日期</h2><p><code>SELECT NOW(); 返回当前日期与时间</code></p>
+<p><code>SELECT MONTH(NOW()); 返回当前月份</code></p>
+<p><code>SELECT YEAR(NOW()); 返回当前年份</code></p>
+<p><strong>计算年龄</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT YEAR(NOW())-YEAR(birthday) AS age FROM my_contacts;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="8-账户与安全"><a href="#8-账户与安全" class="headerlink" title="8. 账户与安全"></a>8. 账户与安全</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件应用/" rel="tag"># 软件应用</a>
+          
+            <a href="/tags/程序编程/" rel="tag"># 程序编程</a>
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/19/数据分析/10_统计学/统计学_基本概念/" rel="next" title="统计学_基本概念">
+                <i class="fa fa-chevron-left"></i> 统计学_基本概念
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/19/软件应用_程序编程/SQL/MySQL/MySQL_结构与关联/" rel="prev" title="MySQL梳理_结构与关联">
+                MySQL梳理_结构与关联 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据库"><span class="nav-number">1.</span> <span class="nav-text">1. 数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-创建"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-删除"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-展示"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-创建过程"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 创建过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-表的基本操作"><span class="nav-number">2.</span> <span class="nav-text">2. 表的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-创建"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-直接创建"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1 直接创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-AS-SELECT-创建"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2 AS SELECT 创建</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-新增"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 新增</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-值"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1 值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-列-值"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.2 列(值)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-删除"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-删除行"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 删除行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-删除列"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 删除列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-格式"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-结构展示"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.4.1 结构展示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-改变表的名称"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.4.2 改变表的名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-3-改变列的格式"><span class="nav-number">2.4.3.</span> <span class="nav-text">2.4.3 改变列的格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-替换"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 替换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-查询"><span class="nav-number">3.</span> <span class="nav-text">3. 查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-单元格属性"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 单元格属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-行数-count"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 行数-count()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-字符串长度-length"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 字符串长度-length()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-单元格的值"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 单元格的值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-左部分-left"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 左部分 -left()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-右部分-right-substr"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 右部分-right()/substr()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-3-指定位置的值-substring"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3 指定位置的值-substring()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-4-特定符号之前的值-substring-index"><span class="nav-number">3.2.4.</span> <span class="nav-text">3.2.4 特定符号之前的值-substring_index()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-5-去除空格的值-trim"><span class="nav-number">3.2.5.</span> <span class="nav-text">3.2.5 去除空格的值-trim()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-特定条件的值"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 特定条件的值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-特定范围-含日期"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 特定范围(含日期)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-通配符-like"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2 通配符-like</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3-相等-amp-不相等的值"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3 相等&不相等的值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-查询：表格相关"><span class="nav-number">4.</span> <span class="nav-text">4. 查询：表格相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-分组、排序"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 分组、排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-显示数量-limit"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 显示数量-limit()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数字处理"><span class="nav-number">5.</span> <span class="nav-text">5. 数字处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1常规统计函数"><span class="nav-number">5.1.</span> <span class="nav-text">5.1常规统计函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-数据清洗"><span class="nav-number">6.</span> <span class="nav-text">6. 数据清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-缺失值"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 缺失值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-重复值-唯一值"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 重复值/唯一值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-日期"><span class="nav-number">7.</span> <span class="nav-text">7. 日期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-账户与安全"><span class="nav-number">8.</span> <span class="nav-text">8. 账户与安全</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

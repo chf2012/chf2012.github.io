@@ -1,0 +1,2583 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件应用,程序编程,SQL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="《SQL Server 2012 宝典》读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL Server 2012宝典_读书笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/软件应用_程序编程/SQL/SQL-Server/SQL-Server2012宝典_读书笔记/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="《SQL Server 2012 宝典》读书笔记">
+<meta property="og:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/S软件应用_SQL01.jpg">
+<meta property="og:updated_time" content="2018-02-13T13:07:54.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL Server 2012宝典_读书笔记">
+<meta name="twitter:description" content="《SQL Server 2012 宝典》读书笔记">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/S软件应用_SQL01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/22/软件应用_程序编程/SQL/SQL-Server/SQL-Server2012宝典_读书笔记/"/>
+
+
+
+
+
+  <title> SQL Server 2012宝典_读书笔记 | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/软件应用_程序编程/SQL/SQL-Server/SQL-Server2012宝典_读书笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SQL Server 2012宝典_读书笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T00:00:00+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:07:54+08:00">
+                2018-02-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/" itemprop="url" rel="index">
+                    <span itemprop="name">程序编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/03/22/软件应用_程序编程/SQL/SQL-Server/SQL-Server2012宝典_读书笔记/" class="leancloud_visitors" data-flag-title="SQL Server 2012宝典_读书笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>《SQL Server 2012 宝典》读书笔记</p>
+<a id="more"></a>
+<h1 id="第一部分-入门"><a href="#第一部分-入门" class="headerlink" title="第一部分 入门"></a>第一部分 入门</h1><h2 id="第2章-数据架构"><a href="#第2章-数据架构" class="headerlink" title="第2章 数据架构"></a>第2章 数据架构</h2><h3 id="2-2-数据库目标"><a href="#2-2-数据库目标" class="headerlink" title="2.2 数据库目标"></a>2.2 数据库目标</h3><h4 id="OLTP"><a href="#OLTP" class="headerlink" title="OLTP"></a>OLTP</h4><ul>
+<li>what：联机事务处理过程（On-Line Transaction Processing），也称为面向交易的处理过程</li>
+<li>why  ：最大优点是可以即时地处理输入的数据，及时地回答。</li>
+<li>how  ：基本特征是前台接收的用户数据可以<strong>立即传送</strong>到计算中心进行处理，并在很短的时间内<strong>给出处理结果</strong></li>
+</ul>
+<h4 id="ETL"><a href="#ETL" class="headerlink" title="ETL"></a>ETL</h4><ul>
+<li>what：数据仓库技术；用来描述Extract(抽取) - Transform(转换)-  Load(加载)<strong>至目的端</strong>的过程。</li>
+<li>why  ：<strong>数据仓库利用提取-转换-加载(ETL)过程将各种格式的数据和框架转换为便于数据检索的通用格式，以从整个企业的多个数据存储中收集大量数据。</strong></li>
+<li>how  ：用户从数据源抽取出所需的数据，经过数据清洗，最终按照预先定义好的数据仓库模型，将数据加载到数据仓库中去</li>
+</ul>
+<h3 id="2-3-智能数据库设计"><a href="#2-3-智能数据库设计" class="headerlink" title="2.3 智能数据库设计"></a>2.3 智能数据库设计</h3><h4 id="物理架构"><a href="#物理架构" class="headerlink" title="物理架构"></a>物理架构</h4><ul>
+<li>what：包括数据库的表、列、主键、外键与约束。</li>
+</ul>
+<blockquote>
+<p>瀑布式开发 vs. 敏捷式开发</p>
+<blockquote>
+<p><strong>瀑布式开发</strong>：经历4个项目阶段：<strong>需求收集、设计、开发和实现</strong>。虽然这种方法可能对一些工作有效，但当创建软件时，<strong>用户往往直到看到了才知道他们想要的是什么</strong>。这是往往已经进入了开发阶段。</p>
+<p><strong>敏捷式开发</strong>：用<strong>大量短周期或迭代替代单个较长的开发过程</strong>，从而解决这个问题。每次迭代都构建了可测试的工作模型，并且用户能够使用软件，从而进一步发现他们的需求。当用户看到进展迅速并相信可以添加新特性时，他们会更愿意在软件的生命周期内引入更多特性，而不是检查在下一个版本中实现。</p>
+</blockquote>
+</blockquote>
+<h1 id="第二部分-建立数据库和处理数据"><a href="#第二部分-建立数据库和处理数据" class="headerlink" title="第二部分 建立数据库和处理数据"></a>第二部分 建立数据库和处理数据</h1><h2 id="第6章-基本的查询流"><a href="#第6章-基本的查询流" class="headerlink" title="第6章 基本的查询流"></a>第6章 基本的查询流</h2><h3 id="6-1-查询流"><a href="#6-1-查询流" class="headerlink" title="6.1 查询流"></a>6.1 查询流</h3><h4 id="6-1-1-Select-语法"><a href="#6-1-1-Select-语法" class="headerlink" title="6.1.1 Select 语法"></a><strong>6.1.1 Select 语法</strong></h4><ul>
+<li>Select语句的<strong>From部分</strong>将所有数据源<strong>组装进一个结果集</strong>，然后由Select语句的剩余部分对结果集执行操作。</li>
+<li>Where子句作用于From组装的记录集，根据条件筛选某些行。</li>
+<li>聚合函数对数据集执行求和操作。</li>
+<li>Group by 子句根据在该子句中指定的列将大量数据集分组成较小的数据集。</li>
+<li>Having 对较小的<strong>数据组</strong>执行聚合函数。</li>
+<li>Order by 子句确定结果子的排列顺序。默认为升序；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Select [Distinct] [Top(n)] *, columns, or expressions</div><div class="line">  [From data source(s)]</div><div class="line">    [Join data source</div><div class="line">	  ON condition] (may include multiple joins)</div><div class="line">  [Where conditions]</div><div class="line">  [Group by columns]</div><div class="line">  [Having conditions]</div><div class="line">  [Order by columns];</div></pre></td></tr></table></figure>
+<h4 id="6-1-3-查询语句的逻辑流"><a href="#6-1-3-查询语句的逻辑流" class="headerlink" title="6.1.3 查询语句的逻辑流"></a><strong>6.1.3 查询语句的逻辑流</strong></h4><p><strong>数据源(From) —— 条件(Where)  —— 列/表达式 (col/exp) —— Order by — 谓词</strong></p>
+<ol>
+<li>From，查询<strong>首先组装初始数据集</strong>。</li>
+<li>Where，筛选；筛选过程实际上是<strong>选择符合标准的行的where子句</strong>。</li>
+<li><strong>Group by，组合数据的子集</strong></li>
+<li><strong>聚合，</strong>Aggregations，选择性地对数据进行<strong>聚合</strong>；如求平均值，按列中的值对数据分组以及筛选组；</li>
+<li><strong>Having，筛选数据的子集</strong></li>
+<li><strong>列表达式</strong>：处理Select列，并计算任何表达式 [ 这个时候才涉及到列 ]</li>
+<li>Order by，排序</li>
+<li>Over，窗口函数和排名函数通过与其他聚合函数一起提供结果的<strong>单独排序的视图</strong></li>
+<li>Distinct，从结果集中删除任何重复的行</li>
+<li>Top，<strong>选定行后</strong>，执行计算，<strong>并按所需的顺序排序</strong></li>
+<li>Insert,Update,Delete，最后一个逻辑步骤是将数据修改操作应用到查询结果。</li>
+<li>Output，选择插入和删除的虚拟表，并返回给客户端</li>
+<li>Union，堆叠或合并多个查询的结果</li>
+</ol>
+<h3 id="6-2-From子句"><a href="#6-2-From子句" class="headerlink" title="6.2 From子句"></a>6.2 From子句</h3><h4 id="6-2-3-表名称"><a href="#6-2-3-表名称" class="headerlink" title="6.2.3 表名称"></a><strong>6.2.3 表名称</strong></h4><ul>
+<li>方括号：表名或字段名如果引用了sql server中的关键字，数据库会不识别这到底是关键字还是<strong>表名</strong>（还是<strong>字段名</strong>）时就必须要加；<ul>
+<li><strong>查询语句的表中加上方括号[ ] ， 目的是以声明其不是保留字</strong> ；</li>
+<li>如果表名不是关键字，不用加方括号</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-2-4-完全限定的名称"><a href="#6-2-4-完全限定的名称" class="headerlink" title="6.2.4 完全限定的名称"></a><strong>6.2.4 完全限定的名称</strong></h4><ul>
+<li>Server.Database.Scheme.Table；服务器.数据库.架构.表名称<ul>
+<li>常使用后两部分来限定即可；</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-3-Where条件"><a href="#6-3-Where条件" class="headerlink" title="6.3 Where条件"></a>6.3 Where条件</h3><ul>
+<li><strong>最佳实践</strong>：找到事物的最好办法就是查找，而不是先排除不是该事物的所有东西。<strong>即where条件，声明肯定的限制条件优于否定的限制条件；</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">where col &gt;= 10 ;  优于 where col !&lt; 9</div></pre></td></tr></table></figure>
+<blockquote>
+<p>惊叹号! ，不是ANSI标准的SQL；</p>
+</blockquote>
+<h4 id="6-3-1-Between-And"><a href="#6-3-1-Between-And" class="headerlink" title="6.3.1 Between And"></a><strong>6.3.1 Between And</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># 使用带有日期时间值的 BETWEEN </div><div class="line">WHERE RateChangeDate BETWEEN &apos;2001-12-12&apos; AND &apos;2002-01-05&apos;;   </div><div class="line"></div><div class="line">----下面的示例检索所在的行【datetime值】可以介于&apos;20011212&apos;和&apos;20020105&apos;(含） 之间;因为在查询中的日期值和datetime值存储在RateChangeDate而无需在日期的时间部分中指定了列。</div><div class="line">-- 下面是结果集：</div><div class="line">BusinessEntityID RateChangeDate</div><div class="line">----------- -----------------------</div><div class="line">3 2001-12-12 00:00:00.000</div><div class="line">4 2002-01-05 00:00:00.000</div><div class="line">----未指定时间部分时，将默认使用 12:00 A.M。 </div><div class="line">--请注意，若某行的时间部分晚于 2002-01-05 12:00 A.M.， 则由于它处于范围之外，因此此查询不返回该行。</div></pre></td></tr></table></figure>
+<h4 id="6-3-2-与列比较"><a href="#6-3-2-与列比较" class="headerlink" title="6.3.2 与列比较"></a><strong>6.3.2 与列比较</strong></h4><ol>
+<li>如果<strong>函数</strong>用于where子句中的测试列，那SQL Server <strong>在筛选where子句前被迫对每一行计算该函数</strong>；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">--正确的写法； where col = 130 -30</div><div class="line"></div><div class="line">--避免的情况； where col + 30 =130</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>对于NOT IN条件来说，如果列表中有NULL值，每行都别判定为FALSE</strong>； 证明否定命题是很难的，尤其是当NULL值也包括在内时；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Select &apos;IN&apos; where &apos;A&apos; Not In (&apos;B&apos;, &apos;C&apos;);  返回 IN</div><div class="line"></div><div class="line">Select &apos;IN&apos; where &apos;A&apos; Not In (&apos;B&apos;, &apos;NULL&apos;);  返回空</div></pre></td></tr></table></figure>
+<h4 id="6-3-3-使用Like搜索条件"><a href="#6-3-3-使用Like搜索条件" class="headerlink" title="6.3.3 使用Like搜索条件"></a><strong>6.3.3 使用Like搜索条件</strong></h4><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%</td>
+<td>任意长度的字符串</td>
+<td>Email  Like ‘%@%.com’</td>
+</tr>
+<tr>
+<td>‘_’</td>
+<td>任意一个字符</td>
+<td>AuthorName  Like ‘张_’</td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>在<strong>指定</strong>范围内的任意一个字符</td>
+<td>A  Like ‘A6C8[1-5]’</td>
+</tr>
+<tr>
+<td>[^]</td>
+<td><strong>不在指定范围内</strong>的任意<strong>一个</strong>字符</td>
+<td>A  Like ‘A6C8[^1-6]’</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>查找含通配符的表达式：</p>
+<ol>
+<li>把通配符放入方括号[ ] 内</li>
+<li>在其之前放一个转义符</li>
+</ol>
+</blockquote>
+<p><strong>6.3.4 多个where条件</strong></p>
+<ul>
+<li><strong>布尔逻辑运算的优先次序： NOT &gt; AND &gt; OR</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Where name Like &apos;Chain%&apos; or ProductID Between 320 And 324 </div><div class="line">  And name Like &apos;%s%&apos;  </div><div class="line">--1. 先执行And，即找出name中 带有 s 的名字；</div><div class="line">--2. 再在其中寻找 name中有Chain 或者 ProduceID在[320,324]</div><div class="line"></div><div class="line">------------------</div><div class="line">Where (name Like &apos;Chain%&apos; or ProductID Between 320 And 324 )</div><div class="line">  And name Like &apos;%s%&apos;</div><div class="line">--1. 先执行括号，即先找出name中有Chain 或者 ProduceID在[320,324]</div><div class="line">--2. 再在其中找出name中 带有 s 的名字；</div></pre></td></tr></table></figure>
+<h3 id="6-4-列、星号、别名和表达式"><a href="#6-4-列、星号、别名和表达式" class="headerlink" title="6.4 列、星号、别名和表达式"></a>6.4 列、星号、别名和表达式</h3><h4 id="6-4-2-别名"><a href="#6-4-2-别名" class="headerlink" title="6.4.2 别名"></a><strong>6.4.2 别名</strong></h4><ol>
+<li><p>要使用与SQL Server关键字相同的别名或包含空格的别名，可将别名让入方括号[]、单引号’’或双引号””。</p>
+</li>
+<li><p>插入某个列均为x的值，只要在Select中添加’x’即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Select Name, &apos;x&apos;, Name+sex From table</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="6-5-结果集排序"><a href="#6-5-结果集排序" class="headerlink" title="6.5 结果集排序"></a>6.5 结果集排序</h3><h4 id="6-5-1-通过列名称来指定顺序"><a href="#6-5-1-通过列名称来指定顺序" class="headerlink" title="6.5.1 通过列名称来指定顺序"></a><strong>6.5.1 通过列名称来指定顺序</strong></h4><ol>
+<li>Order by 排序列可以不必是Select返回的列</li>
+<li>order by子句和选择列表中的列的顺序完全无关</li>
+</ol>
+<h4 id="6-5-2-使用表达式来指定顺序"><a href="#6-5-2-使用表达式来指定顺序" class="headerlink" title="6.5.2 使用表达式来指定顺序"></a><strong>6.5.2 使用表达式来指定顺序</strong></h4><ol>
+<li><p>在Order by子句中，可以使用表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Order by LastName + FirstName;</div><div class="line"></div><div class="line">----------------------------------</div><div class="line">Order by </div><div class="line">  Case </div><div class="line">	When Left(description, 5) = &apos;This &apos; Then Stuff(description, 1, 5, &apos;&apos;)</div><div class="line">    Else description</div><div class="line">  End;</div><div class="line">--根据Case的不同情况来进行排序</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="6-5-3-使用列别名指定顺序"><a href="#6-5-3-使用列别名指定顺序" class="headerlink" title="6.5.3 使用列别名指定顺序"></a><strong>6.5.3 使用列别名指定顺序</strong></h4><ol>
+<li>Order by 子句允许别名存在，是因为逻辑上Order by 子句在组合列和别名后执行；<ul>
+<li>Where子句不可使用别名，因为在逻辑上在处理列及表达式前先执行Where子句</li>
+</ul>
+</li>
+</ol>
+<h4 id="6-5-4-使用列的顺序位置来进行排序-（若改变了选择的列，则列的位置顺序会发生更改）"><a href="#6-5-4-使用列的顺序位置来进行排序-（若改变了选择的列，则列的位置顺序会发生更改）" class="headerlink" title="6.5.4 使用列的顺序位置来进行排序 （若改变了选择的列，则列的位置顺序会发生更改）"></a><strong>6.5.4 使用列的顺序位置来进行排序</strong> （若改变了选择的列，则列的位置顺序会发生更改）</h4><h3 id="6-6-Select-Distinc"><a href="#6-6-Select-Distinc" class="headerlink" title="6.6 Select Distinc"></a>6.6 Select Distinc</h3><ol>
+<li>从查询的结果集中删除重复的行</li>
+</ol>
+<h3 id="6-7-Top-谓词"><a href="#6-7-Top-谓词" class="headerlink" title="6.7 Top( ) 谓词"></a>6.7 Top( ) 谓词</h3><p><strong>6.7.1 With Ties</strong></p>
+<ol>
+<li>允许最后的位置包含多行，但这多行是完全相同的</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Select top (10) With Ties listprice From ...</div></pre></td></tr></table></figure>
+<h4 id="6-7-2-随机行选择"><a href="#6-7-2-随机行选择" class="headerlink" title="6.7.2 随机行选择"></a><strong>6.7.2 随机行选择</strong></h4><ol>
+<li>使用Top(1) 返回单行，且用Newid()随机排序结果；每次将返回一个随机值</li>
+<li>涉及到较大的表时，可用Tablesample( n Percent/Rows)选项</li>
+<li>由于是随机选择，可通过Repeatable()来指定 [效果同R语言中的set.seed()]</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Select top(1) Lastname From person.person Tablesample(10 Percent) -- 随机选择10%的</div><div class="line">  Repeatable(1234)</div><div class="line">  Order by Newid();  --随机排序结果集</div></pre></td></tr></table></figure>
+<h2 id="第7章-关系数据库设计和创建物理数据库架构"><a href="#第7章-关系数据库设计和创建物理数据库架构" class="headerlink" title="第7章 关系数据库设计和创建物理数据库架构"></a>第7章 关系数据库设计和创建物理数据库架构</h2><h3 id="7-1-数据库基础知识"><a href="#7-1-数据库基础知识" class="headerlink" title="7.1 数据库基础知识"></a>7.1 数据库基础知识</h3><h4 id="7-1-2-表、行和列"><a href="#7-1-2-表、行和列" class="headerlink" title="7.1.2 表、行和列"></a>7.1.2 表、行和列</h4><ol>
+<li><strong>一个行 = 一个项</strong></li>
+<li><strong>一个列 = 该项相关的具体数据片段</strong></li>
+<li>一个单元格 = 单个项的单个数据部分</li>
+</ol>
+<h4 id="7-1-3-数据库设计阶段"><a href="#7-1-3-数据库设计阶段" class="headerlink" title="7.1.3 数据库设计阶段"></a>7.1.3 数据库设计阶段</h4><ol>
+<li>DDL<ul>
+<li>what：<strong>数据库模式定义语言</strong>DDL(Data Definition Language)。用于描述数据库中要存储的现实世界实体的语言。</li>
+<li>how  ：DDL数据库模式定义语言<strong>是SQL语言（结构化查询语言）的组成部分。</strong><ul>
+<li>SQL语言包括四种主要程序设计语言类别的语句：数据定义语言(DDL)，数据操作语言(DML)，数据控制语言(DCL)和事务控制语言（TCL）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>DML<ul>
+<li>what：数据操作语言(Data Manipulation Language)<ul>
+<li>查询(Select)、插入(Insert)、修改(Update)、删除(Delete)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="7-1-5-三个“一规则”"><a href="#7-1-5-三个“一规则”" class="headerlink" title="7.1.5 三个“一规则”"></a>7.1.5 三个“一规则”</h4><ol>
+<li>一个<strong>实体(表)</strong>代表<strong>一组相似的事情</strong></li>
+<li>一个<strong>元组(行)</strong>代表<strong>一件事情</strong></li>
+<li>一个<strong>特性(列)</strong>代表关于该事情的<strong>一个描述性事实</strong></li>
+</ol>
+<h4 id="7-1-8-主键"><a href="#7-1-8-主键" class="headerlink" title="7.1.8 主键"></a>7.1.8 主键</h4><ol>
+<li><strong>主键：</strong>一个或一组可用于<strong>唯一标识元组(行)的属性；</strong><ul>
+<li>每个实体必须有一个主键，没有主键就不是有效的实体</li>
+</ul>
+</li>
+<li><strong>候选键：所有潜在的主键；</strong>（身份证号码、雇员编号、驾驶证号码都可以做为主键）</li>
+<li><strong>备选键：没有选中做为主键的候选键；</strong></li>
+</ol>
+<h4 id="7-1-9-外键"><a href="#7-1-9-外键" class="headerlink" title="7.1.9 外键"></a>7.1.9 外键</h4><ol>
+<li><strong>外键：主表中复制主键而来的元组(行)，用于连接两个实体(主要实体、次要实体)</strong><ul>
+<li>次要主体的外键指向主要实体的主键</li>
+</ul>
+</li>
+</ol>
+<h3 id="7-2-数据库设计模式"><a href="#7-2-数据库设计模式" class="headerlink" title="7.2 数据库设计模式"></a>7.2 数据库设计模式</h3><h4 id="7-2-3-多对多模式"><a href="#7-2-3-多对多模式" class="headerlink" title="7.2.3 多对多模式"></a>7.2.3 多对多模式</h4><ol>
+<li>在SQL DDL中实现多对多关系，必须要用到第三个表（关联表/联接表)，从而认为地在两个实体之间创建两个一对多的关系</li>
+</ol>
+<h3 id="7-3-范式"><a href="#7-3-范式" class="headerlink" title="7.3 范式"></a>7.3 范式</h3><h4 id="第一范式（1NF）"><a href="#第一范式（1NF）" class="headerlink" title="第一范式（1NF）"></a>第一范式（1NF）</h4><ul>
+<li>what：<strong>原子性 + 主键；</strong>求数据库的每个列的值域都是由原子值组成 + 每个字段的值都只能是单一值<ul>
+<li>主键：每个数据行必须在<strong>独一无二的识别项</strong></li>
+<li>原子性：<ul>
+<li><strong>表</strong>中<strong>不会有多个存储同类数据</strong>的<strong>列</strong> （fruit1, fruit2）</li>
+<li><strong>列</strong>中<strong>不会有多个类型相同</strong>的<strong>值</strong> （apple, orange, banana）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>1971年埃德加·科德提出了第一范式</p>
+</blockquote>
+<h4 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h4><ul>
+<li>what：<strong>第一范式（主键为组合键） + 没有部分依赖（所有非键的字段都一定是候选键全体字段的函数）</strong><ul>
+<li>组合键<ul>
+<li>由两列以上组成的主键；</li>
+<li>组成后具有唯一性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>how  ：数据表里的所有数据都要和<strong>该数据表的键（主键与候选键）有完全依赖关系</strong>：每个非键属性必须独立于任意一个候选键的任意一部分属性。<strong>如果有哪些数据只和一个键的一部分有关的话，就得把它们独立出来变成另一个数据表。</strong>如果一个数据表的键只有单个字段的话，它就一定匹配第二范式。</li>
+</ul>
+<blockquote>
+<p>有一个数据表记录了设备组件的信息，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>组件 ID (主键)</th>
+<th>价格</th>
+<th>供应商ID (主键)</th>
+<th>供应商名称</th>
+<th>供应商住址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>65</td>
+<td>59.99</td>
+<td>1</td>
+<td>Stylized Parts</td>
+<td>VA</td>
+</tr>
+<tr>
+<td>73</td>
+<td>20.00</td>
+<td>1</td>
+<td>Stylized Parts</td>
+<td>VA</td>
+</tr>
+<tr>
+<td>65</td>
+<td>69.99</td>
+<td>2</td>
+<td>ACME Industries</td>
+<td>CA</td>
+</tr>
+</tbody>
+</table>
+<p>这个数据表的每个值都是单一值，所以它匹配第一范式。因为同一个组件有可能由不同的供应商提供，所以得把组件 ID 和供应商 ID 合在一起组成一个主键。<br>组件(关键词)和价格之间的关系很正确：同一个组件在不同供应商有可能会有不同的报价，所以价格确实和主键完全相关(完全依赖)。<br>另一方面，供应商的名称和住址就只和供应商 ID 有关(部分依赖)，这不匹配第二范式的原则。仔细看就会发现 “Stylized Parts” 这个名称和 “VA” 这个住址重复出现了两次；要是它改名了或是被其他公司并购了怎么办？这时候最好把这些数据存到第二个数据表中：</p>
+<table>
+<thead>
+<tr>
+<th>供应商 ID (主键)</th>
+<th>名称</th>
+<th>住址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Stylized Parts</td>
+<td>VA</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ACME Industries</td>
+<td>CA</td>
+</tr>
+</tbody>
+</table>
+<p>这么一来，原本的 “组件来源” 数据表就得要做相对应的改动：</p>
+<table>
+<thead>
+<tr>
+<th>组件 ID (主键主键)</th>
+<th>价格</th>
+<th>供应商 ID（主键、非关键词）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>65</td>
+<td>59.99</td>
+<td>1</td>
+</tr>
+<tr>
+<td>73</td>
+<td>20.00</td>
+<td>1</td>
+</tr>
+<tr>
+<td>65</td>
+<td>69.99</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>检查数据表里的每个字段，确认它们是不是都和关键词完全相关， 这样才能知道这个数据表是不是匹配第二范式； 如果不是的话，就把那些不完全相关的字段移到独立的数据表里。 接下来的步骤是要确保所有不是键的字段都和彼此没有相依关系，这就叫做第三范式。</p>
+</blockquote>
+<h4 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h4><ul>
+<li><p>what：要求所有<strong>非键属性</strong>都只和<strong>候选键</strong>有相关性，也就是说<strong>非键属性之间应该是独立无关的</strong>。</p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="第8章-数据类型、表达式和标量函数"><a href="#第8章-数据类型、表达式和标量函数" class="headerlink" title="第8章 数据类型、表达式和标量函数"></a>第8章 数据类型、表达式和标量函数</h2><h3 id="8-1-数据类型"><a href="#8-1-数据类型" class="headerlink" title="8.1 数据类型"></a>8.1 数据类型</h3><h4 id="8-1-1-字符数据类型"><a href="#8-1-1-字符数据类型" class="headerlink" title="8.1.1 字符数据类型"></a>8.1.1 字符数据类型</h4><ul>
+<li>长度固定：当输入的数据长度没有达到指定的长度时将自动以英文空格在其后面填充，使长度达到相应的长度</li>
+<li>从空间上考虑，用<strong>varchar</strong>合适；从效率上考虑，用<strong>char</strong>合适，关键是根据实际情况找到权衡点</li>
+<li>一般来说，如果含有中文字符，用<strong>nchar/nvarchar</strong>，如果纯英文和数字，用<strong>char/varchar</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>特点</th>
+<th>容量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>长度固定，8000个英文，4000个汉字</td>
+<td>1字节</td>
+</tr>
+<tr>
+<td>varchar</td>
+<td>长度可变，8000个英文，4000个汉字</td>
+<td>1字节</td>
+</tr>
+<tr>
+<td><em>nchar</em></td>
+<td><em>长度固定</em> Unicode编码，存储4000个字符</td>
+<td>2个字节 [不论是英文还是汉字]</td>
+</tr>
+<tr>
+<td><em>nvarchar</em></td>
+<td><em>长度可变</em> Unicode编码，存储4000个字符</td>
+<td>2个字节 [不论是英文还是汉字]</td>
+</tr>
+<tr>
+<td>text</td>
+<td>长度可变</td>
+<td>1字节</td>
+</tr>
+<tr>
+<td>ntext</td>
+<td>长度可变 Unicode编码</td>
+<td>2字节</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Unicode或非Unicode<br>​    数据库中，英文字符只需要一个字节存储就足够了，但汉字和其他众多非英文字符，则需要两个字节存储。如果英文与汉字同时存在，由于占用空间数不同，容易造成混乱，导致读取出来的字符串是乱码。</p>
+<p>​    <strong>Unicode字符</strong>集就是为了解决字符集这种不兼容的问题而产生的，<strong>它所有的字符都用两个字节表示</strong>，即英文字符也是用两个字节表示。而<strong>前缀n就表示Unicode字符</strong>，比如<strong>nchar,nvarchar</strong>，这两种类型使用了Unicode字符集。</p>
+</blockquote>
+<h4 id="8-1-2-数值数据类型"><a href="#8-1-2-数值数据类型" class="headerlink" title="8.1.2 数值数据类型"></a>8.1.2 数值数据类型</h4><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>说明</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bit</td>
+<td>1或0</td>
+<td>1位</td>
+</tr>
+<tr>
+<td>Tinyint</td>
+<td>0~255整数</td>
+<td>1字节</td>
+</tr>
+<tr>
+<td>Smallint</td>
+<td>-32,768~32,767 整数</td>
+<td>2字节</td>
+</tr>
+<tr>
+<td><strong>Int</strong></td>
+<td><strong>-2,147,483,648~2,147,483,647 整数</strong></td>
+<td><strong>4字节</strong></td>
+</tr>
+<tr>
+<td>Bigint</td>
+<td>-2$^{63}$ ~ 2$^{63}$-1 的整数</td>
+<td>8字节</td>
+</tr>
+<tr>
+<td>Decimal / Numeric</td>
+<td>-10$^{38}$ +1 的固定精度数值</td>
+<td>根据长度而变化</td>
+</tr>
+<tr>
+<td><strong>Money</strong></td>
+<td><strong>-2$^{63}$ ~ 2$^{63}$-1 的数值，精确到万分之一</strong></td>
+<td><strong>8字节</strong></td>
+</tr>
+<tr>
+<td>SmallMoney</td>
+<td>-2,147,483,648~2,147,483,647 的数值，精确到万分之一</td>
+<td>4字节</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>-1.79E+308 ~1.79E+308 的浮点数值</td>
+<td>4或8字节</td>
+</tr>
+<tr>
+<td>Real</td>
+<td>24位精度的浮点值</td>
+<td>4字节</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>浮点数：<strong>伴随着因为无法精确表示而进行的近似或舍入</strong>。</p>
+<blockquote>
+<p>在计算机科学中，浮点（英语：floating point，缩写为FP）是一种对于实数的<strong>近似值</strong>数值表现法，由一个<strong>有效数字</strong>（即尾数）加上<strong>幂数</strong>来表示，通常是乘以某个基数（计算机中通常是2）的整数次指数得到。以这种表示法表示的数值，称为浮点数。这种表示方法类似于基数为10的科学计数法。</p>
+</blockquote>
+<p>浮点指的是带有小数的数值。</p>
+<blockquote>
+<p>大部分计算机采用二进制（b=2）的表示方法。位（bit）是衡量浮点数所需存储空间的单位，通常为32位或64位，分别被叫作单精度和双精度。</p>
+</blockquote>
+</blockquote>
+<h4 id="8-1-3-日期-时间数据类型"><a href="#8-1-3-日期-时间数据类型" class="headerlink" title="8.1.3 日期/时间数据类型"></a>8.1.3 日期/时间数据类型</h4><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>说明</th>
+<th>字符大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Datetime</td>
+<td>1553年1月1日开始至9999年；Jan 1, 1753，精度3毫秒</td>
+<td>8字节</td>
+</tr>
+<tr>
+<td>Smalldatetime</td>
+<td>1900年至2079年6月6日；精度1分钟</td>
+<td>Jun 6, 2079</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>0001年至9999年；</td>
+<td>3字符</td>
+</tr>
+<tr>
+<td>Time(2)</td>
+<td>时间值，精度可变</td>
+<td>3-5字节</td>
+</tr>
+<tr>
+<td>Datetime(2)</td>
+<td>0001年至9999年，精度可变，从0.01秒到100纳秒</td>
+<td>6-8字节</td>
+</tr>
+<tr>
+<td>Datetimeoffset</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-2-构建表达式"><a href="#8-2-构建表达式" class="headerlink" title="8.2 构建表达式"></a>8.2 构建表达式</h3><h4 id="8-2-1-运算符"><a href="#8-2-1-运算符" class="headerlink" title="8.2.1 运算符"></a>8.2.1 运算符</h4><ul>
+<li><p>加号(+)运算符的两种作用</p>
+<ul>
+<li>算术表达式</li>
+<li>字符串串联</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Select &apos;abc&apos;+&apos;da&apos;; / Select col1+col2 From </div><div class="line"></div><div class="line">Select &apos;abc&apos;+Convert(varchar(10),&apos;21&apos;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果串联字符串和整数，必须将整数转为字符串</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="8-2-2-按位运算符"><a href="#8-2-2-按位运算符" class="headerlink" title="8.2.2 按位运算符"></a>8.2.2 按位运算符</h4><ol>
+<li><p><strong>布尔 exclusive or 运算符 xor  ( ^ )</strong></p>
+<ul>
+<li><strong>只有一个为真，返回True；两个都为真，返回False</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Select 1^1</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>按位 Not ( ~ )</strong></p>
+<ul>
+<li>对表达式中每个逻辑<strong>求反</strong>。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Select (~)@A</div></pre></td></tr></table></figure>
+<blockquote>
+<p>按位Not 不能和布尔表达式一起使用</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="8-2-3-Case-表达式"><a href="#8-2-3-Case-表达式" class="headerlink" title="8.2.3 Case 表达式"></a>8.2.3 Case 表达式</h4><ul>
+<li>最大的优点是可以与Select语句“内联”</li>
+<li>若else缺失，表示其他值返回NULL</li>
+<li><strong>Case函数只返回第一个符合条件的值，剩下的Case部分将会被自动忽略；</strong><ul>
+<li><strong>相等判断的话，顺序也要注意</strong></li>
+<li><strong>布尔判断的话，例如根据金额大小来判定等级，必须要最高的金额写在最前面；</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">## 两者区别</div><div class="line">1. 输入表达式，只能用于等同性(=)检查</div><div class="line">2. 布尔表达式，不局限于等同行(=)检查</div><div class="line"></div><div class="line">--用输入表达式，将与每个where子句中的值比较</div><div class="line">Case &lt;input expression&gt;  --只能用于等同性检查，而不进行其他比较</div><div class="line">  when &lt;when exp&gt; then &lt;result exp&gt;</div><div class="line">  [n...]</div><div class="line">  [else &lt;result exp&gt;]</div><div class="line">End</div><div class="line"></div><div class="line">--给每个when子句提供一个布尔表达式，求值为TRUE或FALSE [布尔值是“真” True 或“假” False 中的一个]</div><div class="line">Case</div><div class="line">  when &lt;Boolean exp&gt; then &lt;result exp&gt;</div><div class="line">  [n...]</div><div class="line">  [else &lt;result exp&gt;]</div><div class="line">End</div></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>简单Case：</strong>case 简单表达式<strong>只能用于等同性检查</strong>，而不进行其他比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 在SELECT语句中，CASE 简单表达式只能用于等同性检查，而不进行其他比较</div><div class="line">SELECT ProductNumber, Category =  </div><div class="line">      CASE ProductLine     --表示如果 ProductLine = R 则返回 Road； Case之后的变量，为比较的变量</div><div class="line">         WHEN &apos;R&apos; THEN &apos;Road&apos;  </div><div class="line">         WHEN &apos;M&apos; THEN &apos;Mountain&apos;  </div><div class="line">         WHEN &apos;T&apos; THEN &apos;Touring&apos;  </div><div class="line">         WHEN &apos;S&apos; THEN &apos;Other sale items&apos;  </div><div class="line">         ELSE &apos;Not for sale&apos;  </div><div class="line">      END,  </div><div class="line">   Name  </div><div class="line">  FROM Production.Product ； </div><div class="line"></div><div class="line">--</div><div class="line">Select top 10 SalesOrderID % 10 As &apos;OrderLastDigit&apos;,ProductID % 10 As &apos;ProductLastDigit&apos;,</div><div class="line">&quot;How Colse ?&quot; =  CASE SalesOrderID % 10 </div><div class="line">         WHEN  ProductID % 1  THEN &apos;Exact Match&apos;   -- 可在When子句中引用第二个列来做判断</div><div class="line">         WHEN  ProductID % 1-1 THEN &apos;Within 1&apos;  </div><div class="line">         WHEN  ProductID % 1+1 THEN &apos;Within 1&apos;  </div><div class="line">         ELSE &apos;More Than One Apart&apos;  </div><div class="line">      END  </div><div class="line">FROM Sales.SalesOrderDetail ；</div><div class="line">-- % 表示返回余数； 5%2 返回1</div><div class="line">-- 变量名在Case之前使用双引号（“”）说明，该变量是新创建的变量;但不建议如此；</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p><strong>布尔型Case：**</strong>不局限于**等同行(=)检查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-- 没有输入表达式（即Case关键字与第一个When之间的部分）</div><div class="line">-- When表达式必须求值为一个 布尔值；（Case简单语句中，When的表达式可以为1、3、Price+1[含运算]）</div><div class="line"></div><div class="line">Select top 10 SalesOrderID % 10 As &apos;OrderLastDigit&apos;,ProductID % 10 As &apos;ProductLastDigit&apos;,</div><div class="line">&quot;How Colse ?&quot; =  CASE   					  -- 没有输入表达式</div><div class="line">   WHEN (SalesOrderID % 10) &lt; 3 THEN &apos;Ends With Less Than Threes&apos; </div><div class="line">   WHEN ProductID =6 THEN &apos;ProductID is 6&apos;     -- 可在When子句中引用第二个列来做判断</div><div class="line">   WHEN ABS(SalesOrderID % 10 - ProductID) &lt;= 1 THEN &apos;Within 1&apos;  </div><div class="line">   ELSE &apos;More Than One Apart&apos;  </div><div class="line">      END  </div><div class="line">FROM Sales.SalesOrderDetail ；</div><div class="line"></div><div class="line"># 可在条件表达式中混合搭配的字段</div><div class="line"># 可执行为任何表达式，只要最后的结果为布尔值</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="8-2-4-Iif与Choose函数"><a href="#8-2-4-Iif与Choose函数" class="headerlink" title="8.2.4 Iif与Choose函数"></a>8.2.4 Iif与Choose函数</h4><ol>
+<li><p>iif函数是case语句的简写版本：<code>iif(boolean_exoression, true_value, fasle_value)</code></p>
+</li>
+<li><p>Choose函数是一个逻辑运算符；返回数组中的第x列</p>
+<p> <code>Choose(index, var1, var2, var3)  --index为索引；若超出数组的边界，会返回空值</code></p>
+<p><code>Select Choose(3, &#39;Linda&#39;, &#39;Tiger&#39;, &#39;Bears&#39;)  # 返回Bears</code> </p>
+</li>
+</ol>
+<h4 id="8-2-5-使用空值"><a href="#8-2-5-使用空值" class="headerlink" title="8.2.5 使用空值"></a>8.2.5 使用空值</h4><ul>
+<li>what：空值NULL表示<strong>不存在的值，是一个未知值</strong>；并不表示0；</li>
+<li>how ：包含<strong>空值的任何表达式结果均是一个未知值</strong><ul>
+<li>Null + 1 = Null</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>聚合函数中SUM( ) 与AVG( ) 会自动排除NULL进行计算；</p>
+<p>Count( * ) 会计算空值；但Count( col )会排除空值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># 测试空值 - Is Null</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">## 处理空值 </div><div class="line"></div><div class="line"># Isnull() --将NULL替换为某个值</div><div class="line">Select Isnull(col, 0)  -- 对col列进行搜索，并将空值NULL转换为0；也可以是其他任意值/字符串</div><div class="line">--isnull(soucre_expression, prlacement_value)  # isnull是T-SQL特有的函数</div><div class="line"></div><div class="line"></div><div class="line">-----------------------------------------------------------------------------</div><div class="line"># Coalesce()</div><div class="line">Select Coalesce(Null, Null+1, 1+2, &quot;abc&quot;)  返回3</div><div class="line">--Coalesce(expression, expression,... ) # 接受一系列表达式或列，返回第一个非空值</div><div class="line"></div><div class="line"></div><div class="line">-----------------------------------------------------------------------------</div><div class="line"># Nullif()</div><div class="line">--Nullif()接受两个参数；如果他们相等，则返回空值；否则，返回第一个参数；</div></pre></td></tr></table></figure>
+<h3 id="8-3-标量函数"><a href="#8-3-标量函数" class="headerlink" title="8.3 标量函数"></a>8.3 标量函数</h3><ul>
+<li>what：标量函数返回<strong>单个值</strong><ul>
+<li>包括日期时间函数、数值函数、系统函数</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-3-2-日期和时间函数"><a href="#8-3-2-日期和时间函数" class="headerlink" title="8.3.2 日期和时间函数"></a>8.3.2 日期和时间函数</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Getdate</td>
+<td>返回<strong>当前服务器</strong>的日期和时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Current_timestamp</td>
+<td>除了ANSI标准，等同于Getdate</td>
+</tr>
+<tr>
+<td style="text-align:left">Getutcdate</td>
+<td>返回当前服务器的日期和时间，并转化为<strong>格林威治标准时间</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">Sysdatetime</td>
+<td>返回当前服务器的日期和时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Sysutcdatetime</td>
+<td>返回当前服务器日期，并转化为格林威治标准时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Sysdatetimeoffset</td>
+<td>返回Datetimeoffset值</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>日期处理函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th>描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Dateadd</td>
+<td>在指定的日期上<strong>累加数值</strong>得到新的日期；dateadd(datepart,number,date)</td>
+<td>SELECT  DATEADD(yyyy, 4, ‘01/09/2003’)  返回：2007-01-09</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td><em>datepar</em>是参数的格式：datepart=yy(年)，mm(月)，qq(季度)；<em>date</em> 参数是合法的日期表达式。<em>number</em> 是您希望添加的间隔数；对于未来的时间，此数是正数，对于过去的时间，此数是负数。</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">DATEDIFF</td>
+<td>返回两个日期的<strong>差值</strong> ； datediff(datepart,startdate,endate)</td>
+<td>SELECT  DATEDIFF(dd,  ‘02/05/2003’, ‘02/09/2005’)  返回：735</td>
+</tr>
+<tr>
+<td style="text-align:left">DATEPART</td>
+<td>返回指定日期<strong>部分</strong>的整数（整数形式）</td>
+<td>SELECT DATEPART(dd,  ‘01/09/2003’)  返回：9</td>
+</tr>
+<tr>
+<td style="text-align:left">DATENAME</td>
+<td>返回指定日期部分的字符串（字符串形式）；工作日(dw)、周(wk)、日(dd)、月(mm)</td>
+<td>SELECT  DATENAME(dw,  ‘02/02/2009’)  返回:  星期一</td>
+</tr>
+<tr>
+<td style="text-align:left">Eomonth</td>
+<td>返回针对指定开始日期的月份的最后一天</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">YEAR</td>
+<td>返回指定日期“年”部分整数</td>
+<td>SELECT  YEAR(GETDATE())  返回：当前年份整数</td>
+</tr>
+<tr>
+<td style="text-align:left">MONTH</td>
+<td>返回指定日期“月”部分整数</td>
+<td>SELECT  MONTH(GETDATE())  返回：当前月份整数</td>
+</tr>
+<tr>
+<td style="text-align:left">DAY</td>
+<td>返回指定日期“日”部分整数</td>
+<td>SELECT  DAY(GETDATE())  返回：当前日期整数</td>
+</tr>
+</tbody>
+</table>
+<h5 id="查询：日期的应用"><a href="#查询：日期的应用" class="headerlink" title="查询：日期的应用"></a>查询：日期的应用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 获取当前时间 - getdate</div><div class="line">select getdate();</div><div class="line"></div><div class="line"></div><div class="line"># 返回指定的时间 - dateadd</div><div class="line">select dateadd(dd, 3, &apos;2017-01-31&apos;); </div><div class="line">	# datepart：yy/qq/mm/ww/dd/hh/mi/ss/ms ; </div><div class="line">	# num为正或为负；</div><div class="line">--dateadd()仅接受提取日期部分</div><div class="line"></div><div class="line"></div><div class="line"># 计算两个时间差 - datediff</div><div class="line">select datediff(dd,&apos;2016-06-01&apos;, &apos;2017-01-31&apos;); # yy/qq/mm/ww/dd/hh/mi/ss/ms</div><div class="line">--datediff(date_type,startdate , enddate)</div><div class="line"></div><div class="line"></div><div class="line"># 取出时间的某一部分 - datename/datepart</div><div class="line">select datename(dd, &apos;2017-01-31&apos;);  # datename 字符串形式</div><div class="line">select datepart(dd, &apos;2017-01-31&apos;);  # datepart 整数形式</div><div class="line"></div><div class="line"></div><div class="line"># 获取日期的年份/季度/月度/日期等 </div><div class="line">select year(getdate());  quarter/month/day</div><div class="line"></div><div class="line"></div><div class="line"># 返回针对指定开始日期的月份的最后一天 - Eomonth</div><div class="line">Select Eomonth(&apos;2016-02-32&apos;,1)  # 返回 2016-03-31</div><div class="line">--Eomonth(start_date, month_to_add)</div></pre></td></tr></table></figure>
+<h5 id="参考：日期缩写参考"><a href="#参考：日期缩写参考" class="headerlink" title="参考：日期缩写参考"></a>参考：日期缩写参考</h5><ul>
+<li>datediff / datename / datepart /dateadd</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>日期部分</th>
+<th>缩写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>year</strong></td>
+<td><strong>yy, yyyy</strong></td>
+</tr>
+<tr>
+<td><strong>quarter</strong></td>
+<td><strong>qq, q</strong></td>
+</tr>
+<tr>
+<td><strong>month</strong></td>
+<td><strong>mm, m</strong></td>
+</tr>
+<tr>
+<td><strong>dayofyear</strong></td>
+<td><strong>dy, y</strong>  #  查询date在当年是第多少天. 一年中的第几天；</td>
+</tr>
+<tr>
+<td><strong>day</strong></td>
+<td><strong>dd, d</strong></td>
+</tr>
+<tr>
+<td><strong>week</strong></td>
+<td><strong>wk, ww</strong>  # 查询date在当年中是第几周 / 以周为单位的间隔数</td>
+</tr>
+<tr>
+<td><strong>weekday</strong></td>
+<td><strong>dw  </strong># 一周中的第几天(星期几)</td>
+</tr>
+<tr>
+<td><strong>Hour</strong></td>
+<td><strong>hh</strong></td>
+</tr>
+<tr>
+<td><strong>minute</strong></td>
+<td><strong>mi, n</strong></td>
+</tr>
+<tr>
+<td><strong>second</strong></td>
+<td><strong>ss, s</strong></td>
+</tr>
+<tr>
+<td><strong>millisecond</strong></td>
+<td><strong>ms</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-4-字符串函数"><a href="#8-4-字符串函数" class="headerlink" title="8.4 字符串函数"></a>8.4 字符串函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能描述</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Len</td>
+<td>返回指定字符串的字符个数(而不是字节)，其中<strong>不包含尾随空格</strong></td>
+<td>SELECT  LEN(‘李丽然作者’)  返回:5</td>
+</tr>
+<tr>
+<td>Datelength</td>
+<td>返回指定字符串的字节数</td>
+<td>SELECT  DATALENGTH(‘中国人’)  返回：6</td>
+</tr>
+<tr>
+<td>UPPER</td>
+<td>将小写字符转换成大写字符</td>
+<td>SELECT  UPPER(‘book图书表’)  返回:BOOK图书表</td>
+</tr>
+<tr>
+<td>Ltrim</td>
+<td>返回去掉左侧空格的字符串</td>
+<td>SELECT  LTRIM(‘  Authors’)  返回:  Authors</td>
+</tr>
+<tr>
+<td>CHARINDEX</td>
+<td>查找一个指定的字符串在另一个字符串中的起始位置</td>
+<td>SELECT  CHARINDEX(‘L’, ‘HELLO’, 1)  返回:3</td>
+</tr>
+<tr>
+<td>LEFT</td>
+<td>返回字符串中从左边开指定个数的字符</td>
+<td>SELECT  LEFT(‘zhangsan’,  2)  返回:zh</td>
+</tr>
+<tr>
+<td>Substring</td>
+<td>返回字符串的一部分：从字符串串的起始位置连续取指定个数的子串</td>
+<td>SELECT  SUBSTRING(‘我爱我的家乡’,3,  2)  返回：我的</td>
+</tr>
+<tr>
+<td>Replace</td>
+<td>替换一个字符串中的字符</td>
+<td>SELECT  REPLACE(‘我爱我的家乡家乡’,  ‘家乡’,  ‘学校’)  返回:  我爱我的学校学校</td>
+</tr>
+<tr>
+<td>Stuff</td>
+<td>将一个字符中删除指定数量的字符，并插入另一个字符</td>
+<td></td>
+</tr>
+<tr>
+<td>Concat</td>
+<td>将多个字符串组合为单个字符串</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>使用字符串字面量时，通过输入两个单引号转化为一个单引号</p>
+<blockquote>
+<p>Replace(name, ‘’’’, ‘’) ; Life’’s Great! 被解释为 Life’s Great!</p>
+</blockquote>
+</blockquote>
+<h5 id="行数-amp-字符数"><a href="#行数-amp-字符数" class="headerlink" title="行数&amp;字符数"></a>行数&amp;字符数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 返回观测值的行数 - count </div><div class="line">SELECT COUNT(name) FROM my_contacts;</div><div class="line">--Count(*) 计算含空值的行数</div><div class="line">--Count(col) 计算不含空值的行数</div><div class="line"></div><div class="line"># 返回字符串的字符个数 - len</div><div class="line">SELECT LEN(&apos;中国人&apos;) ;  # 返回:3</div><div class="line"></div><div class="line"># 返回字符串的字节数 - datalength</div><div class="line">SELECT DATALENGTH(&apos;中国人&apos;);  # 返回：6</div></pre></td></tr></table></figure>
+<h5 id="去空格"><a href="#去空格" class="headerlink" title="去空格"></a>去空格</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 去空格 - ltrim / rtrim</div><div class="line">select ltrim(rtrim(&apos; &quot;左右都没有空格&quot;  &apos;));  # 左右去空格</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 生成空格 - space</div><div class="line">select space(2);  # 生成2个空格</div><div class="line"></div><div class="line">SELECT RTRIM(LastName) + &apos;,&apos; + SPACE(2) +  LTRIM(FirstName) FROM Person.Person</div><div class="line"># 剪裁姓氏，并将逗号、两个空格和 Person 中的 AdventureWorks2012 表列出的人员名字串联起来</div></pre></td></tr></table></figure>
+<h5 id="取子串"><a href="#取子串" class="headerlink" title="取子串"></a>取子串</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 取子串：特定位置 - substring</div><div class="line">select substring(name,1,2);  # 返回na;</div><div class="line"></div><div class="line"># 取子串：左/右 - left /right</div><div class="line">select left(ltrim( name), 3);  # 返回nam;</div></pre></td></tr></table></figure>
+<h5 id="返回特定位置"><a href="#返回特定位置" class="headerlink" title="返回特定位置"></a>返回特定位置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 返回位置：起始位置 - charindex</div><div class="line">select charindex(&apos;L&apos;, &apos;HELLO&apos;, 1);  # 返回:3; 1表示第一次出现</div><div class="line">--charindex(serach string, string ,starting position) ；第三个参数默认为1，可不写</div><div class="line"></div><div class="line"># 返回位置：表达式中某模式第一次出现的起始位置 - patindex</div><div class="line">patindex(&apos;%123%&apos;,&apos;abc123def&apos;);  # 返回4</div><div class="line">--允许通配符的使用</div></pre></td></tr></table></figure>
+<h5 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 替换 - replace</div><div class="line">select replace(&apos;abcdef&apos;,&apos;cde&apos;,&apos;xxx&apos;); 返回 abxxxf</div><div class="line"></div><div class="line"># 删除&amp;替换 - stuff()</div><div class="line">Select stuff(&apos;abcdef&apos;, 3, 2, &apos;123&apos;)  -- 返回ab123ef；从第三个位置开始删除2个字符，并插入123</div><div class="line">--stuff(string, insertion position, delete count, string inserted);</div></pre></td></tr></table></figure>
+<h5 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 合并为一个字符串 - concat()</div><div class="line">Select Concat(Null, &apos;Patrick &apos;, 1, &apos; LeBlacn&apos;)</div><div class="line">--隐式地将所有值转换为字符串，将空值转为空字符串</div></pre></td></tr></table></figure>
+<h5 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># 转换：大小写 - upper/lower</div><div class="line">select upper(&apos;abc&apos;);  # 返回 ABC</div><div class="line"></div><div class="line"># 转换：反转 - reverse</div><div class="line">select reverse(&apos;abc&apos;);  # 返回&apos;cba&apos;</div><div class="line"></div><div class="line"># 转换：字符形式 - char</div><div class="line">select char(213);</div><div class="line"></div><div class="line"># 转换：字符串形式 - str</div><div class="line">select str(123.45, 6,1);  # 把数值转换成字符串格式</div><div class="line">--返回123.5； 将123.45转为6个位置的字符串，数字的小数部分舍入为1为小数；</div><div class="line"></div><div class="line"># 转换：ascii码 - ascii</div><div class="line">select ascii(123) as &apos;123&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 格式的转换、显示 - convert : 将第2个参数转换为第1个参数所指定的类型 / 用不同的格式显示日期/时间数据。</div><div class="line">-- CONVERT (data_type[(length)], expression [, style]) ;</div><div class="line">-- [,style] 日期格式样式</div><div class="line"></div><div class="line">SELECT CONVERT(DateTime, &apos;2020-09-09&apos;);  # 返回: 2020-09-09 00:00:00.000</div><div class="line"></div><div class="line">SELECT CONVERT(varchar(5), 92.89);  # 返回：92.89</div><div class="line"></div><div class="line">SELECT CONVERT(varchar(11), GETDATE(), 121);  # 返回：2010-03-24</div><div class="line">常用日期格式：</div><div class="line">  - 23 ：日期格式 yy-mm-dd</div><div class="line">  - 111：日期格式 yy/mm/dd</div><div class="line">  - 120：日期格式 yyyy-mm-dd hh:mi:ss(24h)</div><div class="line">  - 121：日期格式 yyyy-mm-dd hh:mi:ss.mmm(24h)</div><div class="line"></div><div class="line">  - 105：日期格式 dd-mm-yy</div><div class="line">  - 110：日期格式 mm-dd-yy</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Data_type : INT / DECIMAL(10,2) / CHAR() / VARCHAR() / </p>
+</blockquote>
+<h3 id="8-6-数据类型转换函数"><a href="#8-6-数据类型转换函数" class="headerlink" title="8.6 数据类型转换函数"></a>8.6 数据类型转换函数</h3><h5 id="Cast"><a href="#Cast" class="headerlink" title="Cast( )"></a>Cast( )</h5><h5 id="Convert"><a href="#Convert" class="headerlink" title="Convert( )"></a>Convert( )</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 格式的转换、显示 - convert : 将第2个参数转换为第1个参数所指定的类型 / 用不同的格式显示日期/时间数据。</div><div class="line">-- CONVERT (data_type[(length)], expression [, style]) ;</div><div class="line">-- [,style] 日期格式样式</div><div class="line"></div><div class="line">SELECT CONVERT(DateTime, &apos;2020-09-09&apos;);  # 返回: 2020-09-09 00:00:00.000</div><div class="line"></div><div class="line">SELECT CONVERT(varchar(5), 92.89);  # 返回：92.89</div><div class="line"></div><div class="line">SELECT CONVERT(varchar(11), GETDATE(), 121);  # 返回：2010-03-24</div><div class="line">常用日期格式：</div><div class="line">  - 23 ：日期格式 yy-mm-dd</div><div class="line">  - 111：日期格式 yy/mm/dd</div><div class="line">  - 120：日期格式 yyyy-mm-dd hh:mi:ss(24h)</div><div class="line">  - 121：日期格式 yyyy-mm-dd hh:mi:ss.mmm(24h)</div><div class="line"></div><div class="line">  - 105：日期格式 dd-mm-yy</div><div class="line">  - 110：日期格式 mm-dd-yy</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Data_type : INT / DECIMAL(10,2) / CHAR() / VARCHAR() / </p>
+</blockquote>
+<p><strong>convert - style的参考值</strong></p>
+<ul>
+<li>一位或两位数字样式提供两位数的年份；<strong>3位数字样式提供4位数字的年份；</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>Style 格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100 或者 0</td>
+<td>mon dd yyyy hh:miAM （或者 PM）</td>
+</tr>
+<tr>
+<td>101</td>
+<td>mm/dd/yy</td>
+</tr>
+<tr>
+<td>102</td>
+<td>yy.mm.dd</td>
+</tr>
+<tr>
+<td>103</td>
+<td>dd/mm/yy</td>
+</tr>
+<tr>
+<td>104</td>
+<td>dd.mm.yy</td>
+</tr>
+<tr>
+<td>105</td>
+<td>dd-mm-yy</td>
+</tr>
+<tr>
+<td>106</td>
+<td>dd mon yy</td>
+</tr>
+<tr>
+<td>107</td>
+<td>Mon dd, yy</td>
+</tr>
+<tr>
+<td><strong>108</strong></td>
+<td>hh:mm:ss</td>
+</tr>
+<tr>
+<td>109 或者 9</td>
+<td>mon dd yyyy hh:mi:ss:mmmAM（或者 PM）</td>
+</tr>
+<tr>
+<td>110</td>
+<td>mm-dd-yy</td>
+</tr>
+<tr>
+<td><strong>111</strong></td>
+<td><strong>yy/mm/dd</strong></td>
+</tr>
+<tr>
+<td>112</td>
+<td>yymmdd</td>
+</tr>
+<tr>
+<td>113 或者 13</td>
+<td>dd mon yyyy hh:mm:ss:mmm(24h)</td>
+</tr>
+<tr>
+<td>114</td>
+<td>hh:mi:ss:mmm(24h)</td>
+</tr>
+<tr>
+<td><strong>120</strong> 或者 20</td>
+<td>yyyy-mm-dd hh:mi:ss(24h)</td>
+</tr>
+<tr>
+<td>121 或者 21</td>
+<td>yyyy-mm-dd hh:mi:ss.mmm(24h)</td>
+</tr>
+<tr>
+<td>126</td>
+<td>yyyy-mm-ddThh:mm:ss.mmm（没有空格）</td>
+</tr>
+<tr>
+<td>130</td>
+<td>dd mon yyyy hh:mi:ss:mmmAM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第9章-联接、子查询和CTE合并数据"><a href="#第9章-联接、子查询和CTE合并数据" class="headerlink" title="第9章 联接、子查询和CTE合并数据"></a>第9章 联接、子查询和CTE合并数据</h2><h3 id="9-1-使用联接"><a href="#9-1-使用联接" class="headerlink" title="9.1 使用联接"></a>9.1 使用联接</h3><ul>
+<li>what：将两个数据集相乘，并对结果进行限制。这样只返回两个数据集的交集。</li>
+<li>why  ：横向合并两个数据集，并通过匹配一个数据源的行与另一个数据源的行，从组合中产生新的数据集。</li>
+</ul>
+<blockquote>
+<p>当涉及多个联接时</p>
+<blockquote>
+<p>一定要用较小规模的数据对查询进行单元测试；</p>
+<p>并坚持使用左外联接</p>
+</blockquote>
+</blockquote>
+<h4 id="9-1-1-内联接"><a href="#9-1-1-内联接" class="headerlink" title="9.1.1 内联接"></a>9.1.1 内联接</h4><p><strong>Inner Join</strong></p>
+<ul>
+<li><p>在连接条件中使用等于号（=）运算符，其查询结果中列出被连接表中的所有列，<strong>包括其中的重复列</strong>。</p>
+</li>
+<li><p>在连接条件中使用除等于号之外运算符（&gt;、&lt;、&lt;&gt;、&gt;=、&lt;=、!&gt;和!&lt;）</p>
+</li>
+<li><p>多个数据源的联接（顺序并不重要）</p>
+<ul>
+<li>所要获得字段的表要写在最前面；即From之后；</li>
+<li>可实现A联接B，B联接C，C联接D；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Select cst.companyname, prod.name </div><div class="line">  From Customre As cst</div><div class="line">	Inner join salesorderhead As soh On cst.customerid = soh.customerid</div><div class="line">	Inner join salesorderdetail As sod On soh.salesorderid = sod.salesorderid</div><div class="line">	Inner join product As prod On sod.productid = prod.productid</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="9-1-2-外联接"><a href="#9-1-2-外联接" class="headerlink" title="9.1.2 外联接"></a>9.1.2 外联接</h4><ul>
+<li><p>what：以一个表为基准表，进行联接；</p>
+<ul>
+<li>若使用外联接，<strong>顺序非常重要</strong></li>
+</ul>
+</li>
+<li><p>how  ：无论是否匹配，外联接都包含所有数据</p>
+</li>
+<li><p>外联接中的条件设置（执行逻辑）</p>
+<ul>
+<li><strong>当条件位于Join子句中，先包括外表的所有行，然后用条件包括第二个表中的行</strong></li>
+<li><strong>当条件位于Where子句中，先执行联接，然后将条件应用于联接行</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 条件位于Join子句</div><div class="line">Select a.col, b.col </div><div class="line">  From table As a</div><div class="line">  Left join table2 As b </div><div class="line">	On a.id = b.id </div><div class="line">	And a.Lastname = &apos;Adams&apos;  --该条件限制的是第二个表中的行</div><div class="line">	[And a.Lastname = b.name]  --也可以再进行限制</div></pre></td></tr></table></figure>
+<p>–</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 条件位于Where子句</div><div class="line">Select a.col, b.col </div><div class="line">  From table As a</div><div class="line">	Left join table2 As b </div><div class="line">	   On a.id = b.id </div><div class="line">  Where a.Lastname = &apos;Adams&apos;   --该where条件是对联接后的表进行限制</div></pre></td></tr></table></figure>
+<p>  ​</p>
+<h4 id="9-1-4-交叉联接"><a href="#9-1-4-交叉联接" class="headerlink" title="9.1.4 交叉联接"></a>9.1.4 交叉联接</h4><p><strong>Cross Join</strong></p>
+<ul>
+<li>不带WHERE条件子句，它将会返回被连接的<strong>两个表的笛卡尔积</strong>，返回结果的<strong>行数等于两个表行数的乘积</strong><ul>
+<li>（例如：T_student和T_class，返回4*4=16条记录）</li>
+<li><strong>如果带where，返回或显示的是匹配的行数。</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="9-2-差集查询"><a href="#9-2-差集查询" class="headerlink" title="9.2 差集查询"></a>9.2 差集查询</h3><ul>
+<li>what：分析两个数据集之间相关性的查询；</li>
+<li>why  ：用于查找不存在或不匹配的数据</li>
+<li>how  ：一般需分两步来执行<ol>
+<li>联接</li>
+<li><strong>设置第二个数据集的主键为NULL</strong></li>
+</ol>
+</li>
+</ul>
+<h4 id="左差集查询"><a href="#左差集查询" class="headerlink" title="左差集查询"></a>左差集查询</h4><ul>
+<li>不在右表中的左表数据集；【可用Inner Join 中不等号为条件进行联接 &lt;&gt;】</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Select c.customerid, so.ordernumber </div><div class="line">  From customer As c</div><div class="line">  Left join salesorder As so On c.customerid = so.customerid</div><div class="line">  Where so.ordernumer Is Null;  --设置第二个表的主键为NULL</div></pre></td></tr></table></figure>
+<h4 id="全差集查询"><a href="#全差集查询" class="headerlink" title="全差集查询"></a>全差集查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Select c.customerid, so.ordernumber </div><div class="line">  From customer As c</div><div class="line">  Left join salesorder As so On c.customerid = so.customerid</div><div class="line">  Where so.customerid Is Null </div><div class="line">	or c.customerid Is Null </div><div class="line">--设置两个表的的主键为NULL</div></pre></td></tr></table></figure>
+<h3 id="9-3-使用联合"><a href="#9-3-使用联合" class="headerlink" title="9.3 使用联合"></a>9.3 使用联合</h3><h4 id="9-3-1-Union-All"><a href="#9-3-1-Union-All" class="headerlink" title="9.3.1 Union All"></a>9.3.1 Union All</h4><ol>
+<li>返回每个结果集中的所有行，且<strong>不考虑是否存在重复行</strong></li>
+<li>每个Select必须具有相同的数量、类型；</li>
+<li>列名或别名由第一个Select确定</li>
+<li>Order by子句放在最后，并且对所有结果进行排序，且列名必须是第一个Select语句中存在的</li>
+<li>可用Select Into，但Into必须放在第一个Select语句中</li>
+</ol>
+<h3 id="9-4-子查询"><a href="#9-4-子查询" class="headerlink" title="9.4 子查询"></a>9.4 子查询</h3><h4 id="9-4-1-简单子查询"><a href="#9-4-1-简单子查询" class="headerlink" title="9.4.1 简单子查询"></a>9.4.1 简单子查询</h4><ul>
+<li>what：子查询是独立运作的；</li>
+<li><p>how  ：运行逻辑</p>
+<ol>
+<li><strong>非相关子查询被执行一次</strong></li>
+<li><strong>结果传输到外查询</strong></li>
+<li><strong>外查询被执行一次</strong></li>
+</ol>
+<p>​</p>
+</li>
+</ul>
+<p><strong>公用表表达式</strong></p>
+<ul>
+<li>what：CTE (Comman Table Expression )；在单个 SELECT、INSERT、UPDATE、DELETE 或 CREATE VIEW 语句的执行范围内定义的临时结果集。</li>
+<li><p>why  ：确定<strong>查询结果可当做临时视图来使用；即后续的查询可以引用公共表表达式中的表及字段</strong>；</p>
+<ul>
+<li>CTE 与派生表类似，具体表现在<strong>不存储为对象，并且只在查询期间有效。</strong></li>
+<li>与派生表的不同之处在于，<strong>CTE 可自引用，还可在同一查询中引用多次。</strong></li>
+</ul>
+</li>
+<li>how  ：CTE使用With子句，而With子句定义了CTE；在With子句内分别是名称、别名、AS、括号、Select查询语句<ul>
+<li>CTE自身只是一个不完整的SQL语句</li>
+<li>一旦With子句中定义了CTE，<strong>查询的主要部分就可以使用其名称引用CTE</strong>；就像CTE是其他任何表源一样；</li>
+<li>若将多个CTE包含在相同的查询中，在主查询之前确定CTE的顺序，并用逗号分隔；并且后面的CTE可以引用在它之前定义的任何CTE</li>
+<li>CTE不能嵌套</li>
+</ul>
+</li>
+</ul>
+<p>With子句的表达式格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">With CTEname [Col Aliases]</div><div class="line">  As (Select ...From ...</div><div class="line">  )</div><div class="line"></div><div class="line">------------------------------------------------------</div><div class="line">With </div><div class="line">  CTEname1 (col names) As (Select) , </div><div class="line">  Ctename2 (col names) As (Select)</div><div class="line">Select ...</div><div class="line">  From CTEname1</div><div class="line">	Inner join CTEname2 On</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>嵌套子查询：子查询可以多个嵌套</strong></li>
+</ul>
+<h4 id="9-4-5-相关子查询"><a href="#9-4-5-相关子查询" class="headerlink" title="9.4.5 相关子查询"></a>9.4.5 相关子查询</h4><ul>
+<li>what：先执行外查询，相关子查询的运行要引用外查询中的列</li>
+<li>why  ：对于复杂的Where条件来说很有用</li>
+<li>how  ：执行逻辑<ol>
+<li><strong>先执行一次外查询</strong></li>
+<li><strong>在外查询中对每一行执行一次子查询，把外查询中的值取代为子查询的每一次执行</strong></li>
+<li>子查询的结果要整合到结果集中</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>子查询可出现在Select子句中，也可以出现在Where 子句中；</p>
+<p>判断是否为相关子查询的标准为是否引用了外查询中的列；</p>
+<blockquote>
+<p>没有引用外查询中的列，为非相关子查询；先于外查询运行</p>
+<p>引用了外查询中的列，为相关子查询，后于外查询运行</p>
+</blockquote>
+</blockquote>
+<h2 id="第10章-聚合、窗口化和排名数据"><a href="#第10章-聚合、窗口化和排名数据" class="headerlink" title="第10章 聚合、窗口化和排名数据"></a>第10章 聚合、窗口化和排名数据</h2><h3 id="10-1-聚合函数"><a href="#10-1-聚合函数" class="headerlink" title="10.1 聚合函数"></a>10.1 聚合函数</h3><p>聚合是在对From和Where子句筛选后的数据集进行聚合计算；即运营逻辑是在其之后执行</p>
+<h4 id="10-1-1-基本集合"><a href="#10-1-1-基本集合" class="headerlink" title="10.1.1 基本集合"></a>10.1.1 基本集合</h4><ul>
+<li>一旦查询包含了聚合函数，那么每一列必须参与到聚合函数中。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AVG</td>
+<td>平均值</td>
+</tr>
+<tr>
+<td>SUM</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>MAX/MIN</td>
+<td>求最大值/最小值</td>
+</tr>
+<tr>
+<td>COUNT</td>
+<td>计算非空单元格（ 返回 int 数据类型值）</td>
+</tr>
+<tr>
+<td>count_big</td>
+<td>计算非空单元格（返回 bigint 数据类型值）</td>
+</tr>
+<tr>
+<td>VAR</td>
+<td>方差    # 平方</td>
+</tr>
+<tr>
+<td>varp</td>
+<td><em>总体方差</em></td>
+</tr>
+<tr>
+<td>STDEV</td>
+<td>标准差</td>
+</tr>
+<tr>
+<td>stdevp</td>
+<td><em>总体标准差</em></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Count(*)，计数时也将NULL计入；<br>其他所有聚合函数，包括Count(col_name)的形式，计算时均已排除了NULL</p>
+<blockquote>
+<p>表a，观测值10行，其中2个NULL；<br>Count(*)   # 返回10；</p>
+<p>Count(列名)   # 返回8</p>
+</blockquote>
+<p>除非，可用 isnull() 函数进行转换，来计算；</p>
+<blockquote>
+<p>例如，对表a求平均值，若直接用avg() ，其分母为8；</p>
+<p>若想使得其分母变成10，应添加 case when isnull(col_name,0) then col_name else end</p>
+</blockquote>
+</blockquote>
+<h4 id="10-1-2-聚合、平均和空值"><a href="#10-1-2-聚合、平均和空值" class="headerlink" title="10.1.2 聚合、平均和空值"></a>10.1.2 聚合、平均和空值</h4><ol>
+<li>除Count(*)外，所有聚合函数忽略空值；</li>
+</ol>
+<p>avg( ) $\ge$  $sum( ) \over count(*)$</p>
+<ol>
+<li><p>Count(*)，计数时也将NULL计入；</p>
+<ul>
+<li>其他所有聚合函数，包括Count(col_name)的形式，计算时均已排除了NULL</li>
+</ul>
+<blockquote>
+<p> 表a，观测值10行，其中2个NULL；</p>
+<p> Count(*)   # 返回10；</p>
+<p> Count(列名)   # 返回8</p>
+</blockquote>
+</li>
+<li><p>除非，可用 isnull() 函数进行转换，来计算；</p>
+<blockquote>
+<p>例如，对表a求平均值，若直接用avg() ，其分母为8；</p>
+<p>若想使得其分母变成10，应添加 case when isnull(col_name,0) then col_name else end</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="10-2-集合中的分组"><a href="#10-2-集合中的分组" class="headerlink" title="10.2 集合中的分组"></a>10.2 集合中的分组</h3><ul>
+<li>Group by 会根据某一列的值将数据集自动分成子集。</li>
+<li>数据集被分成子组之后，聚合函数在每一个子组上执行。</li>
+<li><strong>对于Group by子句，空值NULL被认为是相等的，并被分组到单个结果行</strong></li>
+<li>Group by不局限于对列分组，也可以对<strong>表达式执行分组</strong>（但该表达式必须与Select中的相同）</li>
+</ul>
+<h4 id="10-2-2-分组集"><a href="#10-2-2-分组集" class="headerlink" title="10.2.2 分组集"></a>10.2.2 分组集</h4><ul>
+<li>对分组集来说，汇总行是每个子集中的每个唯一值组成的行</li>
+</ul>
+<h4 id="10-2-3-筛选已经分组的结果"><a href="#10-2-3-筛选已经分组的结果" class="headerlink" title="10.2.3 筛选已经分组的结果"></a>10.2.3 筛选已经分组的结果</h4><ul>
+<li>使用Having子句对已分组的结果进行筛选</li>
+</ul>
+<h3 id="10-3-窗口化和排名"><a href="#10-3-窗口化和排名" class="headerlink" title="10.3 窗口化和排名"></a>10.3 窗口化和排名</h3><h4 id="10-3-2-Over子句"><a href="#10-3-2-Over子句" class="headerlink" title="10.3.2 Over子句"></a>10.3.2 Over子句</h4><ul>
+<li>在窗口内<strong>分区：Partition by</strong><ul>
+<li>执行逻辑：先对查询结果进行排序，之后通过Partition by的列进行分区；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Sum(cola) Over(partition by col1 order by col2)</div><div class="line">--其他聚合函数：avg/max/min /count </div><div class="line"></div><div class="line"># 根据分组求和</div><div class="line">Over(Partition by col) --根据col1的分组对cola进行求和； [若同一组别有多个维度，则求和的值是相同的]</div><div class="line"></div><div class="line"># 根据排名求累计和</div><div class="line">Over(Order by col2)--根据col2的顺序对cola列累计求和； [若同一组有多个维度，求和的值是累加的]</div><div class="line"></div><div class="line"># 根据分组后的排名，求累积和</div><div class="line">Over(Partition by col1 order by col2) --根据Col1的分组进行排名得出Col2的次序，并按col2的次序对cola进行分组求和</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 移动平均</div><div class="line">CONVERT(varchar(20),AVG(SalesYTD) OVER (ORDER BY DATEPART(yy,ModifiedDate)),1) AS MovingAvg</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/S软件应用_SQL01.jpg" alt=""></p>
+<h3 id="10-4-排名函数"><a href="#10-4-排名函数" class="headerlink" title="10.4 排名函数"></a>10.4 排名函数</h3><ul>
+<li>Rank、Row_number、Dense_rank、Ntile</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 排名：无重复排名 - Row_number（组内连续的唯一的)</div><div class="line">row_number() over (order by col2);  # 对所有进行排名</div><div class="line">row_number() over (partition by col1 order by col2);  # 根据COL1分组，在分组内部根据 COL2排序</div><div class="line"></div><div class="line"></div><div class="line">-------------------------------------------------</div><div class="line">#　排名：有重复排名 - Rank （若出现字段值相同，序号一样，下一个跳过1位[排名是非连续的]）</div><div class="line">rank() over([partion by col1] order by col2); 对所有进行排名</div><div class="line"></div><div class="line">ProductID   Name                   LocationID   Quantity Rank  </div><div class="line">494         Paint - Silver         3            49       1  </div><div class="line">495         Paint - Blue           3            49       1  </div><div class="line">493         Paint - Red            3            41       3 </div><div class="line"></div><div class="line"></div><div class="line">-------------------------------------------------</div><div class="line"># 排名：有重复排名 - Dense_rank （若出现字段值相同，序号一样，后一个不跳过[排名是连续的]）</div><div class="line">dense_rank() over([partion by col1] order by col2)</div><div class="line"></div><div class="line">ProductID   Name                               LocationID Quantity Rank  </div><div class="line">494         Paint - Silver                     3          49       1  </div><div class="line">495         Paint - Blue                       3          49       1  </div><div class="line">493         Paint - Red                        3          41       2 </div><div class="line"></div><div class="line"></div><div class="line">-------------------------------------------------</div><div class="line"># 排名：对序号进行分组处理 - Ntile</div><div class="line">ntile (4) over ([partion by col1] order by col2);  # (4)表示分为4组</div></pre></td></tr></table></figure>
+<blockquote>
+<p>ntile函数的分组依据（约定）：</p>
+<p>　　首先系统会去检查能不能对所有满足条件的记录进行平均分组，若能则直接平均分配就完成分组了；若不能，则会先分出一个组，这个组分多少条记录呢？就是 （总记录数/总组数）+1 条，之所以分配 （总记录数/总组数）+1 条是因为当不能进行平均分组时，总记录数%总组数肯定是有余的，又因为分组约定1，所以先分出去的组需要+1条。</p>
+<p>　　分完之后系统会继续去比较余下的记录数和未分配的组数能不能进行平均分配，若能，则平均分配余下的记录；若不能，则再分出去一组，这个组的记录数也是（总记录数/总组数）+1条。</p>
+<p><strong>举个例子，将53条记录分配成5组，53%5 = 3不能平均分配，则将余数3平均分配到前3组 （余数 = 分配的组数），然后比较余下的 53-(11*3)=20 条记录能否平均分配给未分配的2组，能平均分配，则剩下的2组，每组各20/2=10 条记录，分配完成，分配结果为：11，11，11，10，10。</strong></p>
+</blockquote>
+<ul>
+<li>Offset &amp; Fetch ：完成分页</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Offset &amp; Fetch 必须结合使用</div><div class="line">Select ... From</div><div class="line">  Order by </div><div class="line">  Offset n rows  # 表示跳过n行</div><div class="line">  Fetch Next 20 rows only  # 表示返回之后的20行</div></pre></td></tr></table></figure>
+<h2 id="第11张-通过视图投影数据"><a href="#第11张-通过视图投影数据" class="headerlink" title="第11张 通过视图投影数据"></a>第11张 通过视图投影数据</h2><h3 id="11-2-基本视图"><a href="#11-2-基本视图" class="headerlink" title="11.2 基本视图"></a>11.2 基本视图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Create View schema.table</div><div class="line">As</div><div class="line">  Select</div></pre></td></tr></table></figure>
+<h2 id="第12章-在SQL-Server中修改数据"><a href="#第12章-在SQL-Server中修改数据" class="headerlink" title="第12章 在SQL Server中修改数据"></a>第12章 在SQL Server中修改数据</h2><h3 id="12-1-插入数据"><a href="#12-1-插入数据" class="headerlink" title="12.1 插入数据"></a>12.1 插入数据</h3><h4 id="12-1-1-插入简单的值行"><a href="#12-1-1-插入简单的值行" class="headerlink" title="12.1.1 插入简单的值行"></a>12.1.1 插入简单的值行</h4><ol>
+<li>把值插入到一个<strong>新行</strong>时，每个值对应一个插入列（一一对应），但表中列的顺序是无关紧要的；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Insert [Into] schema.table [ (colums, ...) ]</div><div class="line">  Values (value,...),</div><div class="line">	(value,...);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>虽然并不需要列出表中的每一行，但如果一列出现了，那么Insert命令必须有一个值；</strong>如果插入时省略了该列的值，则会在该列插入NULL</p>
+<blockquote>
+<p>若该列有一个默认约束，则插入默认值；</p>
+<p>若该列没有默认约束，且可以为NULL，则插入NULL</p>
+<p>若该列没有默认约束，且不可为NULL，则会报错</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>若要在<strong>标识列</strong>中插入数据，要使用<code>Set Identity_insert on / off</code>关键字</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Set Identity_insert dbo.address On</div><div class="line">  Insert Into dbo.address (AddreddID, Addressl, city, state, county)</div><div class="line">  Valuse(999, )</div><div class="line">Set Identity_insert dbo.address Off</div></pre></td></tr></table></figure>
+<h4 id="12-1-2-从Select语句中插入结果集"><a href="#12-1-2-从Select语句中插入结果集" class="headerlink" title="12.1.2 从Select语句中插入结果集"></a>12.1.2 从Select语句中插入结果集</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Insert [Into] schema.table [ (colums,...)]</div><div class="line">  Select columns From data [Where conditions];</div></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li><strong>schema.table 必须存在</strong></li>
+<li><strong>into schema.table中的列必须与之后Select中的列相同</strong></li>
+<li><strong>若schema.table中有5列，只选取其中3列插入，则其他2列的观测值对NULL</strong></li>
+</ol>
+</blockquote>
+<h4 id="12-1-3-从存储过程插入结果集"><a href="#12-1-3-从存储过程插入结果集" class="headerlink" title="12.1.3 从存储过程插入结果集"></a>12.1.3 从存储过程插入结果集</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Insert [Into] schema.table [ (colums,...)]</div><div class="line">  Execute storedprocedure;</div></pre></td></tr></table></figure>
+<h4 id="12-1-5-在插入数据时创建表"><a href="#12-1-5-在插入数据时创建表" class="headerlink" title="12.1.5 在插入数据时创建表"></a>12.1.5 在插入数据时创建表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Select colums </div><div class="line">  Into newtable From data [where conditions];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>若Select…Into 命令只从一个表中抽取数据，而Select语句不包含数据类型转换函数，那么表列和null设置保持原状的可能性很大；但键、约束和索引会丢失。</p>
+</blockquote>
+<h3 id="12-2-更新数据"><a href="#12-2-更新数据" class="headerlink" title="12.2 更新数据"></a>12.2 更新数据</h3><h4 id="12-2-1-更新单个表"><a href="#12-2-1-更新单个表" class="headerlink" title="12.2.1 更新单个表"></a>12.2.1 更新单个表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Update schema.table</div><div class="line">  Set column = expression,</div><div class="line">	column = value </div><div class="line">  /*[From data] SQL Server 特有的T-SQL扩展，用来进行联接；正常情况下应在where子句中创建子查询*/</div><div class="line">  [Where conditions];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Update 只能更新单个表</p>
+</blockquote>
+<h4 id="12-2-2-执行全局搜索与替代"><a href="#12-2-2-执行全局搜索与替代" class="headerlink" title="12.2.2 执行全局搜索与替代"></a>12.2.2 执行全局搜索与替代</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># replace(data, &apos;aaa&apos;, &apos;bbb&apos;)</div><div class="line"></div><div class="line">Update address</div><div class="line">  Set county = Replace(county, &apos;sun&apos;, &apos;dark&apos;)  -- 将county列中所有的sun替换为dark</div><div class="line">  Where county Like &apos;%shine&apos; ;</div></pre></td></tr></table></figure>
+<h4 id="12-2-3-更新数据时引用多个表"><a href="#12-2-3-更新数据时引用多个表" class="headerlink" title="12.2.3 更新数据时引用多个表"></a>12.2.3 更新数据时引用多个表</h4><h3 id="12-3-删除数据"><a href="#12-3-删除数据" class="headerlink" title="12.3 删除数据"></a>12.3 删除数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># delete</div><div class="line">Delete [From] schema.table</div><div class="line">  /*[From data] SQL Server 特有的T-SQL扩展，用来进行联接；正常情况下应在where子句中创建子查询*/</div><div class="line">  [Where conditions];</div><div class="line"></div><div class="line"># 删除所有行</div><div class="line">Delete From schema.table</div><div class="line">--不删除表的情况下删除所有的行。这意味着表的结构、属性和索引都是完整的：</div><div class="line"></div><div class="line"></div><div class="line">---------------------------------------------------------------------------------</div><div class="line"># 删除所有行 - truncate</div><div class="line">Truncate Table dbo.address</div></pre></td></tr></table></figure>
+<h4 id="truncate-、delete与drop区别"><a href="#truncate-、delete与drop区别" class="headerlink" title="truncate 、delete与drop区别"></a><strong>truncate 、delete与drop区别</strong></h4><ul>
+<li><strong>相同点</strong></li>
+</ul>
+<ol>
+<li>truncate和不带where子句的delete、以及drop都会删除表内的数据drop、truncate都是DDL语句(数据定义语言)，执行后会自动提交。Delete是DML语句(数据库操作语言)</li>
+</ol>
+<ul>
+<li><strong>不同点</strong></li>
+</ul>
+<ol>
+<li><p><strong>truncate 和 delete</strong> 只删除数据<strong>不删除表的结构(定义)</strong>；<strong>drop 语句将删除表的结构</strong>被依赖的约束(constrain)、触发器(trigger)、索引(index)；依赖于该表的存储过程/函数将保留,但是变为 invalid 状态。</p>
+</li>
+<li><p>delete 语句是数据库操作语言(dml)，这个操作会放到 rollback segement 中，事务提交之后才生效；如果有相应的 trigger，执行的时候将被触发。<strong>truncate、drop 是数据库定义语言(ddl)，操作立即生效，原数据不放到 rollback segment 中，不能回滚，操作不触发 trigger。</strong></p>
+</li>
+<li><p>delete 语句不影响表所占用的 extent，高水线(high watermark)保持原位置不动。drop 语句将表所占用的空间全部释放。truncate 语句缺省情况下见空间释放到 minextents个 extent，除非使用reuse storage；truncate 会将高水线复位(回到最开始)。</p>
+</li>
+<li><p><strong>速度：drop&gt; truncate &gt; delete</strong></p>
+<ul>
+<li>TRUNCATE TABLE在功能上与不带WHERE子句的DELETE语句相同：二者均删除表中的全部行。但TRUNCATE  TABLE   比DELETE速度快，且使用的系统和事务日志资源少。DELETE   语句每次删除一行，并在事务日志中为所删除的每行记录一项。TRUNCATE   TABLE   通过释放存储表数据所用的数据页来删除数据，并且只在事务日志中记录页的释放。</li>
+</ul>
+</li>
+<li><p>安全性：</p>
+<ul>
+<li><p><strong>想保留表而将所有数据删除，如果和事务无关，用truncate即可。如果和事务有关,或者想触发trigger,还是用delete。</strong></p>
+</li>
+<li><p><strong>小心使用 drop 和 truncate，尤其没有备份的时候</strong></p>
+</li>
+<li>使用上，想删除部分数据行用 delete，注意带上where子句. 回滚段要足够大</li>
+<li>想删除表,当然用 drop</li>
+</ul>
+</li>
+<li><p>对于由FOREIGN   KEY 约束引用的表，不能使用TRUNCATE  TABLE，而应使用不带WHER 子句的DELETE语句。由于   TRUNCATE   TABLE不记录在日志中，所以它不能激活触发器。</p>
+</li>
+<li><p>TRUNCATE   TABLE不能用于参与了索引视图的表。  </p>
+</li>
+</ol>
+<h4 id="12-3-2-级联删除"><a href="#12-3-2-级联删除" class="headerlink" title="12.3.2 级联删除"></a>12.3.2 级联删除</h4><ul>
+<li>引用完整性（RI）指的是任何辅助行外键都都不能指向主行主键，除非主行缺失存在。</li>
+<li>如果一个外键值在某个地方指向了主键，删除主键就会失败（除非先删除指向主键的外键）</li>
+</ul>
+<h3 id="12-4-合并数据"><a href="#12-4-合并数据" class="headerlink" title="12.4 合并数据"></a>12.4 合并数据</h3><ul>
+<li>Meger语句。使用 MERGE 语句在一条语句中执行插入、更新或删除操作。<ul>
+<li><strong>有条件地在目标表中插入或更新行。</strong><ul>
+<li><strong>如果目标表中存在相应行，则更新一个或多个列；否则，会将数据插入新行。</strong></li>
+</ul>
+</li>
+<li><strong>同步两个表。</strong>根据<strong>与源数据的差别在目标表中插入、更新或删除行。</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Meger flightpassengers As f         -- MERGE 子句用于指定作为插入、更新或删除操作目标的表或视图</div><div class="line">  Using checkin as c                --USING 子句用于指定要与目标联接的数据源</div><div class="line">	On c.lastname = f.lastname      --ON 子句用于指定决定目标与源的匹配位置的联接条件</div><div class="line">	And c.firstname = f.firstname</div><div class="line">	And c.flightcode = f.flightcode</div><div class="line">	And c.flightdate = f.flightdate</div><div class="line">  When Matched </div><div class="line">	Then Update Set f.seat = c.seat</div><div class="line">  When Not Matched By Target        --当Soucre表与Target表（基准表）不匹配时，对Target表进行操作</div><div class="line">	Then Insert (Firsrname, Lastname, Flightcode, flightdate, seat)</div><div class="line">  When Not Matched By Source        --当Target表与Soucre表（基准表）不匹配时，对Target表进行操作【相同】</div><div class="line">	Then Delete;</div><div class="line"></div><div class="line">--WHEN 子句（WHEN MATCHED、WHEN NOT MATCHED BY TARGET 和 WHEN NOT MATCHED BY SOURCE）基于 ON 子句的结果和在 WHEN 子句中指定的任何其他搜索条件指定所要采取的操作。</div><div class="line">--OUTPUT 子句针对插入、更新或删除的目标中的每一行返回一行。</div><div class="line"></div><div class="line">--必须由分号进行终止</div><div class="line">--必须是一对一匹配；一对多匹配是不允许的</div><div class="line">--联接条件必须是确定性的，也就是可重复的</div></pre></td></tr></table></figure>
+<h3 id="12-5-返回修改后的数据"><a href="#12-5-返回修改后的数据" class="headerlink" title="12.5 返回修改后的数据"></a>12.5 返回修改后的数据</h3><ul>
+<li>Output子句可以访问<strong>插入的和删除的虚拟表，</strong>以及任何在From自引用的数据源来选择要返回的数据。</li>
+</ul>
+<blockquote>
+<p>Output子句有一个较为高级的应用，可以把输出数据传输到外查询。</p>
+</blockquote>
+<h4 id="12-5-1-从插入返回数据"><a href="#12-5-1-从插入返回数据" class="headerlink" title="12.5.1 从插入返回数据"></a>12.5.1 从插入返回数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Insert Into personlist</div><div class="line">  Output Inserted.*    -- Inserted.</div><div class="line">  Valuse(7777, &apos;Jane&apos;, &apos;Doe&apos;);</div></pre></td></tr></table></figure>
+<h4 id="12-5-2-从更新返回数据"><a href="#12-5-2-从更新返回数据" class="headerlink" title="12.5.2 从更新返回数据"></a>12.5.2 从更新返回数据</h4><ul>
+<li>可同时返回更新前、更新后的数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Update personlist</div><div class="line">  Set firstname = &apos;Jane&apos;, Lastname = &quot;Doe&quot;</div><div class="line">  Output Deleted.firstname oldfirstname, Deleted.lastname oldflastname,  --Deleted.column oldcolumn</div><div class="line">         Inserted.firstname newfirstname, Inserted.lastname newlastname</div><div class="line">  Where businessentityID = 7777</div></pre></td></tr></table></figure>
+<h4 id="12-5-3-从删除返回数据"><a href="#12-5-3-从删除返回数据" class="headerlink" title="12.5.3 从删除返回数据"></a>12.5.3 从删除返回数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Delete From personlist</div><div class="line">  Output Deleted.*</div><div class="line">  Where ...</div></pre></td></tr></table></figure>
+<h4 id="12-5-4-从合并返回数据"><a href="#12-5-4-从合并返回数据" class="headerlink" title="12.5.4 从合并返回数据"></a>12.5.4 从合并返回数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">  Output deleted.column, deleted.column,</div><div class="line">         $action,                             -- 显示数据库操作的行为（为Insert、Delete、Update)</div><div class="line">		inserted.column, inserted.column ;</div></pre></td></tr></table></figure>
+<h4 id="12-5-5-把数据库返回到表中"><a href="#12-5-5-把数据库返回到表中" class="headerlink" title="12.5.5 把数据库返回到表中"></a>12.5.5 把数据库返回到表中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Declare @Deletedperson Table(</div><div class="line">  businessentityID Int Not Null Primary Key,</div><div class="line">  lastname Varchar(50) Not Null,</div><div class="line">  firstname Varchar(50) Not Null</div><div class="line">)</div><div class="line"></div><div class="line">Delete dbo.personlist</div><div class="line">  Output Deleted.colunm, Deleted.column</div><div class="line">  Into @Deletedperson</div><div class="line">  Where bussinessentityID = 2;</div></pre></td></tr></table></figure>
+<h1 id="第三部分-高级T-SQL数据类型和查询技术"><a href="#第三部分-高级T-SQL数据类型和查询技术" class="headerlink" title="第三部分 高级T-SQL数据类型和查询技术"></a>第三部分 高级T-SQL数据类型和查询技术</h1><h1 id="第四部分-使用T-SQL编程"><a href="#第四部分-使用T-SQL编程" class="headerlink" title="第四部分 使用T-SQL编程"></a>第四部分 使用T-SQL编程</h1><h2 id="第16章-使用T-SQL编程"><a href="#第16章-使用T-SQL编程" class="headerlink" title="第16章 使用T-SQL编程"></a>第16章 使用T-SQL编程</h2><h3 id="16-1-T-SQL批处理"><a href="#16-1-T-SQL批处理" class="headerlink" title="16.1 T-SQL批处理"></a>16.1 T-SQL批处理</h3><h4 id="16-1-1-T-SQL批处理"><a href="#16-1-1-T-SQL批处理" class="headerlink" title="16.1.1 T-SQL批处理"></a>16.1.1 T-SQL批处理</h4><ol>
+<li><p>终止批处理：批处理分隔关键字是<strong>GO</strong>。批处理关键字必须是这一行的唯一关键字；</p>
+<ul>
+<li>关键字GO之后可添加一个注释</li>
+</ul>
+</li>
+<li><p>切换数据库：把USE命令插入到批处理中</p>
+<p>​</p>
+</li>
+</ol>
+<h4 id="16-1-2-T-SQL格式化"><a href="#16-1-2-T-SQL格式化" class="headerlink" title="16.1.2 T-SQL格式化"></a>16.1.2 T-SQL格式化</h4><ol>
+<li>语句终止：在每个命令的末尾放置一个分号（；）<ul>
+<li><strong>在CTE前面必须要放一个分号</strong>（当CTE不是批处理的第一条语句时）</li>
+<li>不要把分号放在If 或者 While 条件之后</li>
+<li>不要把分号缝在 End Try 之后</li>
+<li>语句终止符必须跟在Meger之后</li>
+</ul>
+</li>
+</ol>
+<h3 id="16-2-操作变量"><a href="#16-2-操作变量" class="headerlink" title="16.2 操作变量"></a>16.2 操作变量</h3><h4 id="16-2-1-变量默认值和作用域"><a href="#16-2-1-变量默认值和作用域" class="headerlink" title="16.2.1 变量默认值和作用域"></a>16.2.1 变量默认值和作用域</h4><ol>
+<li>T-SQL变量使用 Declare创建；<ul>
+<li>Declare变量跟 <strong>变量名</strong> 和 <strong>数据类型</strong>，并用<strong>分号</strong>结尾；</li>
+<li>多个<strong>逗号</strong>隔开的变量可以用单个Declare 声明</li>
+<li><strong>变量赋值用分号</strong>隔开；</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Declare @test Int, @testtwo Varchar(20) ;</div><div class="line">Set @test = 1 ;</div><div class="line">Set @testtwo = &apos;a value&apos; ;</div></pre></td></tr></table></figure>
+<h4 id="16-2-2-使用Set-和-Select-命令"><a href="#16-2-2-使用Set-和-Select-命令" class="headerlink" title="16.2.2 使用Set  和 Select 命令"></a>16.2.2 使用Set  和 Select 命令</h4><ol>
+<li>Set 与 Select 对比</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Set</strong></td>
+<td><strong>限制在从表达式中检索数据；</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>一次只能设置一个变量</strong></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Select</strong></td>
+<td>可从<strong>数据源</strong>中检所数据，还可<strong>包括其他Select子句</strong>(From、Where等）；可使用函数</td>
+</tr>
+<tr>
+<td></td>
+<td>一次课设置<strong>多个变量</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Set命令可以使用访问数据源的标量子查询（一个变量）</strong></p>
+<blockquote>
+<p><strong>如果你希望在确保没有行的情况下将变量设置为NULL，以及在不止一行的情况下获得一个错误，这是最佳做法；</strong></p>
+</blockquote>
+<p><strong>Select 命令在检索多行时，只会将最后一行的值存储在变量中</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Use adventureworks2012</div><div class="line">GO</div><div class="line"></div><div class="line">Declare @productID Int, @producename varchar(25);</div><div class="line"></div><div class="line">Set @productID = 782;  --声明一个变量</div><div class="line"></div><div class="line">Select </div><div class="line">	@productID = productID,  -- 声明多个变量；</div><div class="line">	@productname = @productID + name --声明变量可叠加使用</div><div class="line">  From production.product</div><div class="line">  Order by productID;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Select 声明，即将 @var = value 作为一个整体，当做Select查询中的列去看待即可</strong></p>
+<p><strong>声明变量可叠加使用</strong></p>
+</blockquote>
+<ul>
+<li><strong>如果Select语句没有返回行，Select语句不会影响变量</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">GO</div><div class="line">Declare @productID Int, @producename varchar(25);</div><div class="line"></div><div class="line">Set @productID = 999;</div><div class="line"></div><div class="line">Select </div><div class="line">	@productID = productID,  -- 声明多个变量；</div><div class="line">	@productname = @productID + name --声明变量可叠加使用</div><div class="line">  From production.product</div><div class="line">  Where productID = 1000;  -- 由于ProductID 没有1000，故ProductID仍未NULL</div></pre></td></tr></table></figure>
+<h4 id="16-2-3-增量变量"><a href="#16-2-3-增量变量" class="headerlink" title="16.2.3 增量变量"></a>16.2.3 增量变量</h4><ul>
+<li>声明变量的赋值可以直接用等号（=）联接</li>
+<li>可以叠加使用，并且可使用算术运算符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Declare @x int = 1;  -- 直接用等号赋值</div><div class="line"></div><div class="line">Set @x = @x +5 --可进行算术运算</div></pre></td></tr></table></figure>
+<h4 id="16-2-4-条件选择"><a href="#16-2-4-条件选择" class="headerlink" title="16.2.4 条件选择"></a>16.2.4 条件选择</h4><ul>
+<li>在Select语句中运用 Where子句，进行条件选择</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Select @var = expression Where BooleanExpression;</div></pre></td></tr></table></figure>
+<h4 id="16-2-5-在SQL查询中使用变量"><a href="#16-2-5-在SQL查询中使用变量" class="headerlink" title="16.2.5 在SQL查询中使用变量"></a>16.2.5 在SQL查询中使用变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Declare @productID int = 999;</div><div class="line"></div><div class="line">Select name From production.product</div><div class="line">  Where productID = @porductID;</div></pre></td></tr></table></figure>
+<h3 id="16-3-过程流"><a href="#16-3-过程流" class="headerlink" title="16.3 过程流"></a>16.3 过程流</h3><h4 id="16-3-1-使用条件T-SQL的If命令"><a href="#16-3-1-使用条件T-SQL的If命令" class="headerlink" title="16.3.1 使用条件T-SQL的If命令"></a>16.3.1 使用条件T-SQL的If命令</h4><ul>
+<li><strong>一个if，一个命令的执行</strong>；并且<strong>没有Then和End来终止if命令；</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">If condition </div><div class="line">Statement;</div><div class="line"></div><div class="line">----------------------------------</div><div class="line">If 1=0</div><div class="line">Print &apos;Line one&apos;;</div><div class="line">Print &apos;Line two&apos;;</div><div class="line"></div><div class="line">--结果返回Line two；</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>if语句之后没有分号</strong>； if语句实际上是后面语句的提前；</p>
+</blockquote>
+<ol>
+<li><strong>使用Begin / End 有条件地执行多条语句</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">If condition </div><div class="line">  Begin;</div><div class="line">	Multipie Line;</div><div class="line">  End;  --每个都有分号</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>使用If Exists()作为基于存在性的条件</strong></li>
+</ol>
+<ul>
+<li>If Exists() 结构使用从SQL Select语句<strong>返回的每一行作为条件。</strong><ul>
+<li>因为If Exists() 结构会查找每一行，所以Select语句应当选择所有的列。一<strong>旦一个单行满足了If Exists()，查询就会继续执行</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">If Exists</div><div class="line">  (Select * From production.product Where quantity = 0)</div><div class="line">  Begin;</div><div class="line">	Print &apos;Relpenish Inventory&apos;;</div><div class="line">  End;</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>使用If / Else 执行替换语句</strong><ul>
+<li>可选的Else定义了if条件为False时的执行代码；Else可控制<strong>下一个单个命令，后者Begin/End块</strong></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">If condition</div><div class="line"> 	 Single line or Begin/End block of code;</div><div class="line">  Else</div><div class="line">	Single line or Begin/End block of code;</div></pre></td></tr></table></figure>
+<h4 id="16-3-2-使用While循环"><a href="#16-3-2-使用While循环" class="headerlink" title="16.3.2 使用While循环"></a>16.3.2 使用While循环</h4><ul>
+<li>what ：当<strong>条件为ture时循环代码</strong>；</li>
+</ul>
+<h3 id="16-5-临时表和表变量"><a href="#16-5-临时表和表变量" class="headerlink" title="16.5 临时表和表变量"></a>16.5 临时表和表变量</h3><h4 id="临时表"><a href="#临时表" class="headerlink" title="临时表"></a>临时表</h4><table>
+<thead>
+<tr>
+<th>对象</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本地</strong>临时表</td>
+<td>使用# 进行创建</td>
+</tr>
+<tr>
+<td></td>
+<td>关闭<strong>当前会话窗口</strong>时就会消失</td>
+</tr>
+<tr>
+<td><strong>全局</strong>临时表</td>
+<td>使用## 进行创建</td>
+</tr>
+<tr>
+<td></td>
+<td>关闭<strong>SQL Management的最后一个会话窗口</strong>(即关闭软件)时就会消失</td>
+</tr>
+</tbody>
+</table>
+<h4 id="表变量"><a href="#表变量" class="headerlink" title="表变量"></a>表变量</h4><ul>
+<li>使用<strong>@</strong>进行创建；</li>
+<li><strong>当批处理、过程或函数结束后，表变量就不存在了</strong>。</li>
+</ul>
+<blockquote>
+<p><strong>临时表与表变量的区别</strong></p>
+<ol>
+<li>两者都存储在tempdb中；只不过表变量存储在内存中的tenpdb页面中</li>
+<li><strong>表变量没有统计函数的功能</strong></li>
+<li><strong>若临时空间 $\ge$ 250行，那就使用临时表</strong></li>
+</ol>
+</blockquote>
+<h2 id="第17章-存储过程的开发"><a href="#第17章-存储过程的开发" class="headerlink" title="第17章 存储过程的开发"></a>第17章 存储过程的开发</h2><p><strong>存储过程的优势</strong></p>
+<ul>
+<li><strong>一致性。</strong>存储过程封装一条/多条T-SQL语句，可在系统的不同区域内一致地执行</li>
+<li><strong>可维护性。</strong>它们是模块化的，并且独立于调用它们的应用程序。</li>
+<li><strong>安全性。</strong>在两个前端提供优势：数据库、应用程序。<ul>
+<li>从数据的角度：存储过程是对象。意味着向特定用户或组授予执行该存储过程的能力。</li>
+<li>从应用程序的角度：存储过程让用户有机会再执行T-SQL过程之前验证输入</li>
+</ul>
+</li>
+<li><strong>性能。</strong>存错过程执行是服务器端的进程。意味着无论多复杂，在网络上也只会发送一条语句。</li>
+</ul>
+<h3 id="17-1-管理存储过程"><a href="#17-1-管理存储过程" class="headerlink" title="17.1 管理存储过程"></a>17.1 管理存储过程</h3><h4 id="17-1-1-创建、更改和删除存储过程"><a href="#17-1-1-创建、更改和删除存储过程" class="headerlink" title="17.1.1 创建、更改和删除存储过程"></a>17.1.1 创建、更改和删除存储过程</h4><ol>
+<li><strong>Create</strong><ul>
+<li>Create命令必须是批处理语句中的第一条。批处理的终止就结束了存储过程的定义。<ul>
+<li><strong>在Create Procedure 和下一个批处理终止符(GO)之间的所有内容都被视为存储过程定义的一部分</strong></li>
+</ul>
+</li>
+<li>创建存储过程时始终使用两部分的命名约定：schema.objectname。确保将存储过程添加到适当的框架中</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">GO</div><div class="line">Create Procedure sales.information</div><div class="line">  As</div><div class="line">  Select currencycode, name From sales.currency;</div><div class="line">GO</div></pre></td></tr></table></figure>
+<blockquote>
+<p>其他命令：Alter / Drop </p>
+</blockquote>
+<h4 id="17-1-4-执行存储过程"><a href="#17-1-4-执行存储过程" class="headerlink" title="17.1.4 执行存储过程"></a>17.1.4 执行存储过程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Execute sales.information;</div><div class="line">Exec sales.information;</div></pre></td></tr></table></figure>
+<h3 id="17-2-把数据传递到存储过程"><a href="#17-2-把数据传递到存储过程" class="headerlink" title="17.2 把数据传递到存储过程"></a>17.2 把数据传递到存储过程</h3><ul>
+<li>存储过程的<strong>参数化</strong>特征使其成为<strong>代码重用</strong>的重要特征；</li>
+<li>调用存储过程时，必须<strong>为每个已定义的参数提供数值。</strong></li>
+</ul>
+<h4 id="17-2-1-输入参数"><a href="#17-2-1-输入参数" class="headerlink" title="17.2.1 输入参数"></a>17.2.1 输入参数</h4><ol>
+<li><strong>指定参数值: 通过命名参数值</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Create Proc sales.information </div><div class="line">	@currencycode char(3)</div><div class="line">  AS</div><div class="line">	Select currencycode, name From sales.currency</div><div class="line">	Where currencycode = @currencycode;</div><div class="line">GO</div><div class="line">Execute sales.information @currencycode = &apos;USD&apos;</div><div class="line">GO</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>参数默认值</strong>：只需在输入参数信息后面添加 <em>=”default value”</em> </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">GO</div><div class="line">Alter Procedure sales.information</div><div class="line">	@currencycode char(3) = &apos;USD&apos;</div><div class="line">  AS</div><div class="line">	Select currencycode, name From sales.currency</div><div class="line">	Where currencycode = @currencycode;</div><div class="line">GO</div><div class="line">Execute sales.information @currencycode = Default;</div><div class="line">Execute sales.information Default --效果同上</div></pre></td></tr></table></figure>
+<ol>
+<li>通过列表与表作为存储过程的参数输入</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Go</div><div class="line">Create Proc sales.rate</div><div class="line">  @rateIDlist varchar(50)</div><div class="line">AS</div><div class="line">Declare @</div></pre></td></tr></table></figure>
+<h3 id="17-3-从储存过程中返回数据"><a href="#17-3-从储存过程中返回数据" class="headerlink" title="17.3 从储存过程中返回数据"></a>17.3 从储存过程中返回数据</h3><ul>
+<li><strong>输出参数：</strong>使用输出变量可以从存储过程返回<strong>标量函数</strong>；</li>
+<li><strong>Return：</strong>使用Return语句可以从存储过程返回<strong>单个整数值</strong>；</li>
+<li><strong>结果集</strong>：存储过程可以通过一个或多个<strong>Select语句</strong>返回数据</li>
+</ul>
+<h4 id="17-3-1-输出参数"><a href="#17-3-1-输出参数" class="headerlink" title="17.3.1 输出参数"></a>17.3.1 输出参数</h4><ul>
+<li><p>输出参数：能使存储过程把数据返回到主调应用程序。在创建和调用过程都需要<strong>关键字Output</strong>。</p>
+<ul>
+<li>在存储过程内，输出参数是一个局部变量，就像输入参数一样。</li>
+<li>但实际上输出参数是双向参数。当存储过程终止时，其当前值要传输到主调应用程序。</li>
+</ul>
+<p>​</p>
+</li>
+</ul>
+<p>在主调用程序的过程中，必须<strong>创建局部变量来接收输出参数的值</strong>。</p>
+<ol>
+<li><strong>创建带有输出参数</strong>@currencyname的存储过程sales.currencyname</li>
+<li><strong>声明局部变量</strong>@currencynameoutput <strong>（输入函数）</strong>以<strong>接收输出参数</strong></li>
+<li>执行存储过程，<strong>为输出参数</strong>@currencyname<strong>赋予@currencynameoutput （输入函数）的值，</strong>该值在局部变量初始化之前为NULL</li>
+<li>在执行存储过程期间，基于出入参数后@currencycode的值，<strong>通过Select语句为输出参数赋值</strong>。</li>
+<li>存储过程完毕，而且执行要传递回SSMS。局部变量@currencycodeoutput接收输出参数的值</li>
+<li>Print命令把该局部变量的值发送到SSMS的message选项卡</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">GO</div><div class="line">Create Proc sales.currencyname</div><div class="line">  @currencycode Char(3),#</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件应用/" rel="tag"># 软件应用</a>
+          
+            <a href="/tags/程序编程/" rel="tag"># 程序编程</a>
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/20/软件应用_程序编程/R/document/R_统计分析/" rel="next" title="R语言_统计分析">
+                <i class="fa fa-chevron-left"></i> R语言_统计分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/23/软件应用_程序编程/SQL/SQL-Server/SQL-Server_性能优化/" rel="prev" title="SQL Server_性能优化">
+                SQL Server_性能优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一部分-入门"><span class="nav-number">1.</span> <span class="nav-text">第一部分 入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-数据架构"><span class="nav-number">1.1.</span> <span class="nav-text">第2章 数据架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-数据库目标"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.2 数据库目标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OLTP"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">OLTP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ETL"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">ETL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-智能数据库设计"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.3 智能数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#物理架构"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">物理架构</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二部分-建立数据库和处理数据"><span class="nav-number">2.</span> <span class="nav-text">第二部分 建立数据库和处理数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第6章-基本的查询流"><span class="nav-number">2.1.</span> <span class="nav-text">第6章 基本的查询流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-查询流"><span class="nav-number">2.1.1.</span> <span class="nav-text">6.1 查询流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-1-Select-语法"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">6.1.1 Select 语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-3-查询语句的逻辑流"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">6.1.3 查询语句的逻辑流</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-From子句"><span class="nav-number">2.1.2.</span> <span class="nav-text">6.2 From子句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-3-表名称"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">6.2.3 表名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-4-完全限定的名称"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">6.2.4 完全限定的名称</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-Where条件"><span class="nav-number">2.1.3.</span> <span class="nav-text">6.3 Where条件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-Between-And"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">6.3.1 Between And</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-2-与列比较"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">6.3.2 与列比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-3-使用Like搜索条件"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">6.3.3 使用Like搜索条件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-列、星号、别名和表达式"><span class="nav-number">2.1.4.</span> <span class="nav-text">6.4 列、星号、别名和表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-2-别名"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">6.4.2 别名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-结果集排序"><span class="nav-number">2.1.5.</span> <span class="nav-text">6.5 结果集排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-1-通过列名称来指定顺序"><span class="nav-number">2.1.5.1.</span> <span class="nav-text">6.5.1 通过列名称来指定顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-2-使用表达式来指定顺序"><span class="nav-number">2.1.5.2.</span> <span class="nav-text">6.5.2 使用表达式来指定顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-3-使用列别名指定顺序"><span class="nav-number">2.1.5.3.</span> <span class="nav-text">6.5.3 使用列别名指定顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-4-使用列的顺序位置来进行排序-（若改变了选择的列，则列的位置顺序会发生更改）"><span class="nav-number">2.1.5.4.</span> <span class="nav-text">6.5.4 使用列的顺序位置来进行排序 （若改变了选择的列，则列的位置顺序会发生更改）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-Select-Distinc"><span class="nav-number">2.1.6.</span> <span class="nav-text">6.6 Select Distinc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-Top-谓词"><span class="nav-number">2.1.7.</span> <span class="nav-text">6.7 Top( ) 谓词</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-2-随机行选择"><span class="nav-number">2.1.7.1.</span> <span class="nav-text">6.7.2 随机行选择</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第7章-关系数据库设计和创建物理数据库架构"><span class="nav-number">2.2.</span> <span class="nav-text">第7章 关系数据库设计和创建物理数据库架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-数据库基础知识"><span class="nav-number">2.2.1.</span> <span class="nav-text">7.1 数据库基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-2-表、行和列"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">7.1.2 表、行和列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-3-数据库设计阶段"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">7.1.3 数据库设计阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-5-三个“一规则”"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">7.1.5 三个“一规则”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-8-主键"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">7.1.8 主键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-9-外键"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">7.1.9 外键</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-数据库设计模式"><span class="nav-number">2.2.2.</span> <span class="nav-text">7.2 数据库设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-3-多对多模式"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">7.2.3 多对多模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-范式"><span class="nav-number">2.2.3.</span> <span class="nav-text">7.3 范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一范式（1NF）"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">第一范式（1NF）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二范式（2NF）"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">第二范式（2NF）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三范式（3NF）"><span class="nav-number">2.2.3.3.</span> <span class="nav-text">第三范式（3NF）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第8章-数据类型、表达式和标量函数"><span class="nav-number">2.3.</span> <span class="nav-text">第8章 数据类型、表达式和标量函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-数据类型"><span class="nav-number">2.3.1.</span> <span class="nav-text">8.1 数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-1-字符数据类型"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">8.1.1 字符数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-2-数值数据类型"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">8.1.2 数值数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-3-日期-时间数据类型"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">8.1.3 日期/时间数据类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-构建表达式"><span class="nav-number">2.3.2.</span> <span class="nav-text">8.2 构建表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-1-运算符"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">8.2.1 运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-2-按位运算符"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">8.2.2 按位运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-3-Case-表达式"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">8.2.3 Case 表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-4-Iif与Choose函数"><span class="nav-number">2.3.2.4.</span> <span class="nav-text">8.2.4 Iif与Choose函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-5-使用空值"><span class="nav-number">2.3.2.5.</span> <span class="nav-text">8.2.5 使用空值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-标量函数"><span class="nav-number">2.3.3.</span> <span class="nav-text">8.3 标量函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-2-日期和时间函数"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">8.3.2 日期和时间函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询：日期的应用"><span class="nav-number">2.3.3.1.1.</span> <span class="nav-text">查询：日期的应用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参考：日期缩写参考"><span class="nav-number">2.3.3.1.2.</span> <span class="nav-text">参考：日期缩写参考</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-字符串函数"><span class="nav-number">2.3.4.</span> <span class="nav-text">8.4 字符串函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#行数-amp-字符数"><span class="nav-number">2.3.4.0.1.</span> <span class="nav-text">行数&字符数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#去空格"><span class="nav-number">2.3.4.0.2.</span> <span class="nav-text">去空格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#取子串"><span class="nav-number">2.3.4.0.3.</span> <span class="nav-text">取子串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#返回特定位置"><span class="nav-number">2.3.4.0.4.</span> <span class="nav-text">返回特定位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#替换"><span class="nav-number">2.3.4.0.5.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#合并"><span class="nav-number">2.3.4.0.6.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#格式转换"><span class="nav-number">2.3.4.0.7.</span> <span class="nav-text">格式转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-数据类型转换函数"><span class="nav-number">2.3.5.</span> <span class="nav-text">8.6 数据类型转换函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cast"><span class="nav-number">2.3.5.0.1.</span> <span class="nav-text">Cast( )</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Convert"><span class="nav-number">2.3.5.0.2.</span> <span class="nav-text">Convert( )</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第9章-联接、子查询和CTE合并数据"><span class="nav-number">2.4.</span> <span class="nav-text">第9章 联接、子查询和CTE合并数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-使用联接"><span class="nav-number">2.4.1.</span> <span class="nav-text">9.1 使用联接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-1-内联接"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">9.1.1 内联接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-2-外联接"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">9.1.2 外联接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-4-交叉联接"><span class="nav-number">2.4.1.3.</span> <span class="nav-text">9.1.4 交叉联接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-差集查询"><span class="nav-number">2.4.2.</span> <span class="nav-text">9.2 差集查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#左差集查询"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">左差集查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全差集查询"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">全差集查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-使用联合"><span class="nav-number">2.4.3.</span> <span class="nav-text">9.3 使用联合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3-1-Union-All"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">9.3.1 Union All</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-子查询"><span class="nav-number">2.4.4.</span> <span class="nav-text">9.4 子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-1-简单子查询"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">9.4.1 简单子查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-5-相关子查询"><span class="nav-number">2.4.4.2.</span> <span class="nav-text">9.4.5 相关子查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第10章-聚合、窗口化和排名数据"><span class="nav-number">2.5.</span> <span class="nav-text">第10章 聚合、窗口化和排名数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-聚合函数"><span class="nav-number">2.5.1.</span> <span class="nav-text">10.1 聚合函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-1-基本集合"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">10.1.1 基本集合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-2-聚合、平均和空值"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">10.1.2 聚合、平均和空值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-集合中的分组"><span class="nav-number">2.5.2.</span> <span class="nav-text">10.2 集合中的分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-2-分组集"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">10.2.2 分组集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-3-筛选已经分组的结果"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">10.2.3 筛选已经分组的结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-窗口化和排名"><span class="nav-number">2.5.3.</span> <span class="nav-text">10.3 窗口化和排名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-2-Over子句"><span class="nav-number">2.5.3.1.</span> <span class="nav-text">10.3.2 Over子句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-4-排名函数"><span class="nav-number">2.5.4.</span> <span class="nav-text">10.4 排名函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第11张-通过视图投影数据"><span class="nav-number">2.6.</span> <span class="nav-text">第11张 通过视图投影数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-基本视图"><span class="nav-number">2.6.1.</span> <span class="nav-text">11.2 基本视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第12章-在SQL-Server中修改数据"><span class="nav-number">2.7.</span> <span class="nav-text">第12章 在SQL Server中修改数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#12-1-插入数据"><span class="nav-number">2.7.1.</span> <span class="nav-text">12.1 插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-1-1-插入简单的值行"><span class="nav-number">2.7.1.1.</span> <span class="nav-text">12.1.1 插入简单的值行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-1-2-从Select语句中插入结果集"><span class="nav-number">2.7.1.2.</span> <span class="nav-text">12.1.2 从Select语句中插入结果集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-1-3-从存储过程插入结果集"><span class="nav-number">2.7.1.3.</span> <span class="nav-text">12.1.3 从存储过程插入结果集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-1-5-在插入数据时创建表"><span class="nav-number">2.7.1.4.</span> <span class="nav-text">12.1.5 在插入数据时创建表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-2-更新数据"><span class="nav-number">2.7.2.</span> <span class="nav-text">12.2 更新数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-2-1-更新单个表"><span class="nav-number">2.7.2.1.</span> <span class="nav-text">12.2.1 更新单个表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-2-2-执行全局搜索与替代"><span class="nav-number">2.7.2.2.</span> <span class="nav-text">12.2.2 执行全局搜索与替代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-2-3-更新数据时引用多个表"><span class="nav-number">2.7.2.3.</span> <span class="nav-text">12.2.3 更新数据时引用多个表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-3-删除数据"><span class="nav-number">2.7.3.</span> <span class="nav-text">12.3 删除数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#truncate-、delete与drop区别"><span class="nav-number">2.7.3.1.</span> <span class="nav-text">truncate 、delete与drop区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-3-2-级联删除"><span class="nav-number">2.7.3.2.</span> <span class="nav-text">12.3.2 级联删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-4-合并数据"><span class="nav-number">2.7.4.</span> <span class="nav-text">12.4 合并数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-5-返回修改后的数据"><span class="nav-number">2.7.5.</span> <span class="nav-text">12.5 返回修改后的数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-5-1-从插入返回数据"><span class="nav-number">2.7.5.1.</span> <span class="nav-text">12.5.1 从插入返回数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-5-2-从更新返回数据"><span class="nav-number">2.7.5.2.</span> <span class="nav-text">12.5.2 从更新返回数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-5-3-从删除返回数据"><span class="nav-number">2.7.5.3.</span> <span class="nav-text">12.5.3 从删除返回数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-5-4-从合并返回数据"><span class="nav-number">2.7.5.4.</span> <span class="nav-text">12.5.4 从合并返回数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-5-5-把数据库返回到表中"><span class="nav-number">2.7.5.5.</span> <span class="nav-text">12.5.5 把数据库返回到表中</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三部分-高级T-SQL数据类型和查询技术"><span class="nav-number">3.</span> <span class="nav-text">第三部分 高级T-SQL数据类型和查询技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四部分-使用T-SQL编程"><span class="nav-number">4.</span> <span class="nav-text">第四部分 使用T-SQL编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第16章-使用T-SQL编程"><span class="nav-number">4.1.</span> <span class="nav-text">第16章 使用T-SQL编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-T-SQL批处理"><span class="nav-number">4.1.1.</span> <span class="nav-text">16.1 T-SQL批处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16-1-1-T-SQL批处理"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">16.1.1 T-SQL批处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-1-2-T-SQL格式化"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">16.1.2 T-SQL格式化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-操作变量"><span class="nav-number">4.1.2.</span> <span class="nav-text">16.2 操作变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16-2-1-变量默认值和作用域"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">16.2.1 变量默认值和作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-2-2-使用Set-和-Select-命令"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">16.2.2 使用Set  和 Select 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-2-3-增量变量"><span class="nav-number">4.1.2.3.</span> <span class="nav-text">16.2.3 增量变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-2-4-条件选择"><span class="nav-number">4.1.2.4.</span> <span class="nav-text">16.2.4 条件选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-2-5-在SQL查询中使用变量"><span class="nav-number">4.1.2.5.</span> <span class="nav-text">16.2.5 在SQL查询中使用变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-3-过程流"><span class="nav-number">4.1.3.</span> <span class="nav-text">16.3 过程流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16-3-1-使用条件T-SQL的If命令"><span class="nav-number">4.1.3.1.</span> <span class="nav-text">16.3.1 使用条件T-SQL的If命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-3-2-使用While循环"><span class="nav-number">4.1.3.2.</span> <span class="nav-text">16.3.2 使用While循环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-5-临时表和表变量"><span class="nav-number">4.1.4.</span> <span class="nav-text">16.5 临时表和表变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#临时表"><span class="nav-number">4.1.4.1.</span> <span class="nav-text">临时表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表变量"><span class="nav-number">4.1.4.2.</span> <span class="nav-text">表变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第17章-存储过程的开发"><span class="nav-number">4.2.</span> <span class="nav-text">第17章 存储过程的开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#17-1-管理存储过程"><span class="nav-number">4.2.1.</span> <span class="nav-text">17.1 管理存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#17-1-1-创建、更改和删除存储过程"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">17.1.1 创建、更改和删除存储过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-1-4-执行存储过程"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">17.1.4 执行存储过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-2-把数据传递到存储过程"><span class="nav-number">4.2.2.</span> <span class="nav-text">17.2 把数据传递到存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#17-2-1-输入参数"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">17.2.1 输入参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-3-从储存过程中返回数据"><span class="nav-number">4.2.3.</span> <span class="nav-text">17.3 从储存过程中返回数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#17-3-1-输出参数"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">17.3.1 输出参数</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

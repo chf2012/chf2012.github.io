@@ -1,0 +1,1480 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据分析," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="优秀员工离职原因分析与预测">
+<meta property="og:type" content="article">
+<meta property="og:title" content="优秀员工离职原因分析与预测_R">
+<meta property="og:url" content="http://yoursite.com/2017/01/30/数据分析/20_数据分析/专题分析/优秀员工离职原因分析与预测/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="优秀员工离职原因分析与预测">
+<meta property="og:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_个人作品01_Analysis.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-35ed802521836a45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-47dc1e7d1b31cdcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-724f0ed338861643.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-36ec53306bbd322f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-e676ede53c6b7c0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-37842eed3e270751.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-e10164d984d4711f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-2084fa6b77976f1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-9d91c1434fb78051.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-5bbbc38a14c9044e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-df353d1659a118fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-c6d090c21667f543.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-93fe55575dbe101c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-baaf2a92513aa0e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-aa64668337cf40b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-6e50b3768d400d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-7f23e8665ac284c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-56b2939618782cb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-a37d0a67ef6c7ed4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-6e80864ba57cf210.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-f0e095903d1b3fd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-a3cef20d7b222b53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-4a1d3ae8dbf9b732.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-06f3560b6371bed0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-bf48f5911b9a2713.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-389304db3cc8876d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-83a812a219f695f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-e3e9b0b09ac6b789.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3019132-8a525dd4b00e41de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-02-12T12:42:16.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="优秀员工离职原因分析与预测_R">
+<meta name="twitter:description" content="优秀员工离职原因分析与预测">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_个人作品01_Analysis.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/30/数据分析/20_数据分析/专题分析/优秀员工离职原因分析与预测/"/>
+
+
+
+
+
+  <title> 优秀员工离职原因分析与预测_R | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/30/数据分析/20_数据分析/专题分析/优秀员工离职原因分析与预测/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                优秀员工离职原因分析与预测_R
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-30T00:00:00+08:00">
+                2017-01-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-12T20:42:16+08:00">
+                2018-02-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/01/30/数据分析/20_数据分析/专题分析/优秀员工离职原因分析与预测/" class="leancloud_visitors" data-flag-title="优秀员工离职原因分析与预测_R">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>优秀员工离职原因分析与预测</strong></p>
+<p><img src="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_个人作品01_Analysis.png" alt=""> </p>
+<a id="more"></a> 
+<h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>1.公司大量优秀且有经验的员工过早的离开</p>
+<p>2.数据来源：kaggle</p>
+<p>3.变量</p>
+<p>satisfaction: Employee satisfaction level<br>evaluation: Last evaluation<br>project: Number of projects<br>hours: Average monthly hours<br>years: Time spent at the company<br>accident: Whether they have had a work accident<br>promotion: Whether they have had a promotion in the last 5 years<br>sales: Department<br>salary: Salary<br>left: Whether the employee has left</p>
+<p>4.分析目的与衡量标准：</p>
+<p>（1）分析并得出优秀员工离职的主要可能的原因<br>（2）构建预测模型，预测下一位将会离开的优秀员工是谁</p>
+<h2 id="二、数据分析"><a href="#二、数据分析" class="headerlink" title="二、数据分析"></a>二、数据分析</h2><p>所需包导入</p>
+<blockquote>
+<p>library(readr)<br>library(dplyr)<br>library(ggplot2)<br>library(gmodels)</p>
+</blockquote>
+<h3 id="（一）导入数据并查看"><a href="#（一）导入数据并查看" class="headerlink" title="（一）导入数据并查看"></a>（一）导入数据并查看</h3><p><strong>## 1.1 数据导入</strong></p>
+<blockquote>
+<p>library(readr)<br>hr &lt;- read_csv(“HR_comma_sep.csv”)<br>hr &lt;- tbl_df(hr)<br>View(hr)<br>str(hr)</p>
+</blockquote>
+<p>  <strong>Classes ‘tbl_df’, ‘tbl’ and ‘data.frame’:    14999 obs. of  10 variables:</strong></p>
+<p>$ satisfaction_level  : num  0.38 0.8 0.11 0.72 0.37 0.41 0.1 0.92 0.89 0.42 …<br>$ last_evaluation      : num  0.53 0.86 0.88 0.87 0.52 0.5 0.77 0.85 1 0.53 …<br>$ number_project      : int  2 5 7 5 2 2 6 5 5 2 …<br>$ average_montly_hours : int  157 262 272 223 159 153 247 259 224 142 …<br>$ time_spend_company  : int  3 6 4 5 3 3 4 5 5 3 …<br>$ Work_accident        : int  0 0 0 0 0 0 0 0 0 0 …<br>$ left                : int  1 1 1 1 1 1 1 1 1 1 …<br>$ promotion_last_5years: int  0 0 0 0 0 0 0 0 0 0 …<br>$ sales                : chr  “sales” “sales” “sales” “sales” …<br>$ salary              : chr  “low” “medium” “medium” “low” …</p>
+<p><strong>## 1.2 变量重命名</strong></p>
+<blockquote>
+<p>hr_good &lt;- filter(hr, evaluation&gt;=0.75 &amp; year&gt;=4 &amp; project&gt;= 4)</p>
+<p>colnames(hr)  &lt;- c(“satisfaction”,”evaluation”,”project”,”hours”,”years”,”accident”,”left”,”promotion”,”sales”,”salary”)</p>
+</blockquote>
+<p><strong>## 1.3 因子化</strong></p>
+<blockquote>
+<p>hr$sales &lt;- factor(hr$sales)<br>hr$salary &lt;- factor(hr$salary, levels=c(“low”,”medium”,”high”))</p>
+</blockquote>
+<p><strong>## 1.4 查看数据</strong></p>
+<blockquote>
+<p>sum(is.na(hr))</p>
+</blockquote>
+<p># [1] 0</p>
+<blockquote>
+<p>summary(hr)</p>
+</blockquote>
+<p><strong>satisfaction_level last_evaluation  number_project  average_montly_hours</strong><br>Min.  :0.0900    Min.  :0.3600  Min.  :2.000  Min.  : 96.0<br>1st Qu.:0.4400    1st Qu.:0.5600  1st Qu.:3.000  1st Qu.:156.0<br>Median :0.6400    Median :0.7200  Median :4.000  Median :200.0<br>Mean  :0.6128    Mean  :0.7161  Mean  :3.803  Mean  :201.1<br>3rd Qu.:0.8200    3rd Qu.:0.8700  3rd Qu.:5.000  3rd Qu.:245.0<br>Max.  :1.0000    Max.  :1.0000  Max.  :7.000  Max.  :310.0</p>
+<p><strong>time_spend_company Work_accident        left        promotion_last_5years</strong><br>Min.  : 2.000    Min.  :0.0000  Min.  :0.0000  Min.  :0.00000<br>1st Qu.: 3.000    1st Qu.:0.0000  1st Qu.:0.0000  1st Qu.:0.00000<br>Median : 3.000    Median :0.0000  Median :0.0000  Median :0.00000<br>Mean  : 3.498    Mean  :0.1446  Mean  :0.2381  Mean  :0.02127<br>3rd Qu.: 4.000    3rd Qu.:0.0000  3rd Qu.:0.0000  3rd Qu.:0.00000<br>ax.  :10.000    Max.  :1.0000  Max.  :1.0000  Max.  :1.00000</p>
+<p><strong>sales        salary</strong><br>sales      :4140  low  :7316<br>technical  :2720  medium:6446<br>support    :2229  high  :1237<br>IT        :1227<br>product_mng: 902<br>marketing  : 858<br>(Other)    :2923</p>
+<h3 id="（二）根据定义选取优秀员工的子集，并做初步分析"><a href="#（二）根据定义选取优秀员工的子集，并做初步分析" class="headerlink" title="（二）根据定义选取优秀员工的子集，并做初步分析"></a>（二）根据定义选取优秀员工的子集，并做初步分析</h3><p>优秀员工的定义：<br>（1）评价(evaluation)&gt;=0.75<br>（2）项目数量(project)&gt;=4<br>（3）有经验的(year)&gt;=4</p>
+<p><strong>## 2.1 根据定义选取子集</strong></p>
+<blockquote>
+<p>hr_good &lt;- filter(hr, evaluation&gt;=0.75 &amp; years&gt;=4 &amp; project&gt;= 4)</p>
+</blockquote>
+<p><strong>## 2.2 对比总体与选取子集中离职员工的占比情况</strong></p>
+<hr>
+<p><strong>【结论】：优秀员工离职情况非常严重1.在总离职员工中，优秀员工的数量占了</strong>(1778/3571=) <strong>50%；2.在优秀员工子集中，离职的数量高达</strong>(1778/2753=)<strong> 64%；</strong></p>
+<hr>
+<blockquote>
+<p>CrossTable(hr$left)</p>
+</blockquote>
+<p>Total Observations in Table:  14999</p>
+<blockquote>
+<p>CrossTable(hr_good$left)</p>
+</blockquote>
+<p><strong>## 2.3 了解优秀员工子集的统计量</strong></p>
+<blockquote>
+<p>summary(hr_good)</p>
+</blockquote>
+<p><strong>## 2.4 了解优秀员工子集中各变量之间的相关性</strong></p>
+<hr>
+<p><strong>【结论】：离职与满意度呈负相关，且相关度最高</strong></p>
+<hr>
+<blockquote>
+<p>hr_good_corr &lt;- select(hr, -sales,-salary) %&gt;% cor()<br>corrplot(hr_good_corr, method=”circle”, tl.col=”black”,title=”离职与满意度呈负相关，且相关度最高”,mar=c(1,1,3,1))</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-35ed802521836a45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（三）逐个变量分析员工离职、满意度与其他变量之间的关系"><a href="#（三）逐个变量分析员工离职、满意度与其他变量之间的关系" class="headerlink" title="（三）逐个变量分析员工离职、满意度与其他变量之间的关系"></a>（三）逐个变量分析员工离职、满意度与其他变量之间的关系</h3><p><strong>## 3.1 查看满意度的分布图</strong></p>
+<blockquote>
+<p>hr_good$left &lt;- factor(hr_good$left, levels=c(0,1), labels=c(“stay”, “left”))</p>
+<p>ggplot(hr_good, aes(satisfaction, fill=left)) + geom_histogram(position=”dodge”) + scale_x_continuous(breaks=c(0.1,0.13,0.25,0.50,0.73,0.75,0.92,1.00)) + theme3 + theme(axis.text.x=element_text(angle=90)) + labs(title=”满意度在[0.1,0.13]与[0.73,0.92]两个区间离职人数非常多”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-47dc1e7d1b31cdcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.2 收入、工作时间、满意度之间的关系</strong></p>
+<hr>
+<p><strong>【结论】：工作超长时间的员工满意度低，且离职率高1.低&amp;中等薪资水平中较高工作时间的员工大量离职2.超长工作时间的员工满意度都很低且几乎都已离职</strong></p>
+<hr>
+<blockquote>
+<p>ggplot(hr_good, aes(salary, hours, alpha=satisfaction, color=left)) + geom_jitter() + theme3 + labs(title=paste(“低&amp;中等薪资水平中较高工作时间的员工大量离职”,”\n”,”超长工作时间的员工满意度都很低且几乎都已离职”))  </p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-724f0ed338861643.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.3 晋升、满意度与离职的关系</strong></p>
+<hr>
+<p><strong>【结论】：高评价的员工几乎没有人晋升，离职人员也主要集中在未晋升中</strong></p>
+<hr>
+<blockquote>
+<p>ggplot(hr_good, aes(promotion, evaluation, color=left)) + geom_jitter() + theme3 + scale_x_discrete(limits=c(0,1)) + labs(title=paste(“高评价的员工几乎没有人晋升”,”\n”,”离职人员也主要集中在未晋升中”))</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-36ec53306bbd322f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.4 工作年限、满意度与离职的关系</strong></p>
+<hr>
+<p><strong>【结论】：1.低满意度(0.1)水平下，4年司龄的员工大量离职2.大量高满意度员工在第5年与第6年离职3.7年以上的员工没有人离职</strong></p>
+<hr>
+<blockquote>
+<p>ggplot(hr_good, aes(years,satisfaction, color=left)) + geom_jitter() + scale_x_discrete(limits=c(4,5,6,7,8,9,10)) + theme3 + labs(title=paste(“低满意度(“,”0.1)”,”水平下，4年司龄的员工大量离职”,”\n”,”大量高满意度员工在第5年与第6年离职”))</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-e676ede53c6b7c0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.5 部门、项目数与离职的关系</strong></p>
+<hr>
+<p><strong>【结论】：对于6个以上的项目无论在哪个部门离职率都非常高</strong></p>
+<hr>
+<blockquote>
+<p>ggplot(hr_good, aes(sales,fill=left)) + geom_bar(position=”fill”) + facet_wrap(~factor(project),ncol=1) + theme3 + theme(axis.text.x=element_text(angle=270)) + labs(y=”number projcet”,title=”对于6个以上的项目无论在哪个部门离职率都非常高”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-37842eed3e270751.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.6 部门与离职的关系</strong></p>
+<hr>
+<p><strong>【结论】：各部门离职人员均高于在职人员，管理部门除外</strong></p>
+<hr>
+<blockquote>
+<p>ggplot(hr_good, aes(sales, fill=left)) + geom_bar(position=”dodge”) + coord_flip() + scale_x_discrete(limits=c(“management”,”RandD”,”hr”,”accounting”,”marketing”,”product_mng”,”IT”,”support”,”technical”,”sales”)) + labs(title=”各部门离职人员均高于在职人员，管理部门除外”) + theme3</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-e10164d984d4711f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h2 id="三、构建预测模型1：分类"><a href="#三、构建预测模型1：分类" class="headerlink" title="三、构建预测模型1：分类"></a>三、构建预测模型1：分类</h2><p><strong>## 数据分割</strong></p>
+<blockquote>
+<p>library(caret)<br>set.seed(0001)<br>train &lt;- createDataPartition(hr_good$left, p=0.75, list=FALSE)<br>hr_good_train &lt;- hr_good[train, ]<br>hr_good_test &lt;- hr_good[-train, ]</p>
+</blockquote>
+<h3 id="（一）Logistic回归"><a href="#（一）Logistic回归" class="headerlink" title="（一）Logistic回归"></a><strong>（一）Logistic回归</strong></h3><p><strong>## 1. 构建逻辑回归并验证</strong></p>
+<blockquote>
+<p>ctrl &lt;- trainControl(method=”cv”,number=5)<br>logit &lt;- train(left~., hr_good_train, method=”LogitBoost”, trControl=ctrl)<br>logit.pred &lt;- predict(logit, hr_good_test, tyep=”response”)<br>confusionMatrix( hr_good_test$left, logit.pred)</p>
+</blockquote>
+<p>​     <strong>Confusion Matrix and Statistics</strong></p>
+<pre><code>Reference
+</code></pre><p>Prediction stay left<br>        stay  213  33<br>        left    8  436</p>
+<p>Accuracy : 0.9406<br>95% CI : (0.9203, 0.957)<br>No Information Rate : 0.6797<br>P-Value [Acc &gt; NIR] : &lt; 2.2e-16<br>Kappa : 0.8675<br>Mcnemar’s Test P-Value : 0.0001781<br>Sensitivity : 0.9638<br>Specificity : 0.9296<br>Pos Pred Value : 0.8659<br>Neg Pred Value : 0.9820<br>Prevalence : 0.3203<br>Detection Rate : 0.3087<br>Detection Prevalence : 0.3565<br>Balanced Accuracy : 0.9467<br>‘Positive’ Class : stay</p>
+<p><strong>## 2. 评价模型，绘制ROC/AUC曲线</strong></p>
+<blockquote>
+<p>library(pROC)<br>roc(as.numeric(hr_good_test$left), as.numeric(logit.pred), plot=TRUE, print.thres=TRUE, print.auc=TRUE, col=”black”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-2084fa6b77976f1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（二）决策树"><a href="#（二）决策树" class="headerlink" title="（二）决策树"></a>（二）决策树</h3><p><strong>## 1. 构建决策树</strong></p>
+<blockquote>
+<p>library(rpart)<br>dtree &lt;- rpart(left~., hr_good_train, method=”class”,parms=list(split=”information”))<br>dtree$cptable</p>
+</blockquote>
+<p>   <strong>CP nsplit  rel error    xerror      xstd</strong></p>
+<p>1 0.55209743      0 1.00000000 1.00000000 0.02950911<br>2 0.12855210      1 0.44790257 0.44790257 0.02256805<br>3 0.08254398      3 0.19079838 0.19079838 0.01551204<br>4 0.02300406      4 0.10825440 0.10825440 0.01186737<br>5 0.01000000      5 0.08525034 0.08525034 0.01057607</p>
+<blockquote>
+<p>plotcp(dtree)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-9d91c1434fb78051.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<blockquote>
+<p>dtree.pruned &lt;- prune(dtree, cp=0.01)<br>library(partykit)<br>library(grid)<br>plot(as.party(dtree.pruned),main=”Decision Tree”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-5bbbc38a14c9044e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<blockquote>
+<p>dtree.pruned.pred &lt;- predict(dtree.pruned, hr_good_test, type=”class”)<br>confusionMatrix(hr_good_test$left, dtree.pruned.pred)</p>
+</blockquote>
+<p><strong>Confusion Matrix and Statistics</strong></p>
+<pre><code>Reference
+</code></pre><p>Prediction stay left<br>        stay  236  10<br>      left  13  431</p>
+<p>Accuracy : 0.9667<br>95% CI : (0.9504, 0.9788)<br>No Information Rate : 0.6391<br>P-Value [Acc &gt; NIR] : &lt;2e-16<br>Kappa : 0.9275<br>Mcnemar’s Test P-Value : 0.6767<br>Sensitivity : 0.9478<br>Specificity : 0.9773<br>Pos Pred Value : 0.9593<br>Neg Pred Value : 0.9707<br>Prevalence : 0.3609<br>Detection Rate : 0.3420<br>Detection Prevalence : 0.3565<br>Balanced Accuracy : 0.9626<br>‘Positive’ Class : stay</p>
+<p><strong>## 2. 评价模型，绘制ROC/AUC曲线</strong></p>
+<blockquote>
+<p>roc(as.numeric(hr_good_test$left),as.numeric(dtree.pruned.pred), plot=TRUE, print.thres=TRUE, print.auc=TRUE,col=”blue”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-df353d1659a118fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（三）随机森林"><a href="#（三）随机森林" class="headerlink" title="（三）随机森林"></a>（三）随机森林</h3><p><strong>## 1. 构建随机森林</strong></p>
+<blockquote>
+<p>library(randomForest)<br>set.seed(0002)<br>forest &lt;- randomForest(left~., hr_good_train, importance=TRUE, na.action=na.roughfix)<br>forest</p>
+</blockquote>
+<p>Call:</p>
+<p>randomForest(formula = left ~ ., data = hr_good_train, importance = TRUE,      na.action = na.roughfix)</p>
+<p>Type of random forest: classification<br>Number of trees: 500<br>No. of variables tried at each split: 3<br>OOB estimate of  error rate: 1.35%<br>          Confusion matrix:<br>         stay left class.error<br>stay  731    8  0.01082544<br>left  20 1314  0.01499250</p>
+<blockquote>
+<p>importance(forest, type=2)</p>
+</blockquote>
+<pre><code>**MeanDecreaseGini**
+</code></pre><p>satisfaction      315.455428<br>evaluation          63.101527<br>project            51.659717<br>hours              307.201129<br>years              168.530576<br>accident            6.232136<br>promotion            1.897123<br>sales              20.666829<br>salary              12.338717</p>
+<blockquote>
+<p>forest.pred &lt;- predict(forest, hr_good_test)<br>confusionMatrix(hr_good_test$left, forest.pred)</p>
+</blockquote>
+<p>​     <strong>Confusion Matrix and Statistics</strong></p>
+<pre><code>Reference
+</code></pre><p>Prediction stay left<br>       stay  241    5<br>       left    4  440</p>
+<p>Accuracy : 0.987<br>95% CI : (0.9754, 0.994)<br>No Information Rate : 0.6449<br>P-Value [Acc &gt; NIR] : &lt;2e-16<br>Kappa : 0.9715<br>Mcnemar’s Test P-Value : 1<br>Sensitivity : 0.9837<br>Specificity : 0.9888<br>Pos Pred Value : 0.9797<br>Neg Pred Value : 0.9910<br>Prevalence : 0.3551<br>Detection Rate : 0.3493<br>Detection Prevalence : 0.3565<br>Balanced Accuracy : 0.9862<br>‘Positive’ Class : stay</p>
+<p><strong>## 2. 评价模型，绘制ROC/AUC曲线</strong></p>
+<blockquote>
+<p>roc(as.numeric(hr_good_test$left), as.numeric(forest.pred), plot=TRUE, print.thres=TRUE, print.auc=T, col=”green”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-c6d090c21667f543.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（四）支持向量机SVM"><a href="#（四）支持向量机SVM" class="headerlink" title="（四）支持向量机SVM"></a>（四）支持向量机SVM</h3><p><strong>## 1. 构建SVM</strong></p>
+<blockquote>
+<p>library(e1071)<br>set.seed(0003)<br>svm &lt;- svm(left~., hr_good_train)<br>svm.pred &lt;- predict(svm, na.omit(hr_good_test))<br>confusionMatrix(na.omit(hr_good_test)$left, svm.pred)</p>
+</blockquote>
+<p><strong>Confusion Matrix and Statistics</strong></p>
+<pre><code>Reference
+</code></pre><p>Prediction stay left<br>       stay  211  35<br>        left  11  433</p>
+<p>Accuracy : 0.9333<br>95% CI : (0.9121, 0.9508)<br>No Information Rate : 0.6783<br>P-Value [Acc &gt; NIR] : &lt; 2.2e-16<br>Kappa : 0.8515<br>Mcnemar’s Test P-Value : 0.000696<br>Sensitivity : 0.9505<br>Specificity : 0.9252<br>Pos Pred Value : 0.8577<br>Neg Pred Value : 0.9752<br>Prevalence : 0.3217<br>Detection Rate : 0.3058<br>Detection Prevalence : 0.3565<br>Balanced Accuracy : 0.9378<br>‘Positive’ Class : stay</p>
+<p><strong>## 2. 评价模型，绘制ROC/AUC曲线</strong></p>
+<blockquote>
+<p>roc(as.numeric(na.omit(hr_good_test)$left), as.numeric(svm.pred), plot=T, print.thres=T, print.auc=T, col=”orange”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-93fe55575dbe101c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（五）对比模型，选择准确性最高的模型"><a href="#（五）对比模型，选择准确性最高的模型" class="headerlink" title="（五）对比模型，选择准确性最高的模型"></a>（五）对比模型，选择准确性最高的模型</h3><hr>
+<p><strong>【结论】：随机森林的拟合度最高，选择该模型为预测模型</strong></p>
+<hr>
+<blockquote>
+<p>roc(as.numeric(hr_good_test$left), as.numeric(logit.pred), plot=TRUE,col=”black”,main=paste(“ROC曲线:”,”Logitis(black)”,”dtree(blue)”,”randomForest(green)”,”SVM(orange)”,sep=” “))<br>roc(as.numeric(hr_good_test$left),as.numeric(dtree.pruned.pred), plot=TRUE, col=”blue”, add=T)<br>roc(as.numeric(hr_good_test$left), as.numeric(forest.pred), plot=TRUE, col=”green”, add=T)<br>roc(as.numeric(na.omit(hr_good_test)$left), as.numeric(svm.pred), plot=T, col=”orange”, add=T)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-baaf2a92513aa0e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（六）模型应用"><a href="#（六）模型应用" class="headerlink" title="（六）模型应用"></a><strong>（六）模型应用</strong></h3><blockquote>
+<p>importance(forest,type=2)</p>
+</blockquote>
+<p><strong>                   MeanDecreaseGini</strong></p>
+<p>satisfaction      315.455428<br>evaluation          63.101527<br>project            51.659717<br>hours              307.201129<br>years              168.530576<br>accident            6.232136<br>promotion            1.897123<br>sales              20.666829<br>salary              12.338717</p>
+<p><strong>## 1. 剔除明显不重要的因子，重新构建模型</strong></p>
+<blockquote>
+<p>forest2 &lt;- randomForest(left~.-promotion-accident-salary-sales, hr_good, na.action=na.roughfix, importance=TRUE)<br>importance(forest2, type=2)</p>
+</blockquote>
+<pre><code>MeanDecreaseGini
+</code></pre><p>satisfaction        462.97925<br>evaluation          72.49430<br>project              71.09463<br>hours              417.63782<br>years              231.64080</p>
+<blockquote>
+<p>forest2.pred &lt;- predict(forest2, hr_good_test)<br>confusionMatrix(hr_good_test$left, forest2.pred, positive=”left”)</p>
+</blockquote>
+<p>Confusion Matrix and Statistics</p>
+<pre><code>Reference
+</code></pre><p>Prediction stay left<br>        stay  244    2<br>        left    1  443</p>
+<p>Accuracy : 0.9957<br>95% CI : (0.9873, 0.9991)<br>No Information Rate : 0.6449<br>P-Value [Acc &gt; NIR] : &lt;2e-16<br>Kappa : 0.9905<br>Mcnemar’s Test P-Value : 1<br>Sensitivity : 0.9959<br>Specificity : 0.9955<br>Pos Pred Value : 0.9919<br>Neg Pred Value : 0.9977<br>Prevalence : 0.3551<br>Detection Rate : 0.3536<br>Detection Prevalence : 0.3565<br>Balanced Accuracy : 0.9957<br>‘Positive’ Class : stay</p>
+<p><strong>## 2. 评价模型，绘制ROC/AUC曲线</strong></p>
+<blockquote>
+<p>roc(as.numeric(hr_good_test$left), as.numeric(forest2.pred), plot=TRUE, print.thres=T, print.auc=T, main=”Random Forest”, col=”green”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-aa64668337cf40b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（七）结论"><a href="#（七）结论" class="headerlink" title="（七）结论"></a>（七）结论</h3><p><strong>1.调整后的随机森林预测模型员工离职的准确性达99.5%；其中离职的员工被正确预测的概率为99.5%，被预测离职的员工中，实际离职的概率为99.8%；</strong></p>
+<p><strong>2.剔除不重要的变量（promotion,accident,sales,salary）并不会对模型造成影响；</strong></p>
+<p><strong>3.满意度（satisfaction）、月平均工作时间（hours）、工作年限（years）是影响优秀员工离职的主要三个变量</strong></p>
+<hr>
+<p><br></p>
+<h2 id="四、构建预测模型2：主成分分析"><a href="#四、构建预测模型2：主成分分析" class="headerlink" title="四、构建预测模型2：主成分分析"></a>四、构建预测模型2：主成分分析</h2><h3 id="（一）判断主成分个数"><a href="#（一）判断主成分个数" class="headerlink" title="（一）判断主成分个数"></a>（一）判断主成分个数</h3><p><strong>【结论】：根据结果，选择主成分个数为2个</strong></p>
+<blockquote>
+<p>library(psych)<br>hr_pc &lt;- select(hr,-left,-sales,-salary)<br>fa.parallel(hr_pc, fa=”pc”, n.iter=100, show.legend=FALSE, main=”Scree plot with parallel analysis”)</p>
+</blockquote>
+<p>## Parallel analysis suggests that the number of factors =  NA  and the number of components =  2</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-6e50b3768d400d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（二）提取主成分"><a href="#（二）提取主成分" class="headerlink" title="（二）提取主成分"></a>（二）提取主成分</h3><p><strong>【结论】：1.选择后的主成分RC1解释了数据33%的方差，RC2解释了16%；2个主成分共解释了数据49%的方差；2.RC1与”satisfaction,years”正相关，与”project, hours”负相关，称为综合因子13.RC2与”accident, promoion”正相关，与”evaluation”负相关，可称为综合因子2</strong></p>
+<blockquote>
+<p>hr.good.rc &lt;- principal(hr_good_pc, nfactors=2, scores=T)<br>hr.good.rc</p>
+</blockquote>
+<p>Principal Components Analysis</p>
+<p>Call: principal(r = hr_good_pc, nfactors = 2, scores = T)</p>
+<p>Standardized loadings (pattern matrix) based upon correlation matrix</p>
+<pre><code>RC1  RC2  h2  u2 com
+</code></pre><p>satisfaction  0.84 -0.19 0.74 0.26 1.1<br>evaluation    0.25 -0.66 0.49 0.51 1.3<br>project        -0.85  0.03 0.73 0.27 1.0<br>hours          -0.64 -0.30 0.50 0.50 1.4<br>years           0.61  0.10 0.39 0.61 1.1<br>accident       0.14  0.55 0.32 0.68 1.1<br>promotion    0.08  0.50 0.26 0.74 1.1</p>
+<pre><code>RC1  RC2
+</code></pre><p>SS loadings               2.30 1.12<br>Proportion Var           0.33 0.16<br>Cumulative Var          0.33 0.49<br>Proportion Explained  0.67 0.33<br>Cumulative Proportion 0.67 1.00<br>Mean item complexity =  1.2<br>Test of the hypothesis that 2 components are sufficient.<br>The root mean square of the residuals (RMSR) is  0.14<br>with the empirical chi square  2283.14  with prob &lt;  0<br>Fit based upon off diagonal values = 0.66</p>
+<h3 id="（三）获取主成分得分"><a href="#（三）获取主成分得分" class="headerlink" title="（三）获取主成分得分"></a>（三）获取主成分得分</h3><p><strong>【结论】：优秀员工离职人员在如下两个范围出现**</strong>1.范围1：RC1[-2,-1], RC2[-1,1]<strong>**2.范围2：RC1[0,1], RC2[-1.5,0]</strong></p>
+<blockquote>
+<p>hr.good.rc.scores &lt;- as.data.frame(hr.good.rc$scores)<br>hr.good.rc.scores$left &lt;- hr_good$left<br>ggplot(hr.good.rc.scores, aes(RC1,RC2,color=factor(left))) + geom_point()</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-7f23e8665ac284c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h2 id="五、构建预测模型3：聚类"><a href="#五、构建预测模型3：聚类" class="headerlink" title="五、构建预测模型3：聚类"></a>五、构建预测模型3：聚类</h2><blockquote>
+<p>library(cluster)<br>library(fpc)</p>
+</blockquote>
+<h3 id="（一）选择合适的数据，并进行标准化"><a href="#（一）选择合适的数据，并进行标准化" class="headerlink" title="（一）选择合适的数据，并进行标准化"></a>（一）选择合适的数据，并进行标准化</h3><blockquote>
+<p>hr_good_cl &lt;- select(hr_good,-left,-sales,-salary)<br>hr_good_cl_scale &lt;- as.data.frame(scale(hr_good_cl))</p>
+</blockquote>
+<h3 id="（二）选择合适的聚类数量"><a href="#（二）选择合适的聚类数量" class="headerlink" title="（二）选择合适的聚类数量"></a>（二）选择合适的聚类数量</h3><p><strong>【结论】：根据图形与pamk的值，选择聚类个数为6</strong></p>
+<blockquote>
+<p>source(“wssplot.r”)<br>wssplot(hr_good_cl_scale)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-56b2939618782cb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<blockquote>
+<p>set.seed(0004)<br>pamk.best &lt;- pamk(hr_good_cl_scale)<br>pamk.best$nc</p>
+</blockquote>
+<p># [1]   6</p>
+<h3 id="（三）-拟合聚类，并查看分类结构"><a href="#（三）-拟合聚类，并查看分类结构" class="headerlink" title="（三） 拟合聚类，并查看分类结构"></a>（三） 拟合聚类，并查看分类结构</h3><blockquote>
+<p>fit.pam &lt;- pam(hr_good_cl_scale, k=6)<br>cl.pam &lt;- table(hr_good$left, fit.pam$clustering)<br>cl.pam</p>
+</blockquote>
+<pre><code>1     2     3         4      5    6
+</code></pre><p>stay 228   72 150   138 364  33<br> left 326 83 8 502  87    21  4</p>
+<blockquote>
+<p>hr_good$clustering &lt;- fit.pam$clustering<br>ggplot(hr_good, aes(clustering, fill=factor(left))) + geom_bar(position=”dodge”) + scale_x_discrete(limits=c(1,2,3,4,5,6)) + theme3 + labs(title=”类别2和类别3中，离职人员比例远高于其他分类”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-a37d0a67ef6c7ed4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<blockquote>
+<p>clusplot(fit.pam, main=”基于PAM算法得到的六组聚类图”)</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-6e80864ba57cf210.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="（四）-评价聚类-兰德指数"><a href="#（四）-评价聚类-兰德指数" class="headerlink" title="（四） 评价聚类:兰德指数"></a>（四） 评价聚类:兰德指数</h3><p><strong>【结论】：聚类结果与实际离职与否的结果吻合度不是很高；从之前的数据分析来看，优秀员工的离职与否在两种不同情境下都有较高的比例；</strong></p>
+<blockquote>
+<p>library(flexclust)<br>randIndex(cl.pam)</p>
+</blockquote>
+<p> ARI<br>0.1742728</p>
+<h3 id="（五）根据聚类的分类进行子集细分，并描述统计情况"><a href="#（五）根据聚类的分类进行子集细分，并描述统计情况" class="headerlink" title="（五）根据聚类的分类进行子集细分，并描述统计情况"></a>（五）根据聚类的分类进行子集细分，并描述统计情况</h3><p><strong>1.　查看各个聚类的统计量</strong></p>
+<p><strong>【结论】：从统计量（均值）上看，如下两个情况的员工离职意向很高1.离职比例最高的类别2(left=0.92)，satisfaciton非常低(0.11)，项目数量最高(6.17)，月均工作时间最长(274.6)2.离职比例次高的类别3(left=0.77)，评价极高(0.96)，满意度(0.78)、月均工作时间(238.9)，工作年限(5.0)</strong></p>
+<blockquote>
+<p>hr_good &lt;- as.data.frame(hr_good)<br>hr_good$left &lt;- as.integer(hr_good$left)<br>hr_good$left &lt;- ifelse(hr_good$left==1,0,1)<br>select(hr_good,-sales,-salary) %&gt;% group_by(., clustering) %&gt;% summarize_all(.,mean)</p>
+</blockquote>
+<p># A tibble: 6 × 9<br>  clustering satisfaction evaluation  project    hours          years    accident    left      promotion<br>1          1    0.7574729  0.8453791 4.673285 246.5036 5.223827 0.0000000 0.588447     0<br><strong>2    </strong>      <strong>2    0.1114945  0.8714176 6.167033 274.6451 4.137363 0.0000000 0.920879      03          3    0.7809969  0.9649080 4.605828 238.9632 5.170245 0.0000000 0.769938      0</strong><br>4          4    0.5258667  0.8865778 4.960000 219.9511 5.142222 1.0000000 0.386667      0<br>5          5    0.5542078  0.8585714 4.446753 161.2779 5.088312 0.0000000 0.054545      0<br>6          6    0.5908108  0.8648649 4.864865 225.5135 5.567568 0.1891892 0.108108      1</p>
+<p><strong>## 2. 选择类别2和类别3的子集</strong></p>
+<blockquote>
+<p>hr_good_cl_select &lt;- filter(hr_good, clustering %in% c(2,3))<br>summary(hr_good_cl_select)</p>
+</blockquote>
+<p><strong>satisfaction    evaluation        project             hours                years                acciden</strong>t<br>Min.  :0.090     Min.  :0.7600       Min.  :4.000     Min.  :137.0      Min.  : 4.000      Min.  :0<br>1st Qu.:0.100  1st Qu.:0.8525   1st Qu.:5.000    1st Qu.:243.0  1st Qu.: 4.000    1st Qu.:0<br>Median :0.110  Median :0.9200  Median :6.000  Median :260.0  Median : 4.000  Median :0<br>Mean  :0.391    Mean  :0.9104    Mean  :5.515   Mean  :259.8     Mean  : 4.569    Mean  :0<br>3rd Qu.:0.790  3rd Qu.:0.9700    3rd Qu.:6.000  3rd Qu.:282.0    3rd Qu.: 5.000  3rd Qu.:0<br>Max.  :1.000     Max.  :1.0000     Max.  :7.000    Max.  :310.0       Max.  :10.000    Max.  :0<br><strong>left               promotion        sales              salary           clustering</strong><br>Min.  :0.000      Min.  :0     sales      :408    low  :895         Min.  :2.000<br>1st Qu.:1.000  1st Qu.:0    technical  :341  medium:628  1st Qu.:2.000<br>Median :1.000  Median :0  support    :213  high  : 39        Median :2.000<br>Mean  :0.858    Mean  :0     IT        :129                             Mean  :2.417<br>3rd Qu.:1.000    3rd Qu.:0  product_mng:104                    3rd Qu.:3.000<br>Max.  :1.000     Max.  :0      accounting : 94                       Max.  :3.000<br>                                           (Other)    :273</p>
+<p><strong>## 3. 逐一分析子集的变量分布</strong></p>
+<p><strong>## 3.1 满意度分布</strong></p>
+<blockquote>
+<p>hr_good_cl_select$clustering &lt;- factor(hr_good_cl_select$clustering)<br>ggplot(hr_good_cl_select , aes(satisfaction,fill=factor(left))) +  geom_histogram() + facet_wrap(~clustering,ncol=1) + theme2 + scale_x_continuous(limits=c(0.1,0.25,0.50,0.75,0.9,1.0))</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-f0e095903d1b3fd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.2 评价分布</strong></p>
+<blockquote>
+<p>ggplot(hr_good_cl_select , aes(evaluation,fill=factor(left))) +  geom_histogram() + facet_wrap(~clustering,ncol=1) + theme2 + scale_x_continuous(breaks=c(0.77,0.79,0.8,0.84,0.85,0.88,0.89,0.91,0.93,0.94,0.98,1.0)) + theme(axis.text.x=element_text(angle=90),panel.grid.minor=element_blank())</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-a3cef20d7b222b53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.3 项目数量分布</strong></p>
+<blockquote>
+<p>ggplot(hr_good_cl_select , aes(project,fill=factor(left))) +  geom_bar() + facet_wrap(~clustering,ncol=1) + theme2</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-4a1d3ae8dbf9b732.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.4 月均工作时长分布</strong></p>
+<blockquote>
+<p>ggplot(hr_good_cl_select , aes(hours,fill=factor(left))) +  geom_histogram() + facet_wrap(~clustering,ncol=1) + theme2 + scale_x_continuous(breaks=c(160,200,220,245,275,310))  + theme(panel.grid.minor=element_blank())</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-06f3560b6371bed0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.5 工作年限分布</strong></p>
+<blockquote>
+<p>ggplot(hr_good_cl_select , aes(years,fill=factor(left))) +  geom_histogram(binwidth=0.5) + facet_wrap(~clustering,ncol=1) + theme2 + scale_x_continuous(breaks=c(4,5,6,7,8,10))</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-bf48f5911b9a2713.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.6 工作事故分布</strong></p>
+<blockquote>
+<p>ggplot(hr_good_cl_select , aes(accident,fill=factor(left))) +  geom_bar(width=0.3) + facet_wrap(~clustering,ncol=1) + theme2</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-389304db3cc8876d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.7 晋升情况分布</strong></p>
+<blockquote>
+<p>ggplot(hr_good_cl_select , aes(promotion,fill=factor(left))) +  geom_bar() + facet_wrap(~clustering,ncol=1) + theme2 + scale_x_discrete(limits=c(0,1))</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-83a812a219f695f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.7 部门分布</strong></p>
+<blockquote>
+<p>ggplot(hr_good_cl_select , aes(sales,fill=factor(left))) +  geom_bar() + facet_wrap(~clustering,ncol=1) + theme2 + theme(axis.text.x=element_text(angle=270,vjust=0.5))</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-e3e9b0b09ac6b789.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>## 3.7 薪资水平分布</strong></p>
+<blockquote>
+<p>ggplot(hr_good_cl_select , aes(salary,fill=factor(left))) +  geom_bar(width=0.5) + facet_wrap(~clustering,ncol=1) + theme2 + scale_y_continuous(breaks=c(0,20,100,200,300,400,500))  + theme(panel.grid.minor=element_blank())</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3019132-8a525dd4b00e41de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/21/阅读书籍/Others_罗振宇-罗辑思维/时间的朋友/时间的朋友2016_罗辑思维_20170121/" rel="next" title="时间的朋友2016_罗辑思维">
+                <i class="fa fa-chevron-left"></i> 时间的朋友2016_罗辑思维
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/07/软件应用_办公软件/Markdown/Markdown基本概念/" rel="prev" title="Markdown使用手册">
+                Markdown使用手册 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、背景"><span class="nav-number">1.</span> <span class="nav-text">一、背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、数据分析"><span class="nav-number">2.</span> <span class="nav-text">二、数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）导入数据并查看"><span class="nav-number">2.1.</span> <span class="nav-text">（一）导入数据并查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）根据定义选取优秀员工的子集，并做初步分析"><span class="nav-number">2.2.</span> <span class="nav-text">（二）根据定义选取优秀员工的子集，并做初步分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）逐个变量分析员工离职、满意度与其他变量之间的关系"><span class="nav-number">2.3.</span> <span class="nav-text">（三）逐个变量分析员工离职、满意度与其他变量之间的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、构建预测模型1：分类"><span class="nav-number">3.</span> <span class="nav-text">三、构建预测模型1：分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）Logistic回归"><span class="nav-number">3.1.</span> <span class="nav-text">（一）Logistic回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）决策树"><span class="nav-number">3.2.</span> <span class="nav-text">（二）决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）随机森林"><span class="nav-number">3.3.</span> <span class="nav-text">（三）随机森林</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）支持向量机SVM"><span class="nav-number">3.4.</span> <span class="nav-text">（四）支持向量机SVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）对比模型，选择准确性最高的模型"><span class="nav-number">3.5.</span> <span class="nav-text">（五）对比模型，选择准确性最高的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（六）模型应用"><span class="nav-number">3.6.</span> <span class="nav-text">（六）模型应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（七）结论"><span class="nav-number">3.7.</span> <span class="nav-text">（七）结论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、构建预测模型2：主成分分析"><span class="nav-number">4.</span> <span class="nav-text">四、构建预测模型2：主成分分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）判断主成分个数"><span class="nav-number">4.1.</span> <span class="nav-text">（一）判断主成分个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）提取主成分"><span class="nav-number">4.2.</span> <span class="nav-text">（二）提取主成分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）获取主成分得分"><span class="nav-number">4.3.</span> <span class="nav-text">（三）获取主成分得分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、构建预测模型3：聚类"><span class="nav-number">5.</span> <span class="nav-text">五、构建预测模型3：聚类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）选择合适的数据，并进行标准化"><span class="nav-number">5.1.</span> <span class="nav-text">（一）选择合适的数据，并进行标准化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）选择合适的聚类数量"><span class="nav-number">5.2.</span> <span class="nav-text">（二）选择合适的聚类数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）-拟合聚类，并查看分类结构"><span class="nav-number">5.3.</span> <span class="nav-text">（三） 拟合聚类，并查看分类结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）-评价聚类-兰德指数"><span class="nav-number">5.4.</span> <span class="nav-text">（四） 评价聚类:兰德指数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）根据聚类的分类进行子集细分，并描述统计情况"><span class="nav-number">5.5.</span> <span class="nav-text">（五）根据聚类的分类进行子集细分，并描述统计情况</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

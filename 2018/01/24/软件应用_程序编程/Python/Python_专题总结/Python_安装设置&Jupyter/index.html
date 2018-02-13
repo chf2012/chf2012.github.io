@@ -1,0 +1,1541 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件应用,程序编程,Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Anaconda安装
+‘python’ 不是内部或外部命令，也不是可运行的程序或批处理文件。
+
+
+这个问题本质其实就是，windows的cmd并不能识别python这个符号（即无法识别这个符号是一个可执行程序），因为windows这里也是类似的，遇到一个字符，先会在默认path路径查询这个符号是不是一个可执行程序
+
+右键我的电脑-&amp;gt;属性-&amp;gt;高级系统配置-&amp;gt;点击高级一栏，在这里栏点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python_安装设置&jupyter">
+<meta property="og:url" content="http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_安装设置&Jupyter/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="Anaconda安装
+‘python’ 不是内部或外部命令，也不是可运行的程序或批处理文件。
+
+
+这个问题本质其实就是，windows的cmd并不能识别python这个符号（即无法识别这个符号是一个可执行程序），因为windows这里也是类似的，遇到一个字符，先会在默认path路径查询这个符号是不是一个可执行程序
+
+右键我的电脑-&amp;gt;属性-&amp;gt;高级系统配置-&amp;gt;点击高级一栏，在这里栏点">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1335634-93526fa3dfa8f525.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/562">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-4a420e761f4b32320e55f152886338ce_hd.jpg">
+<meta property="og:updated_time" content="2018-02-13T13:44:28.505Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python_安装设置&jupyter">
+<meta name="twitter:description" content="Anaconda安装
+‘python’ 不是内部或外部命令，也不是可运行的程序或批处理文件。
+
+
+这个问题本质其实就是，windows的cmd并不能识别python这个符号（即无法识别这个符号是一个可执行程序），因为windows这里也是类似的，遇到一个字符，先会在默认path路径查询这个符号是不是一个可执行程序
+
+右键我的电脑-&amp;gt;属性-&amp;gt;高级系统配置-&amp;gt;点击高级一栏，在这里栏点">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1335634-93526fa3dfa8f525.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/562">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_安装设置&Jupyter/"/>
+
+
+
+
+
+  <title> Python_安装设置&jupyter | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_安装设置&Jupyter/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python_安装设置&jupyter
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-24T00:00:00+08:00">
+                2018-01-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:44:28+08:00">
+                2018-02-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/" itemprop="url" rel="index">
+                    <span itemprop="name">程序编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/程序编程/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_安装设置&Jupyter/" class="leancloud_visitors" data-flag-title="Python_安装设置&jupyter">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Anaconda安装"><a href="#Anaconda安装" class="headerlink" title="Anaconda安装"></a>Anaconda安装</h2><ul>
+<li>‘python’ 不是内部或外部命令，也不是可运行的程序或批处理文件。</li>
+</ul>
+<blockquote>
+<p>这个问题本质其实就是，windows的cmd并不能识别python这个符号（即无法识别这个符号是一个可执行程序），因为windows这里也是类似的，遇到一个字符，先会在默认path路径查询这个符号是不是一个可执行程序</p>
+</blockquote>
+<p>右键我的电脑-&gt;属性-&gt;高级系统配置-&gt;点击高级一栏，在这里栏点开环境变量-&gt;在系统变量PATH加入python的安装路径即可，比如我的就是D:\Python27</p>
+<ul>
+<li><code>pip</code>不是内部或外部命令，也不是可运行的程序</li>
+</ul>
+<p>添加Python的Script  到环境变量；在Path后面追加一下内容(Path： 不要复制进去) <code>Path:;C:\python;C:\Python\Scripts</code></p>
+<a id="more"></a>
+<p><br></p>
+<h2 id="模块安装"><a href="#模块安装" class="headerlink" title="模块安装"></a>模块安装</h2><blockquote>
+<p>查看Python版本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; cmd</div><div class="line">&gt; python -v </div><div class="line">&gt;</div><div class="line">&gt; <span class="comment"># 或者</span></div><div class="line">&gt; cmd</div><div class="line">&gt; python --version</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p><br></p>
+<h3 id="pip-安装与卸载"><a href="#pip-安装与卸载" class="headerlink" title="pip 安装与卸载"></a>pip 安装与卸载</h3><blockquote>
+<p>安装好Anaconda后，就默认安装了包管理工具pip</p>
+</blockquote>
+<ul>
+<li>在命令提示符（cmd）窗口中使用命令pip install xxx（xxx表示要安装的包或模块名）。 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pip install numpy  <span class="comment"># 安装</span></div><div class="line">pip install -U PackageName  <span class="comment"># 更新</span></div><div class="line">pip uninstall PackageName  <span class="comment"># 移除</span></div><div class="line">pip search PackageName  <span class="comment"># 搜索</span></div><div class="line">pip help  <span class="comment"># 帮助</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>conda 安装</strong></li>
+</ul>
+<p><br></p>
+<h3 id="下载文件安装"><a href="#下载文件安装" class="headerlink" title="下载文件安装"></a>下载文件安装</h3><blockquote>
+<p>若一种方法失败，可尝试用另一种方式</p>
+</blockquote>
+<ul>
+<li>直接下载包或模块的安装文件，然后手动安装<ul>
+<li><a href="https://pypi.python.org/pypi" target="_blank" rel="external">PyPI-the Python Package Index</a></li>
+<li><a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml" target="_blank" rel="external">https://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml</a></li>
+<li><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">Python Extension Packages</a></li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>PyPI-the Python Package Index</strong></p>
+<ol>
+<li>在上面右上角红线框住的search中输入你要下载的包或模块名，即可进入下载页面。下载的是<strong>压缩文件</strong></li>
+<li>解压 </li>
+<li>在命令提示符窗口中，使用cd进入到解压后的文件的路径下 </li>
+<li>输入命令python setup.py install</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cmd </div><div class="line">cd /d  G:\Downloads\Chrome</div><div class="line">python setup.py install</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<ul>
+<li><strong>Python Extension Packages</strong><ol>
+<li>直接把文件拷贝到 $python_dir/Lib/site packages </li>
+<li>在命令提示符窗口中，转到指定路径（.whl安装文件的路径） </li>
+<li>pip install .whl 文件名</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>site_packages 用来存放第三方库</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cmd</div><div class="line">cd /d G:\Downloads\Chrome</div><div class="line">pip install</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="单文件模块"><a href="#单文件模块" class="headerlink" title="单文件模块"></a>单文件模块</h3><ul>
+<li>直接把文件拷贝到 $python_dir/Lib/site packages </li>
+</ul>
+<h3 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h3><ul>
+<li><strong>Microsoft Visual C++ 14.0 is required.</strong><ul>
+<li>往往并不是缺少 Visual 2015 ；而是缺少某个依赖包</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="模块使用"><a href="#模块使用" class="headerlink" title="模块使用"></a>模块使用</h2><p><br></p>
+<h4 id="获取模块地址"><a href="#获取模块地址" class="headerlink" title="获取模块地址"></a>获取模块地址</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> a_module</div><div class="line"><span class="keyword">print</span> a_module.__file__</div><div class="line"></div><div class="line"><span class="comment"># 上述代码将范围 .pyc 文件被加载的路径，如果需要跨平台解决方案，可用下面代码：</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> os</div><div class="line">path = os.path.dirname(amodule.__file__)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="导入与移除模块"><a href="#导入与移除模块" class="headerlink" title="导入与移除模块"></a>导入与移除模块</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导入 </span></div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> *</div><div class="line"></div><div class="line"><span class="comment"># 移除</span></div><div class="line"><span class="keyword">del</span> pd</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="连接数据库库"><a href="#连接数据库库" class="headerlink" title="连接数据库库"></a>连接数据库库</h2><blockquote>
+<p>MySQL需要MySQLdb，SQL Server需要pymssql。两个模块大同小异，都遵循Python Database API</p>
+<p> 必须先下载pymssql 模块，才能使用；<a href="http://www.pymssql.org/en/stable/" target="_blank" rel="external">http://www.pymssql.org/en/stable/</a></p>
+</blockquote>
+<p>安装pymssql好之后开工了。如果是连接本地的SQL Server需要在 SQL Server Configuration 中打开TCP/IP协议</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1335634-93526fa3dfa8f525.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/562" alt="img"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding=utf-8</span></div><div class="line"><span class="keyword">import</span> pymssql</div><div class="line">conn = pymssql.connect(host=<span class="string">'127.0.0.1'</span>,user=<span class="string">'sa'</span>,</div><div class="line">                       password=<span class="string">'hello'</span>,database=<span class="string">'NPKW'</span>,</div><div class="line">                      charset=<span class="string">"utf8"</span>)</div><div class="line"><span class="comment">#查看连接是否成功</span></div><div class="line"><span class="keyword">print</span> conn</div><div class="line">cursor = conn.cursor()</div><div class="line">sql = <span class="string">'select * from contacts'</span></div><div class="line">cursor.execute(sql)</div><div class="line"><span class="comment">#用一个rs变量获取数据</span></div><div class="line">rs = cursor.fetchall()</div><div class="line"><span class="keyword">print</span> rs</div></pre></td></tr></table></figure>
+<blockquote>
+<p><pymssql.connection object="" at="" 0x02ff2cb0=""></pymssql.connection></p>
+<p><pymssql.cursor object="" at="" 0x03124110=""><br>[(1, u’20111612210028’, u’ettingshausen’, u’’, u’’, u’’, u’’, u’’, u’’, u’’, u’’, u’’)]</pymssql.cursor></p>
+</blockquote>
+<p><br></p>
+<h3 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h3><blockquote>
+<p>Python Database API，只需要了解Connection Objects和Cursor Objects的常用方法。</p>
+</blockquote>
+<p>基本的步骤就是：</p>
+<ol>
+<li>使用<code>connect</code>创建连接对象</li>
+<li><code>connect.cursor</code>创建游标对象，SQL语句的执行基本都在游标上进行</li>
+<li><code>cursor.executeXXX</code>方法执行SQL语句，<code>cursor.fetchXXX</code>获取查询结果等<ul>
+<li>通过cursor获取数据，具体可以是一次获取所有数据，也可以是一次获取一行。</li>
+<li>整个结果集是元组列表，就是list类型的，而每一条记录是一个tuple，也就是元祖。</li>
+</ul>
+</li>
+<li>如果是增、改数据，必须就要调用commit()函数来提交事务，否则程序已退出，数据库里的数据不会有变化。</li>
+<li>调用<code>close</code>方法关闭游标<code>cursor</code>和数据库连接</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pymssql</div><div class="line">conn = pymssql.connect(server=<span class="string">'anly3.dm.ytx.com'</span> ,database=<span class="string">'ADHOC_FDGJ'</span>, as_dict=<span class="keyword">True</span>)</div><div class="line">cur = conn.cursor()</div><div class="line">cur.execute(<span class="string">"select ..."</span>)  </div><div class="line"></div><div class="line"><span class="comment"># 先将SQL语句赋值为变量a</span></div><div class="line">a = <span class="string">"select ..."</span></div><div class="line">cur.execute(a)</div><div class="line"></div><div class="line">b= cur.fetchall()</div><div class="line"></div><div class="line">conn.close()</div><div class="line"></div><div class="line">df_b = pd.DataFrame(b)  <span class="comment"># 转化为数据框格式</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="Connection-Objects"><a href="#Connection-Objects" class="headerlink" title="Connection Objects"></a>Connection Objects</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connect</td>
+<td>创建连接对象</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#cursor" target="_blank" rel="external">cursor</a></td>
+<td>返回一个Cursor对象</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#commit" target="_blank" rel="external">commit</a></td>
+<td>提交事务</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#rollback" target="_blank" rel="external">rollback</a></td>
+<td>回滚</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#Connection.close" target="_blank" rel="external">close</a></td>
+<td>关闭连接</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<ul>
+<li><strong>connect(host, user, password, database, as_dict=True)</strong> ：创建连接对象</li>
+</ul>
+<blockquote>
+<p>host :主机名</p>
+<p>user：用户名</p>
+<p>password：密码</p>
+<p>database：数据库</p>
+<p>charset：数据库的字符集；不指定此参数值时，程序使用默认值’UTF-8’</p>
+<p>as_dict：布尔值,指定返回值是字典还是元组</p>
+<p>timeout：查询超时<br>login_timeout：登陆超时<br>max_conn：最大连接数<br>trusted：布尔值,指定是否使用windows身份认证登陆</p>
+</blockquote>
+<ul>
+<li><strong>cursor(as_dict=True)</strong>：创建游标。  <strong>一个连接一次只能有一个游标的查询处于活跃状态</strong><ul>
+<li>创建多个连接来保证多个查询可以并行执行在不同连接的游标上</li>
+<li>使用<code>fetchall</code>方法获取到游标查询结果之后再执行下一个查询</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>as_dict : 使游标返回字典变量。字典中的键为数据表的列名</p>
+<ul>
+<li>pd.DataFrame( cursor.fetchall())  : 可将数据有 列表list 转为 数据框DataFrame</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ------------一个连接一次只能有一个游标的查询处于活跃状态</span></div><div class="line">c1 = conn.cursor()</div><div class="line">c1.execute(<span class="string">'SELECT * FROM persons'</span>)</div><div class="line"></div><div class="line">c2 = conn.cursor()</div><div class="line">c2.execute(<span class="string">'SELECT * FROM persons WHERE salesrep=%s'</span>, <span class="string">'John Doe'</span>)</div><div class="line"></div><div class="line">print( <span class="string">"all persons"</span> )</div><div class="line">print( c1.fetchall() )  <span class="comment"># 显示出的是c2游标查询出来的结果</span></div><div class="line"></div><div class="line">print( <span class="string">"John Doe"</span> )</div><div class="line">print( c2.fetchall() )  <span class="comment"># 不会有任何结果</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ------------解决办法：使用fetchall方法获取到游标查询结果之后再执行下一个查询--------------</span></div><div class="line">c1.execute(<span class="string">'SELECT ...'</span>)</div><div class="line">c1_list = c1.fetchall()</div><div class="line"></div><div class="line">c2.execute(<span class="string">'SELECT ...'</span>)</div><div class="line">c2_list = c2.fetchall()</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>####Cursor Objects</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#id15" target="_blank" rel="external">execute</a></td>
+<td>执行一条SQL语句</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#executemany" target="_blank" rel="external">executemany</a></td>
+<td>执行多条语句</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#fetchone" target="_blank" rel="external">fetchone</a></td>
+<td>获取一行数据</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#fetchmany" target="_blank" rel="external">fetchmany</a></td>
+<td>获取n行的数据</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#fetchall" target="_blank" rel="external">fetchall</a></td>
+<td>获取未返回（剩下的）数据</td>
+</tr>
+<tr>
+<td>callproc</td>
+<td>调用存储过程</td>
+</tr>
+<tr>
+<td><a href="https://link.jianshu.com/?t=https://www.python.org/dev/peps/pep-0249/#Cursor.close" target="_blank" rel="external">close</a></td>
+<td>关闭游标</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意：fetchone / fetchmany / fetchall 与 read 是同样的运行方式；一旦倒出来一条数据，就少一条数据；</strong></p>
+<p>例如：cursor.fetchone()  ，则已经少了一行数据；</p>
+</blockquote>
+<p><br></p>
+<ul>
+<li><strong>execute()</strong>：执行一条SQL语句</li>
+</ul>
+<blockquote>
+<p>例子中查询操作的参数使用的<code>%s</code>而不是<code>&#39;%s&#39;</code>，<strong>若参数值是字符串</strong>，在执行语句时会自动添加单引号</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cursor.execute(<span class="string">'SELECT * FROM persons WHERE salesrep=%s'</span>, <span class="string">'John Doe'</span>)   <span class="comment"># 字符串没有使用引号</span></div><div class="line">row = cursor.fetchone()</div><div class="line"><span class="keyword">while</span> row:</div><div class="line">    print(<span class="string">"ID=%d, Name=%s"</span> % (row[<span class="number">0</span>], row[<span class="number">1</span>]))</div><div class="line">    row = cursor.fetchone()</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>executemany()</strong>：指定多条SQL语句</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">stmt=<span class="string">'insert into student (name, age) values (%s,%s)'</span></div><div class="line">data=[</div><div class="line">     (<span class="string">'Lucy'</span>,<span class="number">21</span>),</div><div class="line">     (<span class="string">'Tom'</span>,<span class="number">22</span>),</div><div class="line">     (<span class="string">'Lily'</span>,<span class="number">21</span>)]</div><div class="line">cursor.executemany(stmt,data)</div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>callproc( procname [, parameters ] )</strong>：调用存储过程</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> pymssql.connect(server, user, password, database) <span class="keyword">as</span> conn:</div><div class="line">    <span class="keyword">with</span> conn.cursor(as_dict=<span class="keyword">True</span>) <span class="keyword">as</span> cursor:</div><div class="line">        <span class="comment"># 创建存储过程</span></div><div class="line">        cursor.execute(<span class="string">"""</span></div><div class="line">        CREATE PROCEDURE FindPerson</div><div class="line">            @name VARCHAR(100)</div><div class="line">        AS BEGIN</div><div class="line">            SELECT * FROM persons WHERE name = @name</div><div class="line">        END</div><div class="line">        """)</div><div class="line"></div><div class="line">        <span class="comment"># 调用存储过程</span></div><div class="line">        cursor.callproc(<span class="string">'FindPerson'</span>, (<span class="string">'Jane Doe'</span>,))   <span class="comment"># FindPerson 为之前创建的存储</span></div><div class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> cursor:</div><div class="line">            print(<span class="string">"ID=%d, Name=%s"</span> % (row[<span class="string">'id'</span>], row[<span class="string">'name'</span>]))</div></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>使用 <code>with</code> 函数 完成后自动关闭数据库连接</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> pymssql.connect(server, user, password, <span class="string">"tempdb"</span>) <span class="keyword">as</span> conn:</div><div class="line">    <span class="keyword">with</span> conn.cursor(as_dict=<span class="keyword">True</span>) <span class="keyword">as</span> cursor:</div><div class="line">        cursor.execute(<span class="string">'SELECT * FROM persons WHERE salesrep=%s'</span>, <span class="string">'John Doe'</span>)</div><div class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> cursor:</div><div class="line">            print(<span class="string">"ID=%d, Name=%s"</span> % (row[<span class="string">'id'</span>], row[<span class="string">'name'</span>]))</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="中文乱码问题"><a href="#中文乱码问题" class="headerlink" title="中文乱码问题"></a>中文乱码问题</h3><blockquote>
+<p><strong>sqlserver数据库编码为gbk</strong></p>
+<p>文件头加上 #coding=utf8</p>
+<p>连接的时候加入charset设置信息 \<charset='utf8'>运行正常，<strong>输出依然乱码</strong>；不指定此参数值时，程序使用默认值’UTF-8’</charset='utf8'></p>
+<p>pymssql.connect(host=self.host,user=self.user,password=self.pwd,database=self.db,charset=”utf8”)</p>
+</blockquote>
+<ul>
+<li><strong>代码中显式转码</strong><ul>
+<li><strong>unicode变量.encode(‘latin1’).decode(‘gbk’)</strong></li>
+<li>一般情况下对unicode编码不做encode处理，但必要时可以encode为Latin1，实现脱unicode操作，然后再以合适字符集decode为正确unicode</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> <span class="string">"\t"</span>.join([str(room_id),room_name.encode(<span class="string">'latin1'</span>).decode(<span class="string">'gbk'</span>)])</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 在执行时进行encode</span></div><div class="line">cur = conn.cursor()</div><div class="line">sql = <span class="string">"select top 10 [ID],[Name] from [User]"</span></div><div class="line">cur.execute(sql)</div><div class="line">list = cur.fetchall()</div><div class="line"><span class="keyword">for</span> row <span class="keyword">in</span> list:</div><div class="line">    print(row[<span class="string">"ID"</span>],row[<span class="string">"Name"</span>].encode(<span class="string">'latin-1'</span>).decode(<span class="string">'gbk'</span>))</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="comment"># sql语句中有中文的时候进行encode </span></div><div class="line">insertSql = <span class="string">"insert into WeiBo([UserId],[WeiBoContent],[PublishDate]) values(1,'测试','2012/2/1')"</span>.encode(<span class="string">"utf8"</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># --------某一列中文有乱码</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">code</span><span class="params">(a)</span>:</span></div><div class="line">  	a = a.encode(<span class="string">'latin-1'</span>).decode(<span class="string">'gbk'</span>)</div><div class="line">    <span class="keyword">return</span> a</div><div class="line"></div><div class="line">data[<span class="string">'访问次数'</span>] = data[<span class="string">'访问次数'</span>].apply(code)</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>字符定义使用NVARCHAR</strong></li>
+</ul>
+<p>这种方式在存储和读取时都使用unicode编码，和python运转字节码一致，可以很好避免此类问题。当然<strong>数据库存储空间要牺牲一些</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[room_name] [nvarchar] (<span class="number">50</span>) COLLATE Chinese_PRC_CI_AS NULL</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="【实战演练】"><a href="#【实战演练】" class="headerlink" title="【实战演练】"></a>【实战演练】</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pymssql</div><div class="line">conn = pymssql.connect(server=<span class="string">'anly3.dm.ytx.com'</span> ,database=<span class="string">'ADHOC_FDGJ'</span>, as_dict=<span class="keyword">True</span>)</div><div class="line">cur = conn.cursor()</div><div class="line">cur.execute(<span class="string">"select ..."</span>)  </div><div class="line"></div><div class="line"><span class="comment"># 先将SQL语句赋值为变量a</span></div><div class="line">a = <span class="string">"select ..."</span></div><div class="line">cur.execute(a)</div><div class="line"></div><div class="line"><span class="comment"># 获取之后再赋值</span></div><div class="line">b= cur.fetchall()</div><div class="line"></div><div class="line">conn.close()</div><div class="line"></div><div class="line">df_b = pd.DataFrame(b)  <span class="comment"># 转化为数据框格式</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># =-----------【代码参考】-----------------</span></div><div class="line"><span class="comment"># -*- coding:gbk -*-</span></div><div class="line"><span class="keyword">import</span> pymssql</div><div class="line"></div><div class="line"><span class="comment">#创建一个数据库连接，host是服务器的ip地址，如果是本机可以用"."，user是访问用户名，password是密码，database是数据库名，比ADO的连接似乎简单一些</span></div><div class="line">conn=pymssql.connect(host=<span class="string">"."</span>,user=<span class="string">"sa"</span>,password=<span class="string">"twinflag"</span>,database=<span class="string">"bbs"</span> , as_dict=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"><span class="comment">#创建游标对象，相当于ADO的记录集</span></div><div class="line">cou=conn.cursor()</div><div class="line"></div><div class="line"></div><div class="line">sql=<span class="string">"select id,name from user"</span></div><div class="line">cou.execute(sql)  <span class="comment">#执行命令</span></div><div class="line"><span class="comment"># -----------或者-------------</span></div><div class="line">cou.execute(<span class="string">'select id, name From user'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#插入一条记录</span></div><div class="line">cou.execute(sql)</div><div class="line"></div><div class="line"><span class="comment">#只有执行了下面的命令，上面的操作才能生效，配合异常处理，可以实现pymssql的事务操作</span></div><div class="line">conn.commit()</div><div class="line"></div><div class="line"><span class="comment">#关闭数据库的连接</span></div><div class="line">conn.close()</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># =-----------【代码参考】-----------------</span></div><div class="line"><span class="keyword">import</span> pymssql</div><div class="line"></div><div class="line"><span class="comment"># server    数据库服务器名称或IP</span></div><div class="line"><span class="comment"># user      用户名</span></div><div class="line"><span class="comment"># password  密码</span></div><div class="line"><span class="comment"># database  数据库名称</span></div><div class="line">conn = pymssql.connect(server, user, password, database)</div><div class="line"></div><div class="line">cursor = conn.cursor()</div><div class="line"></div><div class="line"><span class="comment"># 新建、插入操作</span></div><div class="line">cursor.execute(<span class="string">"""</span></div><div class="line">IF OBJECT_ID('persons', 'U') IS NOT NULL</div><div class="line">    DROP TABLE persons</div><div class="line">CREATE TABLE persons (</div><div class="line">    id INT NOT NULL,</div><div class="line">    name VARCHAR(100),</div><div class="line">    salesrep VARCHAR(100),</div><div class="line">    PRIMARY KEY(id)</div><div class="line">)</div><div class="line">""")</div><div class="line">cursor.executemany(</div><div class="line">    <span class="string">"INSERT INTO persons VALUES (%d, %s, %s)"</span>,</div><div class="line">    [(<span class="number">1</span>, <span class="string">'John Smith'</span>, <span class="string">'John Doe'</span>),</div><div class="line">     (<span class="number">2</span>, <span class="string">'Jane Doe'</span>, <span class="string">'Joe Dog'</span>),</div><div class="line">     (<span class="number">3</span>, <span class="string">'Mike T.'</span>, <span class="string">'Sarah H.'</span>)])</div><div class="line"><span class="comment"># 如果没有指定autocommit属性为True的话就需要调用commit()方法</span></div><div class="line">conn.commit()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 查询操作</span></div><div class="line">cursor.execute(<span class="string">'SELECT * FROM persons WHERE salesrep=%s'</span>, <span class="string">'John Doe'</span>)</div><div class="line">row = cursor.fetchone()</div><div class="line">print(row)</div><div class="line"></div><div class="line">    </div><div class="line"><span class="comment"># 也可以使用for循环来迭代查询结果</span></div><div class="line"><span class="comment"># for row in cursor:</span></div><div class="line"><span class="comment">#     print("ID=%d, Name=%s" % (row[0], row[1]))</span></div><div class="line"></div><div class="line"><span class="comment"># 关闭连接</span></div><div class="line">conn.close()</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="Juypter-Notebook"><a href="#Juypter-Notebook" class="headerlink" title="Juypter Notebook"></a>Juypter Notebook</h2><blockquote>
+<p>知乎分享：<a href="https://www.zhihu.com/question/59392251" target="_blank" rel="external">https://www.zhihu.com/question/59392251</a>   品颜完月</p>
+<p>27个技巧：<a href="http://liuchengxu.org/pelican-blog/jupyter-notebook-tips.html" target="_blank" rel="external">http://liuchengxu.org/pelican-blog/jupyter-notebook-tips.html</a></p>
+</blockquote>
+<p><br></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p><strong>【命令模式】</strong></p>
+<p>如果单元格的边框为绿色（即为编辑模式），请按ESC键，退回到命令模式。在命令模式下被选中的单元采用灰色边框显示。按<strong>上下方向键</strong>可以移动选择框。</p>
+<ul>
+<li>数字键：将单元格变为标题类型，数字越大标题越小</li>
+<li><strong>m：将单元格变为markdown类型，在markdown类型的单元格内可以编写文档</strong><ul>
+<li>注：将代码类型改为标题类型和markdown类型之后，按Ctrl+Enter对其进行格式化显示。</li>
+</ul>
+</li>
+<li><strong>y：将单元格变为代码类型，在代码类型的单元格中输入Python代码</strong></li>
+<li>d: 按两下d按键删除单元格</li>
+<li>z: 撤销最后删除单元格操作</li>
+<li>a: 在当前单元格之上创建一个新的单元格</li>
+<li>b: 在当前单元格之下创建一个新的单元格</li>
+<li>x: 剪切当前单元格</li>
+<li>c: 复制当前单元格</li>
+<li>v: 在当前单元格之下粘贴剪切板中的单元格</li>
+<li><strong>shift+k: 将当前单元格上移</strong></li>
+<li><strong>shift+j: 将当前单元格下移</strong></li>
+</ul>
+<blockquote>
+<p>一旦 cell 被选中，接着你可以进行批量删除/复制/剪切/粘贴.当你需要移动一部分notebook时，这非常有用。</p>
+</blockquote>
+<ul>
+<li><strong>shift+m:与下面的单元合并</strong></li>
+<li>d, d ：连按两下d 删除所选cell</li>
+</ul>
+<p><br></p>
+<p><strong>【编辑和运行】</strong></p>
+<p>编辑模式下单元使用绿色边框显示，在命令模式时<strong>按Enter即可进入编辑模式。</strong></p>
+<ul>
+<li><strong>Ctrl+Enter</strong>：结束编辑，对于代码单元将运行其中的代码，<strong>对于标题单元和markdown单元将格式化显示</strong></li>
+<li>Shift+Enter：运行<strong>当前选择</strong>的代码单元，并自动选择下一个单元。</li>
+<li>Alt+Enter：运行当前的代码并在下面插入新的单元。</li>
+<li>ctrl+/：为一行或多行添加或取消注释</li>
+<li><strong>多光标操作</strong> ：按住 <code>Alt</code> 进行点击和拖拽鼠标即可（选择所要编辑的区域；若要在最后都加上逗号，应该单独选最后的一纵列，而不是连通前面的内容也一起选）</li>
+</ul>
+<p><br></p>
+<p><strong>【在线帮助和自动完成】</strong></p>
+<ul>
+<li>输入代码时，按 <strong>[TAB]键</strong> 可以显示自动完成提示框。自动完成支持当前执行环境中已知的模块名、变量名、对象的属性名，以及文件和目录名。</li>
+<li>对于当前环境中已知的对象，可以在其<strong>后面添加问号</strong>查看相应的说明信息和文档，<strong>添加两个问号</strong>可以查看对象对应的源程序。<strong>按Ctrl+Enter显示</strong></li>
+<li>在 Help 菜单你可以找到一些常用库文档的连接，包括 NumPy, Pandas, SciPy 和 Matplotlib.同时别忘了在一个库，方法或变量前加上 ?，你可以获得它的一个快速语法说明。<ul>
+<li><code>?sum()</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>调用函数时，按 [shift+tab]组合键 可以显示函数的<strong>调用参数和说明文档</strong>，按一次组合键显示基本信息，两次显示详细信息，三次延时停留信息框，四次则将信息显示在下方的滑动窗口中。</li>
+</ul>
+<p><br></p>
+<p><strong>【操作运算核】</strong></p>
+<p>如果进入了Python的死循环，可以在<strong>命令模式下按两下 i 按键终止循环</strong>。</p>
+<p>注意右上角图标<strong>从空心圈变为实心圈</strong>，如上图，表示运算核<strong>正在工作</strong>，无法执行新的代码。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-4a420e761f4b32320e55f152886338ce_hd.jpg" alt="img"></p>
+<p><br></p>
+<h3 id="markdown操作"><a href="#markdown操作" class="headerlink" title="markdown操作"></a>markdown操作</h3><ul>
+<li>在命令模式下按Enter键进入编辑模式即可查看本段文字的Markdown代码。</li>
+<li>在行内的数学公式使用单个$括起，单独占一行的数学公式使用$$括起</li>
+<li>数学公式采用LaTeX格式编写，可以使用下面的在线编辑器编写LaTeX数学公式：<a href="http://www.codecogs.com/latex/eqneditor.php?lang=zh-cn" target="_blank" rel="external">http://www.codecogs.com/latex/eqneditor.php?lang=zh-cn</a></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<p>###python 导入与运行</p>
+<p><strong>【向jupyter notebook中导入python文件】</strong></p>
+<ul>
+<li>从本地导入python文件，可以直接使用<code>%load xxx.py</code>，比如把名字为untitled0.py的文件导入到jupyter中。<ul>
+<li>注意：本地文件导入时的绝对路径和相对路径的引用方式的不同</li>
+</ul>
+</li>
+<li>从网络中导入python代码，可以使用%load 网址</li>
+</ul>
+<p><br></p>
+<p><strong>【jupyter中运行python文件】</strong></p>
+<ul>
+<li>输入：<code>%run xxx.py</code> 按Ctrl+Enter后</li>
+</ul>
+<p><br></p>
+<h3 id="显示问题"><a href="#显示问题" class="headerlink" title="显示问题"></a>显示问题</h3><p><strong>【图片显示】</strong></p>
+<ul>
+<li>当在程序中使用了matplotlib绘图，不能直接显示时，需要加%matplotlib inline</li>
+</ul>
+<p><br></p>
+<h3 id="输出设置"><a href="#输出设置" class="headerlink" title="输出设置"></a>输出设置</h3><h4 id="导出时去掉代码"><a href="#导出时去掉代码" class="headerlink" title="导出时去掉代码"></a>导出时去掉代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> IPython.core.display <span class="keyword">as</span> di</div><div class="line">di.display_html(<span class="string">'&lt;script&gt;jQuery(function() &#123;if (jQuery("body.notebook_app").length == 0) &#123; jQuery(".input_area").toggle(); jQuery(".prompt").toggle();&#125;&#125;);&lt;/script&gt;'</span>, raw=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="显示每行结果"><a href="#显示每行结果" class="headerlink" title="显示每行结果"></a>显示每行结果</h4><ul>
+<li>可以选择修改 <code>ast_note_iteractively</code> kernal 选项来使得 Jupyter 为每一行的变量或语句执行这个操作，以便你可以立即看到多条语句一起输出。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</div><div class="line">InteractiveShell.ast_node_interactivity = <span class="string">"all"</span></div></pre></td></tr></table></figure>
+<ul>
+<li>所有的Jupyter实例（Notebook和Console）都设置该选项，只需<strong>创建</strong> <code>~/.ipython/profile_default/ipython_config.py</code> 文件并写入一下内容</li>
+</ul>
+<blockquote>
+<p><code>.ipython</code> 该文件夹一般在 user 的第一级目录下。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">c = get_config()</div><div class="line"><span class="comment"># Run all nodes interactively</span></div><div class="line">c.InteractiveShell.ast_node_interactivity = <span class="string">"all"</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">line1 = <span class="string">"this is from line 1"</span></div><div class="line">line2 = <span class="string">"this is from line 2"</span></div><div class="line"></div><div class="line">line1</div><div class="line">line2</div><div class="line"></div><div class="line">[out]:<span class="string">'this is from line 2'</span></div><div class="line">  </div><div class="line"><span class="comment"># 修改之后</span></div><div class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</div><div class="line">InteractiveShell.ast_node_interactivity = <span class="string">"all"</span></div><div class="line"></div><div class="line">line1</div><div class="line">line2</div><div class="line"></div><div class="line">[out]:</div><div class="line"><span class="string">'this is from line 1'</span></div><div class="line"><span class="string">'this is from line 2'</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="导出为PDF"><a href="#导出为PDF" class="headerlink" title="导出为PDF"></a>导出为PDF</h4><ul>
+<li>报错：Download as “PDF via LaTeX” fails - nbconvert fails, xelatex not found on PATH <ul>
+<li>nbconvert failed: xelatex not found on PATH, if you have not installed xelatex you may need to do so. Find further instructions at <a href="https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex" target="_blank" rel="external">https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex</a>.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p> <a href="https://github.com/jupyter/docker-stacks/issues/353" target="_blank" rel="external">https://github.com/jupyter/docker-stacks/issues/353</a></p>
+<p> As said by Thomas K in the comments, you need to have Latex installed, and after add the path to the directory containing pdflatex.exe file to the PATH variable of your system.</p>
+<p> I have looked for a lightweight distribution and tried installing TeXworks, but I didn’t find any pdflatex.exe file.<br> So I have tried TeX Live, which worked fine creating the pdflatex.exe file under the target installation directory. This path should be like C:...\texlive\2016\bin\win32.<br> Finally, you should just add this path to the PATH environment variable of your system (you can use the link shared by Thomas K).</p>
+<p> In Jupyter, you can check your environment variables by running the following (refer to this link for details):</p>
+<pre><code>import os
+os.environ
+</code></pre><p> so you can look for ‘PATH’: ‘C: … and check if it contains the path to pdflatex.exe file.</p>
+<p> If you get some trouble when exporting your notebook to pdf due to missing files/packages (this happened to me), refer to this link to search and install them under TeX Live.</p>
+</blockquote>
+<p><br></p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p><strong>【报告文档】</strong>（删去了业务人员不想查看的代码）</p>
+<ul>
+<li><strong>Jupyter Dashboards</strong>   </li>
+<li><a href="https://github.com/jupyter/dashboards" target="_blank" rel="external">https://github.com/jupyter/dashboards</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install using pip from pypi and then activate the extension</span></div><div class="line">pip install jupyter_dashboards</div><div class="line">jupyter dashboards quick-setup --sys-prefix</div><div class="line"></div><div class="line"><span class="comment"># install using conda from conda-forge, no activation required</span></div><div class="line">conda install jupyter_dashboards -c conda-forge</div></pre></td></tr></table></figure>
+<p><br></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件应用/" rel="tag"># 软件应用</a>
+          
+            <a href="/tags/程序编程/" rel="tag"># 程序编程</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/23/软件应用_程序编程/Python/Python_专题总结/Python_目录与文件&导入导出_OS&Pandas/" rel="next" title="Python_文件与目录操作_OS">
+                <i class="fa fa-chevron-left"></i> Python_文件与目录操作_OS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_正则表达式_RE/" rel="prev" title="Python_正则表达式_RE">
+                Python_正则表达式_RE <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda安装"><span class="nav-number">1.</span> <span class="nav-text">Anaconda安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块安装"><span class="nav-number">2.</span> <span class="nav-text">模块安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pip-安装与卸载"><span class="nav-number">2.1.</span> <span class="nav-text">pip 安装与卸载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件安装"><span class="nav-number">2.2.</span> <span class="nav-text">下载文件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单文件模块"><span class="nav-number">2.3.</span> <span class="nav-text">单文件模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见报错"><span class="nav-number">2.4.</span> <span class="nav-text">常见报错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块使用"><span class="nav-number">3.</span> <span class="nav-text">模块使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取模块地址"><span class="nav-number">3.0.1.</span> <span class="nav-text">获取模块地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入与移除模块"><span class="nav-number">3.0.2.</span> <span class="nav-text">导入与移除模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接数据库库"><span class="nav-number">4.</span> <span class="nav-text">连接数据库库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-Server"><span class="nav-number">4.1.</span> <span class="nav-text">SQL Server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Connection-Objects"><span class="nav-number">4.1.1.</span> <span class="nav-text">Connection Objects</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中文乱码问题"><span class="nav-number">4.2.</span> <span class="nav-text">中文乱码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【实战演练】"><span class="nav-number">4.3.</span> <span class="nav-text">【实战演练】</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Juypter-Notebook"><span class="nav-number">5.</span> <span class="nav-text">Juypter Notebook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">5.1.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown操作"><span class="nav-number">5.2.</span> <span class="nav-text">markdown操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示问题"><span class="nav-number">5.3.</span> <span class="nav-text">显示问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出设置"><span class="nav-number">5.4.</span> <span class="nav-text">输出设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导出时去掉代码"><span class="nav-number">5.4.1.</span> <span class="nav-text">导出时去掉代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示每行结果"><span class="nav-number">5.4.2.</span> <span class="nav-text">显示每行结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导出为PDF"><span class="nav-number">5.4.3.</span> <span class="nav-text">导出为PDF</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件"><span class="nav-number">5.5.</span> <span class="nav-text">插件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

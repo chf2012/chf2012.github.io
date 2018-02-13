@@ -1,0 +1,1592 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据分析,统计学," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="《An Introduction To Statistical Learning 》 - Gareth.James、Daniela.Witten、Trevor.Hasie、Robert.Tibshirani
+
+不仅介绍了统计学的基本概念，而且从其内在本质的角度进行阐述，并对各种模型与算法进行了比较，总结了各自的优劣势。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《统计学习导论_基于R应用》">
+<meta property="og:url" content="http://yoursite.com/2017/10/30/数据分析/10_统计学/《统计学习导论-基于R应用》/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="《An Introduction To Statistical Learning 》 - Gareth.James、Daniela.Witten、Trevor.Hasie、Robert.Tibshirani
+
+不仅介绍了统计学的基本概念，而且从其内在本质的角度进行阐述，并对各种模型与算法进行了比较，总结了各自的优劣势。">
+<meta property="og:updated_time" content="2018-02-12T15:12:04.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《统计学习导论_基于R应用》">
+<meta name="twitter:description" content="《An Introduction To Statistical Learning 》 - Gareth.James、Daniela.Witten、Trevor.Hasie、Robert.Tibshirani
+
+不仅介绍了统计学的基本概念，而且从其内在本质的角度进行阐述，并对各种模型与算法进行了比较，总结了各自的优劣势。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/30/数据分析/10_统计学/《统计学习导论-基于R应用》/"/>
+
+
+
+
+
+  <title> 《统计学习导论_基于R应用》 | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/数据分析/10_统计学/《统计学习导论-基于R应用》/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《统计学习导论_基于R应用》
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T00:00:00+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-12T23:12:04+08:00">
+                2018-02-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/统计学/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/30/数据分析/10_统计学/《统计学习导论-基于R应用》/" class="leancloud_visitors" data-flag-title="《统计学习导论_基于R应用》">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>《An Introduction To Statistical Learning 》 - Gareth.James、Daniela.Witten、Trevor.Hasie、Robert.Tibshirani</p>
+<ol>
+<li>不仅介绍了统计学的基本概念，而且从其内在本质的角度进行阐述，并对各种模型与算法进行了比较，总结了各自的优劣势。</li>
+</ol>
+<a id="more"></a>
+<p>统计学习的三类应用</p>
+<ol>
+<li>预测</li>
+<li>分类</li>
+<li>聚类 （不输出预测变量）</li>
+</ol>
+<p><br></p>
+<h1 id="第二章-统计学习"><a href="#第二章-统计学习" class="headerlink" title="第二章 统计学习"></a>第二章 统计学习</h1><blockquote>
+<p>整体上介绍了统计学习的几种方式，并给出了评价模型的维度</p>
+</blockquote>
+<p><br></p>
+<h2 id="2-1-统计学习"><a href="#2-1-统计学习" class="headerlink" title="2.1 统计学习"></a>2.1 统计学习</h2><p><strong>统计学习，是关于估计 $f$ 的一系列方法。</strong></p>
+<p>$$ Y= f(x) + \xi$$</p>
+<blockquote>
+<p>$f$ 表达了 X 提供给 Y 的系统信息。是 x 的函数</p>
+<p>$\xi$ ，随机误差项；均值为0，且与 X 独立</p>
+</blockquote>
+<p><br></p>
+<h3 id="预测-amp-推断-估计-f-的两种场景"><a href="#预测-amp-推断-估计-f-的两种场景" class="headerlink" title="预测 &amp; 推断 - 估计 $f$ 的两种场景"></a>预测 &amp; 推断 - 估计 $f$ 的两种场景</h3><p>面对一个问题，首先要做的是对其<strong>目的</strong> 进行判断：<strong>预测 or 推断</strong></p>
+<p><br></p>
+<h4 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h4><p><strong>通过现有的输入集 X ，获取输出 Y</strong> </p>
+<p>$$\hat{Y} = \hat{f}(X)$$</p>
+<blockquote>
+<p>$\hat{f}$ 表示$f$ 的预测， $\hat{Y}$ 表示 $Y$ 的预测值。</p>
+</blockquote>
+<p>在这个式子中，$\hat{f}$ 是<strong>黑箱</strong>。表示一般意义下，<strong><u>如果该黑箱能够提供准确的预测 $Y$， 则并不十分追求 $f$ 的准确形式。</u></strong></p>
+<p>$\hat{Y}$ 作为 $Y$ 的预测，精确度取决于两个量：可约误差、不可约误差$\xi$   </p>
+<blockquote>
+<p>$\xi$ 包含了对预测 $Y$ 有用但却不可直接观测的变量信息：由于没有测量它们，所以 $f$ 不能使用这些变量去预测。</p>
+<ul>
+<li><em>例如：某个病人不良反应的风险也许会在一天内很不一样，比如药物的药效本身在设计上随着一天内服药环境的温度和湿度的不同而不同，或者风险与病人当天服药的情绪状态有关。</em></li>
+</ul>
+</blockquote>
+<p><br></p>
+<h4 id="推断"><a href="#推断" class="headerlink" title="推断"></a>推断</h4><p>对 $X$ 变化是 对 $Y$ 产生怎样的影响比较感兴趣，我们的  <u><strong>目的是获得 $X$ 和 $Y$ 的关系，而不是为了预测 $Y$</strong></u>； 去理解 $Y$ 作为 $X$ 的函数是怎么变化的。可能涉及：</p>
+<ol>
+<li><u>哪些预测变量与响应变量有关？</u>  <em>通常情况下用于预测的变量中只有一小部分与 $Y$ 充分有关，从一大组可能的变量中根据应用的需要识别一些重要的预测因子是很有必要的。</em></li>
+<li><u>响应变量与每个预测变量之间的关系是什么？</u> </li>
+<li><u>$Y$ 与每个预测变量的关系能否用一个线性方程概括，还是它们的关系需要更复杂的形式？</u></li>
+</ol>
+<p><br></p>
+<h3 id="参数-amp-非参数-估计-f-的两种方法"><a href="#参数-amp-非参数-估计-f-的两种方法" class="headerlink" title="参数 &amp; 非参数 - 估计 $f$ 的两种方法"></a>参数 &amp; 非参数 - 估计 $f$ 的两种方法</h3><p>确定目的之后，选择合适的估计方法：参数方法 &amp; 非参数方法</p>
+<h4 id="参数方法"><a href="#参数方法" class="headerlink" title="参数方法"></a>参数方法</h4><ul>
+<li><p>what：<strong><u>基于模型</u></strong>的方法统称为参数法。</p>
+</li>
+<li><p>why ：把估计 $f$ 的问题<strong><u>简化到估计一组参数</u></strong>。<strong>（优势）</strong></p>
+<blockquote>
+<p>对$f$ 假设一个具体的参数形式将简化对 $f$ 的估计；因为估计参数更为容易</p>
+</blockquote>
+</li>
+<li><p>how ：</p>
+<ol>
+<li>假设函数 $f$ 具有一定的形式或形状；常用的线性假设 $f(X) = \beta_0 + \beta_1X_1 + …$  ； 此时估计 $f$ 的问题被简化为估计一组参数 $\beta$</li>
+<li>用训练数据去拟合模型</li>
+</ol>
+</li>
+<li><p><strong>不足：</strong>选定的模型可能与真正的 $f$ 并不一致，这个时候的效果会很差</p>
+</li>
+<li><p><strong>解决办法</strong>：尝试选择光滑(felexible)模型拟合不同形式的函数$f$ ；但拟合光滑度更强的模型需要<strong>更多的参数估计</strong>。并可能出现<strong>过拟合</strong>现象。</p>
+</li>
+</ul>
+<p><br></p>
+<h4 id="非参数方法"><a href="#非参数方法" class="headerlink" title="非参数方法"></a>非参数方法</h4><ul>
+<li>what：不需要对函数的形式做事先明确的假设，追求的是<strong><u>接近数据点的估计</u></strong>。</li>
+<li>how ：估计函数在去粗和光滑处理后尽可能<strong>与更多的数据点接近</strong></li>
+<li><strong>优势</strong>：不限定函数的具体形式，<strong>可以在更大的范围内选择更适合$f$形状的估计</strong></li>
+<li><strong>不足</strong>：无法将估计$f$的问题简化到仅仅对少数参数进行估计的问题，所以为了获得对$f$更精准的估计，往往需要大量的观测点（远远超出参数方法所需要的点），并且无法对模型进行合理的解释</li>
+</ul>
+<p><br></p>
+<h3 id="预测精度-amp-模型解释性-基于目的的权衡"><a href="#预测精度-amp-模型解释性-基于目的的权衡" class="headerlink" title="预测精度 &amp; 模型解释性 - 基于目的的权衡"></a>预测精度 &amp; 模型解释性 - 基于目的的权衡</h3><p>通常情况下，<strong>当一种方法的预测精度增加时，它的模型结实度则减弱。</strong></p>
+<p>但事实是更精确的预测常常在欠光滑度的模型上取得。原因在于高光滑度的模型有过拟合的问题存在。</p>
+<ul>
+<li>推断：更需要模型解释性，倾向于选择参数方法</li>
+<li>预测：更需要高预测精度，倾向于选择非参数方法</li>
+</ul>
+<p><br></p>
+<h3 id="指导学习-amp-无指导学习"><a href="#指导学习-amp-无指导学习" class="headerlink" title="指导学习 &amp; 无指导学习"></a>指导学习 &amp; 无指导学习</h3><ol>
+<li><strong>指导</strong>学习：<strong>对每一个预测变量观测值 $x_i$ 都有对应的相应变量的观测 $y_i$</strong> ；建模的目标是通过建立预测变量和响应变量之间的关系，精准预测响应变量或更好地理解两者之间的关系。</li>
+<li><strong>无指导</strong>学习：<strong>只有预测变量的观测向量 $x_i$ ，这些变量没有对应的响应变量 $y_i$ 与之对应</strong>。 <em>这类问题拟合线性模型是不可能的，因为缺乏响应变量用于预测</em></li>
+</ol>
+<p><br></p>
+<h3 id="回归-amp-分类"><a href="#回归-amp-分类" class="headerlink" title="回归 &amp; 分类"></a>回归 &amp; 分类</h3><p><br></p>
+<p><br></p>
+<h2 id="2-2-评价模型"><a href="#2-2-评价模型" class="headerlink" title="2.2 评价模型"></a>2.2 评价模型</h2><blockquote>
+<p>目的是选择最适合的统计方法。</p>
+<p>偏差 - 方差的权衡，以及测试误差产生 $U$形曲线都使建模成为一项苦难的任务</p>
+</blockquote>
+<h3 id="通过-均方误差-检验拟合效果"><a href="#通过-均方误差-检验拟合效果" class="headerlink" title="通过 [均方误差] 检验拟合效果"></a>通过 [均方误差] 检验拟合效果</h3><blockquote>
+<p>涉及MSE、自由度、过拟合</p>
+</blockquote>
+<h4 id="均方误差"><a href="#均方误差" class="headerlink" title="均方误差"></a>均方误差</h4><ul>
+<li><strong>均方误差（Mean Squared Error , MSE）：（真实值 - 预测值）平方的均值</strong></li>
+</ul>
+<p>$$MSE = \frac 1n  \sum_i^n(y_i - \hat{f}(x_i) ) ^2$$</p>
+<p>训练均方误差、测试均方误差；</p>
+<p>在应用中不在意是否 $\hat{f}(x_i) \approx y_i$ ，而是关心一个新的观测点 $(x_0, y_0)$ ，是否有 $\hat{f}(x_0) \approx y_0$ ；所以，选择的标准的是使得 <strong>测试均方误差</strong> 最小，而不一定是训练均方误差最小。</p>
+<p>一般情况下，一个模型的训练均方误差最小时，并不能保证模型的测试均方误差同时会很小。两者之间更像是 <strong><u>U 型</u></strong>的关系。</p>
+<p>[自由度与均方误差(训练&amp;测试)]</p>
+<p><br></p>
+<p>####自由度</p>
+<p>描述<strong><u>曲线光滑度</u></strong>的量。</p>
+<ul>
+<li><u><strong>当拟合函数的光滑度增加时，训练均方误差单调递减，但测试均方误差成 $U$ 型分布；</strong></u></li>
+<li>模型越光滑，偏差越小；</li>
+</ul>
+<p>####过拟合</p>
+<p>当所建的模型产生一个较小的<strong><u>训练</u></strong>均方误差，但却得到一个较大的<strong><u>测试</u>均方误差</strong>，该模型就是<strong><u>过拟合</u></strong>了。</p>
+<blockquote>
+<p>过拟合，表示对已有的训练数据有非常精准的估计，但是对新的不属于原来训练数据集的观测点的估计偏差很大。</p>
+</blockquote>
+<ul>
+<li>但无论过拟合是否发生，我们总是期望训练均方误差比测试均方误差要小，原因是许多统计学习方法直接或者间接，其目标函数都是训练均方误差最小。</li>
+<li>Why：在于<strong>暗示降低模型的光滑度，减小测试均方误差</strong></li>
+</ul>
+<p><br></p>
+<h3 id="偏差-方差权衡"><a href="#偏差-方差权衡" class="headerlink" title="偏差 - 方差权衡"></a>偏差 - 方差权衡</h3><blockquote>
+<p>模型选择的两个指标，但是它们是负相关的。</p>
+</blockquote>
+<ul>
+<li>使用光滑度更高的方法，所得模型偏差会减少，方差会增加<ul>
+<li>虽然两者是负相关，<strong>但变化的幅度是不一样的</strong>；有的时候，提高一种方法的光滑度，偏差减小的速度要比模型方差增阿基的快，这时期望测试均方误差就会下降</li>
+</ul>
+</li>
+<li>目标：使得<strong>（方差 + 偏差$^2$ ) 最小化</strong></li>
+</ul>
+<p><br></p>
+<h4 id="偏差-Bias"><a href="#偏差-Bias" class="headerlink" title="偏差 - Bias"></a>偏差 - Bias</h4><p>为了选择一个模型逼近真实函数而被带入的<strong>误差</strong>，其构成可能非常复杂。即<strong><u>预测值与真实值之间的差值。</u></strong></p>
+<p>一般来说，<strong>光滑度越高</strong>的方法产生的<strong>偏差越小</strong>；</p>
+<p><br></p>
+<p>####方差 - Variance</p>
+<p>代表用一个<strong>不同的</strong>训练集估计 $f$ 时，<strong>估计函数的改变量</strong>。</p>
+<p>一般来说，<strong>光滑度越高</strong>的统计模型有<strong>更高的方差</strong>。</p>
+<p><br></p>
+<h3 id="分类模型的评价"><a href="#分类模型的评价" class="headerlink" title="分类模型的评价"></a>分类模型的评价</h3><blockquote>
+<p>通过错误率去进行评价</p>
+</blockquote>
+<ul>
+<li>训练<strong>错误率</strong>：衡量估计 $\hat{f}$ 精度的方法</li>
+</ul>
+<p>$${1\over n} \sum_i^n I (y_i  \neq \hat{y_i})  $$  ( 2.8 )</p>
+<blockquote>
+<p>$I(y_i \neq \hat{y_i})$  表示一个<strong>示性变量</strong>；当 $y_i \neq \hat{y_i}$ 时，值等于1；否则等于0；</p>
+<p><strong>若值等于0，表示第$i$个观测值用分类模型实现了正确的分类。</strong>上式<strong>计算了误分类的比例</strong>。</p>
+<p>与之对应的为 测试错误率</p>
+</blockquote>
+<p><br></p>
+<h4 id="贝叶斯分类器"><a href="#贝叶斯分类器" class="headerlink" title="贝叶斯分类器"></a>贝叶斯分类器</h4><blockquote>
+<p>贝叶斯分类器将产生<strong><u>最低的</u>测试错误率</strong></p>
+</blockquote>
+<ul>
+<li>设计一个简单的分类器将每个观测值分配到它<strong>最大可能所在的类当中</strong>，将这个类作为它的预测值；即将一个$x_0$ 分配到下式最大的那个$j$ 类上是合理的：</li>
+</ul>
+<p>$$Pr (Y=j  | X=x_0)$$ ( 2.10 )  </p>
+<blockquote>
+<p>这是一个条件概率。给定了观测向量 $x_0$ 条件下 $Y=j$ 的概率。</p>
+<p>在一个二分类问题中，只有两种可能的响应值1或2；若 $Pr (Y=1|X=x_0) &gt; 0.5 $  ，贝叶斯分类器将其预测为1，否则为2；</p>
+</blockquote>
+<ul>
+<li><p>贝叶斯<strong>决策边界</strong>：表示那些<strong>概率为0.5</strong>的点所组成的边界。</p>
+</li>
+<li><p>贝叶斯分类器将产生<strong><u>最低的</u>测试错误率</strong>，称为贝叶斯错误率。因为贝叶斯分类器总是选择使 ( 2.10 ) 最大的类。</p>
+<ul>
+<li><p>在 $X = x_0$ 处的错误率是  $1 - max_j Pr (Y=j  | X=x_0)$ </p>
+</li>
+<li><p><strong>整个贝叶斯错误率</strong></p>
+<p>$$ 1 - E (max_j Pr (Y=j  | X) ) $$ ( 2.11 )</p>
+<blockquote>
+<p>期望平均了所有$X$ 上可能的概率</p>
+<p>贝叶斯错误率类似于不可约误差</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h4 id="K-最邻近分类器"><a href="#K-最邻近分类器" class="headerlink" title="K 最邻近分类器"></a>K 最邻近分类器</h4><blockquote>
+<p>实际情况是一般很难知道给定 $X$ 后 $Y$ 的分布，所以很多时候计算贝叶斯分类几乎是不可能的；所以常常</p>
+<ol>
+<li>先给定 $X$ 后估计 $Y$ 的条件分布</li>
+<li>然后将一个给定的观测值分类到估计的分布概率最大的类别中</li>
+</ol>
+</blockquote>
+<ul>
+<li><strong>KNN (K - Nearest Neighbors )</strong>分类器 - 步骤 </li>
+</ul>
+<ol>
+<li>给一个正整数 K 和一个观测值$x_0$</li>
+<li>从训练集中找出 K 个最靠近$x_0$ 的点集开始，用 $N_0$表示这个K个点的集合</li>
+<li>对集合中每个类别$j$ 分别估计它的条件概率    $Pr (Y= j | X=x<em>0) = \frac 1n \sum</em>{N_0}I(y_i = j) $ </li>
+<li>最后运用贝叶斯方法将测试的观测值$x_0$ 分到概率最大的类中</li>
+</ol>
+<blockquote>
+<p>例如，目标是对黑色十字标记的点作出预测；选取K=3；</p>
+<p>首先识别出靠近该点最近的3个观测值；其中2个点位蓝色，一个点位橙色；所以蓝色的<strong>估计概率</strong>为 2/3，橙色点的估计概率1/3；</p>
+<p>因为蓝色点的概率最大，所以最后把该十字标记点分类为蓝色</p>
+</blockquote>
+<ul>
+<li><strong>K的选择</strong>对获得KNN分类器有根本性的影响。<ul>
+<li>K = 1 时，决策边界很不规则；此时偏差最低，但方差往往很大；</li>
+<li>K = 100 时，模型的光滑性<strong>减弱</strong>， 得到一个接近线性的决策边界；</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h1 id="第三章-线性回归"><a href="#第三章-线性回归" class="headerlink" title="第三章 线性回归"></a>第三章 线性回归</h1><blockquote>
+<p>简单线性回归、多元线性回归、多项式回归</p>
+</blockquote>
+<p>##简单线性回归</p>
+<p>根据<u>单一变量 $X$</u> 预测<strong><u>定量</u></strong> 响应变量 $Y$ 的方法。</p>
+<p>$$ Y \approx \beta_0 + \beta_1X$$ ( 3.1)</p>
+<p><br></p>
+<h3 id="估计系数"><a href="#估计系数" class="headerlink" title="估计系数"></a>估计系数</h3><blockquote>
+<p>目的是估计 $\beta_0 , \beta_1$</p>
+</blockquote>
+<ul>
+<li><p><strong>残差</strong>（Residual） = <strong>（预测值 与 实际值）</strong> 之间的差值；即偏差；</p>
+</li>
+<li><p><strong>残差平方和 - RSS</strong> ( Residual Sum of Squares ) </p>
+<p>$$RSS = \sum_i^n (y_i - \hat{y}_i) ^2$$  ( 3.3 )</p>
+</li>
+<li><p><strong>最小二乘估计</strong>（Least Squares Coefficient Estimate）：选择使得 RSS最小的参数；</p>
+</li>
+<li><p><strong>最小二乘直线</strong>：找到一条直线，使得RSS最小</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="评估估计的准确性"><a href="#评估估计的准确性" class="headerlink" title="评估估计的准确性"></a>评估估计的准确性</h3><blockquote>
+<p>介绍了样本均值、标准误差、置信区间、零假设、t统计量、p值</p>
+<p>目的是确保单个模型中系数的准确性</p>
+</blockquote>
+<ul>
+<li>总体回归直线  Vs. 最小二乘直线<ul>
+<li>总体回归直线：真实的回归直线，一般是无法获得的</li>
+<li>最小二乘直线：拟合的回顾直线，尽量逼近真实的回归直线</li>
+<li>两者之间有细微的差别，这是基于对标准统计方法的延伸（即<strong>利用样本信息估计一个较大总体的特征</strong>）</li>
+</ul>
+</li>
+</ul>
+<p>#####样本均值</p>
+<ul>
+<li><p><strong>样本均值</strong>：随机抽取10个样本集，每个集中有100个观测值，每个样本自身的均值，组成一个集合（共10个元素）；该组集合的均值即为样本均值；</p>
+<blockquote>
+<p>例如我们对随机变量$Y$的总体均值$\mu$感兴趣。问题在于 $\mu$ 是未知的，但我们有 n 个关于 $Y$ 的观测值，即为$y_1, y_2 ,… , y_n$ ，可以用它来估计$\mu$ 。 一个合理的估计是 $ \hat{\mu} = \overline y $ ，其中 $\overline y = \frac 1n \sum_i^n y_i$ </p>
+<p>对一组特定的观测值$y_1, …,y_n$ 可能会高度或低估均值 $\mu$ ，但如果对大量观测数据集中得到许多对 $\mu$ 的估计，则它们的均值正好等于$\mu$ ；</p>
+<p>因此一个无偏估计不会系统地高估后低估真实参数。这种<strong>无偏性同样适用于最小二乘参数估计</strong>。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="标准误差"><a href="#标准误差" class="headerlink" title="标准误差"></a>标准误差</h5><ul>
+<li><p>样本均值的<strong>标准误差 - SE (Standard Error)</strong>：衡量估计值 $\hat{\mu}$ 与真实均值的偏离程度</p>
+<p>$$Var(\hat{\mu}) = SE (\hat{\mu})^2 = {\sigma^2 \over n} $$  ( 3.8 )</p>
+<p>$$SE(\hat\mu) = {\sigma \over \sqrt{n} }$$</p>
+<blockquote>
+<p>标准误差 $SE(\hat{\mu})$  衡量了估计$\hat{\mu}$ 偏离 $\mu$ 的实际值的平均量，也告诉我们这种偏差随着n的增大而减小。</p>
+<p><strong>方差：随机变量与数学期望（均值） 之间的偏离程度</strong></p>
+<p>$$Var(x) = \frac 1n \sum (x_i - \mu) ^2$$</p>
+</blockquote>
+</li>
+</ul>
+<p>#####置信区间</p>
+<ul>
+<li><p><strong>置信区间 - CI (Confidence Interval)</strong> ：通过标准误差来估计算置信区间</p>
+<ul>
+<li><p>95%的置信区间：被定义为真实值有95%的概率落在该区间；或许说该范围有95%的概率包含未知参数的真实值</p>
+</li>
+<li><p>对于线性回归模型，$\hat\beta_1$ 的95%的置信区间约为 （基于经验原则）</p>
+<p>$$ \hat\beta_1 \pm 2 SE(\hat\beta_1)$$ ( 3.9 )</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>#####零假设</p>
+<ul>
+<li><p>标准误差<strong>对系数进行假设检验</strong>：零假设 与 备择假设</p>
+<ul>
+<li>零假设： $H_0 $ :   X 和 Y 之间没有关系；</li>
+<li>备择假设： $H_a$ : X 和 Y 之间有一定的关系；</li>
+</ul>
+<blockquote>
+<p>为了检验零假设，需要确定 $\hat\beta_1$  ($\beta_1$的估计值)  距离零是否足够远，从而能够确信 $\beta_1$是非零的；</p>
+<ul>
+<li>足够远的评判，取决于 $\hat\beta_1$ 的准确性；即依赖于 SE($\hat\beta_1$) ；</li>
+<li>如果 SE($\hat\beta_1$)很小，那即使 $\hat\beta_1$ 较小，也可能为 $\beta_1 \neq 0 $提供强有力的证据，证明X 和 Y 是相关的；</li>
+<li>如果 SE($\hat\beta_1$)很大，那 $\hat\beta_1$ 的绝对值必须很大才能拒绝零假设。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>#####t 统计量</p>
+<ul>
+<li><p><strong>t 统计量：衡量了$\hat\beta_1$ 偏离0的标准偏差</strong>  （即若为零假设时， $\beta$ 应为0）</p>
+<p>$$t = {\hat\beta_1 - 0 \over SE(\hat\beta_1) } =  {\hat\beta_1 - 0 \over  {\sigma / \sqrt{n} } }$$ </p>
+<blockquote>
+<p>t 分布有钟形结构；当n &gt; 30时，类似正态分布；</p>
+</blockquote>
+</li>
+</ul>
+<p>#####p 值</p>
+<ul>
+<li><p>$p$ <strong>值</strong> ：假设 $\beta_1=0$ 时，计算任意观测值大于等于|t|的概率；</p>
+<ul>
+<li>$p$<strong>值的解释：在接受原假设为真的情况下，该组样本量中的值出现的概率；</strong></li>
+<li><strong>若这个概率 $p$ 非常小，但现在的这个统计量却出现了，表明在预测变量和响应变量之间的真实关系未知的情况下，<u>不太可能完全由于偶然而观察到预测变量和响应变量之间的强相关。</u></strong></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>系数</th>
+<th>标准误</th>
+<th>t统计量</th>
+<th>p值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intercept</td>
+<td>7.0325</td>
+<td>0.4578</td>
+<td>15.36</td>
+<td>&lt;0.0001</td>
+</tr>
+<tr>
+<td>Tv</td>
+<td>0.0475</td>
+<td>0.0027</td>
+<td>17.67</td>
+<td>&lt;0.0001</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>表明，该 t 统计量（15.36）出现的概率为 &lt;0.0001，但现在却出现了。所以我们拒绝 $\beta_1=0$ 的原假设，认为两者之间是有关系的。</p>
+</blockquote>
+<p><br></p>
+<h3 id="评价模型的准确性"><a href="#评价模型的准确性" class="headerlink" title="评价模型的准确性"></a>评价模型的准确性</h3><blockquote>
+<p>目的是选择合适的模型；在此之前必须保证每个模型中系数的准确性</p>
+<p>评价线性模型的拟合度常用：残差标准误、$R^2$ 统计量</p>
+</blockquote>
+<p><br></p>
+<h4 id="残差标准误"><a href="#残差标准误" class="headerlink" title="残差标准误"></a>残差标准误</h4><p><strong>残差标准误 - RSE (Residual Standard Error )</strong> ：残差本身的<strong>偏离程度</strong>；</p>
+<p>$$RSS = \sum_i^n (y_i - \hat{y}_i) ^2$$</p>
+<p>$$RSE = \sqrt{ {1 \over (n-2) }RSS}$$ </p>
+<blockquote>
+<p>当模型拟合越好，RSE则越小；</p>
+</blockquote>
+<ul>
+<li><strong>不足</strong>：但这是一个<strong>绝对值</strong>的度量，以Y的单位进行衡量；所以偏差的大小会<strong>根据原本统计单位的不同而不同</strong>；<ul>
+<li>一个是渠道的数量，单位个；一个是金额的数量，单位万元；会有很大的不同</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h4 id="R-2-统计量"><a href="#R-2-统计量" class="headerlink" title="$R^2$ 统计量"></a>$R^2$ 统计量</h4><p>表示被解释方差的比例，值在 [0 , 1]之间；测量的是 Y 中的变异中能<strong>被 X 解释的部分所占的比例</strong>；越接近1，说明回归可以解释越多的变异性</p>
+<p>$$R^2 = {TSS-RSS \over TSS } = 1- {RSS \over TSS}$$ ( 3.17 )</p>
+<blockquote>
+<p> $TSS = \sum(y_i - \overline y) ^2 $ ：<strong>总平方和</strong>，测量的是<strong>响应变量 Y 自身的总方差</strong>，可以认为在执行回归分析之前响应变量中的<strong>固有变异性</strong>；</p>
+<p> $TSS - RSS$ ：测量的是响应变量进行回归之后<strong>被解释的变异性</strong>；</p>
+</blockquote>
+<ul>
+<li>不足：当更多的变量进入模型时，即使新加入的变量与响应变量的关联很弱， $R^2$也一定会增加；这是因为在最小二乘法中添加变量必然会使我们更准确地拟合训练数据；</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h2 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h2><p><strong><u>多个</u>预测变量</strong>$X_i$ 预测 <strong><u>定量</u></strong> 响应变量 $Y$</p>
+<p>$$ Y = \beta_0 + \beta_1X_1 + … + \beta_nX_n + \xi$$</p>
+<blockquote>
+<p> $X_i$ 代表第 $i$ 个预测变量，$\beta_i $代表第 $i$ 个预测变量与响应变量之间的关联；</p>
+<p> $\beta_i $ 解释为<strong><u>在所有其他预测变量保持不变的情况下</u></strong>，$X_i$增加一个单位对 $Y$ 产生的<strong><u>平均效果</u></strong>；</p>
+</blockquote>
+<p><br></p>
+<h3 id="F-统计量-预测变量与响应变量是否有关系"><a href="#F-统计量-预测变量与响应变量是否有关系" class="headerlink" title="F 统计量 - 预测变量与响应变量是否有关系"></a>F 统计量 - 预测变量与响应变量是否有关系</h3><blockquote>
+<p>所有预测变量中是否至少有一个可以用预测响应变量。</p>
+</blockquote>
+<p>$H_0 : \beta_1 = \beta_2 = … = \beta_n = 0 $</p>
+<p>$H_a : 至少有一个 \beta_i 不为0$</p>
+<p>$F$ 统计量：</p>
+<p>$$F = {(TSS-RSS)/p \over (RSS/(n-p-1))}$$</p>
+<blockquote>
+<p>F统计量 越接近1，表示预测变量与响应变量无关；</p>
+<p>F统计量 大于1，表示两者有关系，则拒绝零假设；</p>
+</blockquote>
+<ul>
+<li>F统计量越大，越能表明两者之间是相关的；</li>
+<li>F统计量接近1，是否拒绝零假设取决于n和p的值；<ul>
+<li>若n很大，即使F统计量只是略大于1，可能仍可提供拒绝零假设</li>
+<li>若n较小，需要较大的统计量才能拒绝零假设；</li>
+</ul>
+</li>
+<li>同时可以根据 $p$ 值来进行判断</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h2 id="回归模型中的其他问题"><a href="#回归模型中的其他问题" class="headerlink" title="回归模型中的其他问题"></a>回归模型中的其他问题</h2><blockquote>
+<p>涉及定性预测变量、模型的扩展、潜在的异常值</p>
+</blockquote>
+<h3 id="定性预测变量-构造哑变量"><a href="#定性预测变量-构造哑变量" class="headerlink" title="定性预测变量 - 构造哑变量"></a>定性预测变量 - 构造哑变量</h3><h4 id="二值预测变量"><a href="#二值预测变量" class="headerlink" title="二值预测变量"></a>二值预测变量</h4><p>一个定性变量只有2种可能的取值；只需要<strong>给二值变量创建一个指标/哑变量</strong>；</p>
+<ul>
+<li>$x_i$ = 1，表示女性； $x_i$ =0 ，表示男性</li>
+<li>$y_i = \beta_0 + \beta_1x_i + \xi_i$ <ul>
+<li>$\beta_0 + \beta_1 + \xi_i$  ； 女性 - $x_i =1$   </li>
+<li>$\beta_0  + \xi_i​$           ；  男性 - $x_i =​$0   </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>$\beta_0$ 解释男性的平均债务水平</p>
+<p>$\beta_0 + \beta_1$ 解释女性的平均债务水平</p>
+<p>$\beta_1$ 表示男性与女性之间债务的<strong>平均差异</strong>；</p>
+</blockquote>
+<p>也可以使用 $x_i$ = 1，表示女性； $x_i$ = -1 ，表示男性 ；<strong>对结果并不影响</strong>，区别仅在于<strong>对系数的解释不同</strong>；</p>
+<p><br></p>
+<h4 id="两个水平以上的定性变量"><a href="#两个水平以上的定性变量" class="headerlink" title="两个水平以上的定性变量"></a>两个水平以上的定性变量</h4><p>给<strong>每一个<u>水平</u>创建一个哑变量</strong>；而不是对整个变量创建哑变量；</p>
+<p><strong>没有相对应的哑变量的水平</strong>，被称为<strong>基准水平</strong>；</p>
+<ul>
+<li>$x<em>{i1} $ = 1，表示高中； $x</em>{i1}$ =0 ，表示非高中</li>
+<li>$x<em>{i2} $ = 1，表示大学； $x</em>{i2}$ =0 ，表示非大学</li>
+<li>$x<em>{i3} $ = 1，表示硕士； $x</em>{i3}$ =0 ，表示非硕士</li>
+<li>$y_i = \beta_0 + \beta<em>1x</em>{i1} + \beta<em>2x</em>{i2} + \beta<em>3x</em>{i3} +\xi_i$ <ul>
+<li>$\beta_0 + \beta_1 + \xi_i$  ； 高中</li>
+<li>$\beta_0 + \beta_2 + \xi_i$  ； 大学</li>
+<li>$\beta_0  + \beta_3+ \xi_i$  ； 硕士</li>
+<li>$\beta_0  + \xi_i$            ；初中</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="线性模型的扩展"><a href="#线性模型的扩展" class="headerlink" title="线性模型的扩展"></a>线性模型的扩展</h3><blockquote>
+<p>可加性假设：预测变量$X_i$变化对响应变量$Y$ 产生的影响与其他预测变量的取值无关；</p>
+<p>线性假设：无论 $X_i$ 取何值，$X_i$变化一个单位引起的响应变量 $Y$的变化是恒定的</p>
+</blockquote>
+<h4 id="去除可加性-交互项"><a href="#去除可加性-交互项" class="headerlink" title="去除可加性 - 交互项"></a>去除可加性 - 交互项</h4><ul>
+<li>实验分层原则：如果模型中含有交互项，那么即使主效应的系数 p 值不显著，也应该包含在模型中；<ul>
+<li>所以，要优先检查交互项的系数的零假设</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h4 id="非线性关系-多项式"><a href="#非线性关系-多项式" class="headerlink" title="非线性关系 - 多项式"></a>非线性关系 - 多项式</h4><p>引入高次方，即多项式；</p>
+<p>$ Y = \beta_0 + \beta_1x + \beta_2x^2 + \xi$</p>
+<p><br></p>
+<h3 id="潜在的异常值"><a href="#潜在的异常值" class="headerlink" title="潜在的异常值"></a>潜在的异常值</h3><blockquote>
+<p>数据的非线性、误差项自相关、误差项方差非恒定、离群点、高杠杆点、共线性</p>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<h2 id="线性回归-Vs-KNN"><a href="#线性回归-Vs-KNN" class="headerlink" title="线性回归 Vs. KNN"></a>线性回归 Vs. KNN</h2><ul>
+<li>参数方法在建模的过程中对 $f(X)$ 的形式提出了很强的假设；<ul>
+<li>当选定的参数形式接近 $f$ 的真实形式，参数方法会优于 非参数方法</li>
+</ul>
+</li>
+<li><strong>维度的增加</strong>给线性回归的MSE带来的影响较小，而<strong>对KNN的影响较大</strong>；</li>
+<li>若每个预测变量仅有少量的观测值，参数方法往往会优于非参数方法</li>
+<li>若需要更高的模型结实度，则倾向于参数方法；</li>
+</ul>
+<p><br></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+            <a href="/tags/统计学/" rel="tag"># 统计学</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/10/个人日志/2017年度/个人日志_2017年9月总结/" rel="next" title="个人日志_2017年9月总结">
+                <i class="fa fa-chevron-left"></i> 个人日志_2017年9月总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/13/个人日志/2017年度/个人日志_2017年10月总结/" rel="prev" title="个人日志_2017年10月总结">
+                个人日志_2017年10月总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-统计学习"><span class="nav-number">1.</span> <span class="nav-text">第二章 统计学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-统计学习"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 统计学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预测-amp-推断-估计-f-的两种场景"><span class="nav-number">1.1.1.</span> <span class="nav-text">预测 & 推断 - 估计 $f$ 的两种场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预测"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">预测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推断"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">推断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-amp-非参数-估计-f-的两种方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">参数 & 非参数 - 估计 $f$ 的两种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数方法"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">参数方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非参数方法"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">非参数方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预测精度-amp-模型解释性-基于目的的权衡"><span class="nav-number">1.1.3.</span> <span class="nav-text">预测精度 & 模型解释性 - 基于目的的权衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指导学习-amp-无指导学习"><span class="nav-number">1.1.4.</span> <span class="nav-text">指导学习 & 无指导学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归-amp-分类"><span class="nav-number">1.1.5.</span> <span class="nav-text">回归 & 分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-评价模型"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 评价模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-均方误差-检验拟合效果"><span class="nav-number">1.2.1.</span> <span class="nav-text">通过 [均方误差] 检验拟合效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#均方误差"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">均方误差</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏差-方差权衡"><span class="nav-number">1.2.2.</span> <span class="nav-text">偏差 - 方差权衡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#偏差-Bias"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">偏差 - Bias</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类模型的评价"><span class="nav-number">1.2.3.</span> <span class="nav-text">分类模型的评价</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#贝叶斯分类器"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">贝叶斯分类器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-最邻近分类器"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">K 最邻近分类器</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-线性回归"><span class="nav-number">2.</span> <span class="nav-text">第三章 线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#估计系数"><span class="nav-number">2.0.1.</span> <span class="nav-text">估计系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估估计的准确性"><span class="nav-number">2.0.2.</span> <span class="nav-text">评估估计的准确性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标准误差"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">标准误差</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价模型的准确性"><span class="nav-number">2.0.3.</span> <span class="nav-text">评价模型的准确性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#残差标准误"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">残差标准误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#R-2-统计量"><span class="nav-number">2.0.3.2.</span> <span class="nav-text">$R^2$ 统计量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多元线性回归"><span class="nav-number">2.1.</span> <span class="nav-text">多元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#F-统计量-预测变量与响应变量是否有关系"><span class="nav-number">2.1.1.</span> <span class="nav-text">F 统计量 - 预测变量与响应变量是否有关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归模型中的其他问题"><span class="nav-number">2.2.</span> <span class="nav-text">回归模型中的其他问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定性预测变量-构造哑变量"><span class="nav-number">2.2.1.</span> <span class="nav-text">定性预测变量 - 构造哑变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二值预测变量"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">二值预测变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两个水平以上的定性变量"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">两个水平以上的定性变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性模型的扩展"><span class="nav-number">2.2.2.</span> <span class="nav-text">线性模型的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#去除可加性-交互项"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">去除可加性 - 交互项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非线性关系-多项式"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">非线性关系 - 多项式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#潜在的异常值"><span class="nav-number">2.2.3.</span> <span class="nav-text">潜在的异常值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归-Vs-KNN"><span class="nav-number">2.3.</span> <span class="nav-text">线性回归 Vs. KNN</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

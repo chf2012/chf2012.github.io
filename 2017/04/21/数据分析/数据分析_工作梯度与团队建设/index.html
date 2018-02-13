@@ -1,0 +1,1367 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据分析," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jerry那些事儿" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="数据分析工作梯度与团队建设；                                               
+why  ：建立整体、全局的概念，目的是了解当前的自己处在什么阶段，并由此得出应该努力的方向。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析工作梯度与团队建设">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/数据分析/数据分析_工作梯度与团队建设/index.html">
+<meta property="og:site_name" content="Jerry那些事儿">
+<meta property="og:description" content="数据分析工作梯度与团队建设；                                               
+why  ：建立整体、全局的概念，目的是了解当前的自己处在什么阶段，并由此得出应该努力的方向。">
+<meta property="og:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设04.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设01.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设03.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_底层概念_etl05.png">
+<meta property="og:updated_time" content="2018-02-12T12:49:50.132Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析工作梯度与团队建设">
+<meta name="twitter:description" content="数据分析工作梯度与团队建设；                                               
+why  ：建立整体、全局的概念，目的是了解当前的自己处在什么阶段，并由此得出应该努力的方向。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设04.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/21/数据分析/数据分析_工作梯度与团队建设/"/>
+
+
+
+
+
+  <title> 数据分析工作梯度与团队建设 | Jerry那些事儿 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jerry那些事儿</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/21/数据分析/数据分析_工作梯度与团队建设/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据分析工作梯度与团队建设
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T00:00:00+08:00">
+                2017-04-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-12T20:49:50+08:00">
+                2018-02-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/21/数据分析/数据分析_工作梯度与团队建设/" class="leancloud_visitors" data-flag-title="数据分析工作梯度与团队建设">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>数据分析工作梯度与团队建设；                                               </p>
+<p><strong>why  ：建立整体、全局的概念，目的是了解当前的自己处在什么阶段，并由此得出应该努力的方向。</strong></p>
+<p><img src="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设04.png" alt=""></p>
+<a id="more"></a>
+<h2 id="数据分析工作的各个梯度1"><a href="#数据分析工作的各个梯度1" class="headerlink" title="数据分析工作的各个梯度1"></a>数据分析工作的各个梯度1</h2><p>​                                                <em>From  知乎  <a href="https://www.zhihu.com/question/55515646" target="_blank" rel="external"> 《数据分析团队如何给自己找活干?》</a> 何明科</em></p>
+<p>改变一个人的习惯是很难的，而改变认知比改变习惯更要难上一个或几个数量级。因此可以把我想做的事情分为如下几类，从易到难。</p>
+<blockquote>
+<p>初做咨询的时候，有一个项目是帮助某国际手机品牌在中国做新渠道模式的试点及铺开。因为我们团队没有任何实操经验，一开始的过程就是帮人跑跑数据和写写报告，颇不受待见。后来因为搞出了一套周报自动生成器，才赢得客户团队的超级认可，顺利过关。</p>
+</blockquote>
+<h3 id="1-满足缺失需求而不改变习惯，提升效率"><a href="#1-满足缺失需求而不改变习惯，提升效率" class="headerlink" title="1. 满足缺失需求而不改变习惯，提升效率"></a>1. 满足缺失需求而不改变习惯，提升效率</h3><p>数据团队<strong>为业务团队提供的服务或者产品</strong>，完全没有改变业务团队的工作流，无非是补足其缺失的需求，让其<strong>查看数据、清理数据和分析数据大为简单方便</strong>，所以接受起来毫无难度。最重要的是，<strong><u>【对业务团队没有替代关系，同时也不指责业务团队之前做的不好。】</u></strong></p>
+<p><em>比如大公司往往因为业务众多而BI系统分散，这时候为团队一个整合的BI平台，绝对是加分项。</em></p>
+<h3 id="2-改变工作流程，提升效率"><a href="#2-改变工作流程，提升效率" class="headerlink" title="2. 改变工作流程，提升效率"></a>2. 改变工作流程，提升效率</h3><p>业务人员、运维人员、运营人员及产品人员平时会花费大量时间阅读数据、理解数据、建立假设、证明证伪假设和形成结论。数据工程师或者分析师完全可以在这些方面为业务方提供增值和提升其效率。</p>
+<h4 id="1-找规律找异常"><a href="#1-找规律找异常" class="headerlink" title="1. 找规律找异常"></a>1. 找规律找异常</h4><p>观察数据趋势以及寻找异常，是非常重要的部分。</p>
+<ul>
+<li>传统的做法：人脑形成经验，肉眼观察和肉脑判断；或者设定阈值，超过一定范围自动报警（常见于运维）；或者简单的四则运算判断，根据各种环比、同比或者平滑移动平均等等。</li>
+<li>数据分析团队其实是应该可以利用<strong>傅里叶分析将周期性的变动和异动大部分区隔出来的</strong>，让这种分析和查找异常的过程升级，更精准的同时也提升效率。</li>
+</ul>
+<h4 id="2-做分类提方案"><a href="#2-做分类提方案" class="headerlink" title="2. 做分类提方案"></a>2. 做分类提方案</h4><p>业务团队时常需要针对业务情况做各种分类，然后对症下药提供解决方案。这在销售团队里尤其常见，尤其是互联网公司的销售业务，每个城市的产出是销售业绩，<em>有各种中间的过程变量：销售数量、销售人效、销售出勤率及成单率、销售流失率、当地流量（UV）数量、流量（UV）质量、商户续费率、新增商户数等等。</em></p>
+<ul>
+<li>传统操作中，都是依靠运营人员或者BI人员根据人肉经验或者常用而简单的分析框架，对各城市的销售情况进行分类，找问题出方案。</li>
+<li>数据分析人员完全可以利用<strong>更高阶的机器学习</strong>，针对业务情况进行更多维度和更实时的分类，然后将业务情况与方案进行匹配。<ul>
+<li>以上方案存在如下优势：高维会创造更精细的分类，有可能捕捉到以前被忽略的业务问题；高频（机器的高效率按天分析数据）会创造更实时的反馈</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-AI写报告"><a href="#3-AI写报告" class="headerlink" title="3. AI写报告"></a>3. AI写报告</h4><p>BI部门每月或者每周都要撰写报告发给管理层阅读，这个工作完全是可以开发一套AI系统来自动完成的。</p>
+<p>以上想法都是在<u><strong>【略微改变业务人员工作流程的情况下，为其带来更高效和更精准的结果，可以说是给业务人员赋能，简化其重复性劳东】</strong></u>，帮助其成功。但一方面因为稍微替代了其人脑的价值，招当事人反感；另一方面在初期的磨合过程中，机器肯定有不少犯错的机会招人类嫌弃，所以初期的磨合阶段可能会略有阻力。</p>
+<h3 id="3-提供新思路，看到新世界"><a href="#3-提供新思路，看到新世界" class="headerlink" title="3. 提供新思路，看到新世界"></a>3. 提供新思路，看到新世界</h3><p>数据分析人员还可以利用新技术、新算法或者新数据，帮助业务方找到剖析问题的新角度并证明其行之有效，也会对业务部门大有帮助，只不过因为其需要改变传统的思维习惯，更需要普及教育甚至是耐心。</p>
+<p>​                                                                            ——2017.04.21</p>
+<p><br></p>
+<h2 id="数据分析工作的各个梯度2"><a href="#数据分析工作的各个梯度2" class="headerlink" title="数据分析工作的各个梯度2"></a>数据分析工作的各个梯度2</h2><p>​                                                <em>From  知乎  <a href="https://www.zhihu.com/question/55515646" target="_blank" rel="external"> 《数据分析团队如何给自己找活干?》</a> 孙文亮</em></p>
+<h3 id="临时需求"><a href="#临时需求" class="headerlink" title="临时需求"></a>临时需求</h3><p>临时需求是了解业务，收集反馈，优化数据产品的最佳途径。</p>
+<ol>
+<li>初始阶段，处理各部门踢过来的临时需求，并以各种形式的报表反馈回去。</li>
+<li>效率提升期，通过数据分析库的建设、自动化及半自动化开发，提升数据获取效率；通过站会+看板方式加强协作，提升全流程效率。关键指标是响应速度，如90%临时需求在24小时内完成。</li>
+<li>稳定期，临时需求量短期随业务波动，长期稳定。开始出现主动型临时需求，即数据组主动提出的临时需求。</li>
+<li>衰减期，随数据自动化程度变高，业务逐渐稳定，商业模式逐渐清晰，临时需求开始衰减，但永远不会消失。</li>
+</ol>
+<h3 id="报表自动化"><a href="#报表自动化" class="headerlink" title="报表自动化"></a>报表自动化</h3><ol>
+<li><strong>架构阶段</strong>；搭建自动化报表的基本框架，包括数据字典、数据管道、Email、Dashboard、数据中间层等基础建设。</li>
+<li><strong>报表增长期，</strong>针对周期性查看的报表建立自动化展示。此阶段主要看报表覆盖率，一般来说不同的职能不同业务方向，都会有3-5支报表。报表数量也能反映此阶段的发展情况。</li>
+<li><strong>分析系统建设</strong>，针对分析型需求，往往是各个维度细分查看，每次查看的维度都有差异，不适合做自动报表，<strong>适合建模之后做成分析系统，业务组成员或分析师，可以通过不同维度不同变量的筛选来完成分析需求。</strong>  <strong>关键指标是分析系统访问量。</strong></li>
+<li><strong>报表整合期。</strong>接入一切可能的数据源，例如：接入worktile数据可以看团队开发节奏、接入sonar数据可以监控代码质量、接入jira可以监控bug数据、接入内网知识库可以看知识沉淀速度和个人影响力、接入后台录入数据可以极大补充数据灵活性。</li>
+<li><strong>报表设计期。</strong>用产品思想重新设计报表，定义角色、场景、需求，精简报表内容；下线无用报表，迭代高频报表，将自动化报表平台当作创业项目来建设，持续提升人均访问量和访问频次。</li>
+</ol>
+<h3 id="数据建模"><a href="#数据建模" class="headerlink" title="数据建模"></a>数据建模</h3><ol>
+<li><strong>让事与事之间具有数据上的可比性。</strong>评估指标是模型覆盖度<em>，我们的大致顺序为产品功能建模、产品迭代建模、运营日常工作建模、运营活动建模、内容发布建模、传播建模、技术迭代管理建模、技术代码质量建模、技术响应速度建模、技术稳定性建模。</em></li>
+<li><strong>投入、产出关联。</strong>建立成本意识，在评估效果之外还需要评估成本。</li>
+<li><strong>工作与核心指标关联。</strong>要从商业模式的核心指标，逐渐分解到各个工作中去。针对工作中为核心指标贡献的项目，建立从局部指标到核心指标的关联关系，确定相关度，可大致评估贡献度，并让工作价值可评估。</li>
+</ol>
+<h3 id="分析报告"><a href="#分析报告" class="headerlink" title="分析报告"></a>分析报告</h3><ol>
+<li>初始阶段，定义分析报告类型、格式，定义什么才叫Insight，通过反复迭代打磨，做出第一份理想的分析报告。</li>
+<li>稳定产出期，分析师可持续产出分析报告，并且分析报告被业务组频繁引用。</li>
+<li>数据探索期，主动发掘数据价值，为业务中遇到的Why和How的问题提供数据支持、建议。</li>
+</ol>
+<h3 id="数字建模"><a href="#数字建模" class="headerlink" title="数字建模"></a>数字建模</h3><ol>
+<li><strong>预测问题建模；</strong>最早可以从自动化的数据监控切入，根据预测数据正常值设定异常区间。后续逐渐会用到各种回归模型，为管理计划的定义和分解、产品决策、渠道监控、技术预警等提供数学模型。</li>
+<li><strong>归因问题建模；</strong>针对影响核心数据的变量，找出相关度，计算权重系数。为各种开放式问题提供原因解答。</li>
+</ol>
+<p><br></p>
+<h2 id="数据分析团队的搭建和思考"><a href="#数据分析团队的搭建和思考" class="headerlink" title="数据分析团队的搭建和思考"></a>数据分析团队的搭建和思考</h2><p>​                                                    <em>From  知乎  <a href="https://www.zhihu.com/question/55515646" target="_blank" rel="external"> 《数据分析团队如何给自己找活干?》</a>张溪梦</em></p>
+<p>以前说到数据驱动业务增长，我们第一个想到的可能是数据分析的方法。但就目前来看，数据驱动业务的增长已经成为一个不仅仅是分析方法和模型，而是包括了<strong>数据人才培养、数据架构的设计</strong>，甚至整个公司组织架构设计的企业治理问题。</p>
+<p><img src="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设01.png" alt=""></p>
+<h3 id="数据分析团队发展的5个阶段"><a href="#数据分析团队发展的5个阶段" class="headerlink" title="数据分析团队发展的5个阶段"></a><strong>数据分析团队发展的5个阶段</strong></h3><p><em>我们途家网成立五年以来，整个数据团队的成长也是经历了五个阶段。</em></p>
+<ol>
+<li>缺少专业的数据分析师</li>
+<li>拥有专职的数据分析人员</li>
+<li>成立了专门的BI团队； <em>更多的精力放在原始数据的收集、数据工具的优化上面。</em></li>
+<li>业务井喷的阶段； <em>让每一个业务的负责方及时地看到自己的数据，会做一些数据可视化的工作</em></li>
+<li>开始做一些自助式的分析； BI 团队负责制定标准的数据，让业务的人去自己去做分析。</li>
+</ol>
+<p>BI 团队组成</p>
+<ol>
+<li>务必能够保证用数据讲清楚每一个业务的状况</li>
+<li>辅助公司做决策，用数据去告诉大家未来怎么样做更有效率，如何去达到公司最大的目标。</li>
+</ol>
+<blockquote>
+<p>为了承担这两个责任，我们成立了四个团队。商业分析团队，BI报表团队，数据仓库团队和市场竞争分析团队。</p>
+</blockquote>
+<h3 id="商业分析团队"><a href="#商业分析团队" class="headerlink" title="商业分析团队"></a><strong>商业分析团队</strong></h3><ol>
+<li>分析一些非固定的专项问题</li>
+<li>负责一些分析工具的培训</li>
+</ol>
+<ul>
+<li><u>首席分析师的培养</u></li>
+</ul>
+<p>让一个熟悉业务的老员工转岗去做数据分析；或者说让一个熟悉技术，又懂业务的人去转岗，避免沟通上的低效。同时使用成熟的数据分析工具，避免在数据质量、以及重复性工作上浪费大量的时间精力。<em>通过这样的方式，这个人会很快地把整个数据分析的框架搭建起来。最后你会发现，在公司成立四年到五年之后，这个人就是整个公司通过数据去驱动业务增长的灵魂。</em></p>
+<ul>
+<li><u>业务和财务的互动</u></li>
+</ul>
+<p>每周都会固定地去看一下，<strong>业务上的动作在财务报表上的表现。</strong></p>
+<p>为什么要做这件事情？因为通常来讲，从业务前端到最后财务数字的整个链条里，业务分析人员很难掌握财务收入的确认规则，财务人员又需要更多时间去学习掌握不停变化的业务逻辑。通过财务分析人员和业务分析人员深度的互补和互动，能够做到驱动一个企业尽快地盈利。<strong>至少这个过程会让我们知道，盈利的来源是什么</strong>，哪怕目前是亏损，你也能知道为什么是亏的，以及怎么能做到止损。</p>
+<ul>
+<li><u>大胆假设，小心求证的分析思维</u></li>
+</ul>
+<p>当业务人员来找分析师要一个数据的时候，负责任的<strong>数据分析师需要帮业务人员梳理分析的逻辑。</strong> <em>比如业务人员问你要一个APP订单变化的数据，但其实他想看的东西，或者应该看的东西，远不止这些。这时候再回过头去问他，你到底要干什么？这个时候你会发现，有可能是老板发现昨天的订单比前天的订单突然增长了50%，超出了他的预期，但是他又不知道为什么发生了这些增长。业务人员在做分析的时候，经常提出来的是一个点。但是对于一个数据分析师来说，你需要<strong>帮业务人员具体理这些分析的框架，最终找到数据变化的原因</strong>。</em></p>
+<p>数据分析的几个步骤</p>
+<ol>
+<li>定义问题；首先你想清楚，你在数据分析的时候你到底要分析什么题目？</li>
+<li>大胆假设；思考出现这个数据变化所有可能的原因。</li>
+<li>小心求证；在小心求证完之后，才能得到比较客观的结论。</li>
+</ol>
+<p><br></p>
+<h3 id="BI报表团队"><a href="#BI报表团队" class="headerlink" title="BI报表团队"></a>BI报表团队</h3><ol>
+<li><strong>将业务方常规需要查看的数据沉淀为 BI 报表</strong></li>
+<li><strong>帮助业务人员实现可视化的自助式数据分析；</strong> 让业务人员能够通过一些拖拉拽的钻取操作，快速的看到问题的所在，找到问题的原因。</li>
+<li><strong>分析师自己沉淀一些主动分析的数据结果给大家看；</strong>传统的报表制作流程是，需求方把需求提出来，然后工程师来负责把报表做出来。但是我们会更强调商业分析师的主动性。<ul>
+<li>第一个主动性的要求是因为商业分析师在看过海量的数据之后需要产生自己的一些想法。从不同的维度上去分析数据，可能会对业务有额外的帮助。</li>
+<li>第二个是因为，对于一个业务人员来讲，每天只看自己业务范围内的数据即可，但是跨业务之间的数据产生的价值大部分时候是被忽略的。所以<strong>商业分析师需要主动的去思考跨业务之间的逻辑</strong>，然后固化在报表上面，给业务人员提供更多的价值。</li>
+</ul>
+</li>
+</ol>
+<h3 id="数据仓库团队"><a href="#数据仓库团队" class="headerlink" title="数据仓库团队"></a>数据仓库团队</h3><p>在更大的公司，或者说在 BAT ，数据仓库应该是被放在技术部，而不是 BI 部门。我们把数据分析团队放在BI团队，因为这样能让分析师知道每一个指标，在数据库里是怎么被算出来的。数据的标准性和严谨性会有很大程度上的提升。</p>
+<p>数据仓库的主要 4 个职能</p>
+<ol>
+<li>负责整个<strong>原始数据的收集和清洗</strong></li>
+<li>负责<strong>数据报表的抽取；</strong>让数据仓库团队做一些数据指标的抽取工作，就可以让分析师直接去分析已经抽取过的统计表，大量地节省分析师在原始代码上的精力。</li>
+<li>负责<strong>各个系统之间的数据规整</strong>；各个系统都会展示一些数据，但是每个系统展示的数据可能都不太一样。为了解决这个问题，我们会让数据仓库的工程师去做统一数据的输出，务必保证每一个人在每一个平台上看到的数据都是一致的。</li>
+<li>负责一部分分析的职能</li>
+</ol>
+<h3 id="市场竞争分析团队"><a href="#市场竞争分析团队" class="headerlink" title="市场竞争分析团队"></a>市场竞争分析团队</h3><p>整个企业内部的数据和企业外部的信息，才能组成一个企业数据完整的图谱，这样才能在一个完整的生态中找到企业增长之道。</p>
+<h3 id="经验与思考"><a href="#经验与思考" class="headerlink" title="经验与思考"></a>经验与思考</h3><ul>
+<li><strong>六个经验</strong></li>
+</ul>
+<ol>
+<li>分析师一定要足够地了解业务。对于一个分析师来讲，商业敏感度是第一位的。</li>
+<li>分析师一定要<strong>主动地梳理业务问题框架</strong>，而不是被动地接受业务方提上来的每一个小问题。</li>
+<li>BI 报表团队要保证每个人都有数据可看，而且<strong>务必要通过一些可视化的手段提升业务人员阅读数据的效率</strong>，让他们能迅速地提取关键的信息。</li>
+<li>在企业从小到大的过程中，推动一些自助式的分析，因为自助式的分析能够解决分析师的瓶颈问题。</li>
+<li>善用工具。</li>
+<li>数据分析视野问题，内部的数据一定要分析的非常透彻。但是每一个分析师的眼界不仅仅如此，更要有整个行业的宏观数据，这样才能找到企业的增长之道。</li>
+</ol>
+<ul>
+<li><strong>六个思考</strong></li>
+</ul>
+<ol>
+<li><strong>我们对数据的要求是讲清楚业务，还是通过数据变现？</strong> 我们对数据的要求又是什么？</li>
+<li>在什么阶段应该成立 BI 团队？</li>
+<li>数据分析师是不是有足够的权威？</li>
+<li>在特定的阶段，是研发一个工具，还是采买一个工具？  这是一个效率提升的问题，要综合考虑公司目前的数据、人员等等情况。</li>
+<li><strong>业务方是否会主动看数据？</strong>  BI 团队会把数据梳理清楚，但是我们有没有做好日常的驱动工作，让每一个业务人员去看这些数据？</li>
+<li>集中式分析还是自助式分析？</li>
+</ol>
+<p><br></p>
+<h2 id="数据分析团队的组建"><a href="#数据分析团队的组建" class="headerlink" title="数据分析团队的组建"></a>数据分析团队的组建</h2><h3 id="团队成员"><a href="#团队成员" class="headerlink" title="团队成员"></a>团队成员</h3><ol>
+<li><p><strong>基础平台</strong>团队：主要负责<strong>搭建</strong>稳定、可靠的大数据<strong>存储和计算平台</strong>。</p>
+<ul>
+<li>数据开发工程师：负责Hadoop、Spark、Hbase和Storm等<strong>系统的搭建、调优、维护和升级等工作，保证平台的稳定。</strong></li>
+<li>数据平台架构师：负责<strong>大数据底层平台整体架构设计、技术路线规划</strong>等工作，确保系统能支持业务不断发展过程中对数据存储和计算的高要求。</li>
+<li>运维工程师</li>
+</ul>
+</li>
+<li><p><strong>数据平台</strong>团队：负责<strong>数据的清洗、加工、分类和管理</strong>等工作，构建企业的数据中心，<strong>为上层数据应用提供可靠的数据。</strong></p>
+<ul>
+<li>数据开发工程师：负责<strong>数据清洗、加工、分类</strong>等开发工作，并<strong>能响应数据分析师对数据提取的需求。</strong></li>
+<li>数据挖掘工程师：负责从数据中挖掘出有价值的数据，把这些数据录入到数据中心，为各类应用提供高质量、有深度的数据。</li>
+<li>数据仓库架构师：负责数据仓库整体架构设计和数据业务规划工作。</li>
+</ul>
+</li>
+<li><p><strong>数据分析</strong>团队：主要负责为改善产品体验设计和商业决策提供数据支持。</p>
+<ul>
+<li>业务分析师：主要负责深入业务线，制定业务指标，反馈业务问题，为业务发展提供决策支持。</li>
+<li>建模分析师：主要负责<strong>数据建模</strong>，基于业务规律和数据探索构建数据模型，提升数据利用效率和价值。</li>
+</ul>
+<p>​</p>
+</li>
+</ol>
+<h3 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h3><p>数据团队的工作可以分成两大部分:</p>
+<ol>
+<li>建设数据存储和计算平台</li>
+<li>基于数据平台提供数据产品和数据服务。</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设02.png" alt=""></p>
+<p>平台的建设者包括三种人群：</p>
+<ol>
+<li>基础平台团队对hadoop、spark、storm等各类大数据技术都非常熟悉，负责搭建稳定、可靠的大数据存储和计算平台。</li>
+<li>数据平台团队主要负责各类业务数据进行清洗、加工、分类以及挖掘分析，然后把数据有组织地存储到数据平台当中，形成公司的数据中心，需要团队具有强大的数据建模和数据管理能力。</li>
+<li>数据产品经理团队主要是分析挖掘用户需求，构建数据产品为开发者、分析师和业务人员提供数据可视化展示。</li>
+</ol>
+<p>平台的使用者也可以包括三种人群：</p>
+<ol>
+<li>数据分析团队通过分析挖掘数据，为改善产品体验设计和商业决策提供数据支持。</li>
+<li>运营、市场和管理层可以通过数据分析师获得有建设性的分析报告或结论，也可以直接访问数据产品获得他们感兴趣的数据，方便利用数据做决策。</li>
+<li>数据应用团队利用数据平台团队提供的数据开展推荐、个性化广告等工作。</li>
+</ol>
+<h3 id="分析团队的组织架构"><a href="#分析团队的组织架构" class="headerlink" title="分析团队的组织架构"></a>分析团队的组织架构</h3><p>在整个大数据平台体系中的团队：基础平台、数据平台、数据应用和数据产品经理团队都可以保持独立的运作，只有数据分析团队的组织架构争议比较大。数据分析团队一方面要对业务比较敏感，另一方面又需要与数据平台技术团队有深度融合，以便能获得他们感兴趣的数据以及在数据平台上尝试实验复杂建模的可能。</p>
+<ol>
+<li>外包：公司自身不设立数据分析部门，将数据分析业务外包给第三方公司</li>
+<li><strong>分散式</strong>：每个产品部门独立成立数据分析团队，负责响应自己产品的数据需求，为业务发展提供决策支持。<ul>
+<li>优势：数据分析团队与开发团队、设计团队以及策划团队具有共同的目标，团队整体归属感强，绩效考核与产品发展直接挂钩，有利于业务的发展。</li>
+<li>劣势：在业务规模比较小的情况下，数据分析师比较少，交流的空间也比较小。因为身边的同事都不是该领域的人才，无法进行学习交流，所以成长空间会比较小，分析师的流失也会比较严重，最终陷入招募新人——成长受限——离职——招募新人的恶性循环。另一方面，每个产品团队都零星地招募几个分析师，整体来看给员工的感觉是公司并不是特别重视数据化运营的文化，对数据的认同感会被削弱，不利于公司建立数据分析平台体系。</li>
+</ul>
+</li>
+<li><strong>集中式</strong>：数据分析团队与产品团队、运营团队各自独立，团队的负责人具有直接向分管数据的副总裁或CEO直接汇报的权限，团队负责响应各业务部门的数据需求。<ul>
+<li>优势：分析团队具有充分的自主权，可以专心建设好公司级别的数据平台体系，研究数据最具有价值的那些问题，有权平衡业务短期需求和平台长期需求直接的关系。另一方面，这种自上而下建立起来组织架构，可以向全体员工传达数据在公司的重要位置，有利于建立数据化运营的文化。</li>
+<li>劣势：产品业务团队会觉得他们对数据的掌控权比较弱，一些业务数据需求得不到快速响应，认为分析团队的反应太慢无法满足业务发展的需要。随着业务发展越来越大，产品团队会自己招募分析师来响应数据需求，逐渐替代分析团队的工作，这样势必会导致分析团队的工作被边缘化。</li>
+</ul>
+</li>
+<li>嵌入式：数据分析团队同样独立于产品团队存在，但只保留部分资深数据专家，负责招聘、培训数据分析师，然后把这些人派遣到各产品团队内部，来响应各类业务数据需求。<ul>
+<li>优势：团队的灵活性比较好，可以根据公司各业务线的发展情况合理调配人力资源，重点发展的项目投入优秀的人才，一些需要关闭的项目人才可以转移到其他项目中去。</li>
+<li>劣势：分析师被嵌入到产品团队内部，受产品团队主管的领导，从而失去了自主权，导致沦落为二等公民。人事关系在公司数据分析团队中，却要被业务团队主管考核，但业务团队主管并不关心他们的职业发展，导致分析师的职业发展受到限制。</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="大数据的基本框架"><a href="#大数据的基本框架" class="headerlink" title="大数据的基本框架"></a>大数据的基本框架</h2><p>客户是大数据的来源也是大数据最终要服务的终点。在这套框架中，数据分析的基本框架向下延伸，最基础从Customers(用户)开始，也在用户结束。</p>
+<ol>
+<li><strong>大数据框架</strong></li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_工作梯度与团队建设03.png" alt=""></p>
+<ol>
+<li><strong>统一的大数据平台</strong></li>
+</ol>
+<p>“现在最缺乏的，是统一的大数据采集平台”。<em>大数据已布满在企业的各个地方各个角落，“我们现在最缺乏的，不是数据，是一个统一的数据采集平台(Data Collection)。</em>在一个企业的大数据框架中，最重要的部分是大数据的<strong>原始数据采集层。</strong>这基本包括三个层次：</p>
+<ul>
+<li>最外层是用户；</li>
+<li>其次是公司运营中各种会产生数据的业务应用系统(如ERP、CRM、SCM、OA等各种企业应用软件)、网站、APP、社交网络、电商平台等</li>
+<li>之上是各种数据的采集平台。</li>
+</ul>
+<ol>
+<li><strong>从ETL到ELT</strong></li>
+</ol>
+<p>在数据采集上来之后，接下来便要对海量的数据进行所谓的抽取、转换、加载，即ETL。</p>
+<p>传统的数据分析认为，数据收集之后是ETL，但现在变成了ELT，未来有可能只有EL没有T，甚至到最后全部将EL结合到一起，不再有功能性的划分。</p>
+<p>为什么会有这种变化呢？这主要是因为以前的存储、计算、传输成本都很高，数据处理要用时间来换取空间。因此，<strong>当时的重点技术是要将原来非结构化的数据进行结构化转化，把数据压缩变小、节约存储空间，从而形成所谓的ETL模式</strong>。但很显然，这种模式存在一个无法避免的问题，即ETL过程是需要花费很多时间的。互联网时代是快鱼吃慢鱼的时代，企业需要实时了解各种数据，需要实时进行响应。费时的ETL模式显然完全不能适应当前的时代潮流。</p>
+<p><img src="https://raw.githubusercontent.com/chf2012/P-markdownpic/master/D数据分析_底层概念_etl05.png" alt=""></p>
+<ol>
+<li><strong>是先BI后分析，还是先分析后BI?</strong></li>
+</ol>
+<p>数据仓库之上，便到了我们经常所说的BI了。</p>
+<p>BI其实包括两个层次，即<strong>Analysis(分析)</strong>和 <strong>BI</strong>，其中<strong>分析主要为对数据进行高维度分析，BI则主要提供数据透视和展现</strong></p>
+<p>在大数据时代，这两个层次也有一个巨大的变化。是先BI再分析，还是先分析再BI呢？</p>
+<p><strong>以往的做法基本上是先BI，而后在其上进行Analysis(分析)。</strong>目前国内绝大部分企业就是这么做的。大部分企业把BI与数据仓库中存储的数据相结合，用于报表分析、报表制作等。更重要的是，这类工作一般交由IT部门负责，使得BI变成了技术性工作。因此，现在很多企业中有大量的IT研发人员在开发报表。这种做法带来了“先BI再分析”的最大问题，即用数据的人不是做数据的人，做数据的人不是用数据的人。<strong>现在的先进做法是，将BI与分析进行对调，即先分析再BI，并且分析工作要由熟悉业务的数据科学家来承担。</strong></p>
+<p>把数据仓库的数据和分析直接结合，通过相关的分析技术和工具，直接挑选出具有商业价值的数据，之后通过BI迅速将其商业价值扩大化。</p>
+<ol>
+<li><strong>“输出洞察、输出决策、输出价值”</strong></li>
+</ol>
+<p>在分析、BI之后，便到了如何将数据价值发挥出来的环节。张溪梦认为，这主要包括DM(数据挖掘)、AI(人工智能)、洞察、决策、行动、价值等几个阶段。</p>
+<ol>
+<li><strong>“底层频次高价值低，顶层频次低价值高”</strong></li>
+</ol>
+<p><strong>从客户、业务系统、数据采集、数据仓库、分析、BI、DM、AI、洞察、决策、行为、价值，再最终回到客户</strong></p>
+<p><br></p>
+<h2 id="其他摘抄"><a href="#其他摘抄" class="headerlink" title="其他摘抄"></a>其他摘抄</h2><ol>
+<li>数据看板并不是终点，而是新的一次的起点。</li>
+<li>大多数情况下能把一个部门的各个细节弄清楚就已经很不容易了。对业务细节的了解是做出深层次分析的前提。</li>
+<li>靠数据报表提高公司运营效率不太现实。实际上业务部门很清楚影响效率的问题，只是没有技术，手段，设备去解决。用图表展示他们早就知道的问题没有帮助。</li>
+<li>大家讲大数据，数据是从数据标签的采集开始的，一般都由前端工程人员实施，然后数据传输的工作由IT来管理，ETL一般由企业内部的数据仓库或者数据平台的团队负责，BI（商业智能）部门在分析部或者存在于业务部门之中，然后我们还有各种商业分析师，统计学家参与其中，这个运行框架体系因为各个部门参与的人非常多，流程很长</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/18/软件应用_程序编程/基础知识/16进制/" rel="next" title="进制与转换">
+                <i class="fa fa-chevron-left"></i> 进制与转换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/22/软件应用_程序编程/Git/Git常见问题与解决/" rel="prev" title="Git常见问题与解决">
+                Git常见问题与解决 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODMzNi80OTA4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jerry_Cai" />
+          <p class="site-author-name" itemprop="name">Jerry_Cai</p>
+          <p class="site-description motion-element" itemprop="description">向死而生。做一个有品质的单身汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/1998962ab991" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jerry-cai-35/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chf2012" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/facelife2012/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析工作的各个梯度1"><span class="nav-number">1.</span> <span class="nav-text">数据分析工作的各个梯度1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-满足缺失需求而不改变习惯，提升效率"><span class="nav-number">1.1.</span> <span class="nav-text">1. 满足缺失需求而不改变习惯，提升效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-改变工作流程，提升效率"><span class="nav-number">1.2.</span> <span class="nav-text">2. 改变工作流程，提升效率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-找规律找异常"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 找规律找异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-做分类提方案"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 做分类提方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-AI写报告"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. AI写报告</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-提供新思路，看到新世界"><span class="nav-number">1.3.</span> <span class="nav-text">3. 提供新思路，看到新世界</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析工作的各个梯度2"><span class="nav-number">2.</span> <span class="nav-text">数据分析工作的各个梯度2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#临时需求"><span class="nav-number">2.1.</span> <span class="nav-text">临时需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报表自动化"><span class="nav-number">2.2.</span> <span class="nav-text">报表自动化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据建模"><span class="nav-number">2.3.</span> <span class="nav-text">数据建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析报告"><span class="nav-number">2.4.</span> <span class="nav-text">分析报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字建模"><span class="nav-number">2.5.</span> <span class="nav-text">数字建模</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析团队的搭建和思考"><span class="nav-number">3.</span> <span class="nav-text">数据分析团队的搭建和思考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据分析团队发展的5个阶段"><span class="nav-number">3.1.</span> <span class="nav-text">数据分析团队发展的5个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#商业分析团队"><span class="nav-number">3.2.</span> <span class="nav-text">商业分析团队</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BI报表团队"><span class="nav-number">3.3.</span> <span class="nav-text">BI报表团队</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据仓库团队"><span class="nav-number">3.4.</span> <span class="nav-text">数据仓库团队</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#市场竞争分析团队"><span class="nav-number">3.5.</span> <span class="nav-text">市场竞争分析团队</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#经验与思考"><span class="nav-number">3.6.</span> <span class="nav-text">经验与思考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析团队的组建"><span class="nav-number">4.</span> <span class="nav-text">数据分析团队的组建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#团队成员"><span class="nav-number">4.1.</span> <span class="nav-text">团队成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作方式"><span class="nav-number">4.2.</span> <span class="nav-text">工作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析团队的组织架构"><span class="nav-number">4.3.</span> <span class="nav-text">分析团队的组织架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大数据的基本框架"><span class="nav-number">5.</span> <span class="nav-text">大数据的基本框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他摘抄"><span class="nav-number">6.</span> <span class="nav-text">其他摘抄</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry_Cai</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JjHJaD5nSfH7Snv1iJOyYCXJ-gzGzoHsz", "LoREb7wzyOhQIbmS4skuPfxv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
