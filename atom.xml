@@ -2503,349 +2503,6 @@
   </entry>
   
   <entry>
-    <title>Python_正则表达式_RE</title>
-    <link href="http://yoursite.com/2018/01/24/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F_RE/"/>
-    <id>http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_正则表达式_RE/</id>
-    <published>2018-01-23T16:00:00.000Z</published>
-    <updated>2018-02-13T13:44:18.005Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Re模块"><a href="#Re模块" class="headerlink" title="Re模块"></a>Re模块</h2><blockquote>
-<p>Re模块的函数主要分三个大类：匹配模式、替换、拆分</p>
-</blockquote>
-<p><strong>Python字符串转义符 <code>\</code> </strong> </p>
-<p><strong>因此强烈建议使用Python的<code>r</code>前缀，就不用考虑转义的问题了：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">s = <span class="string">r'ABC\-001'</span> <span class="comment"># Python的字符串</span></div><div class="line"><span class="comment"># 对应的正则表达式字符串不变：</span></div><div class="line"><span class="comment"># 'ABC\-001'</span></div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><br></p>
-<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>当我们在Python中使用正则表达式时，re模块内部会干两件事情：</p>
-<ol>
-<li>编译正则表达式，如果正则表达式的字符串本身不合法，会报错；</li>
-<li>用编译后的正则表达式去匹配字符串。</li>
-</ol>
-<blockquote>
-<p>Python代码最终被被编译为字节码，然后才被解释器执行。在匹配模式之前，正则表达式模式必须先被编译成regex对象。由于正则表达式在执行过程中多次被用于比较，所以强烈建议先对它进行预编译。</p>
-</blockquote>
-<p>如果一个正则表达式要重复使用几千次，出于效率的考虑，我们可以<strong>预编译</strong>该正则表达式，接下来重复使用时就不需要编译这个步骤了，直接匹配：</p>
-<p><br></p>
-<h4 id="compile-模块的函数"><a href="#compile-模块的函数" class="headerlink" title="compile - 模块的函数"></a>compile - 模块的函数</h4><ul>
-<li><strong>re.compile(patter [, flags=0])</strong> 把正则表达式<strong>编译成一个正则对象（regex）</strong>;供其他函数 find()、match()、search() 等函数使用<ul>
-<li>使用方式为 <strong>命名的变量.方法(查找对象的范围)</strong> ；其实因为在其他Re函数使用时，自动传递pattern</li>
-<li>若对许多字符串应用同一条正则表达式，强烈建议通过re.compile创建对象。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>flags 包括：<br>re.I 忽略大小写<br>re.L 表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境<br>re.M 多行模式<br>re.S 即为’ . ’并且包括换行符在内的任意字符（’ . ’不包括换行符）<br>re.U 表示特殊字符集 \w, \W, \b, \B, \d, \D, \s, \S 依赖于 Unicode 字符属性数据库<br>re.X 为了增加可读性，忽略空格和’ # ’后面的注释</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">a = re.compile() <span class="comment"># 创建的正则规则</span></div><div class="line">result = a.findall(ojbect)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 简单说明 】</span></div><div class="line">compiled_pattern = re.compile(pattren)</div><div class="line">resule = re.findall(compiled_pattern, string)  <span class="comment"># 这种方式更利于理解</span></div><div class="line"><span class="comment">#---------等价于--------------</span></div><div class="line">compiled_pattern = re.compile(pattren)</div><div class="line">result = compiled_patter.findall(string)  <span class="comment"># 使用方式为 命名的变量.方法(查找对象的范围) 。其实因为在其他Re函数使用时，自动传递pattern</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 解释说明 】</span></div><div class="line"><span class="comment">## p 即为编译后的 pattern。 在其他Re函数使用时，自动传递pattern</span></div><div class="line">p = re.compile( <span class="string">'(one|two|three)'</span>)  </div><div class="line">p.sub( <span class="string">'num'</span>, <span class="string">'one word two words three words'</span>)   <span class="comment"># 其第一个参数为p，即将one|two|three作为查找的对象，替换为rep = num</span></div><div class="line"><span class="string">'num word num words num words'</span></div><div class="line"><span class="comment">### 正常应为 re.sub('(one|two|three)', 'num', 'one word two words three words')</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</div><div class="line"><span class="comment"># 编译:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone = re.compile(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>)</div><div class="line"><span class="comment"># 使用：</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-12345'</span>).groups()   </div><div class="line">(<span class="string">'010'</span>, <span class="string">'12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-8086'</span>).groups()</div><div class="line">(<span class="string">'010'</span>, <span class="string">'8086'</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<p><br></p>
-<blockquote>
-<p>Re模块的函数和regex对象的方法</p>
-<p>强调：查找的对象是 <strong>字符串string</strong></p>
-</blockquote>
-<h4 id="search-amp-match-搜索-amp-匹配"><a href="#search-amp-match-搜索-amp-匹配" class="headerlink" title="search &amp; match- 搜索&amp;匹配"></a>search &amp; match- 搜索&amp;匹配</h4><blockquote>
-<p>search - 搜索；  match - 匹配</p>
-<p>通过.group 返回对象</p>
-</blockquote>
-<ul>
-<li><strong>match(pattern, string, flags=0)</strong>：在字符串string的<strong>开头 开始搜索</strong>正则表达式模式pattern；若匹配成功，则返回一个匹配对象<u>（仅返回匹配的部分）</u>；否则返回None</li>
-</ul>
-<ul>
-<li><strong>search(pattern, string, flags=0)</strong>：从字符串string中<strong>（任意位置）</strong>搜索正则表达式模式pattern <strong>第一次出现的地方</strong>； 如果匹配成功，则返回一个匹配对象；否则返回None</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># match 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">3</span>), match=<span class="string">'foo'</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'The food on the table'</span>) <span class="comment"># 什么都没有返回</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># search 应用</span></div><div class="line">re.search(<span class="string">'foo'</span>, <span class="string">'The food on the table'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">4</span>, <span class="number">7</span>), match=<span class="string">'foo'</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">val = <span class="string">'abc, dca, guides'</span></div><div class="line"></div><div class="line">m = re.search(<span class="string">'uid'</span>, val)</div><div class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(9, 12), match='uid'&gt;</span></div><div class="line">val[m.start():m.end()]</div><div class="line"><span class="comment"># 'uid'</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="findall-amp-finditer-查找"><a href="#findall-amp-finditer-查找" class="headerlink" title="findall &amp; finditer - 查找"></a>findall &amp; finditer - 查找</h4><blockquote>
-<p>search 与 findall 不同之处在于：findall 总返回一个<strong>[ 列表 ] </strong></p>
-</blockquote>
-<ul>
-<li><strong>findall(pattern, string [,flags])</strong> ：在字符串string中搜索匹配pattern的<strong>所有内容</strong>，并返回一个匹配对象的 <strong>[列表 list]</strong></li>
-</ul>
-<blockquote>
-<p>正则表达式</p>
-</blockquote>
-<ul>
-<li><strong>finditer(pattern, string [, flags])</strong>：在字符串string中搜索匹配pattern的<strong>所有内容</strong>，返回一个<strong>迭代器</strong>，该迭代器返回一个匹配对象</li>
-</ul>
-<p><br></p>
-<h4 id="sub-替换"><a href="#sub-替换" class="headerlink" title="sub - 替换"></a>sub - 替换</h4><ul>
-<li><strong>re.sub(pattern, repl ,string, max = 0)</strong> : 把字符串string中所有匹配正则表达式pattern的地方 <strong>替换</strong>成 字符串 repl <ul>
-<li>如果没有找到匹配 pattern 的串，则返回未被修改的 string。Repl 既可以是字符串也可以是一个函数。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>若max 的值没有给出，则对所有匹配的地方进行替换</p>
-</blockquote>
-<ul>
-<li>re.subn - 该函数的功能和 sub() 相同，但它还返回新的字符串以及替换的次数</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">re.sub(pattern, repl, string[, count, flags])</div><div class="line"></div><div class="line"><span class="comment"># count=1 表示替换仅替换第一个</span></div><div class="line">p = re.compile( <span class="string">'(one|two|three)'</span>) </div><div class="line">p.sub( <span class="string">'num'</span>, <span class="string">'one word two words three words'</span>)   <span class="comment"># 其第一个参数为p，即将one|two|three作为查找的对象，替换为rep = num</span></div><div class="line"><span class="string">'num word num words num words'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ------------------------------------</span></div><div class="line">subn(repl, string[, count=<span class="number">0</span>])</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="split-分割"><a href="#split-分割" class="headerlink" title="split - 分割"></a>split - 分割</h4><ul>
-<li><strong>re.split(pattren, string, max=0)</strong> ： 根据正则表达式pattern中的分隔符 把字符串string <strong>分割为一个 [列表]</strong></li>
-</ul>
-<blockquote>
-<p>若max 的值没有给出，则对所有匹配的地方进行分割</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.split(pattern, string[, maxsplit=<span class="number">0</span>, flags=<span class="number">0</span>])</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="group-匹配对象"><a href="#group-匹配对象" class="headerlink" title="group - 匹配对象"></a>group - 匹配对象</h4><blockquote>
-<p><strong>匹配对象的方法：在match &amp; search 被成功调用之后所返回的结果。</strong></p>
-</blockquote>
-<ul>
-<li><strong>group(num=0)</strong>：<strong>返回全部匹配对象</strong>（或指定编号是num的子组）</li>
-<li><strong>groups()</strong>：返回一个包含<strong>唯一或全部</strong>匹配的子组的<strong>元组</strong>（若正则表达式中没有子组，则返回一个空元组）</li>
-</ul>
-<blockquote>
-<p>num 代表第1、2、……个子串。如果正则表达式中定义了组，就可以在<code>Match</code>对象上用<code>group()</code>方法提取出子串来。</p>
-<p>用<code>()</code>表示的就是要提取的分组(Group)，进行<strong>提取子串</strong></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#  group 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>).group()</div><div class="line"><span class="string">'foo'</span></div><div class="line"></div><div class="line"><span class="comment"># groups 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>).groups()</div><div class="line">()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 用()定义组</span></div><div class="line">^(\d&#123;<span class="number">3</span>&#125;)-(\d&#123;<span class="number">3</span>,<span class="number">8</span>&#125;)$  <span class="comment"># 分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>, <span class="string">'010-12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">'010-12345'</span>&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)  <span class="comment"># group(0) 永远是原始字符串</span></div><div class="line"><span class="string">'010-12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'010'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group()  <span class="comment"># 返回所有的值</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h3><ol>
-<li>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。<ul>
-<li>由于<code>\d+</code>采用贪婪匹配，直接把后面的<code>0</code>全部匹配了，结果<code>0*</code>只能匹配空字符串了。</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'102300'</span>, <span class="string">''</span>)</div></pre></td></tr></table></figure>
-<ol>
-<li>必须让<code>\d+</code>采用<strong>非贪婪匹配（也就是尽可能少匹配）</strong>，才能把后面的<code>0</code>匹配出来，<strong>加个<code>?</code>就可以让<code>\d+</code>采用非贪婪匹配：</strong></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+?)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'1023'</span>, <span class="string">'00'</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="参考资料-：-正则表达式"><a href="#参考资料-：-正则表达式" class="headerlink" title="参考资料 ： 正则表达式"></a>参考资料 ： 正则表达式</h2><blockquote>
-<p>元字符</p>
-</blockquote>
-<h3 id="匹配对象"><a href="#匹配对象" class="headerlink" title="匹配对象"></a>匹配对象</h3><table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>.</strong></td>
-<td>点号</td>
-<td>匹配单个(除换行符以外)<strong>任意字符</strong> <strong>（含空格、下划线等）</strong></td>
-</tr>
-<tr>
-<td><strong>\s </strong></td>
-<td>空白/空格- space</td>
-<td>匹配任意的<strong>空白符</strong></td>
-</tr>
-<tr>
-<td>\S</td>
-<td>非空白字符</td>
-<td>匹配<strong>任何非空白字符，相当于[^ fv]</strong></td>
-</tr>
-<tr>
-<td><strong>\d</strong></td>
-<td>数字 - digit</td>
-<td>匹配<strong>数字 ，相当于[0-9]</strong></td>
-</tr>
-<tr>
-<td>\D</td>
-<td>非数字</td>
-<td>匹配任何<strong>非数字字符</strong>，相当于[^0-9]</td>
-</tr>
-<tr>
-<td><strong>\w</strong></td>
-<td>任何字符 - whatever</td>
-<td><strong>匹配任何字母数字字符，相当于[a-zA-Z0-9_]</strong></td>
-</tr>
-<tr>
-<td>\W</td>
-<td>非任何字符</td>
-<td>匹配<strong>任何非字母数字字符</strong>，相当于[^a-zA-Z0-9_]</td>
-</tr>
-<tr>
-<td><strong>[ ]</strong></td>
-<td>字符组</td>
-<td>匹配<strong>单个</strong>列出的字符，表示或的关系</td>
-</tr>
-<tr>
-<td><strong>[^ ]</strong></td>
-<td>排除性字符组</td>
-<td>匹配<strong>单个</strong>未列出的字符</td>
-</tr>
-<tr>
-<td>\char</td>
-<td>转义字符</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>对于 ? 和 * 的对象在”匹配成功”时也可能并没有匹配任何内容。因为它们允许匹配的数量为0</p>
-<p>即便是排除性字符，也需要匹配一个字符</p>
-<p>转义符 <code>\\*</code>第一个转义符是对\进行转义，表示：查找 <code>\*</code>此类字符的内容</p>
-<p>空格 也是一个字符</p>
-<p>由于Python的字符串本身也用<code>\</code>转义，因此强烈建议使用Python的<code>r</code>前缀，就不用考虑转义的问题了：</p>
-</blockquote>
-<h4 id="字符组"><a href="#字符组" class="headerlink" title="字符组 [ ]"></a>字符组 [ ]</h4><ol>
-<li><p>字符组内匹配的是<strong>列出的单个字符</strong>，<strong>或者</strong>的关系</p>
-</li>
-<li><p><strong>字符组元字符</strong> ：字符组内的元字符，<strong>其含义表示为本身的含义，即代表普通文本字符，相当于转义之后的字符（连字符 - 除外）</strong></p>
-<ul>
-<li><strong>连字符 ( - )</strong>表示一个<strong>范围</strong>；<strong>【注意：只有在字符组内部，连字符( - )才是元字符】</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">0</span><span class="number">-9</span>]  <span class="comment"># 表示匹配的字符为0~9之间的任意一个</span></div></pre></td></tr></table></figure>
-<ul>
-<li>连字符 ( - ) 出现在<strong>字符组的开头</strong>，则仅代表<strong>普通文本字符</strong>； </li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">-09</span>]  <span class="comment"># 表示匹配的字符为 - 或者 0 或者 9</span></div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-<h3 id="量词-计数功能"><a href="#量词-计数功能" class="headerlink" title="量词 - 计数功能"></a>量词 - 计数功能</h3><p>对前一个/一组字符匹配的的次数</p>
-<table>
-<thead>
-<tr>
-<th><strong>符号</strong></th>
-<th><strong>含义</strong></th>
-<th><strong>解释</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>？</strong>  = 0 或 1</td>
-<td><strong>问号</strong></td>
-<td>不匹配，或仅匹配一次</td>
-</tr>
-<tr>
-<td><strong>*</strong>     $\ge$ 0</td>
-<td>星号</td>
-<td>可能不匹配，也可能匹配任意多次</td>
-</tr>
-<tr>
-<td><strong>+</strong>     $\ge$ 1</td>
-<td>加号</td>
-<td>至少匹配一次，也可能匹配任意多次</td>
-</tr>
-<tr>
-<td>{m}</td>
-<td></td>
-<td>对于前一个字符重复m次</td>
-</tr>
-<tr>
-<td><strong>{min, max}</strong></td>
-<td>区间量词</td>
-<td>对前一个字符重复min到max次</td>
-</tr>
-</tbody>
-</table>
-<h3 id="匹配位置"><a href="#匹配位置" class="headerlink" title="匹配位置"></a>匹配位置</h3><table>
-<thead>
-<tr>
-<th><strong>符号</strong></th>
-<th><strong>含义</strong></th>
-<th><strong>解释</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>^</strong></td>
-<td>脱字符</td>
-<td>一行的开头位置</td>
-</tr>
-<tr>
-<td><strong>$</strong></td>
-<td>美元符</td>
-<td>一行的结束位置</td>
-</tr>
-<tr>
-<td>\b</td>
-<td><strong>单词分界符</strong></td>
-<td>匹配<strong>单词的开始或结束</strong> (用于精确匹配)</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>非单词分界符</td>
-<td>匹配<strong>不是单词开头或结束的位置</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="其他元字符"><a href="#其他元字符" class="headerlink" title="其他元字符"></a>其他元字符</h3><table>
-<thead>
-<tr>
-<th><strong>符号</strong></th>
-<th><strong>含义</strong></th>
-<th><strong>解释</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>( )</td>
-<td>括号</td>
-<td>限定多线结构的范围； 为反向引用“捕获”文本</td>
-</tr>
-<tr>
-<td>\1 , \2</td>
-<td>反向引用</td>
-<td>匹配之前的第一个、第二个括号内的字表达式<strong>所匹配的文本</strong>(即捕获的文本)</td>
-</tr>
-<tr>
-<td>\</td>
-<td></td>
-<td>或者</td>
-<td>匹配任意分隔的表达式</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>括号与反向引用的示例</p>
-<ul>
-<li><strong>分组0对应整个正则表达式</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; \b(a-zA-Z)*+\<span class="number">1</span>\b</div><div class="line">&gt; <span class="comment"># 若 \b(a-zA-Z)*+ 任意字符找到的以单词开头的内容为the，则\1 表示其末尾也应为the的内容 </span></div><div class="line">&gt; <span class="comment"># 若有两个括号，\2表示第二个括号中所匹配的文本内容</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="多选结构"><a href="#多选结构" class="headerlink" title="多选结构"></a>多选结构</h4><ol>
-<li><p>使用圆括号( ) 来进行表示，而非方括号</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查找 gray 或 grey的写法</span></div><div class="line"></div><div class="line"><span class="number">1.</span> gr[ae]y</div><div class="line"><span class="number">2.</span> gr(a|e)y</div><div class="line"></div><div class="line"><span class="comment"># 错误的写法 gr[a|e]y  -表示查找 a 或者 | 或者 e</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>多选结构可以匹配<strong>任意长度</strong>的字符，而字符组[ ]只能匹配<strong>单个</strong>字符</p>
-</blockquote>
-<h2 id="【实战演练】"><a href="#【实战演练】" class="headerlink" title="【实战演练】"></a>【实战演练】</h2><p>你在一篇英文小说里查找hi，你可以使用正则表达式hi</p>
-<p>通常，处理正则表达式的工具会提供一个忽略大小写的选项，如果选中了这个选项，它可以匹配hi,HI,Hi,hI这四种情况中的任意一种。</p>
-<p>很多单词里包含hi这两个连续的字符，比如him,history,high等等。用hi来查找的话，这里边的hi也会被找出来。如果要精确地查找hi这个单词的话，我们应该使用\bhi\b</p>
-<p><code>\bhi\b.*\bLucy\b</code>的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词</p>
-<p><br></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">f = open(<span class="string">'caihf001'</span>)</div><div class="line">text = f.read()</div><div class="line">f.close()</div><div class="line">k = re.compile(<span class="string">'Lemon'</span>, re.I)</div><div class="line">k.findall(text)</div><div class="line"></div><div class="line"><span class="comment"># ----效果同上</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'caihf001'</span>) <span class="keyword">as</span> f:</div><div class="line">    text = f.read()</div><div class="line"><span class="comment">#     print(text)</span></div><div class="line">    k = re.compile(<span class="string">'lemon'</span>,re.I)</div><div class="line">    l = re.findall(k,text)</div><div class="line">print(l)</div><div class="line"></div><div class="line"></div><div class="line">[<span class="string">'Lemon'</span>, <span class="string">'lemon'</span>, <span class="string">'Lemon'</span>, <span class="string">'Lemon'</span>, <span class="string">'LeMoN'</span>, <span class="string">'LEmon'</span>, <span class="string">'LEMON'</span>]</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Re模块&quot;&gt;&lt;a href=&quot;#Re模块&quot; class=&quot;headerlink&quot; title=&quot;Re模块&quot;&gt;&lt;/a&gt;Re模块&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Re模块的函数主要分三个大类：匹配模式、替换、拆分&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Python字符串转义符 &lt;code&gt;\&lt;/code&gt; &lt;/strong&gt; &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;因此强烈建议使用Python的&lt;code&gt;r&lt;/code&gt;前缀，就不用考虑转义的问题了：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;s = &lt;span class=&quot;string&quot;&gt;r&#39;ABC\-001&#39;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# Python的字符串&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 对应的正则表达式字符串不变：&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# &#39;ABC\-001&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="程序编程" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/"/>
-    
-    
-      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="程序编程" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Python_安装设置&amp;jupyter</title>
     <link href="http://yoursite.com/2018/01/24/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE&amp;Jupyter/"/>
     <id>http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_安装设置&amp;Jupyter/</id>
@@ -3252,6 +2909,349 @@ os.environ
 &lt;li&gt;&lt;code&gt;pip&lt;/code&gt;不是内部或外部命令，也不是可运行的程序&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;添加Python的Script  到环境变量；在Path后面追加一下内容(Path： 不要复制进去) &lt;code&gt;Path:;C:\python;C:\Python\Scripts&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="程序编程" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/"/>
+    
+    
+      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="程序编程" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python_正则表达式_RE</title>
+    <link href="http://yoursite.com/2018/01/24/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F_RE/"/>
+    <id>http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_正则表达式_RE/</id>
+    <published>2018-01-23T16:00:00.000Z</published>
+    <updated>2018-02-13T13:44:18.005Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Re模块"><a href="#Re模块" class="headerlink" title="Re模块"></a>Re模块</h2><blockquote>
+<p>Re模块的函数主要分三个大类：匹配模式、替换、拆分</p>
+</blockquote>
+<p><strong>Python字符串转义符 <code>\</code> </strong> </p>
+<p><strong>因此强烈建议使用Python的<code>r</code>前缀，就不用考虑转义的问题了：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">s = <span class="string">r'ABC\-001'</span> <span class="comment"># Python的字符串</span></div><div class="line"><span class="comment"># 对应的正则表达式字符串不变：</span></div><div class="line"><span class="comment"># 'ABC\-001'</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><br></p>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>当我们在Python中使用正则表达式时，re模块内部会干两件事情：</p>
+<ol>
+<li>编译正则表达式，如果正则表达式的字符串本身不合法，会报错；</li>
+<li>用编译后的正则表达式去匹配字符串。</li>
+</ol>
+<blockquote>
+<p>Python代码最终被被编译为字节码，然后才被解释器执行。在匹配模式之前，正则表达式模式必须先被编译成regex对象。由于正则表达式在执行过程中多次被用于比较，所以强烈建议先对它进行预编译。</p>
+</blockquote>
+<p>如果一个正则表达式要重复使用几千次，出于效率的考虑，我们可以<strong>预编译</strong>该正则表达式，接下来重复使用时就不需要编译这个步骤了，直接匹配：</p>
+<p><br></p>
+<h4 id="compile-模块的函数"><a href="#compile-模块的函数" class="headerlink" title="compile - 模块的函数"></a>compile - 模块的函数</h4><ul>
+<li><strong>re.compile(patter [, flags=0])</strong> 把正则表达式<strong>编译成一个正则对象（regex）</strong>;供其他函数 find()、match()、search() 等函数使用<ul>
+<li>使用方式为 <strong>命名的变量.方法(查找对象的范围)</strong> ；其实因为在其他Re函数使用时，自动传递pattern</li>
+<li>若对许多字符串应用同一条正则表达式，强烈建议通过re.compile创建对象。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>flags 包括：<br>re.I 忽略大小写<br>re.L 表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境<br>re.M 多行模式<br>re.S 即为’ . ’并且包括换行符在内的任意字符（’ . ’不包括换行符）<br>re.U 表示特殊字符集 \w, \W, \b, \B, \d, \D, \s, \S 依赖于 Unicode 字符属性数据库<br>re.X 为了增加可读性，忽略空格和’ # ’后面的注释</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">a = re.compile() <span class="comment"># 创建的正则规则</span></div><div class="line">result = a.findall(ojbect)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 简单说明 】</span></div><div class="line">compiled_pattern = re.compile(pattren)</div><div class="line">resule = re.findall(compiled_pattern, string)  <span class="comment"># 这种方式更利于理解</span></div><div class="line"><span class="comment">#---------等价于--------------</span></div><div class="line">compiled_pattern = re.compile(pattren)</div><div class="line">result = compiled_patter.findall(string)  <span class="comment"># 使用方式为 命名的变量.方法(查找对象的范围) 。其实因为在其他Re函数使用时，自动传递pattern</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 解释说明 】</span></div><div class="line"><span class="comment">## p 即为编译后的 pattern。 在其他Re函数使用时，自动传递pattern</span></div><div class="line">p = re.compile( <span class="string">'(one|two|three)'</span>)  </div><div class="line">p.sub( <span class="string">'num'</span>, <span class="string">'one word two words three words'</span>)   <span class="comment"># 其第一个参数为p，即将one|two|three作为查找的对象，替换为rep = num</span></div><div class="line"><span class="string">'num word num words num words'</span></div><div class="line"><span class="comment">### 正常应为 re.sub('(one|two|three)', 'num', 'one word two words three words')</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</div><div class="line"><span class="comment"># 编译:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone = re.compile(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>)</div><div class="line"><span class="comment"># 使用：</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-12345'</span>).groups()   </div><div class="line">(<span class="string">'010'</span>, <span class="string">'12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-8086'</span>).groups()</div><div class="line">(<span class="string">'010'</span>, <span class="string">'8086'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<blockquote>
+<p>Re模块的函数和regex对象的方法</p>
+<p>强调：查找的对象是 <strong>字符串string</strong></p>
+</blockquote>
+<h4 id="search-amp-match-搜索-amp-匹配"><a href="#search-amp-match-搜索-amp-匹配" class="headerlink" title="search &amp; match- 搜索&amp;匹配"></a>search &amp; match- 搜索&amp;匹配</h4><blockquote>
+<p>search - 搜索；  match - 匹配</p>
+<p>通过.group 返回对象</p>
+</blockquote>
+<ul>
+<li><strong>match(pattern, string, flags=0)</strong>：在字符串string的<strong>开头 开始搜索</strong>正则表达式模式pattern；若匹配成功，则返回一个匹配对象<u>（仅返回匹配的部分）</u>；否则返回None</li>
+</ul>
+<ul>
+<li><strong>search(pattern, string, flags=0)</strong>：从字符串string中<strong>（任意位置）</strong>搜索正则表达式模式pattern <strong>第一次出现的地方</strong>； 如果匹配成功，则返回一个匹配对象；否则返回None</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># match 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">3</span>), match=<span class="string">'foo'</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'The food on the table'</span>) <span class="comment"># 什么都没有返回</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># search 应用</span></div><div class="line">re.search(<span class="string">'foo'</span>, <span class="string">'The food on the table'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">4</span>, <span class="number">7</span>), match=<span class="string">'foo'</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">val = <span class="string">'abc, dca, guides'</span></div><div class="line"></div><div class="line">m = re.search(<span class="string">'uid'</span>, val)</div><div class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(9, 12), match='uid'&gt;</span></div><div class="line">val[m.start():m.end()]</div><div class="line"><span class="comment"># 'uid'</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="findall-amp-finditer-查找"><a href="#findall-amp-finditer-查找" class="headerlink" title="findall &amp; finditer - 查找"></a>findall &amp; finditer - 查找</h4><blockquote>
+<p>search 与 findall 不同之处在于：findall 总返回一个<strong>[ 列表 ] </strong></p>
+</blockquote>
+<ul>
+<li><strong>findall(pattern, string [,flags])</strong> ：在字符串string中搜索匹配pattern的<strong>所有内容</strong>，并返回一个匹配对象的 <strong>[列表 list]</strong></li>
+</ul>
+<blockquote>
+<p>正则表达式</p>
+</blockquote>
+<ul>
+<li><strong>finditer(pattern, string [, flags])</strong>：在字符串string中搜索匹配pattern的<strong>所有内容</strong>，返回一个<strong>迭代器</strong>，该迭代器返回一个匹配对象</li>
+</ul>
+<p><br></p>
+<h4 id="sub-替换"><a href="#sub-替换" class="headerlink" title="sub - 替换"></a>sub - 替换</h4><ul>
+<li><strong>re.sub(pattern, repl ,string, max = 0)</strong> : 把字符串string中所有匹配正则表达式pattern的地方 <strong>替换</strong>成 字符串 repl <ul>
+<li>如果没有找到匹配 pattern 的串，则返回未被修改的 string。Repl 既可以是字符串也可以是一个函数。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>若max 的值没有给出，则对所有匹配的地方进行替换</p>
+</blockquote>
+<ul>
+<li>re.subn - 该函数的功能和 sub() 相同，但它还返回新的字符串以及替换的次数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">re.sub(pattern, repl, string[, count, flags])</div><div class="line"></div><div class="line"><span class="comment"># count=1 表示替换仅替换第一个</span></div><div class="line">p = re.compile( <span class="string">'(one|two|three)'</span>) </div><div class="line">p.sub( <span class="string">'num'</span>, <span class="string">'one word two words three words'</span>)   <span class="comment"># 其第一个参数为p，即将one|two|three作为查找的对象，替换为rep = num</span></div><div class="line"><span class="string">'num word num words num words'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ------------------------------------</span></div><div class="line">subn(repl, string[, count=<span class="number">0</span>])</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="split-分割"><a href="#split-分割" class="headerlink" title="split - 分割"></a>split - 分割</h4><ul>
+<li><strong>re.split(pattren, string, max=0)</strong> ： 根据正则表达式pattern中的分隔符 把字符串string <strong>分割为一个 [列表]</strong></li>
+</ul>
+<blockquote>
+<p>若max 的值没有给出，则对所有匹配的地方进行分割</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.split(pattern, string[, maxsplit=<span class="number">0</span>, flags=<span class="number">0</span>])</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="group-匹配对象"><a href="#group-匹配对象" class="headerlink" title="group - 匹配对象"></a>group - 匹配对象</h4><blockquote>
+<p><strong>匹配对象的方法：在match &amp; search 被成功调用之后所返回的结果。</strong></p>
+</blockquote>
+<ul>
+<li><strong>group(num=0)</strong>：<strong>返回全部匹配对象</strong>（或指定编号是num的子组）</li>
+<li><strong>groups()</strong>：返回一个包含<strong>唯一或全部</strong>匹配的子组的<strong>元组</strong>（若正则表达式中没有子组，则返回一个空元组）</li>
+</ul>
+<blockquote>
+<p>num 代表第1、2、……个子串。如果正则表达式中定义了组，就可以在<code>Match</code>对象上用<code>group()</code>方法提取出子串来。</p>
+<p>用<code>()</code>表示的就是要提取的分组(Group)，进行<strong>提取子串</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#  group 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>).group()</div><div class="line"><span class="string">'foo'</span></div><div class="line"></div><div class="line"><span class="comment"># groups 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>).groups()</div><div class="line">()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 用()定义组</span></div><div class="line">^(\d&#123;<span class="number">3</span>&#125;)-(\d&#123;<span class="number">3</span>,<span class="number">8</span>&#125;)$  <span class="comment"># 分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>, <span class="string">'010-12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">'010-12345'</span>&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)  <span class="comment"># group(0) 永远是原始字符串</span></div><div class="line"><span class="string">'010-12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'010'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group()  <span class="comment"># 返回所有的值</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h3><ol>
+<li>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。<ul>
+<li>由于<code>\d+</code>采用贪婪匹配，直接把后面的<code>0</code>全部匹配了，结果<code>0*</code>只能匹配空字符串了。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'102300'</span>, <span class="string">''</span>)</div></pre></td></tr></table></figure>
+<ol>
+<li>必须让<code>\d+</code>采用<strong>非贪婪匹配（也就是尽可能少匹配）</strong>，才能把后面的<code>0</code>匹配出来，<strong>加个<code>?</code>就可以让<code>\d+</code>采用非贪婪匹配：</strong></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+?)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'1023'</span>, <span class="string">'00'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="参考资料-：-正则表达式"><a href="#参考资料-：-正则表达式" class="headerlink" title="参考资料 ： 正则表达式"></a>参考资料 ： 正则表达式</h2><blockquote>
+<p>元字符</p>
+</blockquote>
+<h3 id="匹配对象"><a href="#匹配对象" class="headerlink" title="匹配对象"></a>匹配对象</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.</strong></td>
+<td>点号</td>
+<td>匹配单个(除换行符以外)<strong>任意字符</strong> <strong>（含空格、下划线等）</strong></td>
+</tr>
+<tr>
+<td><strong>\s </strong></td>
+<td>空白/空格- space</td>
+<td>匹配任意的<strong>空白符</strong></td>
+</tr>
+<tr>
+<td>\S</td>
+<td>非空白字符</td>
+<td>匹配<strong>任何非空白字符，相当于[^ fv]</strong></td>
+</tr>
+<tr>
+<td><strong>\d</strong></td>
+<td>数字 - digit</td>
+<td>匹配<strong>数字 ，相当于[0-9]</strong></td>
+</tr>
+<tr>
+<td>\D</td>
+<td>非数字</td>
+<td>匹配任何<strong>非数字字符</strong>，相当于[^0-9]</td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td>任何字符 - whatever</td>
+<td><strong>匹配任何字母数字字符，相当于[a-zA-Z0-9_]</strong></td>
+</tr>
+<tr>
+<td>\W</td>
+<td>非任何字符</td>
+<td>匹配<strong>任何非字母数字字符</strong>，相当于[^a-zA-Z0-9_]</td>
+</tr>
+<tr>
+<td><strong>[ ]</strong></td>
+<td>字符组</td>
+<td>匹配<strong>单个</strong>列出的字符，表示或的关系</td>
+</tr>
+<tr>
+<td><strong>[^ ]</strong></td>
+<td>排除性字符组</td>
+<td>匹配<strong>单个</strong>未列出的字符</td>
+</tr>
+<tr>
+<td>\char</td>
+<td>转义字符</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>对于 ? 和 * 的对象在”匹配成功”时也可能并没有匹配任何内容。因为它们允许匹配的数量为0</p>
+<p>即便是排除性字符，也需要匹配一个字符</p>
+<p>转义符 <code>\\*</code>第一个转义符是对\进行转义，表示：查找 <code>\*</code>此类字符的内容</p>
+<p>空格 也是一个字符</p>
+<p>由于Python的字符串本身也用<code>\</code>转义，因此强烈建议使用Python的<code>r</code>前缀，就不用考虑转义的问题了：</p>
+</blockquote>
+<h4 id="字符组"><a href="#字符组" class="headerlink" title="字符组 [ ]"></a>字符组 [ ]</h4><ol>
+<li><p>字符组内匹配的是<strong>列出的单个字符</strong>，<strong>或者</strong>的关系</p>
+</li>
+<li><p><strong>字符组元字符</strong> ：字符组内的元字符，<strong>其含义表示为本身的含义，即代表普通文本字符，相当于转义之后的字符（连字符 - 除外）</strong></p>
+<ul>
+<li><strong>连字符 ( - )</strong>表示一个<strong>范围</strong>；<strong>【注意：只有在字符组内部，连字符( - )才是元字符】</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">0</span><span class="number">-9</span>]  <span class="comment"># 表示匹配的字符为0~9之间的任意一个</span></div></pre></td></tr></table></figure>
+<ul>
+<li>连字符 ( - ) 出现在<strong>字符组的开头</strong>，则仅代表<strong>普通文本字符</strong>； </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">-09</span>]  <span class="comment"># 表示匹配的字符为 - 或者 0 或者 9</span></div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<h3 id="量词-计数功能"><a href="#量词-计数功能" class="headerlink" title="量词 - 计数功能"></a>量词 - 计数功能</h3><p>对前一个/一组字符匹配的的次数</p>
+<table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>？</strong>  = 0 或 1</td>
+<td><strong>问号</strong></td>
+<td>不匹配，或仅匹配一次</td>
+</tr>
+<tr>
+<td><strong>*</strong>     $\ge$ 0</td>
+<td>星号</td>
+<td>可能不匹配，也可能匹配任意多次</td>
+</tr>
+<tr>
+<td><strong>+</strong>     $\ge$ 1</td>
+<td>加号</td>
+<td>至少匹配一次，也可能匹配任意多次</td>
+</tr>
+<tr>
+<td>{m}</td>
+<td></td>
+<td>对于前一个字符重复m次</td>
+</tr>
+<tr>
+<td><strong>{min, max}</strong></td>
+<td>区间量词</td>
+<td>对前一个字符重复min到max次</td>
+</tr>
+</tbody>
+</table>
+<h3 id="匹配位置"><a href="#匹配位置" class="headerlink" title="匹配位置"></a>匹配位置</h3><table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>^</strong></td>
+<td>脱字符</td>
+<td>一行的开头位置</td>
+</tr>
+<tr>
+<td><strong>$</strong></td>
+<td>美元符</td>
+<td>一行的结束位置</td>
+</tr>
+<tr>
+<td>\b</td>
+<td><strong>单词分界符</strong></td>
+<td>匹配<strong>单词的开始或结束</strong> (用于精确匹配)</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>非单词分界符</td>
+<td>匹配<strong>不是单词开头或结束的位置</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="其他元字符"><a href="#其他元字符" class="headerlink" title="其他元字符"></a>其他元字符</h3><table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>( )</td>
+<td>括号</td>
+<td>限定多线结构的范围； 为反向引用“捕获”文本</td>
+</tr>
+<tr>
+<td>\1 , \2</td>
+<td>反向引用</td>
+<td>匹配之前的第一个、第二个括号内的字表达式<strong>所匹配的文本</strong>(即捕获的文本)</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>或者</td>
+<td>匹配任意分隔的表达式</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>括号与反向引用的示例</p>
+<ul>
+<li><strong>分组0对应整个正则表达式</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; \b(a-zA-Z)*+\<span class="number">1</span>\b</div><div class="line">&gt; <span class="comment"># 若 \b(a-zA-Z)*+ 任意字符找到的以单词开头的内容为the，则\1 表示其末尾也应为the的内容 </span></div><div class="line">&gt; <span class="comment"># 若有两个括号，\2表示第二个括号中所匹配的文本内容</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="多选结构"><a href="#多选结构" class="headerlink" title="多选结构"></a>多选结构</h4><ol>
+<li><p>使用圆括号( ) 来进行表示，而非方括号</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查找 gray 或 grey的写法</span></div><div class="line"></div><div class="line"><span class="number">1.</span> gr[ae]y</div><div class="line"><span class="number">2.</span> gr(a|e)y</div><div class="line"></div><div class="line"><span class="comment"># 错误的写法 gr[a|e]y  -表示查找 a 或者 | 或者 e</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>多选结构可以匹配<strong>任意长度</strong>的字符，而字符组[ ]只能匹配<strong>单个</strong>字符</p>
+</blockquote>
+<h2 id="【实战演练】"><a href="#【实战演练】" class="headerlink" title="【实战演练】"></a>【实战演练】</h2><p>你在一篇英文小说里查找hi，你可以使用正则表达式hi</p>
+<p>通常，处理正则表达式的工具会提供一个忽略大小写的选项，如果选中了这个选项，它可以匹配hi,HI,Hi,hI这四种情况中的任意一种。</p>
+<p>很多单词里包含hi这两个连续的字符，比如him,history,high等等。用hi来查找的话，这里边的hi也会被找出来。如果要精确地查找hi这个单词的话，我们应该使用\bhi\b</p>
+<p><code>\bhi\b.*\bLucy\b</code>的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词</p>
+<p><br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">f = open(<span class="string">'caihf001'</span>)</div><div class="line">text = f.read()</div><div class="line">f.close()</div><div class="line">k = re.compile(<span class="string">'Lemon'</span>, re.I)</div><div class="line">k.findall(text)</div><div class="line"></div><div class="line"><span class="comment"># ----效果同上</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'caihf001'</span>) <span class="keyword">as</span> f:</div><div class="line">    text = f.read()</div><div class="line"><span class="comment">#     print(text)</span></div><div class="line">    k = re.compile(<span class="string">'lemon'</span>,re.I)</div><div class="line">    l = re.findall(k,text)</div><div class="line">print(l)</div><div class="line"></div><div class="line"></div><div class="line">[<span class="string">'Lemon'</span>, <span class="string">'lemon'</span>, <span class="string">'Lemon'</span>, <span class="string">'Lemon'</span>, <span class="string">'LeMoN'</span>, <span class="string">'LEmon'</span>, <span class="string">'LEMON'</span>]</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Re模块&quot;&gt;&lt;a href=&quot;#Re模块&quot; class=&quot;headerlink&quot; title=&quot;Re模块&quot;&gt;&lt;/a&gt;Re模块&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Re模块的函数主要分三个大类：匹配模式、替换、拆分&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Python字符串转义符 &lt;code&gt;\&lt;/code&gt; &lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因此强烈建议使用Python的&lt;code&gt;r&lt;/code&gt;前缀，就不用考虑转义的问题了：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;s = &lt;span class=&quot;string&quot;&gt;r&#39;ABC\-001&#39;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# Python的字符串&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 对应的正则表达式字符串不变：&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# &#39;ABC\-001&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -4872,311 +4872,6 @@ os.environ
   </entry>
   
   <entry>
-    <title>《专注力》读书笔记_于尔根.沃尔夫</title>
-    <link href="http://yoursite.com/2017/12/31/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/10_%E6%80%9D%E7%BB%B4%E6%84%8F%E8%AF%86/20_%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89/%E3%80%8A%E4%B8%93%E6%B3%A8%E5%8A%9B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0_%E4%BA%8E%E5%B0%94%E6%A0%B9.%E6%B2%83%E5%B0%94%E5%A4%AB_Jurgen.wolff/"/>
-    <id>http://yoursite.com/2017/12/31/阅读书籍/10_思维意识/20_精要主义/《专注力》读书笔记_于尔根.沃尔夫_Jurgen.wolff/</id>
-    <published>2017-12-30T16:00:00.000Z</published>
-    <updated>2018-02-12T07:41:02.608Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>《专注力：化简为繁的惊人力量》（第2版）_于尔根.沃尔夫</strong></p>
-<blockquote>
-<p>《Focus : Use the power of targeted thinking to get more done》_Jurgen.wolff</p>
-</blockquote>
-<p>本书是关于 “怎样做” 的内容；而非关于 “什么”</p>
-<a id="more"></a>
-<p><br></p>
-<h2 id="找到专注的焦点"><a href="#找到专注的焦点" class="headerlink" title="找到专注的焦点"></a>找到专注的焦点</h2><ol>
-<li><p>80%的时间里我们都在关心哪些事情没做好；若将注意力集中在我们做好了什么上才是加速进程的关键； 《改变你看待事物的方式》 凯萨琳.克拉默</p>
-</li>
-<li><p>注意他人所做的积极而有价值的事情，花点时间去赞美。优秀的项目经理知道培训员工的最好方式是强化他们的有效行为；</p>
-</li>
-<li><p><strong>“零容忍” 策略</strong>：假装自己还未拥有/投入</p>
-<ul>
-<li>如果我当时没有开始看这本书，我现在还会继续看吗？（当你看了一半的时候越看越觉得这本书没意思）</li>
-<li>如果我当时没有买这个，现在会愿意花多少钱去买？</li>
-</ul>
-</li>
-<li><p>实现目标的过程</p>
-<ol>
-<li>设定一个SMART目标</li>
-<li>开始做一切你认为可以帮助你实现目标的事情</li>
-<li>对过程效果进行监控；如果你做的事情并没有给你带来想要的结果，那就需要赶快调整，找到替换措施做些改变</li>
-<li>坚持战略（若无法坚持时，考虑如下原因）<ul>
-<li><strong>对策略尝试了很长时间，但并不奏效</strong>；此时需要头脑风暴，设想一个新的策略并开始</li>
-<li><strong>仅仅是忘记了而没有执行</strong>，说明这个策略不太方便；因此<strong>你需要一个更轻松、更容易上心的方式来做这件事</strong></li>
-</ul>
-</li>
-<li>重复第3和第4，直至实现你的目标（可能失败的唯一原因就是你的自我放弃）</li>
-</ol>
-</li>
-<li><p><strong>你无法专注于看不见的事物</strong>：若要保证每天花时间做对你最重要的事，那就<u><strong>在身边确保一个与此相关的视觉或听觉符号</strong></u>（照片或图画、单词、短语或一段音乐）； 并且<strong>定期改变这个符号</strong>，这能帮助你更新其力量以提醒你行动</p>
-<blockquote>
-<p>【共鸣】必须要定期改变符号，否则很容易忽视；因为人的大脑就是习惯于忽略不变的内容</p>
-</blockquote>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="专注策略"><a href="#专注策略" class="headerlink" title="专注策略"></a>专注策略</h2><ol>
-<li><p>当你识别出消极模式，要弄清楚这一模式给你带来了什么</p>
-<ul>
-<li>想要跳槽却从不才行动的人所收获的，是永远不必被拒绝的风险；</li>
-<li>只要是一直在计划，那就不会失败</li>
-</ul>
-</li>
-<li><p>关键要找出对你有用的方式，这是不断尝试的过程；不要指望你试着做的第一件事会有一个完美的解决方案；（这才是普遍现象）</p>
-</li>
-<li><p><strong><u>分配任务：评估哪些工作是可以分配给其他人去做的。你的目标是尽可能多地把时间利用在能给你带来最大价值的事情上；</u></strong> </p>
-<blockquote>
-<p>【反思】：知行合一；你没有这么去做，是因为你没有真正理解这件事情的价值</p>
-</blockquote>
-</li>
-<li><p>我们往往没有去做真正要做的事；因为很多时候，做其他事比做我们必须要做的事情更有趣。</p>
-<ul>
-<li>低附加价值活动倾向于那些容易的、不会给人带来恐慌甚至可能是让人身心愉悦的事</li>
-</ul>
-</li>
-<li><p>迈出第一步：分解任务，去做真正要做的事</p>
-<ul>
-<li>很多时候，因为事情本身无趣或者困难使我们根本不愿意去做；换个视角，<u><strong>不要去想找个任务会怎么样，而是想想你会怎么样。</strong></u> （比如一旦你打完这个电话，你将会感觉多轻松？不用为这件事烦恼将会有多美好？）</li>
-</ul>
-</li>
-<li><p><strong>选择</strong>你觉得<strong>做起来有趣的部分开始</strong>； 这么做的同时你已经为剩余的工作准备好了冲动。</p>
-<ul>
-<li>如果你正在写一篇销售，你可能已经对最后的场景做了设想。那么完全可以也应该先写下这一部分的内容</li>
-</ul>
-</li>
-<li><p>通常发现给你带来最多价值的那20%的事情你已经在做了，只是你做的还不够而已。</p>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="专注工具"><a href="#专注工具" class="headerlink" title="专注工具"></a>专注工具</h2><ol>
-<li><p><strong>信息处理 - 选择与忽略 </strong> </p>
-<ul>
-<li>在接触新信息时，先快速提醒自己此时对自己最有吸引力的话题、和你目标最重要的话题</li>
-<li>如果你知道这条信息<strong>并不相关，那就不要去看它</strong>，直接丢弃或者将它放置一边，直到它所包含的信息可能更加相关时再去看。</li>
-</ul>
-</li>
-<li><p>先洗出所有可能会做的事情（待办清单），再从中自己筛选并排序对你来说最重要的任务</p>
-<blockquote>
-<p>首先处理真正有价值的任务会让你这天的时间感觉轻松很多</p>
-</blockquote>
-</li>
-<li><p><strong>休息和反思</strong> 这两项不应该成为首先被牺牲的选项</p>
-</li>
-<li><p><strong>在处理完一件事情之前，不要收邮件，不要看RTX，不要看微信；直至完成这件事为止；</strong></p>
-<p>​</p>
-</li>
-</ol>
-<p><br></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;《专注力：化简为繁的惊人力量》（第2版）_于尔根.沃尔夫&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;《Focus : Use the power of targeted thinking to get more done》_Jurgen.wolff&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;本书是关于 “怎样做” 的内容；而非关于 “什么”&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《每天最重要的2小时》读书笔记_乔西.戴维斯</title>
-    <link href="http://yoursite.com/2017/12/31/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/10_%E6%80%9D%E7%BB%B4%E6%84%8F%E8%AF%86/20_%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89/%E3%80%8A%E6%AF%8F%E5%A4%A9%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%842%E5%B0%8F%E6%97%B6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0_%E4%B9%94%E8%A5%BF.%E6%88%B4%E7%BB%B4%E6%96%AF/"/>
-    <id>http://yoursite.com/2017/12/31/阅读书籍/10_思维意识/20_精要主义/《每天最重要的2小时》读书笔记_乔西.戴维斯/</id>
-    <published>2017-12-30T16:00:00.000Z</published>
-    <updated>2018-02-12T07:40:50.674Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>《每天最重要的2小时》 - 乔西.戴维斯</strong></p>
-<blockquote>
-<p>《Two Awesome Hours》 - Josh.Daivs</p>
-</blockquote>
-<p>目的：了解如何塑造最重要的2小时</p>
-<a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
-<li>一个错误的方向：在更短的时间里做到更多。只有当我们错误地以为完全依赖于挤出足够多的时间，我们才会面对这种选择的压力。</li>
-<li>具身认知：身体影响思维的方式的总称；说明身体上的动作会极大地影响到你的思维。</li>
-<li>要想实现真正高产，最好的方法可能是抛弃 “效率” 这个念头，转而<strong><u>创造条件</u></strong>，让自己在每天当中都能拥有极为高效的量2小时。<ul>
-<li><strong><u>意识到你的觉察点。</u></strong> 只要你开始一项任务，基本上就会处于<strong>自动工作的状态</strong>，这就很难改变你工作的方向。因此，要利用好<strong>不同任务交接时的那一刻</strong>，在这种时候你<strong>能够选择下一步该做什么</strong>，然后把精力放在接下来最重要的事情上面。</li>
-<li>管理你的心理能量</li>
-<li>不要与分心做无意义的斗争；了解你大脑的工作方式</li>
-<li>利用你的身心联系：运动和饮食</li>
-<li>让你的工作环境为你所用</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略一：在日常工作中，认清最重要的事"><a href="#策略一：在日常工作中，认清最重要的事" class="headerlink" title="策略一：在日常工作中，认清最重要的事"></a>策略一：在日常工作中，认清最重要的事</h2><blockquote>
-<p>意识到并抓住觉察点 </p>
-</blockquote>
-<h3 id="意识到每天的关键时刻-——-觉察点"><a href="#意识到每天的关键时刻-——-觉察点" class="headerlink" title="意识到每天的关键时刻 —— 觉察点"></a>意识到每天的关键时刻 —— 觉察点</h3><ol>
-<li><strong>我们一旦开始了一项神经性常规活动，就会像电脑程序一样一直运行下去，直到<u>完成任务或者被打断</u>。</strong></li>
-<li>我们的习惯很有必要，因为它们能够节省大脑的能量。（生物进化论的角度）</li>
-<li>必须学会意识到 <strong>“觉察点”</strong> ，只有在这种时刻你才有机会也有能力决定自己如何度过接下来的时间。这种时刻就是<strong><u>你完成或者中断了任务</u></strong>的那个时刻；<ul>
-<li>我们会如此频繁地进入自动模式，那么每天并没有那么多机会让我们有意识地决定下一步该做什么。因此<strong>意识到这些觉察点并抓住它们就显得极为重要。</strong></li>
-<li>【原因】 <u>大家习惯于这种时刻（觉察点）匆忙略过，好去做某些让自己觉得 “很高效” 的事。</u>匆忙略过一个觉察点（即不同任务的间隙）也许能给你省出5分钟的时间，但是完成不该完成的任务可能会消费掉1个小时。<strong>这5分钟的确会让你不安。因为在这种时候，我们能够非常清楚地意识到每一秒的流逝，而在那浪费掉的一小时中因为名为基本上处于自动模式，所以不会察觉也不会觉得难受。</strong></li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<h3 id="做出最恰当的选择"><a href="#做出最恰当的选择" class="headerlink" title="做出最恰当的选择"></a>做出最恰当的选择</h3><ol>
-<li><p><strong>“认知上的懒惰者”</strong> ：在其他条件完全相同的情况下，我们倾向于选择在思维层面阻力最小的那条路。正因为那些无意识的、已经很熟练的神经性常规程序相对而言更容易完成，所以作为认知上的懒惰者，只要有可能就会更倾向于依赖自动的神经性常规行为，而不是有意识的选择；【原因】</p>
-</li>
-<li><p>在一步步完成神经性常规程序时，人们会进入一种 “忘我” 的状态。在此状态下，你意识不到周围发生的事。但<strong><u>当常规程序结束时或者被打断之后，自我意识就会浮现出来。</u></strong>从沉溺于神经性常规程度到停止这一程序，这之间的转变很可能让你感觉不适。</p>
-<ul>
-<li>两类思维：有目的、有意识的行为；自动的、无意识的行为；</li>
-<li>意识最主要的功能就是在我们的自动式神经常规活动遇到困难的时候做出决定。<u>尤其是当不同的刺激性神经常规活动指导我们去做相互矛盾的动作的时候。</u></li>
-</ul>
-</li>
-<li><p>觉察点通常 <strong><u>作为冲突的结果</u></strong> 而出现。（无意识的自动行为之间相冲突、行为和目标之间相冲突）</p>
-<ul>
-<li>两种行为（盯着电脑 VS. 转过去面对我朋友）是互相矛盾的，才需要这种有意识地评估并做出决定</li>
-</ul>
-<blockquote>
-<p>【反思】解释了觉察点出现的原因以及场景</p>
-</blockquote>
-</li>
-<li><p>你越是需要注意自己的思绪、情感和行为，你就越觉得时间流逝得慢。然后，这种不够 “高产” 的时间流逝，并不意味着你浪费了很多时间。这只是意味着我们<strong>恰巧更能意识到时间的存在而已。</strong> 而恰好正因为觉察这点会让人不舒服，所以我们往往才选择尽快跳过它们。</p>
-</li>
-</ol>
-<p><br></p>
-<h3 id="充分利用觉察点"><a href="#充分利用觉察点" class="headerlink" title="充分利用觉察点"></a>充分利用觉察点</h3><blockquote>
-<p>珍惜每一个觉察点；提前为觉察点做好相应计划；不要随便开始一项新任务</p>
-</blockquote>
-<ol>
-<li><p><strong>珍惜</strong>每一个觉察点：<strong>意识到觉察点的出现，并尽力抓住它；</strong></p>
-<ul>
-<li>觉察点能够让你与眼下最关注的时<strong>拉开一定的距离</strong>；</li>
-</ul>
-<blockquote>
-<p>【共鸣】心理学中，两个自我：一个是正在做事的自我；一个是正在观察当下自我的那个自己；你只有意识到它，才有可能去改变它；</p>
-</blockquote>
-</li>
-<li><p><strong><u>提前为觉察点做好相应计划；</u></strong> </p>
-<ul>
-<li>可能没办法知道被打断的确切时间，但我们知道这些情况发生的概率很大，而每一次打断都会创造一个觉察点</li>
-<li><strong>[ IFTTT ]</strong> 可以<strong><u>提前决定</u>：当你被打断的时候，把那一刻变为觉察点；</strong> 这些打扰你的情况帮你从忘我状态中走出来，让你重新评估一下自己是否需要切换任务<ul>
-<li><em>Eg：对他而言，工作方面的突发奇想往往是在他完全放松的时候出现，特别是在与家人共进晚餐的时候；于是，他提前为这个场景做了计划：如果当他陪着家人时突然灵关一现，那么就花2分钟评估一下这个想法的重要性</em></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><strong>【思考】面对不同情境，提前设置规则，提前想象与演练；可以为一般情况建立规则，也可以每天为特定情况临时建立这种规则；</strong></p>
-<p><em>研究表明，当我们在脑中设想某一行动时，所利用的神经回路其实和真正去做这件事时的神经回路是相同的；</em></p>
-</blockquote>
-</li>
-<li><p><strong>不要随便开始一项新任务</strong>， 除非已经有意识地决定了它确实值得做</p>
-<ul>
-<li><strong>当你完成一项任务的时候，不要去想接下来做什么，而是把一刻标记为觉察点</strong><ul>
-<li><em>Eg：当我结束了一节课之后我会对自己大声说 “现在就是个觉察点” 。这句话足够让我真个人停下来</em></li>
-</ul>
-</li>
-<li><strong>再考虑一下自己目前的身体状态</strong> （是否疲劳、需要休息、喝水、食物），接下来有没有其他事情需要你花更多的能量去做以及你会在什么样的环境下工作</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略二：管理你的心理能量"><a href="#策略二：管理你的心理能量" class="headerlink" title="策略二：管理你的心理能量"></a>策略二：管理你的心理能量</h2><blockquote>
-<p><strong>必须把有限的心理能量全部留给今天最重要的内容</strong></p>
-</blockquote>
-<h3 id="让你心理疲惫的事物"><a href="#让你心理疲惫的事物" class="headerlink" title="让你心理疲惫的事物"></a>让你心理疲惫的事物</h3><ol>
-<li>进行自我控制会削弱我们的自控力；</li>
-<li>做决定（即使是一些典型的、日常的决定）也会导致心理上的疲惫，由此降低我们做出最佳表现；</li>
-</ol>
-<blockquote>
-<p>【思考】先做最重要的事；知行合一；原因在于此</p>
-</blockquote>
-<p><br></p>
-<h3 id="管理心理能量"><a href="#管理心理能量" class="headerlink" title="管理心理能量"></a>管理心理能量</h3><ol>
-<li><strong>重视你身体的信号。</strong></li>
-<li>如果在做完某项任务之感觉很累，很可能就是它消耗了大量的自控力；导致疲惫的活动：<ul>
-<li>不断从一个任务转换到另一任务</li>
-<li>交际、与人聊天</li>
-<li>做计划、做决定等</li>
-</ul>
-</li>
-<li>我们不需要完全避开这些活动，<strong>因为我们不需要每时每刻都处于最佳状态，因为这是不可能做到的</strong>；但是，我们可以策略性地安排待办事项的完成顺序，就能够<strong>分配出高效的2小时</strong>；</li>
-<li>早上第一件事就是完成你最重要的工作，不要让你的大脑能力一开始就被几十个小决定消耗殆尽</li>
-<li>考虑一下今天所有的待办事项，分类为 “重要的、创造性的、其他”</li>
-<li><strong>在第二天有重要活动时，前一天晚上提前做一些决定，不要把它们留到第二天来浪费你的能力</strong></li>
-<li>不要轻易承诺做完清单上的每一件事，因为这会浪费掉你本该用在最重要的事情上的能量</li>
-<li><strong>必须把有限的心理能量全部留给今天最重要的内容</strong></li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略三：无须对抗分心也能更专注"><a href="#策略三：无须对抗分心也能更专注" class="headerlink" title="策略三：无须对抗分心也能更专注"></a>策略三：无须对抗分心也能更专注</h2><ol>
-<li><p>从进化的角度来讲，人的大脑天生就不是为了无限专注于任何事；大脑的构造决定了它会不断在不同的注意点之间来回切换；如果做不到这一点，人类就很难生存下来；想象一下，当你正在采果子的时候也必须要时刻警惕有没有危险接近；</p>
-</li>
-<li><p>大脑从一个注意点<strong>切换到另一个注意点时</strong>，它会<strong>对那些不变的东西习惯性地视而不见</strong>；</p>
-</li>
-<li><p><strong>可以把那些没有必要存在和让你分心的东西都拿开；</strong></p>
-</li>
-<li><p><strong>在一段时间内，拿开、关闭或忽视 那些会令你分心的东西（某件物品、手机、即时通讯软件等）</strong></p>
-<blockquote>
-<p>当你在做一件事的时候，不要去看手机、邮箱、即时通讯软件；当你完成的时候在去看。在不同事物之间来回切换注意力，本身就很耗费能量</p>
-</blockquote>
-</li>
-<li><p>不要指责自己没有专心致志，不妨静静旁观自己的思绪；只要能避免因无法专注而变得沮丧、疲惫或更加不专心，就能把注意力再次带回到手中的任务上来</p>
-<blockquote>
-<p>把无法长久维持注意力的问题归咎于我们个性上的缺陷，这是一个明显的误区</p>
-</blockquote>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略四：掌握运动和饮食的诀窍"><a href="#策略四：掌握运动和饮食的诀窍" class="headerlink" title="策略四：掌握运动和饮食的诀窍"></a>策略四：掌握运动和饮食的诀窍</h2><ol>
-<li>当你发现自己头昏脑涨、太过焦虑或者压力重重时，你应该换一种方式利用自己的身体（走动、跑步或做其他事），让自己 “重启” 一下。</li>
-<li><strong>不要在桌子边坐得太久。当你意识到这一点，就站起身来走动一下。</strong></li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略五：让工作环境为你服务"><a href="#策略五：让工作环境为你服务" class="headerlink" title="策略五：让工作环境为你服务"></a>策略五：让工作环境为你服务</h2><blockquote>
-<p>声音、光线</p>
-</blockquote>
-<h3 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h3><ol>
-<li>虽然<strong>背景音乐</strong>通常能够提升积极的情绪，提高运动方面的表现，并让人们做事更加迅速，但同时它<strong>对阅读有着干扰效果。</strong></li>
-<li><strong>比起有白噪声的环境，安全的环境对提高效率更有益；</strong> 如果能在安静的环境下工作，成效只会更出色</li>
-<li>内向的人容易被各种刺激影响，所以对噪声干扰也更加敏感；</li>
-<li><strong>对于那些需要运用知识才能完成的任务来说，安静的环境几乎无疑地优于有噪声的环境</strong></li>
-<li><strong>背景音乐对创造性工作，有一定的促进作用；</strong></li>
-</ol>
-<p><br></p>
-<h3 id="光线"><a href="#光线" class="headerlink" title="光线"></a>光线</h3><ol>
-<li><strong>蓝白光</strong>对需要专注力和逻辑思考的分析性任务更有利</li>
-<li><strong>暗淡光线对创造力更为有利</strong></li>
-</ol>
-<p><br></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;《每天最重要的2小时》 - 乔西.戴维斯&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;《Two Awesome Hours》 - Josh.Daivs&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;目的：了解如何塑造最重要的2小时&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《精要主义》读书笔记_格雷格.麦吉沃恩</title>
     <link href="http://yoursite.com/2017/12/31/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/10_%E6%80%9D%E7%BB%B4%E6%84%8F%E8%AF%86/20_%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89/%E3%80%8A%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89%E3%80%8B_%E6%A0%BC%E9%9B%B7%E6%A0%BC.%E9%BA%A6%E5%90%89%E6%B2%83%E6%81%A9_Grey.Mckeown/%E3%80%8A%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0_%E6%A0%BC%E9%9B%B7%E6%A0%BC.%E9%BA%A6%E5%90%89%E6%B2%83%E6%81%A9_20171231/"/>
     <id>http://yoursite.com/2017/12/31/阅读书籍/10_思维意识/20_精要主义/《精要主义》_格雷格.麦吉沃恩_Grey.Mckeown/《精要主义》读书笔记_格雷格.麦吉沃恩_20171231/</id>
@@ -5722,6 +5417,311 @@ os.environ
 &lt;p&gt;《Essentialism : The Disciplined Pursuit of Less》_ Grey.Mckeown&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;目的：精要，即重要的事。懂得如何识别与运用；强化思维；为2018年成为一个精要的人做理论研究&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
+    
+    
+      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《每天最重要的2小时》读书笔记_乔西.戴维斯</title>
+    <link href="http://yoursite.com/2017/12/31/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/10_%E6%80%9D%E7%BB%B4%E6%84%8F%E8%AF%86/20_%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89/%E3%80%8A%E6%AF%8F%E5%A4%A9%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%842%E5%B0%8F%E6%97%B6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0_%E4%B9%94%E8%A5%BF.%E6%88%B4%E7%BB%B4%E6%96%AF/"/>
+    <id>http://yoursite.com/2017/12/31/阅读书籍/10_思维意识/20_精要主义/《每天最重要的2小时》读书笔记_乔西.戴维斯/</id>
+    <published>2017-12-30T16:00:00.000Z</published>
+    <updated>2018-02-12T07:40:50.674Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>《每天最重要的2小时》 - 乔西.戴维斯</strong></p>
+<blockquote>
+<p>《Two Awesome Hours》 - Josh.Daivs</p>
+</blockquote>
+<p>目的：了解如何塑造最重要的2小时</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
+<li>一个错误的方向：在更短的时间里做到更多。只有当我们错误地以为完全依赖于挤出足够多的时间，我们才会面对这种选择的压力。</li>
+<li>具身认知：身体影响思维的方式的总称；说明身体上的动作会极大地影响到你的思维。</li>
+<li>要想实现真正高产，最好的方法可能是抛弃 “效率” 这个念头，转而<strong><u>创造条件</u></strong>，让自己在每天当中都能拥有极为高效的量2小时。<ul>
+<li><strong><u>意识到你的觉察点。</u></strong> 只要你开始一项任务，基本上就会处于<strong>自动工作的状态</strong>，这就很难改变你工作的方向。因此，要利用好<strong>不同任务交接时的那一刻</strong>，在这种时候你<strong>能够选择下一步该做什么</strong>，然后把精力放在接下来最重要的事情上面。</li>
+<li>管理你的心理能量</li>
+<li>不要与分心做无意义的斗争；了解你大脑的工作方式</li>
+<li>利用你的身心联系：运动和饮食</li>
+<li>让你的工作环境为你所用</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h2 id="策略一：在日常工作中，认清最重要的事"><a href="#策略一：在日常工作中，认清最重要的事" class="headerlink" title="策略一：在日常工作中，认清最重要的事"></a>策略一：在日常工作中，认清最重要的事</h2><blockquote>
+<p>意识到并抓住觉察点 </p>
+</blockquote>
+<h3 id="意识到每天的关键时刻-——-觉察点"><a href="#意识到每天的关键时刻-——-觉察点" class="headerlink" title="意识到每天的关键时刻 —— 觉察点"></a>意识到每天的关键时刻 —— 觉察点</h3><ol>
+<li><strong>我们一旦开始了一项神经性常规活动，就会像电脑程序一样一直运行下去，直到<u>完成任务或者被打断</u>。</strong></li>
+<li>我们的习惯很有必要，因为它们能够节省大脑的能量。（生物进化论的角度）</li>
+<li>必须学会意识到 <strong>“觉察点”</strong> ，只有在这种时刻你才有机会也有能力决定自己如何度过接下来的时间。这种时刻就是<strong><u>你完成或者中断了任务</u></strong>的那个时刻；<ul>
+<li>我们会如此频繁地进入自动模式，那么每天并没有那么多机会让我们有意识地决定下一步该做什么。因此<strong>意识到这些觉察点并抓住它们就显得极为重要。</strong></li>
+<li>【原因】 <u>大家习惯于这种时刻（觉察点）匆忙略过，好去做某些让自己觉得 “很高效” 的事。</u>匆忙略过一个觉察点（即不同任务的间隙）也许能给你省出5分钟的时间，但是完成不该完成的任务可能会消费掉1个小时。<strong>这5分钟的确会让你不安。因为在这种时候，我们能够非常清楚地意识到每一秒的流逝，而在那浪费掉的一小时中因为名为基本上处于自动模式，所以不会察觉也不会觉得难受。</strong></li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h3 id="做出最恰当的选择"><a href="#做出最恰当的选择" class="headerlink" title="做出最恰当的选择"></a>做出最恰当的选择</h3><ol>
+<li><p><strong>“认知上的懒惰者”</strong> ：在其他条件完全相同的情况下，我们倾向于选择在思维层面阻力最小的那条路。正因为那些无意识的、已经很熟练的神经性常规程序相对而言更容易完成，所以作为认知上的懒惰者，只要有可能就会更倾向于依赖自动的神经性常规行为，而不是有意识的选择；【原因】</p>
+</li>
+<li><p>在一步步完成神经性常规程序时，人们会进入一种 “忘我” 的状态。在此状态下，你意识不到周围发生的事。但<strong><u>当常规程序结束时或者被打断之后，自我意识就会浮现出来。</u></strong>从沉溺于神经性常规程度到停止这一程序，这之间的转变很可能让你感觉不适。</p>
+<ul>
+<li>两类思维：有目的、有意识的行为；自动的、无意识的行为；</li>
+<li>意识最主要的功能就是在我们的自动式神经常规活动遇到困难的时候做出决定。<u>尤其是当不同的刺激性神经常规活动指导我们去做相互矛盾的动作的时候。</u></li>
+</ul>
+</li>
+<li><p>觉察点通常 <strong><u>作为冲突的结果</u></strong> 而出现。（无意识的自动行为之间相冲突、行为和目标之间相冲突）</p>
+<ul>
+<li>两种行为（盯着电脑 VS. 转过去面对我朋友）是互相矛盾的，才需要这种有意识地评估并做出决定</li>
+</ul>
+<blockquote>
+<p>【反思】解释了觉察点出现的原因以及场景</p>
+</blockquote>
+</li>
+<li><p>你越是需要注意自己的思绪、情感和行为，你就越觉得时间流逝得慢。然后，这种不够 “高产” 的时间流逝，并不意味着你浪费了很多时间。这只是意味着我们<strong>恰巧更能意识到时间的存在而已。</strong> 而恰好正因为觉察这点会让人不舒服，所以我们往往才选择尽快跳过它们。</p>
+</li>
+</ol>
+<p><br></p>
+<h3 id="充分利用觉察点"><a href="#充分利用觉察点" class="headerlink" title="充分利用觉察点"></a>充分利用觉察点</h3><blockquote>
+<p>珍惜每一个觉察点；提前为觉察点做好相应计划；不要随便开始一项新任务</p>
+</blockquote>
+<ol>
+<li><p><strong>珍惜</strong>每一个觉察点：<strong>意识到觉察点的出现，并尽力抓住它；</strong></p>
+<ul>
+<li>觉察点能够让你与眼下最关注的时<strong>拉开一定的距离</strong>；</li>
+</ul>
+<blockquote>
+<p>【共鸣】心理学中，两个自我：一个是正在做事的自我；一个是正在观察当下自我的那个自己；你只有意识到它，才有可能去改变它；</p>
+</blockquote>
+</li>
+<li><p><strong><u>提前为觉察点做好相应计划；</u></strong> </p>
+<ul>
+<li>可能没办法知道被打断的确切时间，但我们知道这些情况发生的概率很大，而每一次打断都会创造一个觉察点</li>
+<li><strong>[ IFTTT ]</strong> 可以<strong><u>提前决定</u>：当你被打断的时候，把那一刻变为觉察点；</strong> 这些打扰你的情况帮你从忘我状态中走出来，让你重新评估一下自己是否需要切换任务<ul>
+<li><em>Eg：对他而言，工作方面的突发奇想往往是在他完全放松的时候出现，特别是在与家人共进晚餐的时候；于是，他提前为这个场景做了计划：如果当他陪着家人时突然灵关一现，那么就花2分钟评估一下这个想法的重要性</em></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>【思考】面对不同情境，提前设置规则，提前想象与演练；可以为一般情况建立规则，也可以每天为特定情况临时建立这种规则；</strong></p>
+<p><em>研究表明，当我们在脑中设想某一行动时，所利用的神经回路其实和真正去做这件事时的神经回路是相同的；</em></p>
+</blockquote>
+</li>
+<li><p><strong>不要随便开始一项新任务</strong>， 除非已经有意识地决定了它确实值得做</p>
+<ul>
+<li><strong>当你完成一项任务的时候，不要去想接下来做什么，而是把一刻标记为觉察点</strong><ul>
+<li><em>Eg：当我结束了一节课之后我会对自己大声说 “现在就是个觉察点” 。这句话足够让我真个人停下来</em></li>
+</ul>
+</li>
+<li><strong>再考虑一下自己目前的身体状态</strong> （是否疲劳、需要休息、喝水、食物），接下来有没有其他事情需要你花更多的能量去做以及你会在什么样的环境下工作</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h2 id="策略二：管理你的心理能量"><a href="#策略二：管理你的心理能量" class="headerlink" title="策略二：管理你的心理能量"></a>策略二：管理你的心理能量</h2><blockquote>
+<p><strong>必须把有限的心理能量全部留给今天最重要的内容</strong></p>
+</blockquote>
+<h3 id="让你心理疲惫的事物"><a href="#让你心理疲惫的事物" class="headerlink" title="让你心理疲惫的事物"></a>让你心理疲惫的事物</h3><ol>
+<li>进行自我控制会削弱我们的自控力；</li>
+<li>做决定（即使是一些典型的、日常的决定）也会导致心理上的疲惫，由此降低我们做出最佳表现；</li>
+</ol>
+<blockquote>
+<p>【思考】先做最重要的事；知行合一；原因在于此</p>
+</blockquote>
+<p><br></p>
+<h3 id="管理心理能量"><a href="#管理心理能量" class="headerlink" title="管理心理能量"></a>管理心理能量</h3><ol>
+<li><strong>重视你身体的信号。</strong></li>
+<li>如果在做完某项任务之感觉很累，很可能就是它消耗了大量的自控力；导致疲惫的活动：<ul>
+<li>不断从一个任务转换到另一任务</li>
+<li>交际、与人聊天</li>
+<li>做计划、做决定等</li>
+</ul>
+</li>
+<li>我们不需要完全避开这些活动，<strong>因为我们不需要每时每刻都处于最佳状态，因为这是不可能做到的</strong>；但是，我们可以策略性地安排待办事项的完成顺序，就能够<strong>分配出高效的2小时</strong>；</li>
+<li>早上第一件事就是完成你最重要的工作，不要让你的大脑能力一开始就被几十个小决定消耗殆尽</li>
+<li>考虑一下今天所有的待办事项，分类为 “重要的、创造性的、其他”</li>
+<li><strong>在第二天有重要活动时，前一天晚上提前做一些决定，不要把它们留到第二天来浪费你的能力</strong></li>
+<li>不要轻易承诺做完清单上的每一件事，因为这会浪费掉你本该用在最重要的事情上的能量</li>
+<li><strong>必须把有限的心理能量全部留给今天最重要的内容</strong></li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h2 id="策略三：无须对抗分心也能更专注"><a href="#策略三：无须对抗分心也能更专注" class="headerlink" title="策略三：无须对抗分心也能更专注"></a>策略三：无须对抗分心也能更专注</h2><ol>
+<li><p>从进化的角度来讲，人的大脑天生就不是为了无限专注于任何事；大脑的构造决定了它会不断在不同的注意点之间来回切换；如果做不到这一点，人类就很难生存下来；想象一下，当你正在采果子的时候也必须要时刻警惕有没有危险接近；</p>
+</li>
+<li><p>大脑从一个注意点<strong>切换到另一个注意点时</strong>，它会<strong>对那些不变的东西习惯性地视而不见</strong>；</p>
+</li>
+<li><p><strong>可以把那些没有必要存在和让你分心的东西都拿开；</strong></p>
+</li>
+<li><p><strong>在一段时间内，拿开、关闭或忽视 那些会令你分心的东西（某件物品、手机、即时通讯软件等）</strong></p>
+<blockquote>
+<p>当你在做一件事的时候，不要去看手机、邮箱、即时通讯软件；当你完成的时候在去看。在不同事物之间来回切换注意力，本身就很耗费能量</p>
+</blockquote>
+</li>
+<li><p>不要指责自己没有专心致志，不妨静静旁观自己的思绪；只要能避免因无法专注而变得沮丧、疲惫或更加不专心，就能把注意力再次带回到手中的任务上来</p>
+<blockquote>
+<p>把无法长久维持注意力的问题归咎于我们个性上的缺陷，这是一个明显的误区</p>
+</blockquote>
+</li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h2 id="策略四：掌握运动和饮食的诀窍"><a href="#策略四：掌握运动和饮食的诀窍" class="headerlink" title="策略四：掌握运动和饮食的诀窍"></a>策略四：掌握运动和饮食的诀窍</h2><ol>
+<li>当你发现自己头昏脑涨、太过焦虑或者压力重重时，你应该换一种方式利用自己的身体（走动、跑步或做其他事），让自己 “重启” 一下。</li>
+<li><strong>不要在桌子边坐得太久。当你意识到这一点，就站起身来走动一下。</strong></li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h2 id="策略五：让工作环境为你服务"><a href="#策略五：让工作环境为你服务" class="headerlink" title="策略五：让工作环境为你服务"></a>策略五：让工作环境为你服务</h2><blockquote>
+<p>声音、光线</p>
+</blockquote>
+<h3 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h3><ol>
+<li>虽然<strong>背景音乐</strong>通常能够提升积极的情绪，提高运动方面的表现，并让人们做事更加迅速，但同时它<strong>对阅读有着干扰效果。</strong></li>
+<li><strong>比起有白噪声的环境，安全的环境对提高效率更有益；</strong> 如果能在安静的环境下工作，成效只会更出色</li>
+<li>内向的人容易被各种刺激影响，所以对噪声干扰也更加敏感；</li>
+<li><strong>对于那些需要运用知识才能完成的任务来说，安静的环境几乎无疑地优于有噪声的环境</strong></li>
+<li><strong>背景音乐对创造性工作，有一定的促进作用；</strong></li>
+</ol>
+<p><br></p>
+<h3 id="光线"><a href="#光线" class="headerlink" title="光线"></a>光线</h3><ol>
+<li><strong>蓝白光</strong>对需要专注力和逻辑思考的分析性任务更有利</li>
+<li><strong>暗淡光线对创造力更为有利</strong></li>
+</ol>
+<p><br></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;《每天最重要的2小时》 - 乔西.戴维斯&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;《Two Awesome Hours》 - Josh.Daivs&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;目的：了解如何塑造最重要的2小时&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
+    
+    
+      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《专注力》读书笔记_于尔根.沃尔夫</title>
+    <link href="http://yoursite.com/2017/12/31/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/10_%E6%80%9D%E7%BB%B4%E6%84%8F%E8%AF%86/20_%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89/%E3%80%8A%E4%B8%93%E6%B3%A8%E5%8A%9B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0_%E4%BA%8E%E5%B0%94%E6%A0%B9.%E6%B2%83%E5%B0%94%E5%A4%AB_Jurgen.wolff/"/>
+    <id>http://yoursite.com/2017/12/31/阅读书籍/10_思维意识/20_精要主义/《专注力》读书笔记_于尔根.沃尔夫_Jurgen.wolff/</id>
+    <published>2017-12-30T16:00:00.000Z</published>
+    <updated>2018-02-12T07:41:02.608Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>《专注力：化简为繁的惊人力量》（第2版）_于尔根.沃尔夫</strong></p>
+<blockquote>
+<p>《Focus : Use the power of targeted thinking to get more done》_Jurgen.wolff</p>
+</blockquote>
+<p>本书是关于 “怎样做” 的内容；而非关于 “什么”</p>
+<a id="more"></a>
+<p><br></p>
+<h2 id="找到专注的焦点"><a href="#找到专注的焦点" class="headerlink" title="找到专注的焦点"></a>找到专注的焦点</h2><ol>
+<li><p>80%的时间里我们都在关心哪些事情没做好；若将注意力集中在我们做好了什么上才是加速进程的关键； 《改变你看待事物的方式》 凯萨琳.克拉默</p>
+</li>
+<li><p>注意他人所做的积极而有价值的事情，花点时间去赞美。优秀的项目经理知道培训员工的最好方式是强化他们的有效行为；</p>
+</li>
+<li><p><strong>“零容忍” 策略</strong>：假装自己还未拥有/投入</p>
+<ul>
+<li>如果我当时没有开始看这本书，我现在还会继续看吗？（当你看了一半的时候越看越觉得这本书没意思）</li>
+<li>如果我当时没有买这个，现在会愿意花多少钱去买？</li>
+</ul>
+</li>
+<li><p>实现目标的过程</p>
+<ol>
+<li>设定一个SMART目标</li>
+<li>开始做一切你认为可以帮助你实现目标的事情</li>
+<li>对过程效果进行监控；如果你做的事情并没有给你带来想要的结果，那就需要赶快调整，找到替换措施做些改变</li>
+<li>坚持战略（若无法坚持时，考虑如下原因）<ul>
+<li><strong>对策略尝试了很长时间，但并不奏效</strong>；此时需要头脑风暴，设想一个新的策略并开始</li>
+<li><strong>仅仅是忘记了而没有执行</strong>，说明这个策略不太方便；因此<strong>你需要一个更轻松、更容易上心的方式来做这件事</strong></li>
+</ul>
+</li>
+<li>重复第3和第4，直至实现你的目标（可能失败的唯一原因就是你的自我放弃）</li>
+</ol>
+</li>
+<li><p><strong>你无法专注于看不见的事物</strong>：若要保证每天花时间做对你最重要的事，那就<u><strong>在身边确保一个与此相关的视觉或听觉符号</strong></u>（照片或图画、单词、短语或一段音乐）； 并且<strong>定期改变这个符号</strong>，这能帮助你更新其力量以提醒你行动</p>
+<blockquote>
+<p>【共鸣】必须要定期改变符号，否则很容易忽视；因为人的大脑就是习惯于忽略不变的内容</p>
+</blockquote>
+</li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h2 id="专注策略"><a href="#专注策略" class="headerlink" title="专注策略"></a>专注策略</h2><ol>
+<li><p>当你识别出消极模式，要弄清楚这一模式给你带来了什么</p>
+<ul>
+<li>想要跳槽却从不才行动的人所收获的，是永远不必被拒绝的风险；</li>
+<li>只要是一直在计划，那就不会失败</li>
+</ul>
+</li>
+<li><p>关键要找出对你有用的方式，这是不断尝试的过程；不要指望你试着做的第一件事会有一个完美的解决方案；（这才是普遍现象）</p>
+</li>
+<li><p><strong><u>分配任务：评估哪些工作是可以分配给其他人去做的。你的目标是尽可能多地把时间利用在能给你带来最大价值的事情上；</u></strong> </p>
+<blockquote>
+<p>【反思】：知行合一；你没有这么去做，是因为你没有真正理解这件事情的价值</p>
+</blockquote>
+</li>
+<li><p>我们往往没有去做真正要做的事；因为很多时候，做其他事比做我们必须要做的事情更有趣。</p>
+<ul>
+<li>低附加价值活动倾向于那些容易的、不会给人带来恐慌甚至可能是让人身心愉悦的事</li>
+</ul>
+</li>
+<li><p>迈出第一步：分解任务，去做真正要做的事</p>
+<ul>
+<li>很多时候，因为事情本身无趣或者困难使我们根本不愿意去做；换个视角，<u><strong>不要去想找个任务会怎么样，而是想想你会怎么样。</strong></u> （比如一旦你打完这个电话，你将会感觉多轻松？不用为这件事烦恼将会有多美好？）</li>
+</ul>
+</li>
+<li><p><strong>选择</strong>你觉得<strong>做起来有趣的部分开始</strong>； 这么做的同时你已经为剩余的工作准备好了冲动。</p>
+<ul>
+<li>如果你正在写一篇销售，你可能已经对最后的场景做了设想。那么完全可以也应该先写下这一部分的内容</li>
+</ul>
+</li>
+<li><p>通常发现给你带来最多价值的那20%的事情你已经在做了，只是你做的还不够而已。</p>
+</li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h2 id="专注工具"><a href="#专注工具" class="headerlink" title="专注工具"></a>专注工具</h2><ol>
+<li><p><strong>信息处理 - 选择与忽略 </strong> </p>
+<ul>
+<li>在接触新信息时，先快速提醒自己此时对自己最有吸引力的话题、和你目标最重要的话题</li>
+<li>如果你知道这条信息<strong>并不相关，那就不要去看它</strong>，直接丢弃或者将它放置一边，直到它所包含的信息可能更加相关时再去看。</li>
+</ul>
+</li>
+<li><p>先洗出所有可能会做的事情（待办清单），再从中自己筛选并排序对你来说最重要的任务</p>
+<blockquote>
+<p>首先处理真正有价值的任务会让你这天的时间感觉轻松很多</p>
+</blockquote>
+</li>
+<li><p><strong>休息和反思</strong> 这两项不应该成为首先被牺牲的选项</p>
+</li>
+<li><p><strong>在处理完一件事情之前，不要收邮件，不要看RTX，不要看微信；直至完成这件事为止；</strong></p>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;《专注力：化简为繁的惊人力量》（第2版）_于尔根.沃尔夫&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;《Focus : Use the power of targeted thinking to get more done》_Jurgen.wolff&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本书是关于 “怎样做” 的内容；而非关于 “什么”&lt;/p&gt;
     
     </summary>
     
