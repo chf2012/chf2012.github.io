@@ -1383,37 +1383,330 @@
   </entry>
   
   <entry>
-    <title>阅读书籍</title>
+    <title>阅读书籍汇总</title>
     <link href="http://yoursite.com/2018/02/05/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB/"/>
     <id>http://yoursite.com/2018/02/05/阅读书籍/阅读书籍汇总/阅读书籍汇总/</id>
     <published>2018-02-04T16:00:00.000Z</published>
-    <updated>2018-02-13T13:52:53.694Z</updated>
+    <updated>2018-02-19T09:43:08.769Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>记录阅读的所有书籍。</strong></p>
+    <content type="html"><![CDATA[<p><strong>2008年至今阅读10个大类，共计93本，书籍笔记若干，罗辑思维若干。</strong></p>
 <a id="more"></a>
 <p>[TOC]</p>
 <blockquote>
-<h4 id="类别"><a href="#类别" class="headerlink" title="类别"></a>类别</h4><p>《书名》_作者 / 购买时间 / 阅读时间 - 网址链接</p>
+<p>类别</p>
+<p>《书名》_作者 / 购买时间 / 阅读时间 - 网址链接</p>
 <blockquote>
 <p>《原名》 - 原作者</p>
 </blockquote>
 <p>一句话概括整本书的核心内容，最多不超过三句话。这个是原则。</p>
 </blockquote>
+<p>关于一本书的概括，暂未做补充。</p>
 <p><br></p>
-<h2 id="互联网运营"><a href="#互联网运营" class="headerlink" title="互联网运营"></a>互联网运营</h2><p><br></p>
-<ol>
-<li><p><strong>《运营之光：我的互联网运营方法论与自白 2.0》_黄有璨 / 2017-12-19 / 2018-02-06</strong> </p>
-<p>一句话概括整本书的核心内容，最多不超过三句话。这个是原则。</p>
+<h2 id="心理学、发展史与社会认知"><a href="#心理学、发展史与社会认知" class="headerlink" title="心理学、发展史与社会认知"></a>心理学、发展史与社会认知</h2><ol>
+<li><p><strong>《社会心理学》_周晓虹 / 2009-09</strong></p>
 </li>
-<li><p>​</p>
+<li><p><strong>《汤普森谈判学》_利·汤普森 / 2010-07</strong></p>
+</li>
+<li><p><strong>《影响力》_[美] 罗伯特.西奥迪尼 / 2015-03</strong></p>
+</li>
+<li><p><strong>《沟通的艺术》_[美] 罗纳德.B.阿德勒 / 2015-12</strong></p>
+</li>
+<li><p><strong>《少有人走的路1：心智成熟的旅程》_ M.斯科特.派克 / 2016-07</strong></p>
+<blockquote>
+<p>M.Scott Peck</p>
+</blockquote>
+</li>
+<li><p><strong>《稀缺：我们是如何陷入贫穷与忙碌的》_塞德希尔·穆来纳森 / 2016-10</strong></p>
+<blockquote>
+<p>Sendhil Mullainathan</p>
+</blockquote>
+</li>
+<li><p><strong>《理性乐观派》_[英]马特.里德利 / 2017-04</strong></p>
+<blockquote>
+<p>Matt.Ridley</p>
+</blockquote>
+<p>从经济学的角度解释了整个社会的发展。</p>
+</li>
+<li><p><strong>《未来简史》_[以色列]尤瓦尔•赫拉丽 / 2017-04</strong></p>
+<blockquote>
+<p>Yuval Noah Harari</p>
+</blockquote>
+</li>
+<li><p><strong>《文明是副产物》_郑也夫 / 2017-05</strong></p>
+</li>
+<li><p><strong>《代价论》_郑也夫 / 2017-06</strong></p>
+</li>
+<li><p><strong>《信任论》_郑也夫 / 2017-06</strong></p>
 </li>
 </ol>
 <p><br></p>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><ol>
+<li><p><strong>《深入浅出数据分析》_迈克尔.米尔顿 / 2016-09</strong></p>
+</li>
+<li><p><strong>《深入浅出SQL》_[美] 贝里  / 2016-09</strong></p>
+<blockquote>
+<p>Beighley L.</p>
+</blockquote>
+</li>
+<li><p><strong>《商务与经济统计学》_詹姆斯·麦克拉夫 / 2016-10</strong></p>
+<blockquote>
+<p>James T.McClave</p>
+</blockquote>
+</li>
+<li><p><strong>《R语言实战》_卡巴科弗 / 2016-10</strong></p>
+<blockquote>
+<p><strong>Robert I.Kabacoff</strong></p>
+</blockquote>
+</li>
+<li><p><strong>《ggplot2：数据分析与图形艺术》_哈德利·威克姆  / 2016-11</strong></p>
+<blockquote>
+<p>Hadley Wickham</p>
+</blockquote>
+</li>
+<li><p><strong>《精通Web Analytics 2.0》 / 2016-11</strong></p>
+</li>
+<li><p><strong>《数据挖掘导论》 / 2016-11 （未完）</strong></p>
+</li>
+<li><p><strong>《Python编程：从入门到实践》_[美] Eric Matthes / 2017-05</strong></p>
+</li>
+<li><p><strong>《利用Python进行数据分析》_Wes McKinney / 2017-05</strong></p>
+</li>
+<li><p><strong>《Python核心编程》_[美] Wesley J. Chun / 2017-12</strong></p>
+</li>
+<li><p><strong>《统计学习导论：基于R应用》_[美] 加雷斯.詹姆斯 &amp; 丹妮拉.威滕 / 2017-09</strong></p>
+<blockquote>
+<p>《An Introduction to Statistical Learning : with Application in R》_Gareth James  &amp; Daniela Witten</p>
+</blockquote>
+</li>
+<li><p><strong>《数据的本质》_车品觉 / 2017-10</strong></p>
+</li>
+<li><p><strong>《数学之美》_吴军 / 2017-11</strong></p>
+</li>
+<li><p><strong>《大数据时代》_维克托.迈尔.舍恩伯格 &amp; 肯尼斯.库克耶 / 2017-11</strong></p>
+<blockquote>
+<p>Viktor.Mayer.Schonberger &amp; Kenneth.Cukier</p>
+</blockquote>
+</li>
+<li><p><strong>《智能时代》_吴军 / 2017-11</strong></p>
+</li>
+<li><p><strong>《精益数据分析》_[加] 阿利斯泰尔.克罗尔 &amp; 本杰明.尤科维奇 / 2017-11</strong></p>
+<blockquote>
+<p>Croll, A. &amp; Yoskovitz, B</p>
+</blockquote>
+<p>从商业运作的角度阐述了不同行业运作的规则，并针对性地给出不同行业中所关注的核心指标。</p>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="思维意识与生活态度"><a href="#思维意识与生活态度" class="headerlink" title="思维意识与生活态度"></a>思维意识与生活态度</h2><ol>
+<li><p><strong>《秘密》_朗达·拜恩 / 2012-03</strong></p>
+<blockquote>
+<p>Rhonda Byrne</p>
+</blockquote>
+</li>
+<li><p><strong>《地头力：从结果出发思考问题》_[日] 细谷功 / 2014-05</strong></p>
+</li>
+<li><p><strong>《锻炼“地头力”：打造你的黄金自考力》_[日] 细谷功 / 2014-07</strong></p>
+</li>
+<li><p><strong>《高效能人士的七个习惯》_[美]史蒂芬·柯维 / 2014-11</strong></p>
+</li>
+<li><p><strong>《思考的艺术》_[美]文森特·赖安·拉吉罗 / 2015-03</strong></p>
+<blockquote>
+<p>Vincent Ryan Ruggiero</p>
+</blockquote>
+</li>
+<li><p><strong>《每周工作4小时》_蒂莫西.费里斯 / 2016-07</strong></p>
+</li>
+<li><p><strong>《80/20法则》_[英] 理查德.科克 / 2016-08</strong></p>
+</li>
+<li><p><strong>《断舍离》_[日] 山下英子 / 2017-10</strong></p>
+</li>
+<li><p><strong>《怦然心动的人生整理魔法》_[日] 近藤麻理惠 / 2017-10</strong></p>
+</li>
+<li><p><strong>《人活到极致一定是素与简》_[日] 山口势子 / 2017-12</strong></p>
+</li>
+<li><p><strong>《麦肯锡教我的思考武器》_[日] 安宅和人 / 2017-12</strong></p>
+</li>
+<li><p><strong>《最重要的事只有一件》_[美] 加里.凯勒 &amp;杰伊.帕帕森 / 2017-12</strong></p>
+<blockquote>
+<p>Gray Keller &amp; Jay Papasan</p>
+</blockquote>
+</li>
+<li><p><strong>《精要主义》_[英] 格雷戈.麦吉沃恩 / 2017-12</strong></p>
+<blockquote>
+<p>Grey Mckeown</p>
+</blockquote>
+</li>
+<li><p><strong>《专注力：化简为繁的惊人力量》_[英] 于尔根.沃尔夫 / 2017-12</strong></p>
+<blockquote>
+<p>Jurgen Wolff</p>
+</blockquote>
+</li>
+<li><p><strong>《每天最重要的2小时》_[美] 乔西.戴维斯 / 2017-12</strong></p>
+<blockquote>
+<p>Josh Davis</p>
+</blockquote>
+</li>
+</ol>
+<p><br></p>
+<h2 id="工作与学习方法"><a href="#工作与学习方法" class="headerlink" title="工作与学习方法"></a>工作与学习方法</h2><ol>
+<li><p><strong>《时间管理》_[美]波利·伯德 / 2009-12</strong></p>
+</li>
+<li><p><strong>《像咨询顾问一样思考》_王佑 / 2010-06</strong></p>
+</li>
+<li><p><strong>《金字塔原理》_巴巴拉·明托 / 2010-09</strong></p>
+</li>
+<li><p><strong>《用图表说话》_[美]基恩·泽拉兹尼 / 2013-05</strong></p>
+<blockquote>
+<p>Gene Zelazny</p>
+</blockquote>
+</li>
+<li><p><strong>《餐巾纸的背面》_丹·罗姆 / 2014-12</strong></p>
+</li>
+<li><p><strong>《如何阅读一本书》_莫提默·J.艾德勒 &amp; 查尔斯·范多伦 / 2015-03</strong></p>
+</li>
+<li><p><strong>《读书经验分享 - 知乎Live》_李笑来 / 2017-04</strong></p>
+</li>
+<li><p><strong>《如何自学计算机专业课程 - 知乎Live》 / 2017-06</strong></p>
+<p>虽然标题是关于自学计算机课程，但很大部分内容是关于大脑对记忆与学习的机理。包括工作记忆与长期记忆，包括学习的过程是建立新知识与已有知识网络的连接，是重组神经元的过程。知识，必须形成网状结构的知识，才是有效的知识。这一部分对于更好地利用大脑特性学习新知识有很大帮助。</p>
+</li>
+<li><p><strong>《麦肯锡方法》_艾森.拉塞尔 / 2017-07 （二刷）</strong></p>
+</li>
+<li><p><strong>《金字塔原理》_巴巴拉·明托 / 2017-06 （二刷）</strong></p>
+</li>
+<li><p><strong>《学习之道》_芭芭拉•奥克利 / 2017-06</strong></p>
+<blockquote>
+<p>Barbara Oakley</p>
+</blockquote>
+</li>
+<li><p><strong>《刻意练习》_[美] 安德斯.艾利克森 &amp; 罗伯特.普尔 / 2017-07</strong></p>
+<blockquote>
+<p>Anders Ericsson &amp; Robert Pool</p>
+</blockquote>
+</li>
+<li><p><strong>《练习的心态》_[美] 托马斯 M. 斯特纳 / 2017-07</strong></p>
+<blockquote>
+<p>《The Practicing Mind》_ Thomas M. Sterner</p>
+</blockquote>
+</li>
+<li><p><strong>《麦肯锡精英的48个工作习惯》_[日] 户塚隆将 / 2017-07</strong></p>
+</li>
+<li><p><strong>《麦肯锡精英的39个工作习惯》_[日] 大岛祥誉 / 2017-07</strong></p>
+</li>
+<li><p><strong>《习惯的力量》_[美] 查尔斯.杜希格 / 2017-11</strong></p>
+<blockquote>
+<p>《The Power of Habit》_ Charles Duhigg </p>
+</blockquote>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="企业发展与管理"><a href="#企业发展与管理" class="headerlink" title="企业发展与管理"></a>企业发展与管理</h2><ol>
+<li><p><strong>《卓有成效的管理者》_[美] 彼得·德鲁克  / 2008-12</strong></p>
+</li>
+<li><p><strong>《团队管理》_[美]马蒂·布隆斯坦 / 2009-07</strong></p>
+</li>
+<li><p><strong>《战略与竞争分析：商业竞争分析的方法与技巧》_[加]弗莱舍 / 2010-03</strong></p>
+</li>
+<li><p><strong>《麦肯锡传奇》_伊丽莎白·哈斯·埃德莎姆 / 2010-04</strong></p>
+</li>
+<li><p><strong>《麦肯锡意识》_艾森·拉塞尔 / 2010-04</strong></p>
+</li>
+<li><p><strong>《麦肯锡方法》_艾森·拉塞尔 / 2010-04</strong></p>
+</li>
+<li><p><strong>《商业模式新生代》_亚历山大·奥斯特瓦德 / 2013-11</strong></p>
+</li>
+<li><p><strong>《竞争战略》_迈克尔·波特 (Michael E. Porter)  / 2013-12</strong></p>
+</li>
+<li><p><strong>《市场营销原理》_菲利普·科特勒 &amp; 加里·阿姆斯特朗 / 2014-02</strong></p>
+</li>
+<li><p><strong>《领导梯队：全面打造领导力驱动型公司》_[美] 拉姆·查兰 / 2014-07</strong></p>
+</li>
+<li><p><strong>《从0到1》_[美] 彼得.蒂尔 / 2015-07</strong></p>
+</li>
+<li><p><strong>《参与感：小米口碑营销内部手册》_黎万强 / 2015-09</strong></p>
+</li>
+<li><p><strong>《星巴克：关于咖啡、商业和文化的传奇》_泰勒.克拉克  / 2016-06</strong></p>
+<blockquote>
+<p>Taylor Clark</p>
+</blockquote>
+</li>
+<li><p><strong>《浪潮之巅》_吴军 / 2017-11</strong></p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="经济类"><a href="#经济类" class="headerlink" title="经济类"></a>经济类</h2><ol>
+<li><p><strong>《经济学原理：微观经济学分册》_N.格里高利·曼昆 / 2010-04</strong></p>
+</li>
+<li><p><strong>《经济学原理：宏观经济学分册》_N.格里高利·曼昆 / 2010-04</strong></p>
+</li>
+<li><p><strong>《货币金融学》_费雷德里克.S.米什金 / 2017-07</strong> （未完）</p>
+<blockquote>
+<p>Frederic S. Mishkin </p>
+</blockquote>
+</li>
+</ol>
+<p><br></p>
+<h2 id="投资理财"><a href="#投资理财" class="headerlink" title="投资理财"></a>投资理财</h2><ol>
+<li><p><strong>《彼得·林奇的成功投资》_彼得·林奇 / 2009-11</strong></p>
+</li>
+<li><p><strong>《投资者的未来》_[美]杰里米.J.西格尔 / 2009-12</strong></p>
+</li>
+<li><p><strong>《漫步华尔街》_伯顿 G·马尔基尔 / 2009-12</strong></p>
+</li>
+<li><p><strong>《巴比伦富翁的理财课》_乔治·克拉森 / 2014-12</strong></p>
+</li>
+<li><p><strong>《富爸爸穷爸爸》_罗伯特·清崎 &amp; 莎伦·莱希特 / 2015-01</strong></p>
+</li>
+<li><p><strong>《小狗钱钱》_[德] 博多.舍费尔 / 2015-01</strong></p>
+</li>
+<li><p><strong>《The Millionaire Fastlane》_MJ.DeMarco / 2016-06</strong></p>
+<p>虽然是一本全英文书籍，但内容很好。</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="人物传记"><a href="#人物传记" class="headerlink" title="人物传记"></a>人物传记</h2><ol>
+<li><p><strong>《史蒂夫.乔布斯传》_[美] 沃尔特.艾萨克森 / 2012-03</strong></p>
+</li>
+<li><p><strong>《你好，我是费曼》_理查德.费曼 / 2017-07</strong> </p>
+<blockquote>
+<p>[美]Richard P. Feynman</p>
+</blockquote>
+</li>
+<li><p><strong>《向死而生：我修的死亡学分》_李开复 / 2017-11</strong></p>
+<p>讲述的是李开复在诊断出患有癌症后，在治疗中关于对待人生的感悟，对于在事业、家人与生活之间的关系有了新的认识。</p>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="文学小说"><a href="#文学小说" class="headerlink" title="文学小说"></a>文学小说</h2><ol>
+<li><p><strong>《狼图腾》_姜戎 / 2010-10</strong></p>
+</li>
+<li><p><strong>《不能承受的生命之轻》_米兰·昆德拉  / 2011-03</strong></p>
+<blockquote>
+<p>Milan Kundera</p>
+</blockquote>
+</li>
+<li><p><strong>《假如给我三天光明》_[美] 凯勒 / 2014-08</strong> </p>
+</li>
+<li><p><strong>《何以笙箫默》_顾漫 / 2014-11</strong></p>
+</li>
+<li><p><strong>《活出生命的意义》_[美] 维克多.弗兰克尔 / 2015-03</strong></p>
+</li>
+<li><p><strong>《小王子》_[法] 圣埃克苏佩里 / 2015-05</strong></p>
+</li>
+<li><p><strong>《皮囊》_蔡崇达 / 2016-04</strong></p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="自然科学"><a href="#自然科学" class="headerlink" title="自然科学"></a>自然科学</h2><ol>
+<li><strong>《狭义与广义相对论浅说》_[美] 阿尔伯特·爱因斯坦 / 2015-01</strong></li>
+</ol>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;记录阅读的所有书籍。&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;2008年至今阅读10个大类，共计93本，书籍笔记若干，罗辑思维若干。&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -1482,7 +1775,7 @@
     <link href="http://yoursite.com/2018/02/05/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86/"/>
     <id>http://yoursite.com/2018/02/05/软件应用_程序编程/Python/Python_专题总结/Python_日期处理/</id>
     <published>2018-02-04T16:00:00.000Z</published>
-    <updated>2018-02-13T13:43:36.096Z</updated>
+    <updated>2018-02-17T13:10:09.352Z</updated>
     
     <content type="html"><![CDATA[<h1 id="日期与时间"><a href="#日期与时间" class="headerlink" title="日期与时间"></a>日期与时间</h1><blockquote>
 <p><strong><code>datetime</code>表示的时间需要时区信息才能确定一个特定的时间，否则只能视为本地时间。</strong></p>
@@ -1662,8 +1955,7 @@
 <p>一个<code>datetime</code>类型有一个时区属性<code>tzinfo</code>，但是默认为<code>None</code>，所以无法区分这个<code>datetime</code>到底是哪个时区，除非强行给<code>datetime</code>设置一个时区：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta, timezone</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tz_utc_8 = timezone(timedelta(hours=<span class="number">8</span>)) <span class="comment"># 创建时区UTC+8:00</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>now = datetime.now()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>now</div><div class="line">datetime.datetime(<span class="number">2015</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">871012</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt = now.replace(tzinfo=tz_utc_8) <span class="comment"># 强制设置为UTC+8:00</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt</div><div class="line">datetime.datetime(<span class="number">2015</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">871012</span>, tzinfo=datetime.timezone(datetime.timedelta(<span class="number">0</span>, <span class="number">28800</span>)))</div></pre></td></tr></table></figure>
 <p><br></p>
-<p>###时区转换</p>
-<ul>
+<h3 id="时区转换"><a href="#时区转换" class="headerlink" title="时区转换"></a>时区转换</h3><ul>
 <li><strong>utcnow()</strong>：获取当前的UTC时间</li>
 <li>时区转换的关键在于，拿到一个<code>datetime</code>时，要获知其正确的时区，然后强制设置时区，作为基准时间。</li>
 <li>利用带时区的<code>datetime</code>，通过<code>astimezone()</code>方法，可以转换到任意时区。</li>
@@ -2499,6 +2791,370 @@
       <category term="程序编程" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据分析_自我理解_20180127</title>
+    <link href="http://yoursite.com/2018/01/27/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90_%E8%87%AA%E6%88%91%E7%90%86%E8%A7%A3_20180127/"/>
+    <id>http://yoursite.com/2018/01/27/数据分析/数据分析_自我理解_20180127/</id>
+    <published>2018-01-26T16:00:00.000Z</published>
+    <updated>2018-02-18T02:41:11.434Z</updated>
+    
+    <content type="html"><![CDATA[<p>SWORD</p>
+<p>S：2018年1月，正式从事数据分析工作近1年的时间；有考虑改变环境，为了准备面试有必要重新总结与梳理一下数据分析的工作与性质</p>
+<p>W：(1) 对数据分析有一个总结性的认识，并能用自己的话去表达出来；</p>
+<p>​    (2) 明确自己当前所处的阶段。让自己不偏离轨道的同时，确定今后这一年的努力方向。</p>
+<p>O：找到社会所定义、所认同的数据分析师的概念，数据科学家对该内容的看法；以及自己对这个内容的理解；通过两者之间的不同点，来调整认知，并确定努力的方向</p>
+<p>o：描述自己对这个内容的认知</p>
+<p>R：重要；自我觉察者</p>
+<p>D：保护预留时间</p>
+<a id="more"></a>
+<p><br></p>
+<p>几个问题：</p>
+<p>Q：什么是数据分析？它的价值是什么？</p>
+<p>Q：它需要哪些能力？又是如何体现的？</p>
+<p>Q：数据分析的整个流程是怎么样的？各个阶段的关键点是什么？</p>
+<p><br></p>
+<h2 id="概念与价值"><a href="#概念与价值" class="headerlink" title="概念与价值"></a>概念与价值</h2><blockquote>
+<p>Q：什么是数据分析？它的价值是什么？</p>
+</blockquote>
+<p><br></p>
+<h3 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h3><blockquote>
+<p>数据分析：3 +1 个步骤</p>
+</blockquote>
+<ol>
+<li><p>获取数据，保证数据的完整性、多维度、准确性、联通性（及时性）</p>
+<blockquote>
+<p>大数据的概念 - 3V （大量、全面性、多维度）【进阶：具体如何理解多维度？你要去思考】</p>
+</blockquote>
+</li>
+<li><p>提供数据；基于业务需要，提供并展示数据；数据驱动决策 【</p>
+</li>
+<li><p>分析数据；根据特定的业务场景，挖掘现象背后的原因。数据驱动产品与业务。</p>
+</li>
+<li><p>挖掘数据：以探索的形式发现隐藏在数据中的内在关联与未知信息</p>
+</li>
+</ol>
+<p><br></p>
+<h3 id="价值？"><a href="#价值？" class="headerlink" title="价值？"></a>价值？</h3><ol>
+<li><p>联通散落在各个区域的数据碎片，将最原始的数据转化为有用的信息。还原并再现这个世界的真实现状，供各个价值链上的人员理解当下。（基于上述第一点、第二点）</p>
+<blockquote>
+<p>【思考：A/B 测试，其实是基于不同的条件，展现不同的真实世界】</p>
+</blockquote>
+</li>
+<li><p>针对当前的现状，从数据角度去分析现象背后的原因。以驱动决策、驱动产品、驱动业务。（上述第三点）</p>
+</li>
+<li><p>从现有的数据中，发现新的、未知的关联与因素；</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="能力与体现"><a href="#能力与体现" class="headerlink" title="能力与体现"></a>能力与体现</h2><blockquote>
+<p>Q：它需要哪些能力？又是如何体现的？</p>
+</blockquote>
+<h3 id="所需能力？"><a href="#所需能力？" class="headerlink" title="所需能力？"></a>所需能力？</h3><ol>
+<li><p>知识&amp;能力：数学、统计学；逻辑思维能力、表达呈现能力；</p>
+</li>
+<li><p>技能&amp;工具</p>
+<ul>
+<li>数据提取：SQL、HQL</li>
+<li>数据清洗与处理：SQL、Python / R</li>
+<li>数据分析：Python / R</li>
+<li>表达呈现：PPT</li>
+</ul>
+</li>
+<li><p>业务</p>
+<ul>
+<li><p>理解业务的逻辑线条，以及各个业务模块的<strong>核心价值</strong></p>
+</li>
+<li><p>理解各个业务模块 <strong>所需要</strong> 的<strong>数据内容与要求</strong>，以及所有可能 <strong>产生的</strong> 数据内容；</p>
+<blockquote>
+<p>对于同一个数据内容，不同部门对它的要求（数据精度、重视角度、时效性等）常常是不同的；</p>
+<p>eg：客户资金。开发：关心客户的资金存量；合规部门：关心客户资金的动态变化；</p>
+</blockquote>
+</li>
+<li><p>一定要了解数据是<strong>如何产生的、如何流转的、如何连接的</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h3 id="能力体现？"><a href="#能力体现？" class="headerlink" title="能力体现？"></a>能力体现？</h3><ol>
+<li>知识&amp;能力：对数据统计口径的重视度、对常规指标的解读能力（指标的计算方式、所代表的含义）</li>
+<li>技能&amp;工具：<ul>
+<li>数据的正常提取、清晰与处理；</li>
+<li>结果的呈现</li>
+</ul>
+</li>
+<li>业务：<ul>
+<li>理解并提供对方<strong>所需维度和精度</strong>的数据内容；</li>
+<li>对于数据的变动，能够理解业务所承担的角色与影响的比重，以及可能的原因</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h3 id="负责项目？"><a href="#负责项目？" class="headerlink" title="负责项目？"></a>负责项目？</h3><blockquote>
+<p>分别描述所负责的项目，可采用STAR方法，并对应如上的能力</p>
+</blockquote>
+<p><br></p>
+<h4 id="数据需求"><a href="#数据需求" class="headerlink" title="数据需求"></a>数据需求</h4><ol>
+<li><strong>《提取待关闭直播室客户名单》</strong><ul>
+<li>S : 客户入金达到一定标准之后就可以开通对应的直播室（非公开的节目），但过一段时间之后客户可能全部出金，或者不再交易的情况，但依然有观看直播室的权限；</li>
+<li>T：现在需要提取这些客户的ID</li>
+<li>A1：定义需求与目的。W：关闭这些客户的直播室权限 <u>（很多时候，其实往往止于这个阶段）</u>  内在原因：<ol>
+<li>该节目本身是VIP客户才能观看的；避免部分客户已经未达到标准，但仍然享受服务的权限；（若客户想要享受该服务，则应该满足我们的条件）</li>
+<li>定期清理人员，有助于节目负责人更加真实地认识直播室的运营现状与客户情况</li>
+</ol>
+</li>
+<li>A2：核实并确定数据的统计口径、维度、频率<ul>
+<li>什么样的客户是这样的标准：(1) 期末权益 &lt; 1500元； (2) 连续15个交易日未进行交易</li>
+<li>所需的字段内容：cus_id、当前期末权益</li>
+<li>每个月进行2次操作</li>
+</ul>
+</li>
+<li>R：每月定期提供所需信息</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h4 id="常规日报-amp-报表部署"><a href="#常规日报-amp-报表部署" class="headerlink" title="常规日报 &amp; 报表部署"></a>常规日报 &amp; 报表部署</h4><ol>
+<li><p><strong>《期货各直播室人数、权益及盈亏》</strong></p>
+<ul>
+<li>S：客户在达到标准之后可以选择一档首席老师的直播节目进行观看；有很多客户是冲着老师的资历与观点才成为VIP客户的。但若大量资金集中在某一个直播室，那老师的观点对整体客户的盈亏就会影响很大。因此需要平衡各个直播室的资金情况</li>
+<li>T：提供各个直播室的客户数量、资金情况</li>
+<li>A1：了解所要这个数据的真实目的：分散客户资金，降低风险</li>
+<li>A2：提供新的字段内容：每日流入的净客户、净资金</li>
+<li>R：帮助维护团队了解调整客户直播室的真实情况，同时了解到短期内需要频繁查看，故做成了报告管理器供负责人查看</li>
+</ul>
+</li>
+<li><p><strong>《期货直播室节目日报》</strong></p>
+<ul>
+<li><p>S：每天都会有对外公开的直播节目播出，不同老师的内容与风格上都有所不同；如何评估直播节目的效果以及客户所偏爱你的风格是一个重要问题</p>
+</li>
+<li><p>T：提供直播节目的观看情况统计分析</p>
+</li>
+<li><p>A1：</p>
+<ol>
+<li>了解负责人所要观看情况的目的（直播节目的效果）；</li>
+<li>以及最终想要达到的状态（在得知整体效果的基础上，分别评估不同老师的节目效果）</li>
+<li>进一步了解各个部门带来的客户量与观看情况</li>
+</ol>
+</li>
+<li><p>A2：沟通并确定关键的指标：IP访问量、最大并发量（率）、访问时长、访问次数（新老客户）</p>
+</li>
+<li><p>A3：实际开展</p>
+<ol>
+<li><p>前端埋点：区分不同投资顾问引流的客户（Python）</p>
+<blockquote>
+<p>自己去尝试做一遍</p>
+</blockquote>
+</li>
+<li><p>数据获取：后台数据下载与导入数据库 （Kettle）</p>
+</li>
+<li><p>数据提取、处理与呈现（SQL）</p>
+</li>
+<li><p>实现自动化 （R）</p>
+</li>
+</ol>
+</li>
+<li><p>R：提供每日节目数据，并提供各个分析师的节目数据；同时区分各个组别、部门的客户引流及观看数据</p>
+</li>
+</ul>
+</li>
+<li><p><strong>《新浪港美股业务日报》</strong></p>
+<ul>
+<li>S：新业务开展，但并不了解每日进展情况</li>
+<li>T：通过提供关键的指标数据，了解业务的开展情况以及客户的交易情况</li>
+<li>A1：确定核心关键指标（开户人数、净入金、期末权益、交易人数/金额、交易盈亏、公司收入、IPO申购与中签）</li>
+<li>A2：业务逻辑的梳理、数据流转与数据关系的梳理（数据关系非常复杂，很考验逻辑思维、数据关联与提取能力）</li>
+<li>A3：各部门人员的沟通与数据的获取</li>
+<li>R：以图片的形式在微信群每日发送《业务日报》</li>
+</ul>
+</li>
+<li><p>​</p>
+</li>
+<li><p>理财师APP 计划日报（待了解）</p>
+</li>
+<li><p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h4 id="专项分析"><a href="#专项分析" class="headerlink" title="专项分析"></a>专项分析</h4><ol>
+<li><p><strong>《期货合约品种分析》</strong></p>
+<ul>
+<li><p>S：每日交易量日渐上升，但不同合约的保证金、手续费比例是不同的，并且客户每日盈亏浮动较大</p>
+</li>
+<li><p>T：了解各个合约的交易情况，以及各合约的盈亏情况</p>
+</li>
+<li><p>A：</p>
+<ol>
+<li>确定背后的真实目的：根据盈亏、收入比例等因素调整公司主推的期货合约</li>
+<li>根据目的确定核心内容（交易量、交易盈亏、手续费、盈亏与手续费比例、分析师策略）</li>
+<li>数据提取与分析</li>
+<li>报告提交后提供《各期货合约实时多空持仓情况日报》，帮助进一步了解实时的多空占比，帮助进一步分析盈亏情况</li>
+</ol>
+<blockquote>
+<p>设计ODS：操作数据存储（Operation Date Store），是数据仓库体系结构中的一个可选部分。</p>
+<p>主要功能：(1) 在业务系统和数据仓库之间形成一个隔离层； (2) 转移一部分业务系统细节查询的功能</p>
+</blockquote>
+</li>
+<li><p>R：根据分析结果（手续费&amp;盈亏），及时变更主推合约，同时帮助公司做好风控管理。</p>
+</li>
+</ul>
+<p>​</p>
+</li>
+<li><p><strong>《喊单策略与投资者交易分析》</strong></p>
+<ul>
+<li>S：客户近日亏损严重，首席老师交易策略上来看是盈利的；</li>
+<li>T：了解老师策略与投资者交易盈亏之间是否存在联系，影响程度如何？</li>
+<li>A：<ol>
+<li>确定背后的真实目的：当期情况下能否通过策略来降低投资风险；</li>
+<li>确定统计口径：明确策略盈亏的数据定义；</li>
+<li>确定核心内容（各合约的盈亏率/天、客户的跟单情况、交易与盈亏情况）</li>
+</ol>
+</li>
+<li>R：在喊单策略与投资者交易基本无影响的情况下，及时更换主推合约；帮助公司做好风控管理。</li>
+</ul>
+<p><br></p>
+</li>
+<li><p><strong>《港美股年度报告》</strong></p>
+<ul>
+<li>S：业务年度总结报告</li>
+<li>T：了解全年业绩开展的情况</li>
+<li>A1：确定报告人群，并提炼最核心的关键指标</li>
+<li>A2：</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h2 id="流程步骤"><a href="#流程步骤" class="headerlink" title="流程步骤"></a>流程步骤</h2><blockquote>
+<p>Q：数据分析的整个流程是怎么样的？各个阶段的关键点是什么？</p>
+</blockquote>
+<h3 id="流程与关键点？"><a href="#流程与关键点？" class="headerlink" title="流程与关键点？"></a>流程与关键点？</h3><blockquote>
+<p>被动收到需求 or 主动寻求需求？</p>
+</blockquote>
+<ol>
+<li><p>被动收到需求</p>
+</li>
+<li><p>【关键】<strong>定义与评估</strong>需求：理解需求提出的场景？目的？最终要达到的状态？ </p>
+<blockquote>
+<p>评估需求：目前自己是比较欠缺的；基本上都是收到的需求基本都做。</p>
+</blockquote>
+</li>
+<li><p>【关键】核实<strong>数据内容、统计口径、维度、呈现方式</strong>：各个数据的定义方式、指标的算法、单位；以及所需要的维度、呈现方式等</p>
+<ul>
+<li>重新判断该数据内容是否真的能够解决对方的目的？</li>
+<li>确定具体数据内容、数据定义、指标算法、维度及呈现方式</li>
+</ul>
+<blockquote>
+<p>定义方式：例如期末权益，是否包含未到账金额</p>
+<p>算法：例如留存率，可以是期末权益/日均期初权益，也可以是 期末权益/累计最大期初权益</p>
+</blockquote>
+</li>
+<li><p>确定数据的获取来源、预估时间</p>
+</li>
+<li><p>编写逻辑提取数据、清洗数据</p>
+</li>
+<li><p>数据呈现</p>
+</li>
+</ol>
+<p><br></p>
+<ol>
+<li>主动寻求需求</li>
+<li>【关键】了解当前业务/产品的目标、当前所处的阶段、现阶段的情况</li>
+<li>沟通并确定当前阶段最需要、最核心的指标与内容</li>
+</ol>
+<p><br></p>
+<h2 id="补充理解"><a href="#补充理解" class="headerlink" title="补充理解"></a>补充理解</h2><blockquote>
+<p>2018/02/04，浦东图书馆</p>
+</blockquote>
+<h3 id="数据分析两大模块"><a href="#数据分析两大模块" class="headerlink" title="数据分析两大模块"></a>数据分析两大模块</h3><h4 id="1-数据分析平台"><a href="#1-数据分析平台" class="headerlink" title="1. 数据分析平台"></a>1. 数据分析平台</h4><p>把分散的数据以可以使用的样子，存放在一个平台上。涉及：</p>
+<ol>
+<li>平台的设计与搭建</li>
+<li>数据的流转 ETL</li>
+</ol>
+<h4 id="2-数据处理"><a href="#2-数据处理" class="headerlink" title="2. 数据处理"></a>2. 数据处理</h4><p>把数据从平台上取到可以处理的地方，并进行数据处理与分析</p>
+<ol>
+<li><p>临时需求</p>
+</li>
+<li><p>报表 &amp; 关键指标 呈现</p>
+</li>
+<li><p>专项分析</p>
+</li>
+<li><p>数据瓦解</p>
+</li>
+<li><p>数据产品（变现）</p>
+<blockquote>
+<p>若为第三方公司的数据产品（eg：神策），本质是更高形式的报表呈现</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="数据分析-VS-数据挖掘的能力要求"><a href="#数据分析-VS-数据挖掘的能力要求" class="headerlink" title="数据分析 VS. 数据挖掘的能力要求"></a>数据分析 VS. 数据挖掘的能力要求</h3><p>数据分析包含数据挖掘，若从狭义的角度来区分，数据分析对综合素质的要求更高，数据挖掘对技术的要求更高</p>
+<ol>
+<li>数据分析应该更贴近COO，懂产品、懂运营、懂开发、懂业务、懂市场</li>
+<li>数据挖掘应该更贴近CTO，懂产品、懂技术</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>思路</th>
+<th>业务</th>
+<th>工具&amp;编程</th>
+<th>价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据分析</td>
+<td>高</td>
+<td>高</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>数据挖掘</td>
+<td>中</td>
+<td>中</td>
+<td>高</td>
+<td>高</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><h3 id="数据分析逻辑线条"><a href="#数据分析逻辑线条" class="headerlink" title="数据分析逻辑线条"></a>数据分析逻辑线条</h3><ol>
+<li>埋点取数 - 埋点与定义数据范围</li>
+<li>储存清洗（存放） - ETL</li>
+<li>数据提取（获取） - SQL</li>
+<li>数据呈现与报表制作 - 逻辑思维、呈现</li>
+<li>开发可视化后台</li>
+<li>建立专业模型，深度分析 - Python/R 、逻辑思维 、 呈现</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;SWORD&lt;/p&gt;
+&lt;p&gt;S：2018年1月，正式从事数据分析工作近1年的时间；有考虑改变环境，为了准备面试有必要重新总结与梳理一下数据分析的工作与性质&lt;/p&gt;
+&lt;p&gt;W：(1) 对数据分析有一个总结性的认识，并能用自己的话去表达出来；&lt;/p&gt;
+&lt;p&gt;​    (2) 明确自己当前所处的阶段。让自己不偏离轨道的同时，确定今后这一年的努力方向。&lt;/p&gt;
+&lt;p&gt;O：找到社会所定义、所认同的数据分析师的概念，数据科学家对该内容的看法；以及自己对这个内容的理解；通过两者之间的不同点，来调整认知，并确定努力的方向&lt;/p&gt;
+&lt;p&gt;o：描述自己对这个内容的认知&lt;/p&gt;
+&lt;p&gt;R：重要；自我觉察者&lt;/p&gt;
+&lt;p&gt;D：保护预留时间&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据分析" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="数据分析" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -4267,21 +4923,221 @@ os.environ
   </entry>
   
   <entry>
+    <title>阅读书籍_2017年度</title>
+    <link href="http://yoursite.com/2018/01/05/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB_2017%E5%B9%B4%E5%BA%A6/"/>
+    <id>http://yoursite.com/2018/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2017年度/</id>
+    <published>2018-01-04T16:00:00.000Z</published>
+    <updated>2018-02-17T14:09:43.706Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>2017年共阅读8个大类，共计38本+2场Live，读书笔记22篇；罗辑思维音频若干；</strong></p>
+<a id="more"></a>
+<p>[TOC]</p>
+<p><br></p>
+<blockquote>
+<p>类别</p>
+<p>《书名》_作者 / 阅读时间 - 读书笔记链接</p>
+<blockquote>
+<p>《原名》 - 原作者</p>
+</blockquote>
+<p>一句话概括整本书的核心内容，最多不超过三句话。这个是原则。</p>
+</blockquote>
+<p>关于一本书的概括，暂未做补充。</p>
+<p><br></p>
+<h2 id="发展史与社会认知"><a href="#发展史与社会认知" class="headerlink" title="发展史与社会认知"></a>发展史与社会认知</h2><ol>
+<li><p><strong>《理性乐观派》_[英]马特.里德利 / 2017-04</strong></p>
+<blockquote>
+<p>Matt.Ridley</p>
+</blockquote>
+<p>从经济学的角度解释了整个社会的发展。</p>
+</li>
+<li><p><strong>《未来简史》_[以色列]尤瓦尔•赫拉丽 / 2017-04</strong></p>
+<blockquote>
+<p>Yuval Noah Harari</p>
+</blockquote>
+</li>
+<li><p><strong>《文明是副产物》_郑也夫 / 2017-05</strong></p>
+</li>
+<li><p><strong>《代价论》_郑也夫 / 2017-06</strong></p>
+</li>
+<li><p><strong>《信任论》_郑也夫 / 2017-06</strong></p>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><ol>
+<li><p><strong>《Python编程：从入门到实践》_[美] Eric Matthes / 2017-05</strong></p>
+</li>
+<li><p><strong>《利用Python进行数据分析》_Wes McKinney / 2017-05</strong></p>
+</li>
+<li><p><strong>《Python核心编程》_[美] Wesley J. Chun / 2017-12</strong></p>
+</li>
+<li><p><strong>《统计学习导论：基于R应用》_[美] 加雷斯.詹姆斯 &amp; 丹妮拉.威滕 / 2017-09</strong></p>
+<blockquote>
+<p>《An Introduction to Statistical Learning : with Application in R》_Gareth James  &amp; Daniela Witten</p>
+</blockquote>
+</li>
+<li><p><strong>《数据的本质》_车品觉 / 2017-10</strong></p>
+</li>
+<li><p><strong>《数学之美》_吴军 / 2017-11</strong></p>
+</li>
+<li><p><strong>《大数据时代》_维克托.迈尔.舍恩伯格 &amp; 肯尼斯.库克耶 / 2017-11</strong></p>
+<blockquote>
+<p>Viktor.Mayer.Schonberger &amp; Kenneth.Cukier</p>
+</blockquote>
+</li>
+<li><p><strong>《智能时代》_吴军 / 2017-11</strong></p>
+</li>
+<li><p><strong>《精益数据分析》_[加] 阿利斯泰尔.克罗尔 &amp; 本杰明.尤科维奇 / 2017-11</strong></p>
+<blockquote>
+<p> Croll, A. &amp; Yoskovitz, B</p>
+</blockquote>
+<p>从商业运作的角度阐述了不同行业运作的规则，并针对性地给出不同行业中所关注的核心指标。</p>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="思维意识与生活态度"><a href="#思维意识与生活态度" class="headerlink" title="思维意识与生活态度"></a>思维意识与生活态度</h2><ol>
+<li><p><strong>《断舍离》_[日] 山下英子 / 2017-10</strong></p>
+</li>
+<li><p><strong>《怦然心动的人生整理魔法》_[日] 近藤麻理惠 / 2017-10</strong></p>
+</li>
+<li><p><strong>《人活到极致一定是素与简》_[日] 山口势子 / 2017-12</strong></p>
+</li>
+<li><p><strong>《麦肯锡教我的思考武器》_[日] 安宅和人 / 2017-12</strong></p>
+</li>
+<li><p><strong>《最重要的事只有一件》_[美] 加里.凯勒 &amp;杰伊.帕帕森 / 2017-12</strong></p>
+<blockquote>
+<p>Gray Keller &amp; Jay Papasan</p>
+</blockquote>
+</li>
+<li><p><strong>《精要主义》_[英] 格雷戈.麦吉沃恩 / 2017-12</strong></p>
+<blockquote>
+<p>Grey Mckeown</p>
+</blockquote>
+</li>
+<li><p><strong>《专注力：化简为繁的惊人力量》_[英] 于尔根.沃尔夫 / 2017-12</strong></p>
+<blockquote>
+<p>Jurgen Wolff</p>
+</blockquote>
+</li>
+<li><p><strong>《每天最重要的2小时》_[美] 乔西.戴维斯 / 2017-12</strong></p>
+<blockquote>
+<p>Josh Davis</p>
+</blockquote>
+</li>
+</ol>
+<p><br></p>
+<h2 id="工作与学习方法"><a href="#工作与学习方法" class="headerlink" title="工作与学习方法"></a>工作与学习方法</h2><ol>
+<li><p><strong>《读书经验分享 - 知乎Live》_李笑来 / 2017-04</strong></p>
+</li>
+<li><p><strong>《如何自学计算机专业课程 - 知乎Live》 / 2017-06</strong></p>
+<p>虽然标题是关于自学计算机课程，但很大部分内容是关于大脑对记忆与学习的机理。包括工作记忆与长期记忆，包括学习的过程是建立新知识与已有知识网络的连接，是重组神经元的过程。知识，必须形成网状结构的知识，才是有效的知识。这一部分对于更好地利用大脑特性学习新知识有很大帮助。</p>
+</li>
+<li><p><strong>《麦肯锡方法》_艾森.拉塞尔 / 2017-07 （二刷）</strong></p>
+</li>
+<li><p><strong>《金字塔原理》_巴巴拉·明托 / 2017-06 （二刷）</strong></p>
+</li>
+<li><p><strong>《学习之道》_芭芭拉•奥克利 / 2017-06</strong></p>
+<blockquote>
+<p>Barbara Oakley</p>
+</blockquote>
+</li>
+<li><p><strong>《刻意练习》_[美] 安德斯.艾利克森 &amp; 罗伯特.普尔 / 2017-07</strong></p>
+<blockquote>
+<p>Anders Ericsson &amp; Robert Pool</p>
+</blockquote>
+</li>
+<li><p><strong>《练习的心态》_[美] 托马斯 M. 斯特纳 / 2017-07</strong></p>
+<blockquote>
+<p>《The Practicing Mind》_ Thomas M. Sterner</p>
+</blockquote>
+</li>
+<li><p><strong>《麦肯锡精英的48个工作习惯》_[日] 户塚隆将 / 2017-07</strong></p>
+</li>
+<li><p><strong>《麦肯锡精英的39个工作习惯》_[日] 大岛祥誉 / 2017-07</strong></p>
+</li>
+<li><p><strong>《习惯的力量》_[美] 查尔斯.杜希格 / 2017-11</strong></p>
+<blockquote>
+<p>《The Power of Habit》_ Charles Duhigg </p>
+</blockquote>
+</li>
+<li><p><strong>《思考，快与慢》_丹尼尔.卡尼曼 / 2017-10</strong></p>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="企业发展与管理"><a href="#企业发展与管理" class="headerlink" title="企业发展与管理"></a>企业发展与管理</h2><ol>
+<li><p><strong>《浪潮之巅》_吴军 / 2017-11</strong></p>
+<p>讲述了在美国硅谷从 19世纪的 IBM 到 21世纪的Google 百年多来各个世界巨头企业的发展史，深入剖析了各个巨头在发展、兴盛与衰亡的过程中的内外部环境及原因，是一部非常宏伟的历史长图。</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="经济类"><a href="#经济类" class="headerlink" title="经济类"></a>经济类</h2><ol>
+<li><p><strong>《货币金融学》_费雷德里克.S.米什金 / 2017-07</strong> （未完）</p>
+<blockquote>
+<p>Frederic S. Mishkin </p>
+</blockquote>
+</li>
+</ol>
+<p><br></p>
+<h2 id="人物传记"><a href="#人物传记" class="headerlink" title="人物传记"></a>人物传记</h2><ol>
+<li><p><strong>《你好，我是费曼》_理查德.费曼 / 2017-07</strong> </p>
+<blockquote>
+<p>[美]Richard P. Feynman</p>
+</blockquote>
+</li>
+<li><p><strong>《向死而生：我修的死亡学分》_李开复 / 2017-11</strong></p>
+<p>讲述的是李开复在诊断出患有癌症后，在治疗中关于对待人生的感悟，对于在事业、家人与生活之间的关系有了新的认识。</p>
+<p>​</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="文学小说"><a href="#文学小说" class="headerlink" title="文学小说"></a>文学小说</h2><ol>
+<li><strong>《离开前请叫醒我》_卢思浩 / 2017-03</strong></li>
+<li><strong>《局外人》_[法] 加缪 / 2017-12</strong></li>
+<li><strong>《看见》_柴静 / 2017-10 （未完）</strong></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;2017年共阅读8个大类，共计38本+2场Live，读书笔记22篇；罗辑思维音频若干；&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="汇总整理" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="汇总整理" scheme="http://yoursite.com/tags/%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2018年新年目标：做一个精要的人</title>
     <link href="http://yoursite.com/2018/01/02/%E4%B8%AA%E4%BA%BA%E6%97%A5%E5%BF%97/2018%E5%B9%B4%E6%89%93%E7%A0%81%E8%AE%B0%E5%BD%95%20-%20%E5%81%9A%E4%B8%80%E4%B8%AA%E7%B2%BE%E8%A6%81%E7%9A%84%E4%BA%BA/"/>
     <id>http://yoursite.com/2018/01/02/个人日志/2018年打码记录 - 做一个精要的人/</id>
     <published>2018-01-01T16:00:00.000Z</published>
-    <updated>2018-02-16T14:32:32.495Z</updated>
+    <updated>2018-02-17T12:58:18.453Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="2018年新年目标：做一个精要的人"><a href="#2018年新年目标：做一个精要的人" class="headerlink" title="2018年新年目标：做一个精要的人"></a>2018年新年目标：做一个精要的人</h2><p><strong>做一个精要的人；</strong></p>
+    <content type="html"><![CDATA[<p><strong>思考2018年应该做的一件事。应该做，而不是可以做；是一件，而不是很多件；是至始至终，而不是始乱终弃；</strong></p>
+<p><br></p>
+<p><strong>2018年新年目标：做一个精要的人</strong></p>
+<p><strong>所谓精要，即精简扼要，永远意识到最重要的一件事；优先定义问题与确定关键问题，并将最大的资源用于解决关键问题上。</strong></p>
 <a id="more"></a>
 <p><br></p>
 <p><strong>#以下打码记录#</strong></p>
-<p>a - 表示早睡早起； b - 表示晚睡晚起；</p>
-<p>1 - 表示有写日志； 0 - 表示未写日志； 2 - 表示晚上补写前一天的日志</p>
-<p>1 - 表示有回忆精要的；0 - 表示未回忆</p>
+<ul>
+<li>a - 表示早睡早起且进行了精要之事的记录；</li>
+<li>b - 表示晚睡晚起有记录；</li>
+<li>c - 晚上补写日志；</li>
+<li>空白 - 未写日志</li>
+</ul>
 <blockquote>
-<p>1.1-a11</p>
+<p><strong>不能因为是周末，就可以晚睡晚起，甚至熬夜；</strong></p>
 </blockquote>
 <table>
 <thead>
@@ -4296,7 +5152,7 @@ os.environ
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">1.1-b0</td>
+<td style="text-align:left">1.1-b</td>
 <td>2.1-a</td>
 <td></td>
 <td></td>
@@ -4304,7 +5160,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.2-b2</td>
+<td style="text-align:left">1.2-c</td>
 <td>2.2-a</td>
 <td></td>
 <td></td>
@@ -4312,7 +5168,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.3-b1</td>
+<td style="text-align:left">1.3-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4320,7 +5176,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.4-b1</td>
+<td style="text-align:left">1.4-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4328,7 +5184,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.5-b1</td>
+<td style="text-align:left">1.5-b</td>
 <td>2.5-a</td>
 <td></td>
 <td></td>
@@ -4344,7 +5200,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.7-b1</td>
+<td style="text-align:left">1.7-b</td>
 <td>2.7-a</td>
 <td></td>
 <td></td>
@@ -4352,7 +5208,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.8-b1</td>
+<td style="text-align:left">1.8-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4360,7 +5216,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.9-b1</td>
+<td style="text-align:left">1.9-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4368,7 +5224,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.10-b1</td>
+<td style="text-align:left">1.10-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4376,15 +5232,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.11-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
+<td style="text-align:left">1.11-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4408,54 +5256,6 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.15-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">1.16-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">1.17-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">1.18-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">1.19-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">1.20-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
 <td style="text-align:left"></td>
 <td></td>
 <td></td>
@@ -4464,7 +5264,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left"></td>
+<td style="text-align:left">1.15-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4472,7 +5272,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.23-b1</td>
+<td style="text-align:left">1.16-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4480,7 +5280,31 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.24-b1</td>
+<td style="text-align:left">1.17-b</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">1.18-b</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">1.19-b</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">1.20-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4496,22 +5320,6 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.26-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">2.27-b1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
 <td style="text-align:left"></td>
 <td></td>
 <td></td>
@@ -4520,7 +5328,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.29-b1</td>
+<td style="text-align:left">1.23-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4528,7 +5336,7 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.30-b1</td>
+<td style="text-align:left">1.24-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4536,7 +5344,55 @@ os.environ
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">1.31-b1</td>
+<td style="text-align:left"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">1.26-b</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">2.27-b</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">1.29-b</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">1.30-b</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">1.31-b</td>
 <td></td>
 <td></td>
 <td></td>
@@ -4806,14 +5662,14 @@ os.environ
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>不能因为是周末，就可以晚睡晚起，甚至熬夜；</strong></p>
-</blockquote>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;2018年新年目标：做一个精要的人&quot;&gt;&lt;a href=&quot;#2018年新年目标：做一个精要的人&quot; class=&quot;headerlink&quot; title=&quot;2018年新年目标：做一个精要的人&quot;&gt;&lt;/a&gt;2018年新年目标：做一个精要的人&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;做一个精要的人；&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;思考2018年应该做的一件事。应该做，而不是可以做；是一件，而不是很多件；是至始至终，而不是始乱终弃；&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2018年新年目标：做一个精要的人&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所谓精要，即精简扼要，永远意识到最重要的一件事；优先定义问题与确定关键问题，并将最大的资源用于解决关键问题上。&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -4842,749 +5698,6 @@ os.environ
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>《每天最重要的2小时》读书笔记_乔西.戴维斯</title>
-    <link href="http://yoursite.com/2017/12/31/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/10_%E6%80%9D%E7%BB%B4%E6%84%8F%E8%AF%86/20_%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89/%E3%80%8A%E6%AF%8F%E5%A4%A9%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%842%E5%B0%8F%E6%97%B6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0_%E4%B9%94%E8%A5%BF.%E6%88%B4%E7%BB%B4%E6%96%AF/"/>
-    <id>http://yoursite.com/2017/12/31/阅读书籍/10_思维意识/20_精要主义/《每天最重要的2小时》读书笔记_乔西.戴维斯/</id>
-    <published>2017-12-30T16:00:00.000Z</published>
-    <updated>2018-02-12T07:40:50.674Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>《每天最重要的2小时》 - 乔西.戴维斯</strong></p>
-<blockquote>
-<p>《Two Awesome Hours》 - Josh.Daivs</p>
-</blockquote>
-<p>目的：了解如何塑造最重要的2小时</p>
-<a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
-<li>一个错误的方向：在更短的时间里做到更多。只有当我们错误地以为完全依赖于挤出足够多的时间，我们才会面对这种选择的压力。</li>
-<li>具身认知：身体影响思维的方式的总称；说明身体上的动作会极大地影响到你的思维。</li>
-<li>要想实现真正高产，最好的方法可能是抛弃 “效率” 这个念头，转而<strong><u>创造条件</u></strong>，让自己在每天当中都能拥有极为高效的量2小时。<ul>
-<li><strong><u>意识到你的觉察点。</u></strong> 只要你开始一项任务，基本上就会处于<strong>自动工作的状态</strong>，这就很难改变你工作的方向。因此，要利用好<strong>不同任务交接时的那一刻</strong>，在这种时候你<strong>能够选择下一步该做什么</strong>，然后把精力放在接下来最重要的事情上面。</li>
-<li>管理你的心理能量</li>
-<li>不要与分心做无意义的斗争；了解你大脑的工作方式</li>
-<li>利用你的身心联系：运动和饮食</li>
-<li>让你的工作环境为你所用</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略一：在日常工作中，认清最重要的事"><a href="#策略一：在日常工作中，认清最重要的事" class="headerlink" title="策略一：在日常工作中，认清最重要的事"></a>策略一：在日常工作中，认清最重要的事</h2><blockquote>
-<p>意识到并抓住觉察点 </p>
-</blockquote>
-<h3 id="意识到每天的关键时刻-——-觉察点"><a href="#意识到每天的关键时刻-——-觉察点" class="headerlink" title="意识到每天的关键时刻 —— 觉察点"></a>意识到每天的关键时刻 —— 觉察点</h3><ol>
-<li><strong>我们一旦开始了一项神经性常规活动，就会像电脑程序一样一直运行下去，直到<u>完成任务或者被打断</u>。</strong></li>
-<li>我们的习惯很有必要，因为它们能够节省大脑的能量。（生物进化论的角度）</li>
-<li>必须学会意识到 <strong>“觉察点”</strong> ，只有在这种时刻你才有机会也有能力决定自己如何度过接下来的时间。这种时刻就是<strong><u>你完成或者中断了任务</u></strong>的那个时刻；<ul>
-<li>我们会如此频繁地进入自动模式，那么每天并没有那么多机会让我们有意识地决定下一步该做什么。因此<strong>意识到这些觉察点并抓住它们就显得极为重要。</strong></li>
-<li>【原因】 <u>大家习惯于这种时刻（觉察点）匆忙略过，好去做某些让自己觉得 “很高效” 的事。</u>匆忙略过一个觉察点（即不同任务的间隙）也许能给你省出5分钟的时间，但是完成不该完成的任务可能会消费掉1个小时。<strong>这5分钟的确会让你不安。因为在这种时候，我们能够非常清楚地意识到每一秒的流逝，而在那浪费掉的一小时中因为名为基本上处于自动模式，所以不会察觉也不会觉得难受。</strong></li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<h3 id="做出最恰当的选择"><a href="#做出最恰当的选择" class="headerlink" title="做出最恰当的选择"></a>做出最恰当的选择</h3><ol>
-<li><p><strong>“认知上的懒惰者”</strong> ：在其他条件完全相同的情况下，我们倾向于选择在思维层面阻力最小的那条路。正因为那些无意识的、已经很熟练的神经性常规程序相对而言更容易完成，所以作为认知上的懒惰者，只要有可能就会更倾向于依赖自动的神经性常规行为，而不是有意识的选择；【原因】</p>
-</li>
-<li><p>在一步步完成神经性常规程序时，人们会进入一种 “忘我” 的状态。在此状态下，你意识不到周围发生的事。但<strong><u>当常规程序结束时或者被打断之后，自我意识就会浮现出来。</u></strong>从沉溺于神经性常规程度到停止这一程序，这之间的转变很可能让你感觉不适。</p>
-<ul>
-<li>两类思维：有目的、有意识的行为；自动的、无意识的行为；</li>
-<li>意识最主要的功能就是在我们的自动式神经常规活动遇到困难的时候做出决定。<u>尤其是当不同的刺激性神经常规活动指导我们去做相互矛盾的动作的时候。</u></li>
-</ul>
-</li>
-<li><p>觉察点通常 <strong><u>作为冲突的结果</u></strong> 而出现。（无意识的自动行为之间相冲突、行为和目标之间相冲突）</p>
-<ul>
-<li>两种行为（盯着电脑 VS. 转过去面对我朋友）是互相矛盾的，才需要这种有意识地评估并做出决定</li>
-</ul>
-<blockquote>
-<p>【反思】解释了觉察点出现的原因以及场景</p>
-</blockquote>
-</li>
-<li><p>你越是需要注意自己的思绪、情感和行为，你就越觉得时间流逝得慢。然后，这种不够 “高产” 的时间流逝，并不意味着你浪费了很多时间。这只是意味着我们<strong>恰巧更能意识到时间的存在而已。</strong> 而恰好正因为觉察这点会让人不舒服，所以我们往往才选择尽快跳过它们。</p>
-</li>
-</ol>
-<p><br></p>
-<h3 id="充分利用觉察点"><a href="#充分利用觉察点" class="headerlink" title="充分利用觉察点"></a>充分利用觉察点</h3><blockquote>
-<p>珍惜每一个觉察点；提前为觉察点做好相应计划；不要随便开始一项新任务</p>
-</blockquote>
-<ol>
-<li><p><strong>珍惜</strong>每一个觉察点：<strong>意识到觉察点的出现，并尽力抓住它；</strong></p>
-<ul>
-<li>觉察点能够让你与眼下最关注的时<strong>拉开一定的距离</strong>；</li>
-</ul>
-<blockquote>
-<p>【共鸣】心理学中，两个自我：一个是正在做事的自我；一个是正在观察当下自我的那个自己；你只有意识到它，才有可能去改变它；</p>
-</blockquote>
-</li>
-<li><p><strong><u>提前为觉察点做好相应计划；</u></strong> </p>
-<ul>
-<li>可能没办法知道被打断的确切时间，但我们知道这些情况发生的概率很大，而每一次打断都会创造一个觉察点</li>
-<li><strong>[ IFTTT ]</strong> 可以<strong><u>提前决定</u>：当你被打断的时候，把那一刻变为觉察点；</strong> 这些打扰你的情况帮你从忘我状态中走出来，让你重新评估一下自己是否需要切换任务<ul>
-<li><em>Eg：对他而言，工作方面的突发奇想往往是在他完全放松的时候出现，特别是在与家人共进晚餐的时候；于是，他提前为这个场景做了计划：如果当他陪着家人时突然灵关一现，那么就花2分钟评估一下这个想法的重要性</em></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><strong>【思考】面对不同情境，提前设置规则，提前想象与演练；可以为一般情况建立规则，也可以每天为特定情况临时建立这种规则；</strong></p>
-<p><em>研究表明，当我们在脑中设想某一行动时，所利用的神经回路其实和真正去做这件事时的神经回路是相同的；</em></p>
-</blockquote>
-</li>
-<li><p><strong>不要随便开始一项新任务</strong>， 除非已经有意识地决定了它确实值得做</p>
-<ul>
-<li><strong>当你完成一项任务的时候，不要去想接下来做什么，而是把一刻标记为觉察点</strong><ul>
-<li><em>Eg：当我结束了一节课之后我会对自己大声说 “现在就是个觉察点” 。这句话足够让我真个人停下来</em></li>
-</ul>
-</li>
-<li><strong>再考虑一下自己目前的身体状态</strong> （是否疲劳、需要休息、喝水、食物），接下来有没有其他事情需要你花更多的能量去做以及你会在什么样的环境下工作</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略二：管理你的心理能量"><a href="#策略二：管理你的心理能量" class="headerlink" title="策略二：管理你的心理能量"></a>策略二：管理你的心理能量</h2><blockquote>
-<p><strong>必须把有限的心理能量全部留给今天最重要的内容</strong></p>
-</blockquote>
-<h3 id="让你心理疲惫的事物"><a href="#让你心理疲惫的事物" class="headerlink" title="让你心理疲惫的事物"></a>让你心理疲惫的事物</h3><ol>
-<li>进行自我控制会削弱我们的自控力；</li>
-<li>做决定（即使是一些典型的、日常的决定）也会导致心理上的疲惫，由此降低我们做出最佳表现；</li>
-</ol>
-<blockquote>
-<p>【思考】先做最重要的事；知行合一；原因在于此</p>
-</blockquote>
-<p><br></p>
-<h3 id="管理心理能量"><a href="#管理心理能量" class="headerlink" title="管理心理能量"></a>管理心理能量</h3><ol>
-<li><strong>重视你身体的信号。</strong></li>
-<li>如果在做完某项任务之感觉很累，很可能就是它消耗了大量的自控力；导致疲惫的活动：<ul>
-<li>不断从一个任务转换到另一任务</li>
-<li>交际、与人聊天</li>
-<li>做计划、做决定等</li>
-</ul>
-</li>
-<li>我们不需要完全避开这些活动，<strong>因为我们不需要每时每刻都处于最佳状态，因为这是不可能做到的</strong>；但是，我们可以策略性地安排待办事项的完成顺序，就能够<strong>分配出高效的2小时</strong>；</li>
-<li>早上第一件事就是完成你最重要的工作，不要让你的大脑能力一开始就被几十个小决定消耗殆尽</li>
-<li>考虑一下今天所有的待办事项，分类为 “重要的、创造性的、其他”</li>
-<li><strong>在第二天有重要活动时，前一天晚上提前做一些决定，不要把它们留到第二天来浪费你的能力</strong></li>
-<li>不要轻易承诺做完清单上的每一件事，因为这会浪费掉你本该用在最重要的事情上的能量</li>
-<li><strong>必须把有限的心理能量全部留给今天最重要的内容</strong></li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略三：无须对抗分心也能更专注"><a href="#策略三：无须对抗分心也能更专注" class="headerlink" title="策略三：无须对抗分心也能更专注"></a>策略三：无须对抗分心也能更专注</h2><ol>
-<li><p>从进化的角度来讲，人的大脑天生就不是为了无限专注于任何事；大脑的构造决定了它会不断在不同的注意点之间来回切换；如果做不到这一点，人类就很难生存下来；想象一下，当你正在采果子的时候也必须要时刻警惕有没有危险接近；</p>
-</li>
-<li><p>大脑从一个注意点<strong>切换到另一个注意点时</strong>，它会<strong>对那些不变的东西习惯性地视而不见</strong>；</p>
-</li>
-<li><p><strong>可以把那些没有必要存在和让你分心的东西都拿开；</strong></p>
-</li>
-<li><p><strong>在一段时间内，拿开、关闭或忽视 那些会令你分心的东西（某件物品、手机、即时通讯软件等）</strong></p>
-<blockquote>
-<p>当你在做一件事的时候，不要去看手机、邮箱、即时通讯软件；当你完成的时候在去看。在不同事物之间来回切换注意力，本身就很耗费能量</p>
-</blockquote>
-</li>
-<li><p>不要指责自己没有专心致志，不妨静静旁观自己的思绪；只要能避免因无法专注而变得沮丧、疲惫或更加不专心，就能把注意力再次带回到手中的任务上来</p>
-<blockquote>
-<p>把无法长久维持注意力的问题归咎于我们个性上的缺陷，这是一个明显的误区</p>
-</blockquote>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略四：掌握运动和饮食的诀窍"><a href="#策略四：掌握运动和饮食的诀窍" class="headerlink" title="策略四：掌握运动和饮食的诀窍"></a>策略四：掌握运动和饮食的诀窍</h2><ol>
-<li>当你发现自己头昏脑涨、太过焦虑或者压力重重时，你应该换一种方式利用自己的身体（走动、跑步或做其他事），让自己 “重启” 一下。</li>
-<li><strong>不要在桌子边坐得太久。当你意识到这一点，就站起身来走动一下。</strong></li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="策略五：让工作环境为你服务"><a href="#策略五：让工作环境为你服务" class="headerlink" title="策略五：让工作环境为你服务"></a>策略五：让工作环境为你服务</h2><blockquote>
-<p>声音、光线</p>
-</blockquote>
-<h3 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h3><ol>
-<li>虽然<strong>背景音乐</strong>通常能够提升积极的情绪，提高运动方面的表现，并让人们做事更加迅速，但同时它<strong>对阅读有着干扰效果。</strong></li>
-<li><strong>比起有白噪声的环境，安全的环境对提高效率更有益；</strong> 如果能在安静的环境下工作，成效只会更出色</li>
-<li>内向的人容易被各种刺激影响，所以对噪声干扰也更加敏感；</li>
-<li><strong>对于那些需要运用知识才能完成的任务来说，安静的环境几乎无疑地优于有噪声的环境</strong></li>
-<li><strong>背景音乐对创造性工作，有一定的促进作用；</strong></li>
-</ol>
-<p><br></p>
-<h3 id="光线"><a href="#光线" class="headerlink" title="光线"></a>光线</h3><ol>
-<li><strong>蓝白光</strong>对需要专注力和逻辑思考的分析性任务更有利</li>
-<li><strong>暗淡光线对创造力更为有利</strong></li>
-</ol>
-<p><br></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;《每天最重要的2小时》 - 乔西.戴维斯&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;《Two Awesome Hours》 - Josh.Daivs&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;目的：了解如何塑造最重要的2小时&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《精要主义》读书笔记_格雷格.麦吉沃恩</title>
-    <link href="http://yoursite.com/2017/12/31/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/10_%E6%80%9D%E7%BB%B4%E6%84%8F%E8%AF%86/20_%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89/%E3%80%8A%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89%E3%80%8B_%E6%A0%BC%E9%9B%B7%E6%A0%BC.%E9%BA%A6%E5%90%89%E6%B2%83%E6%81%A9_Grey.Mckeown/%E3%80%8A%E7%B2%BE%E8%A6%81%E4%B8%BB%E4%B9%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0_%E6%A0%BC%E9%9B%B7%E6%A0%BC.%E9%BA%A6%E5%90%89%E6%B2%83%E6%81%A9_20171231/"/>
-    <id>http://yoursite.com/2017/12/31/阅读书籍/10_思维意识/20_精要主义/《精要主义》_格雷格.麦吉沃恩_Grey.Mckeown/《精要主义》读书笔记_格雷格.麦吉沃恩_20171231/</id>
-    <published>2017-12-30T16:00:00.000Z</published>
-    <updated>2018-02-12T07:40:26.843Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>《精要主义》_格雷格.麦吉沃恩</strong></p>
-<blockquote>
-<p>《Essentialism : The Disciplined Pursuit of Less》_ Grey.Mckeown</p>
-</blockquote>
-<p>目的：精要，即重要的事。懂得如何识别与运用；强化思维；为2018年成为一个精要的人做理论研究</p>
-<a id="more"></a>
-<h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><blockquote>
-<p><strong>如果你不能安排自己生活的优先次序，就只能任由别人来替你安排。</strong></p>
-<p><strong>If you don’t prioritize your life, someone else will.</strong></p>
-</blockquote>
-<ol>
-<li><p>精要主义是对 “更少，但更好” 的不懈追求。这意味着不是偶尔为之，而是<strong>把追求 “更少，但更好” 当做行事的铁律。</strong></p>
-<ul>
-<li>不断停下来反问自己 “这件事值得我投入时间和精力吗？”</li>
-<li><strong>精要主义不是如何完成更多的事，而是如何做好对的事。</strong>它不是为了提倡少做而少做，而是主张做必做之事，尽可能做出最明智的时间和精力投资，从而达到个人贡献峰值；</li>
-</ul>
-</li>
-<li><p>成功的悖论：<strong>社会中我们因为正确的行为（说 “不”）而受到惩罚，因不正确的行为（说 “好”）而受到奖赏。</strong>因为前者往往会令当时的气氛变得尴尬，而后者通常受到赞美；</p>
-<ul>
-<li>第一阶段：如果我们真的有清晰的目标，它有助于我们取得成功</li>
-<li>第二阶段：当我们成功时，被冠以 “可以去找的人” 的称号，成为老好人。只要你需要，就总能找到这个人。这样，我们就能得到更多的选择和机会</li>
-<li>第三阶段：当我们拥有了更多的选项和机会，实际上就被要求付出更多的精力和时间，这样便会导致精力的分散</li>
-<li>第四阶段：因为精力分散，我们无法实现原本可以实现的个人贡献峰值；成功所带来的后果最终瓦解了最初指引我们走向成功的那个真正清晰的目标</li>
-</ul>
-<blockquote>
-<p>成功会让我们偏离最本质的事情，这些事情最初曾是成功的源泉。</p>
-</blockquote>
-</li>
-<li><p>选择的数量呈指数级增长：这是历史上第一次，拥有选择的人的数量有了极大的增加，而我们的社会却还未完全准备好这一切；</p>
-</li>
-</ol>
-<p><br></p>
-<h2 id="Part-1-精要主义者的核心思维模式"><a href="#Part-1-精要主义者的核心思维模式" class="headerlink" title="Part 1 精要主义者的核心思维模式"></a>Part 1 精要主义者的核心思维模式</h2><blockquote>
-<p>时间与精力只用于有意义的事</p>
-<p>选择 $\to$ 甄别 $\to$ 取舍</p>
-</blockquote>
-<ol>
-<li>摆脱三种错误的想法<ul>
-<li>我必须做</li>
-<li>这些都重要</li>
-<li>我能二者兼顾</li>
-</ul>
-</li>
-<li>拥抱的三条核心真理<ul>
-<li>我选择我要做的事</li>
-<li>只有小部分事情是重要的</li>
-<li>我能做任何事但不是所有事</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<h3 id="选择：一种战无不胜的力量"><a href="#选择：一种战无不胜的力量" class="headerlink" title="选择：一种战无不胜的力量"></a>选择：一种战无不胜的力量</h3><blockquote>
-<p>选择：选择如何支配自己的精力和时间；</p>
-<p>非精要主义：我必须做 （丧失选择权） </p>
-<p>​    精要主义：我选择做 （运用选择能力）</p>
-<p><strong>选择是成为精要主义者的核心所在。必须高度重视选择能力，把它视为一种战无不胜的力量，它的存在独立于其他任何事物、任何人以及任何力量；</strong></p>
-</blockquote>
-<ol>
-<li><p>一旦我们放弃自己选择的能力，别的力量或别人就会替我们做出选择；</p>
-</li>
-<li><p>人们常把选择视为一种事物，但它不是事物。我们面临的选项也许可以算做事物，但<strong>选择是一个行为动作。</strong></p>
-<ul>
-<li>我们也许无法完全左右自己会有哪些选项，但可以永远掌握自己如何从中选择；</li>
-<li>选项（事物）会被拿走，但进行选择的核心能力（自由意志）却不会</li>
-</ul>
-<blockquote>
-<p>选择能力不会被夺走，不会被丢弃，只会被遗忘； The ability to choose cannot be taken away or even given away —— it can only be forgotten.</p>
-</blockquote>
-</li>
-<li><p>习得性无助；</p>
-</li>
-<li><p>强迫自己去做更多的方式不过是一种障眼法；这样的人不相信自己可以选择机遇、任何和挑战，而是认为自己 “必须什么都做” 。</p>
-</li>
-</ol>
-<p><br></p>
-<h3 id="甄别：几乎一切都是噪声"><a href="#甄别：几乎一切都是噪声" class="headerlink" title="甄别：几乎一切都是噪声"></a>甄别：几乎一切都是噪声</h3><blockquote>
-<p>几乎一切都是噪声，只有少数事情有非凡价值。应该努力去辨别什么才是最重要的</p>
-<p><strong>非精要主义：认为几乎一切都重要</strong>，将所有机会视之等同</p>
-<p>​    <strong>精要主义：认为几乎一切都不重要</strong>；区分重要的少数和不重要的多数</p>
-</blockquote>
-<ol>
-<li><strong>真正重要的是时间与结果之间的关系。</strong></li>
-<li>重要少数法则（现代管理之父 - 朱兰）：人们可以通过解决问题中一个微小的部分来极大地提供产品的质量</li>
-<li>幂次定律：某种努力与其他努力相比，确实会使成果呈指数级增长<ul>
-<li>最优秀的软件工程师的开发效率比一般的软件工程师不是强10被或100倍，甚至不是1000倍，而是10000倍；</li>
-</ul>
-</li>
-<li><strong>我们生活的世界中几乎一切都是无价值的</strong>，仅有极少的事物例外；几乎一切事物的次要性再怎么高估都不够。</li>
-<li><strong>精要主义者用更多的时间来辨别，以便花更少的时间来做。</strong></li>
-</ol>
-<p><br></p>
-<h3 id="取舍：我要的究竟是什么"><a href="#取舍：我要的究竟是什么" class="headerlink" title="取舍：我要的究竟是什么"></a>取舍：我要的究竟是什么</h3><blockquote>
-<p>取舍：接受取舍的现实</p>
-</blockquote>
-<ol>
-<li>你必须审视每一个机会，然后说， “不，我很抱歉。我们不想做那么多件不同的事情，如果它们对我们努力要实现的最终结果没有太大贡献的话” （Relevant）</li>
-<li>在现实中，接受任何一个机会都无疑需要你舍弃其他几个机会。</li>
-<li>我们要么自己做出艰难的选择，要么允许其他人替我们做出决定</li>
-<li>【反思】价值观的体现，是在冲突中表现出来的；<ul>
-<li>当一个人面对不用的情况如何做选择时，才真正体现了他的价值观；</li>
-</ul>
-</li>
-<li>精要主义者<strong>不问 “我应该放弃什么？” 而是问 “我要大干一场的是什么？”</strong> ； 这样小小的改变，日积月累会产生意义深远的影响；</li>
-</ol>
-<p><br></p>
-<h2 id="Part-2-第一步：探索"><a href="#Part-2-第一步：探索" class="headerlink" title="Part 2 第一步：探索"></a>Part 2 第一步：探索</h2><blockquote>
-<p>区分；区分无意义的多数和有意义的少数</p>
-<p>精要主义者花更多的时间用于探索、倾听、辩论、质问和思考。但是，<strong>探索本身不是他们的目的，真正的目的在于将有意义的少数从无意义的多数中甄别出来。</strong></p>
-<p>精要主义实际上会探求更多的选项。他们在行动之前会系统地探索和评估多个选项，<strong>因为他们会在一两个大的项目上大干一场</strong>，所以一开始就会慎重地探索更多地选项，来确保自己做出的选择是正确的；</p>
-<ul>
-<li>几乎所有的事情都会引起非精要主义者的兴趣，也会引起他们的反应。但是，正因为如此忙于追逐每一个机会和每一种想法，他们实际上在选项探索上花费的精力少之又少。</li>
-</ul>
-</blockquote>
-<p><br></p>
-<h3 id="抽离：为探索和思考留出空间"><a href="#抽离：为探索和思考留出空间" class="headerlink" title="抽离：为探索和思考留出空间"></a>抽离：为探索和思考留出空间</h3><blockquote>
-<p>非精要主义：忙得无暇顾及人生</p>
-<p>​    精要主义：抽身而退，探索人生</p>
-</blockquote>
-<ol>
-<li>人们习惯将 <strong>“焦点”</strong> 视为一种事物。焦点的确是我的拥有物，但它同时也是我的<strong><u>行为</u></strong>。</li>
-<li><strong>为了找到焦点，我们需要抽身而退，全力聚焦； In order to focus we need to escape to focus.</strong></li>
-<li>有意识地留出没有分心物的时间、没有分心物的空间，除了思考，绝不做任何别的事情<ul>
-<li>向对方解释，在完成本书之前，都不要来打扰我；这种 “修行模式” 带给我的自由，怎么高估都不为过；</li>
-</ul>
-</li>
-<li><strong>重要的是你要创造一个空间，让自己从忙碌的生活中抽身而退。</strong></li>
-</ol>
-<p><br></p>
-<h3 id="审视：关注真正重要的事情"><a href="#审视：关注真正重要的事情" class="headerlink" title="审视：关注真正重要的事情"></a>审视：关注真正重要的事情</h3><blockquote>
-<p>非精要主义：注意最大的声音；听所有说出来的话；被海量信息压垮</p>
-<p>​    精要主义：关注声音传递的信号；听么有说出来的话；审视查找信息的精华</p>
-</blockquote>
-<ol>
-<li>要理解这篇新闻到底意味着什么，以及它为什么重要。新闻记者的价值在于发现那些对人们真正重要的东西；</li>
-<li><strong>写日志</strong>，成为自己人生的记者；并且<strong>每隔一段时间来回顾；</strong><ul>
-<li>要捕捉标题，寻找自己每天、每周生活中的导语。</li>
-</ul>
-</li>
-<li><strong>实地探索，认清问题本质</strong><ul>
-<li>把自己置身于场景中；关键在于接触<strong>实际发生的那个场景</strong></li>
-</ul>
-</li>
-<li><strong>捕捉不正常与不寻常</strong><ul>
-<li>要汲取故事的精华，需要深刻理解它的主题和语境，需要将它放在一个更宏大的图景中去俯仰观察，需要找出他和其他领域的关联</li>
-</ul>
-</li>
-<li>走出推诿逃避的怪圈</li>
-</ol>
-<blockquote>
-<p>培养 “新闻记者” 的四种方法</p>
-</blockquote>
-<p><br></p>
-<h3 id="游戏：拥抱内心孩童的智慧"><a href="#游戏：拥抱内心孩童的智慧" class="headerlink" title="游戏：拥抱内心孩童的智慧"></a>游戏：拥抱内心孩童的智慧</h3><blockquote>
-<p>不要把游戏定义为仅仅是电子游戏；自己不爱电子游戏，但喜欢其他互动类的游戏；</p>
-</blockquote>
-<ol>
-<li><p>学校在一定程度上是在扼杀创意。我们把自己卖给了一种快餐式的教育模式，它使我们的精神和活力日渐枯竭，就像快餐侵蚀我们的身体。想象力是人类一切成就的源泉。</p>
-</li>
-<li><p>那种 “游戏不重要” 的想法跟随我们。这是因为现在公司诞生于工业革命时期，那时它们存在的全部理由就是提高大规模生产产品的效率。而且，这些早期的管理者还把眼光朝向了军队。</p>
-<blockquote>
-<p>【反思】：理解一件事情，必须要去理解他的场景；SCQ在什么样的场景下产生了什么冲突，产生了什么行为，目的是什么</p>
-</blockquote>
-</li>
-<li><p>当我们玩的时候，人性得到了最纯粹的表达，个性得到了最真实的展现；</p>
-</li>
-</ol>
-<p><br></p>
-<h3 id="睡眠：保护你的身心资产"><a href="#睡眠：保护你的身心资产" class="headerlink" title="睡眠：保护你的身心资产"></a>睡眠：保护你的身心资产</h3><blockquote>
-<p>每晚，当我入睡时，我死去；次日，当我醒来时，我重生。—— 甘地</p>
-</blockquote>
-<ol>
-<li>每个人的头等大事，是<strong><u>确保自己有能力</u></strong>决断什么才是头等大事； Our highest priority is to protect our ability to prioritize.</li>
-</ol>
-<p><br></p>
-<h3 id="精选：只接受前10-的机会"><a href="#精选：只接受前10-的机会" class="headerlink" title="精选：只接受前10%的机会"></a>精选：只接受前10%的机会</h3><blockquote>
-<p>非精要主义：接受一切要求和机会；运用宽泛的、盲从的标准（如果我认识的人在做，那我也应该做）</p>
-<p>​    精要主义：只接受前10%的机会；<strong>运用挑剔的、明确的标准</strong>（这确实是我所追求的吗）</p>
-</blockquote>
-<ol>
-<li><strong>如果答案不是一个确定的 YES，那么就应该是一个确定的 NO。</strong></li>
-<li>90%法则：在做每一项决定或每一次选择的时候，<strong>评估每一项时，考虑一个最重要的决定标准，然后在0~10分之间为这个选项打分。如果得分低于9分，那就自动把它降为0，并且果断淘汰它。</strong><ul>
-<li>如果某物/某事刚刚好或者差不多，正好是7分或8分，那么结果就是淘汰；这大大简化了问题。</li>
-</ul>
-</li>
-<li>这种精挑细选的方法有着显而易见的好处：如果我们的选择标准过于宽泛，就会发现自己要面对的选项太多太多。更重要的是，对选项的价值进行评分，能让我们更自觉、更有逻辑、更加理性地做出选择，而不是听凭一时的兴趣或情绪所支配。</li>
-<li>【关键】明确的标准；非精要主义运用的是一种盲从的、无法明确表达的标准；</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="Part-3-第二步：排除"><a href="#Part-3-第二步：排除" class="headerlink" title="Part 3 第二步：排除"></a>Part 3 第二步：排除</h2><blockquote>
-<p>行动；摆脱无意义的多数。当我们丧失选择权的时候，别人会替我们做出选择。所以，要么慎重地有所不为，要么不由自主，任人摆布。</p>
-<p>澄清：明确的目标  $\to​$ 边界：设定标准 $\to​$  勇气：选择项目 $\to​$ 放弃：已有项目及时终止</p>
-</blockquote>
-<ol>
-<li>人们往往<strong>高估自己已经拥有东西的价值</strong>。于是扔掉这些东西就更难。<strong>问你一个问题（假设你还没有拥有它）</strong><ul>
-<li>“如果没有它，我愿意花多少钱去买它” </li>
-<li>“如果没有这个机会，我愿意做什么来得到它”</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<h3 id="澄清：做一个以一当千的决定"><a href="#澄清：做一个以一当千的决定" class="headerlink" title="澄清：做一个以一当千的决定"></a>澄清：做一个以一当千的决定</h3><ol>
-<li>从 “很清楚” 到 “真的很清楚”</li>
-<li>目标SMART原则</li>
-</ol>
-<p><br></p>
-<h3 id="边界：设定界限会带来自由"><a href="#边界：设定界限会带来自由" class="headerlink" title="边界：设定界限会带来自由"></a>边界：设定界限会带来自由</h3><blockquote>
-<p>“不”， 是一个完整的句子。</p>
-<p>非精要主义：认为如果有界限，自己将受到限制；视界限为约束</p>
-<p>​    精要主义：<strong>懂得如果有界限，自己将不受限制；视界限为自由</strong></p>
-</blockquote>
-<ol>
-<li><p>界限的丧失是非精要时代的典型特征；并且问题不仅在于界限已经模式，还在于工作的界限已经恶意侵蚀了家庭生活的领地；</p>
-</li>
-<li><p>精要主义者视界限为一种授权。界限保护了他们的时间，使之免受劫持。界限让他们摆脱了对有利于实现他人目标而非自身目标之事说 “不” 的负担。（因为他们知道，清晰的界限能让他们积极主动地淘汰各种要求和累赘之事）</p>
-<blockquote>
-<p><strong>设定边界，才能获得自由。If you have limits you will become limitless.</strong></p>
-</blockquote>
-</li>
-<li><p>免受他人事务烦扰的方法</p>
-<ul>
-<li><p>别人的问题不是你的问题（如果把别人的问题变成我们的问题，那么我们就不是在帮他们，而是在纵容他们）</p>
-<blockquote>
-<p>【反思】这一点上，自己做的还是不错的；80分</p>
-</blockquote>
-</li>
-<li><p>没有界限，就没有自由；</p>
-</li>
-<li><p>找到自己的坏事者（<strong>如果你不能和自己、和别人说清楚这些界限，那么你就不要期待别人能够尊重或者找到你的边界</strong>）</p>
-<blockquote>
-<p>【反思】这一点上，工作中，自己是有明确的边界</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>指定契约/规则</li>
-</ul>
-<p><br></p>
-<h3 id="勇气：优雅说”不”的力量"><a href="#勇气：优雅说”不”的力量" class="headerlink" title="勇气：优雅说”不”的力量"></a>勇气：优雅说”不”的力量</h3><blockquote>
-<p>非精要主义：为了避免社交尴尬和压力而不说 “不”；应承一切事</p>
-<p>​    精要主义：勇于坚定地、决绝地，优雅地说 “不”；只答应真正的要事</p>
-</blockquote>
-<ol>
-<li><p>尽管拒绝别人时如此艰难，但如果不这样做，我们就会错过重要地多的东西；</p>
-</li>
-<li><p><strong>我们分不清什么才是重要的事情。所以当事情发生时，我们变得毫无防御能力。</strong> </p>
-<blockquote>
-<p>【反思】必须提前明确什么是重要的事，而不是当事情发生的时候在去考虑；当事情发生的时候，我们要做的仅仅是根据之前的标准去判断这件事</p>
-</blockquote>
-</li>
-<li><p>优雅说 “不” 的六大原则</p>
-<ul>
-<li>把决定和关系分开来。（当别人让我们做什么的时候，我们往往会把这个要求和自己同他们的关系搅在一起）</li>
-<li>并不代表一定要 “No” （我很想帮你，可是我已经力不从心了；但是我现在真的没有时间和精力）</li>
-<li>关注权衡取舍<strong>（在答应的时候，对自己将要牺牲什么考虑得越多，拒绝就会变得越容易）</strong><ul>
-<li>如果我们不能清晰地认识到机会成本（我们所放弃东西的价值），那么会很容易跌进非精要主义的陷阱</li>
-</ul>
-</li>
-<li>接受自己不能始终让所有人都喜欢的现实；<strong>受人尊重比被人喜欢重要的多</strong></li>
-<li><strong>一个明确的 “不” 比一个模糊的 “是” 更优雅</strong>  （延迟说那个最终还是要说的 “不” ，只会让它更难说出口）</li>
-</ul>
-</li>
-<li><p>有效的说 “不” 的方法</p>
-<ul>
-<li>委婉的说 <strong>“不，但是”</strong> <ul>
-<li>我现在在忙事情；但是我可以在后天的时候跟你聊一聊；到时如果你有时间的话</li>
-</ul>
-</li>
-<li><strong>“好的。那我要取消的是什么”</strong><ul>
-<li>对于来自重要人物的需求，告诉他们当前你正在负责的内容，以及如果你答应这件事，那么你将无法做其他事，让他们来解决这个取舍问题；</li>
-</ul>
-</li>
-<li><strong>“这个我做不了，但是XX可能对此感兴趣”</strong>  （提供其他人的解决办法）<ul>
-<li>人们在提出要求的时候，通常并不在乎帮助他们的究竟是不是我们，只要有人帮忙就行了。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>学会慢一点说 “好” ， 快一点说 “不”</p>
-</blockquote>
-</li>
-</ol>
-<p><br></p>
-<h3 id="放弃：止损就是最大的赢"><a href="#放弃：止损就是最大的赢" class="headerlink" title="放弃：止损就是最大的赢"></a>放弃：止损就是最大的赢</h3><blockquote>
-<p>人生中一半的麻烦源于答应得太快，拒绝得太慢。</p>
-<p>非精要主义：”为什么现在要停止这个项目，我已经在这上面投入了这么多”</p>
-<p>​    精要主义：”如果不是之前已经有投资，我现在愿意在这个项目上投入多少”</p>
-</blockquote>
-<ol>
-<li><strong>陷阱1：禀赋效应</strong>（The Endowment Effect）：当一个人没有某件物品时，他就倾向于低估这件物品的价值；而当他一旦拥有该物品，就会倾向于高估它的价值；<ul>
-<li>生活中，一旦你想放弃它们的时候，它们就会显得更加有价值；想象一下，一本闲置在书架上多年未翻的书，一个仍未开封的笔记本；</li>
-</ul>
-</li>
-<li><strong>对策1：假装未曾拥有它</strong><ul>
-<li>问 “如果手头没有，我愿意花多少钱来得到它”  （而不是 “这件物品估值多少”）</li>
-<li>问 “如果没有这个机会，我愿意花多大的代价去得到它”</li>
-<li>问 “如果我不是已经参与了这个项目，我愿意花多少代价参与其中”</li>
-</ul>
-</li>
-<li><strong>陷阱2：对浪费的恐惧</strong><ul>
-<li>选择真正想去做的，忽视沉没成本</li>
-</ul>
-</li>
-<li><strong>对策2：承认失败，让成功开始</strong> （承认错误，没有什么可羞耻的。因为我们真正承认的，现在的自己比过去更明智了）</li>
-<li>陷阱3：害怕过错</li>
-<li>对策3：逆向试行<ul>
-<li>最小可行性产品；反向应用，<strong>检验取消一项尝试或活动是否会产生负面效应；</strong></li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<h3 id="编辑：看不见的艺术"><a href="#编辑：看不见的艺术" class="headerlink" title="编辑：看不见的艺术"></a>编辑：看不见的艺术</h3><blockquote>
-<p>非精要主义：认为改善就意味着要增加；对每个词、形象和细节都恋恋不舍；</p>
-<p>​    精要主义：<strong>认为改善就是需要删减；</strong>删减分散注意力的词、形象和细节</p>
-</blockquote>
-<ol>
-<li>剪辑，就是严格淘汰那些无意义的、不重要的或不相关的内容。它是一种精要工艺。</li>
-<li>编辑人生的原则<ul>
-<li>删减，自律地抛弃</li>
-<li>精缩，有有意义的活动取代无意义的活动（你能不能只用一个句子，而不是两个，就把意思说清楚？现在用两个词的地方能不能只用一个词）<ul>
-<li>用更少的词表达同样的思想，用更小的空间获得同样的功用，或者用更小的努力获得同样的成就。</li>
-</ul>
-</li>
-<li>纠正，反观核心，调整方向</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="Part-4-第三步：执行"><a href="#Part-4-第三步：执行" class="headerlink" title="Part 4 第三步：执行"></a>Part 4 第三步：执行</h2><blockquote>
-<p>让有意义的少数做起来毫不费力；</p>
-<p>关于执行，非精要主义者通常用蛮力执行；精要主义者则通过<strong>淘汰无意义之事来节省时间，并设计一套体系，让执行变得毫不费力。</strong>  即一旦确定了哪些行为和努力在人生中加以保留，就必须/应该要设计一套体系来执行。</p>
-<p>扫除：扫除目标上的主要障碍 $\to$ 进步：最低可行性进步&amp;准备 $\to$ 心流：触发器 - 程序 - 习惯 $\to$ 专注</p>
-</blockquote>
-<h3 id="缓冲：充足准备带来优势"><a href="#缓冲：充足准备带来优势" class="headerlink" title="缓冲：充足准备带来优势"></a>缓冲：充足准备带来优势</h3><ol>
-<li>通常会议的最后10分钟被用于提问和评论，但他却坚持留出整整一个小时</li>
-<li><strong>出发前，提前一周就开始打包。</strong><ul>
-<li>提前打包；说不定期间你会突然想起什么</li>
-</ul>
-</li>
-<li>设置缓冲区<ul>
-<li>做完善的准备</li>
-<li>比预计时间多留50%<ul>
-<li>规划谬误（丹尼尔.卡尼曼）：人们倾向于低估任务完成所需的时间，即便是在以前已经承担过相同任务的情况下也是如此</li>
-</ul>
-</li>
-<li>做好情景规划</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<h3 id="扫除：锁定你的”最慢行进者”"><a href="#扫除：锁定你的”最慢行进者”" class="headerlink" title="扫除：锁定你的”最慢行进者”"></a>扫除：锁定你的”最慢行进者”</h3><ol>
-<li><strong><u>锁定你的 “最慢行进者” 之后，想尽一切办法来提高它的速度</u></strong>（不同于木桶理论；在完成一项事的过程中，<strong>用一切办法来克服</strong>，而不仅仅是通过自身的努力，<strong>完全可以是借助他人的力量或寻求他人的帮助</strong>）<ul>
-<li>现状：一群人向山顶走去，但速度有快有慢；<ul>
-<li>起初的办法让走在前面的人停下来等待，但只能用于一时；很快就又会产生差距</li>
-<li>之后按速度排列：从最慢到最快；但劣势是以最慢的那个人的速度在前进</li>
-</ul>
-</li>
-<li>对策：想尽一切办法为走在第一个最慢的人减负（因为走的最慢的那个人决定了整个队伍的速度；哪怕是任何一点加速，都会对整个队伍的行进速度产生影响）</li>
-</ul>
-</li>
-<li>扫除 “最慢行进者” ：<strong>精要主义者不关注需要增加哪些精力和资源，而是关心哪些限制和障碍需要连根拔起；</strong><ul>
-<li>弄清核心目标，确定要扫除的障碍是什么；</li>
-<li>锁定障碍，但不要试图一下子扫除所有障碍；<ul>
-<li>目标：完成报告的草案；</li>
-<li>因此任何延缓此目标执行的活动都是值得怀疑的；</li>
-<li>妨碍目标实现的障碍会有很多。然后在任何一个特定的时间，有且只有一个重要事件。</li>
-</ul>
-</li>
-<li>扫除障碍，从小处开始；<ul>
-<li>目标：完成报告的草案</li>
-<li>考虑：<strong>完成比完美更重要</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<h3 id="进步：小胜的价值"><a href="#进步：小胜的价值" class="headerlink" title="进步：小胜的价值"></a>进步：小胜的价值</h3><ol>
-<li><p>鼓舞进步所具有的力量。</p>
-</li>
-<li><p><strong>小小的但实实在在的胜利能够创造推动力，并让人们对自己未来的成功持肯定的信念。</strong></p>
-<ul>
-<li><strong>成就</strong> 和 <strong>对成就的认可</strong>，是人类行为两大主要的内在驱动力。</li>
-<li>要真正做好重要的事情，<strong>必须从小处着手，创造动力。</strong> （To really get essential things does we need start small and build momentum. ） 然后，运用这种动力创造下一个胜利，长此以往，直至取得重大突破。</li>
-<li>一种错误的逻辑：要干大事，就必须从大处着手；</li>
-</ul>
-</li>
-<li><p>鼓励小胜</p>
-<ul>
-<li><p>关注最低可行性进步 （完成比完美更重要）</p>
-</li>
-<li><p><strong><u>做最低可行性准备：早而小</u></strong> </p>
-<ul>
-<li>“早而小” ，意味着以尽可能少的时间投入，尽可能早地开始 </li>
-<li>有一位领导者，他非常善于发表激动人心的演说；他解释说自己的秘诀就是在演说的6个月前就开始为这些内容做准备。<strong>但不是准备整个讲稿，只是开始而已。</strong></li>
-<li>如果未来几个星期有一个重大报告要做，那么你现在就打开文件，花4分钟时间，想到什么就写什么。然后关闭文件；无需太长时间，<strong>开始就够了。</strong></li>
-<li>任何时候安排了会议或有电话要打，精确地花15秒钟备忘一下那个会议的主题；这样开会当天，只需要参考这个备忘录就可以了。</li>
-</ul>
-<blockquote>
-<p>应对一个重要目标：早动手，小步前进；并且质量/效果往往更佳（因为大脑需要时间去吸收、整理；）</p>
-</blockquote>
-</li>
-<li><p><strong>直观地嘉奖进步</strong></p>
-<ul>
-<li>直观地看到自己正朝着目标进步，会产生一种巨大的力量。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>人是会被机制/制度/环境所影响的。不要高估自己的意志力。</p>
-<p>改变孩子爱看电视的行为：<em>每周一开始，孩子们可以领到10个代币。每个代币可以换30分钟屏幕时间，或者在周末的时候换50美分；如果哪个孩子读书30分钟，那他就可以获得一个额外的代币；结果是一夜之间，屏幕时间下降了90%，读书时间上升了同样的百分比；</em></p>
-</blockquote>
-<p><br></p>
-<h3 id="心流：常规造就天才"><a href="#心流：常规造就天才" class="headerlink" title="心流：常规造就天才"></a>心流：常规造就天才</h3><blockquote>
-<p>非精要主义：凭蛮力执行重要任务；让非重要事物成为默认选项</p>
-<p>​    精要主义：<strong>设计一种处理重要事务的常规，让重要事务处于默认状态，让执行毫不费力；</strong></p>
-</blockquote>
-<ol>
-<li><p>大脑中进行假想演练，是会非常有效的方法；（菲尔普斯每天都在脑中假想自己的动作）</p>
-<blockquote>
-<p>因为大脑中的神经元之间的联系得到了加强</p>
-</blockquote>
-</li>
-<li><p>释放常规的力量</p>
-<ul>
-<li><p>彻底检修你的触发器</p>
-<ul>
-<li>《习惯的力量》：每一个习惯都是由 “刺激、常规、激励” 组成；如果想改变自己的常规，并不需要真的去改变行为。</li>
-</ul>
-</li>
-<li><p>创建<strong>新的触发器</strong></p>
-<ul>
-<li>通过<strong>设置场景（物理上的提醒更加有效）</strong>来创建触发器</li>
-<li>并且<strong><u>充分利用已有的习惯</u></strong>， 而不是费力去创建新的习惯</li>
-</ul>
-<blockquote>
-<p>有人养成了每天在固定时间写下内容的习惯；虽然听上去很容易，但我们知道自己 <strong>[需要某种刺激物来提醒]</strong> 自己在每天特定时间内写作，否则会像以前那样拖延；</p>
-<p>因此，<u>开始把日记本放在包里，紧挨着手机</u>；这样，每天晚上当我把手机从包里拿出来充电时，我就会看到日记本，它会提醒我在上面写东西；</p>
-</blockquote>
-</li>
-<li><p>先做最困难的部分</p>
-<ul>
-<li>运用上述方法建立一种常规，让攻克一天中最困难的任务成为每天早上的第一件事。找到一种<strong>刺激物</strong> （可以是出现在写字台上的第一杯橙汁，还是手机上的闹铃，或是<strong><u>任何一件你已经习惯</u></strong>一大早就最先做的事情）来出发你坐下来，把精力集中到最难的事情上去</li>
-</ul>
-</li>
-<li><p>建立混合型常规</p>
-</li>
-<li><p>逐个击破</p>
-</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<h3 id="专注：当下最重要的是什么"><a href="#专注：当下最重要的是什么" class="headerlink" title="专注：当下最重要的是什么"></a>专注：当下最重要的是什么</h3><ol>
-<li><p>专注于最重要的东西，就是<strong>专注于此时此刻。</strong></p>
-<ul>
-<li><em>全身心投入吃饭的这一刻：当我缓慢地吃下第一口食物时，变化出现了。我注意到了自己的呼吸。觉得全身心地融入了此处。</em>；    <em>看他做食物，发现他整个人都沉浸进去了</em></li>
-</ul>
-</li>
-<li><p>在担心过去或未来上花费的任何一秒钟，都在分散抽离着你对此时此刻地重要事务的关注。</p>
-</li>
-<li><p>同时做两件事轻而易举，但同时<strong><u>专注于</u></strong>两件事是几乎不可能的；</p>
-</li>
-<li><p>活在当下</p>
-<ul>
-<li><p>想清楚当下最重要的是什么</p>
-<ul>
-<li>当你面临很多任务，以至于不知该从何下手时，停下来，深呼吸；投入到当下，问问自己此时此刻最重要的是什么。不是明天，甚至也不是一小时后最重要的是什么。如果不确定，那就把所有争抢你注意力的事情都列出来，然后划掉此时此刻不重要的事情</li>
-</ul>
-</li>
-<li><p>把未来清除出去，会更加专注于当下</p>
-<ul>
-<li><strong>把出现的想法记录下来，写下来</strong>；但这个清单并不是记录承诺的，只不过把这些想法从大脑中清除出去，留在本子上而已；</li>
-</ul>
-<blockquote>
-<p><strong>保证了不会忘记这些想法，他们也许将来会被证明有用</strong></p>
-<p><strong>减轻了大脑的负担；减轻了必须现在就去执行的那种压迫感和分心的危险</strong></p>
-</blockquote>
-</li>
-<li><p>排列优先次序</p>
-</li>
-</ul>
-</li>
-<li><p>凯洛斯时刻：用来更新的停顿（他只是停顿一会儿，闭上眼睛，缓慢地深呼吸一次）</p>
-<ul>
-<li>这更像是一种仪式，一种触发器；告诉自己，那个已经过去了。（在走入家门前，他这这种停顿的方式把工作的事情抛在脑后）</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<p><br></p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><blockquote>
-<p>存在，设计你的精要人生</p>
-</blockquote>
-<ol>
-<li><p>把<strong>精要主义</strong>作为处理所有事情的<strong>生活方式</strong>；过一种有目的、有意义的生活；</p>
-<blockquote>
-<p>出差时，不要电视或电影，以便有时间思考和休息</p>
-<p>经常一整天都在做当天最重要的事，哪怕这意味着做不了其他任务</p>
-</blockquote>
-</li>
-<li><p>“成功的悖论” 。我们有明确的目标，它能指引我们走向成功。但是，成功给我带来了新的选项。这听起来很美妙。但要警惕，这些选项会在无意间分散我们的注意力，引诱我们偏离正确的轨道；</p>
-</li>
-<li><p><strong>当你感受到这些想法的真实性时，它们就拥有了改变你的力量。</strong></p>
-<blockquote>
-<p><strong>As these ideas become essentially true, they take on the power to change you .</strong></p>
-</blockquote>
-</li>
-<li><p><strong>在合适的时机向适宜的对象传递恰当的信息</strong></p>
-<blockquote>
-<p>Communicating the right information to the right people at the right time.</p>
-<p><strong>【反思】不要给接受信息者无谓的干扰信息；你要对你要传达的信息做选择</strong></p>
-</blockquote>
-</li>
-<li><p>精要领导者</p>
-<ul>
-<li>对人才招聘挑剔地近乎荒谬（一次错误招聘的代价要远远大于一个人手短缺）</li>
-<li>在真正明确核心意图之前，不要停止争论</li>
-<li>支持极端授权（<strong>授权的关键在于明确性。</strong>它不会让角色定位过于原则性和模糊性。它会保证让团队中的每个人都清楚自己改做出什么贡献，以及其他员工都在贡献什么）</li>
-<li>在合适的时机合适的人传递恰当的信息</li>
-</ul>
-</li>
-<li><p>“世界上有一种东西比所有的军队都要强大，那就是恰逢其实的一种理想。” By 维克多 $\cdot$ 雨果 - 法国作家</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;《精要主义》_格雷格.麦吉沃恩&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;《Essentialism : The Disciplined Pursuit of Less》_ Grey.Mckeown&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;目的：精要，即重要的事。懂得如何识别与运用；强化思维；为2018年成为一个精要的人做理论研究&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
     
   </entry>
   
