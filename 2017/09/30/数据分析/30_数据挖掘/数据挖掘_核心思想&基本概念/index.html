@@ -103,7 +103,7 @@
 分类
 预测
 推荐">
-<meta property="og:updated_time" content="2018-02-13T13:54:09.666Z">
+<meta property="og:updated_time" content="2018-02-21T06:48:34.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘_核心思想&基本概念">
 <meta name="twitter:description" content="核心目的
@@ -359,8 +359,8 @@
               
                 <span class="post-meta-item-text">更新</span>
               
-              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:54:09+08:00">
-                2018-02-13
+              <time title="更新" itemprop="dateModified" datetime="2018-02-21T14:48:34+08:00">
+                2018-02-21
               </time>
             
           </span>
@@ -495,10 +495,10 @@
 </ol>
 </li>
 </ul>
-<h3 id="2-1-数据集的划分"><a href="#2-1-数据集的划分" class="headerlink" title="2.1 数据集的划分"></a>2.1 数据集的划分</h3><blockquote>
-<p>R - createDataPartition() - car包</p>
+<p><br></p>
+<h3 id="2-1-数据集的划分"><a href="#2-1-数据集的划分" class="headerlink" title="2.1 数据集的划分"></a>2.1 数据集的划分</h3><p>R - createDataPartition() - car包</p>
 <blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; set.seed(<span class="number">1234</span>)</div><div class="line">&gt; &gt; inTrain &lt;- createDataPartition(data$y, p=<span class="number">0.75</span>, time=<span class="number">1</span>, list=<span class="literal">FALSE</span>)</div><div class="line">&gt; &gt; training &lt;- data[inTrain, ]  <span class="comment"># 将75%的训练样本添加到data</span></div><div class="line">&gt; &gt; test &lt;- data[-inTrain, ]  <span class="comment"># 将25%的测试样本添加到data</span></div><div class="line">&gt; &gt; print(table(data$y))  <span class="comment"># 输出分割后的数据行</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; set.seed(<span class="number">1234</span>)</div><div class="line">&gt; inTrain &lt;- createDataPartition(data$y, p=<span class="number">0.75</span>, time=<span class="number">1</span>, list=<span class="literal">FALSE</span>)</div><div class="line">&gt; training &lt;- data[inTrain, ]  <span class="comment"># 将75%的训练样本添加到data</span></div><div class="line">&gt; test &lt;- data[-inTrain, ]  <span class="comment"># 将25%的测试样本添加到data</span></div><div class="line">&gt; print(table(data$y))  <span class="comment"># 输出分割后的数据行</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <p>&gt;</p>
 <blockquote>
@@ -506,7 +506,6 @@
 <p>p=0.n， 划分为p%的训练数据的百分比；(1-p)%为测试样本的百分比</p>
 <p>time=n， 要创建的分区的数目</p>
 <p>list=FALSE</p>
-</blockquote>
 </blockquote>
 <h3 id="2-2-混淆矩阵"><a href="#2-2-混淆矩阵" class="headerlink" title="2.2 混淆矩阵"></a>2.2 混淆矩阵</h3><ul>
 <li>What：提供了实际的类 vs 预测的类的分布情况，以此来评价模型的泛化能力；</li>
@@ -536,13 +535,76 @@
 <p>错误率 = 错误预测数 / 预测总数</p>
 <blockquote>
 <p>R - confusionMatrix()</p>
-<blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; logit.pred &lt;- predict(logit, hr_good_test, type=<span class="string">"response"</span>)  <span class="comment"># 用predict得出模型的预测值</span></div><div class="line">&gt; &gt; confusionMatrix(hr_good_test$left, logit.pred)  <span class="comment"># 将实际值与预测值组成混淆矩阵</span></div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure>
-</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; logit.pred &lt;- predict(logit, hr_good_test, type=<span class="string">"response"</span>)  <span class="comment"># 用predict得出模型的预测值</span></div><div class="line">&gt; confusionMatrix(hr_good_test$left, logit.pred)  <span class="comment"># 将实际值与预测值组成混淆矩阵</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <p><br></p>
+<h3 id="2-3-决策树"><a href="#2-3-决策树" class="headerlink" title="2.3 决策树"></a>2.3 决策树</h3><p>[what] - 通过一系列关于检验记录属性的问题，解决分类问题；每当一个问题得到答案，后一个问题随之而来，直到得出记录的类标号；</p>
+<ul>
+<li>根结点：起始位置</li>
+<li>内部结点：包含属性测试条件，用以对记录进行分类</li>
+<li>叶结点：终点位置，每个叶结点有一个类标号</li>
+</ul>
+<p>[why] - 适用特点</p>
+<ul>
+<li>非参数方法，即不需要先验假设</li>
+<li>在有噪声情况下也可得出可接受的结果</li>
+<li>冗余属性不会对准确率造成不利影响<ul>
+<li>冗余：即在一个数据集中，一个属性与另一个属性是强相关的，就是冗余的；在两个冗余属性中，如果已经选择其中一个，另一个会被忽律</li>
+</ul>
+</li>
+<li>学习离散值函数的典型代表</li>
+<li>当数据太少时，无法做出有统计意义的判决；可设置当样本个数小于某个阈值时停止分裂</li>
+</ul>
+<p>[how] - 建立决策树</p>
+<ol>
+<li>Hunt算法：将训练记录划分成较纯的子集，以递归方式建立决策树；<ul>
+<li>若子集D中所有记录属于同一个类，则t是叶结点</li>
+<li>若子集D中包含属于多个类的记录，则选择一个属性测试条件，将记录划分成较小的子集</li>
+</ul>
+</li>
+<li>设置的两个问题<ul>
+<li>如何为不同类型的属性指定测试条件</li>
+<li>需有一个结束条件</li>
+</ul>
+</li>
+</ol>
+<p>[how] - 模型选择-评估</p>
+<ol>
+<li><p>保持方法</p>
+<ul>
+<li>将被标记的原始数据分为训练集、测试集。</li>
+<li>在测试集上评估模型的泛化性能</li>
+</ul>
+</li>
+<li><p>交叉验证：[what] - 每个记录用于训练的次数相同，并且恰好检验一次；</p>
+<ul>
+<li>选择一个子集作为训练集，另一个作为测试集；</li>
+<li>交换两个集的角色；</li>
+<li>总误差为对各个误差求和；</li>
+</ul>
+<blockquote>
+<p>二折交叉验证、k折交叉验证</p>
+</blockquote>
+</li>
+<li><p>自助法：[what] - 训练记录采用有放回抽样；即等几率的被重复抽取</p>
+</li>
+</ol>
+<p><br></p>
+<h3 id="2-4-SVM-支持向量机"><a href="#2-4-SVM-支持向量机" class="headerlink" title="2.4 SVM 支持向量机"></a>2.4 SVM 支持向量机</h3><p>[what] - 通过寻找最大边缘超平面，来划分数据；</p>
+<ul>
+<li>[what] - 最大边缘超平面；<ul>
+<li>可找到这样一个平面，使得所有的方块数据位于这个超平面的一侧，而所有的圆圈数据在另一侧</li>
+<li>它们的训练误差为零，但这样的平面有无穷个</li>
+<li>平行移动一个和决策边界平行的超平面，直到触到最近的圆圈，两个超平面之间的距离为分类器的边缘；</li>
+<li>选择分类器边缘最大的超平面，即最大边缘超平面</li>
+</ul>
+</li>
+<li>[why] - 因为边缘较小，决策边界的轻微扰动都可能对分类产生显著的影响；故边缘越大，泛化能力越好；</li>
+</ul>
+<p>[why] - 适用特点；可很好地用于高维数据</p>
+<p><br></p>
 <h2 id="3-关联"><a href="#3-关联" class="headerlink" title="3. 关联"></a>3. 关联</h2><ul>
-<li>What：用于发现数据集中有意义的联系；并用关联规则或频繁项集的形式表示</li>
+<li>What：用于发现数据集中有意义的联系；并用<strong>关联规则或频繁项集</strong>的形式表示</li>
 <li>Why ：通过发现有意义的联系来指导行为；</li>
 </ul>
 <h3 id="3-1-二元表示"><a href="#3-1-二元表示" class="headerlink" title="3.1 二元表示"></a>3.1 二元表示</h3><ul>
@@ -601,7 +663,7 @@
 <li>How ：将项集Y划分成两个非空的子集 X 和 Y-X；</li>
 </ul>
 <h4 id="3-5-1-基于置信度的剪枝"><a href="#3-5-1-基于置信度的剪枝" class="headerlink" title="3.5.1 基于置信度的剪枝"></a>3.5.1 基于置信度的剪枝</h4><ul>
-<li>What：如果规则X$\to$ Y-X 不满足置信度阈值，则形如 $X^,$ $\to$ Y-$X^,$的规则也一定不满足置信度阈值；其中，$X^,$是X 的子集；<ul>
+<li>What：如果规则X$\to$ Y-X 不满足置信度阈值，则形如 $X’$ $\to$  Y - $X’$的规则也一定不满足置信度阈值；其中，$X’$是X 的子集；<ul>
 <li>若{bcd}$\to${a}具有不满足置信度阈值，则可以剪枝掉<strong>后件包含a</strong>的所有规则：{cd}$\to${ab},{bd}$\to${ac},{bc}$\to${ad},{d}$\to${abc}</li>
 </ul>
 </li>
@@ -632,6 +694,58 @@
 <li>基于密度的</li>
 <li>共同性质的（概念簇）</li>
 </ul>
+<p><br></p>
+<h3 id="4-3-K均值"><a href="#4-3-K均值" class="headerlink" title="4.3 K均值"></a>4.3 K均值</h3><p>[what] - 基于原型的、划分的聚类技术；它试图发现用户指定个数K的簇</p>
+<pre><code>- K均值：用质心定义原型，质心=一组点的均值
+</code></pre><ul>
+<li>K中心点：用中心点定义原型，中心点=一组点中最后代表性的点</li>
+</ul>
+<p>[how] - 基本算法</p>
+<ol>
+<li>选择K个初始质心；（K是用户指定的个数）</li>
+<li>每个点指派到最近的质心，并集为一个簇；</li>
+<li>重新计算新的簇的质心</li>
+<li>重复指派和更新质心，直至质心不再发生变化；或者用较弱的条件替代算法-eg:直到仅有1%的点改变簇</li>
+</ol>
+<p><br></p>
+<h3 id="4-4-凝聚层次聚类"><a href="#4-4-凝聚层次聚类" class="headerlink" title="4.4 凝聚层次聚类"></a>4.4 凝聚层次聚类</h3><p>[what] - 邻近性</p>
+<ul>
+<li>MIN-单链；不同簇的两个<strong>最近点</strong>之间的邻近度</li>
+<li>MAX-全链；不同簇的两个<strong>最远点</strong>之间的邻近度</li>
+<li>组平均；不同簇的所有点对邻近度的平均值</li>
+</ul>
+<p>[how] - 从个体点作为簇开始，相继合并最接近的簇；直到只剩下一个簇</p>
+<ol>
+<li>计算邻近度矩阵</li>
+<li>合并最接近的两个簇</li>
+<li>更新邻近矩阵，以反映新的簇与原来簇之间的邻近性</li>
+<li>直至剩下一个簇</li>
+</ol>
+<p><br></p>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><h3 id="聚集"><a href="#聚集" class="headerlink" title="聚集"></a>聚集</h3><p>[what] - 将两个或多个对象合并成单个对象</p>
+<p>[why] </p>
+<ul>
+<li>范围/标度转换，得到高层数据视图 - eg:从天到月</li>
+<li>群的行为比单个对象的行为更加稳定</li>
+<li>进一步分析的处理前提</li>
+</ul>
+<p><br></p>
+<h3 id="抽样"><a href="#抽样" class="headerlink" title="抽样"></a>抽样</h3><p>[what] - 选取数据子集，但必须是有效抽样，即样本是有代表性的；</p>
+<p>[why] - 压缩数据</p>
+<p><br></p>
+<h3 id="维归约"><a href="#维归约" class="headerlink" title="维归约"></a>维归约</h3><p>[what] - 通过创建新属性，将旧属性合并到一起来降低数据集的维度</p>
+<p>[why] - </p>
+<ul>
+<li>降低维数，提高数据挖掘的效果</li>
+<li>删除不相关的特定并降低噪音</li>
+<li>避免维灾难</li>
+<li>易于模型更容易解释</li>
+</ul>
+<p><br></p>
+<p>特征子集选择</p>
+<p>特征创建</p>
+<p>离散化和二元化</p>
+<p>变量变换</p>
 
       
     </div>
@@ -788,7 +902,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">129</span>
+                <span class="site-state-item-count">128</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -886,7 +1000,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#核心目的"><span class="nav-number">1.</span> <span class="nav-text">核心目的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关联原则"><span class="nav-number">1.0.1.</span> <span class="nav-text">关联原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类比较"><span class="nav-number">1.0.2.</span> <span class="nav-text">分类比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归分析"><span class="nav-number">1.0.3.</span> <span class="nav-text">回归分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类"><span class="nav-number">1.0.4.</span> <span class="nav-text">聚类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类-Vs-聚类"><span class="nav-number">1.1.</span> <span class="nav-text">分类 Vs. 聚类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据挖掘"><span class="nav-number">2.1.</span> <span class="nav-text">1. 数据挖掘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分类"><span class="nav-number">2.2.</span> <span class="nav-text">2. 分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数据集的划分"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 数据集的划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-混淆矩阵"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 混淆矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-关联"><span class="nav-number">2.3.</span> <span class="nav-text">3. 关联</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-二元表示"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 二元表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-项集和支持度计数"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 项集和支持度计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-关联规则、支持度与置信度"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 关联规则、支持度与置信度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-频繁项集"><span class="nav-number">2.3.4.</span> <span class="nav-text">3.4 频繁项集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-原始方法"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">3.4.1 原始方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-先验原理"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">3.4.2 先验原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-规则产生"><span class="nav-number">2.3.5.</span> <span class="nav-text">3.5 规则产生</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-1-基于置信度的剪枝"><span class="nav-number">2.3.5.1.</span> <span class="nav-text">3.5.1 基于置信度的剪枝</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-聚类"><span class="nav-number">2.4.</span> <span class="nav-text">4. 聚类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-聚类类型"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 聚类类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-层次-划分聚类"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">4.1.1 层次/划分聚类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-簇类型"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 簇类型</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#核心目的"><span class="nav-number">1.</span> <span class="nav-text">核心目的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关联原则"><span class="nav-number">1.0.1.</span> <span class="nav-text">关联原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类比较"><span class="nav-number">1.0.2.</span> <span class="nav-text">分类比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归分析"><span class="nav-number">1.0.3.</span> <span class="nav-text">回归分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类"><span class="nav-number">1.0.4.</span> <span class="nav-text">聚类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类-Vs-聚类"><span class="nav-number">1.1.</span> <span class="nav-text">分类 Vs. 聚类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据挖掘"><span class="nav-number">2.1.</span> <span class="nav-text">1. 数据挖掘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分类"><span class="nav-number">2.2.</span> <span class="nav-text">2. 分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数据集的划分"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 数据集的划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-混淆矩阵"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 混淆矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-决策树"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3 决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-SVM-支持向量机"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.4 SVM 支持向量机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-关联"><span class="nav-number">2.3.</span> <span class="nav-text">3. 关联</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-二元表示"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 二元表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-项集和支持度计数"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 项集和支持度计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-关联规则、支持度与置信度"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 关联规则、支持度与置信度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-频繁项集"><span class="nav-number">2.3.4.</span> <span class="nav-text">3.4 频繁项集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-原始方法"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">3.4.1 原始方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-先验原理"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">3.4.2 先验原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-规则产生"><span class="nav-number">2.3.5.</span> <span class="nav-text">3.5 规则产生</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-1-基于置信度的剪枝"><span class="nav-number">2.3.5.1.</span> <span class="nav-text">3.5.1 基于置信度的剪枝</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-聚类"><span class="nav-number">2.4.</span> <span class="nav-text">4. 聚类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-聚类类型"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 聚类类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-层次-划分聚类"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">4.1.1 层次/划分聚类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-簇类型"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 簇类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-K均值"><span class="nav-number">2.4.3.</span> <span class="nav-text">4.3 K均值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-凝聚层次聚类"><span class="nav-number">2.4.4.</span> <span class="nav-text">4.4 凝聚层次聚类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据预处理"><span class="nav-number">2.5.</span> <span class="nav-text">数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#聚集"><span class="nav-number">2.5.1.</span> <span class="nav-text">聚集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽样"><span class="nav-number">2.5.2.</span> <span class="nav-text">抽样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#维归约"><span class="nav-number">2.5.3.</span> <span class="nav-text">维归约</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
