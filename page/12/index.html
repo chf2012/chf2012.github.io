@@ -293,6 +293,634 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/07/软件应用_办公软件/Markdown/Markdown基本概念/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/07/软件应用_办公软件/Markdown/Markdown基本概念/" itemprop="url">
+                  Markdown使用手册
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T00:00:00+08:00">
+                2017-02-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:15:39+08:00">
+                2018-02-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/办公软件/" itemprop="url" rel="index">
+                    <span itemprop="name">办公软件</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/办公软件/markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">markdown</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/07/软件应用_办公软件/Markdown/Markdown基本概念/" class="leancloud_visitors" data-flag-title="Markdown使用手册">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Markdown-使用手册"><a href="#Markdown-使用手册" class="headerlink" title="Markdown 使用手册"></a>Markdown 使用手册</h1><p><strong>[what] - 一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）.HTML 是一种发布的格式，Markdown 是一种书写的格式。</strong></p>
+<p><strong>[why] - 使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档。</strong></p>
+<p><br></p>
+<h1 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h1><h2 id="（一）段落和换行"><a href="#（一）段落和换行" class="headerlink" title="（一）段落和换行"></a>（一）段落和换行</h2><h3 id="1-段落"><a href="#1-段落" class="headerlink" title="1. 段落"></a>1. 段落</h3><ul>
+<li>由一个或多个连续的文本行组成，它的<strong>前后</strong>要有一个以上的空行；   </li>
+</ul>
+<ul>
+<li><p>空行的定义是显示上看起来像是空的，便会被视为空行。比方说，若某一行只包含空格和制表符，则该行也会被视为空行。</p>
+</li>
+<li><p>相邻两行文本，如果中间没有空行会显示在一行中（换行符被转换为空格）</p>
+</li>
+</ul>
+<h3 id="2-换行"><a href="#2-换行" class="headerlink" title="2. 换行"></a>2. 换行</h3><ul>
+<li>如果需要在段落内加入<strong>换行（而非换段落）</strong><code>（&lt;br&gt;）</code>,可以在<strong>前一行的末尾</strong>加入<strong>至少两个空格</strong>，然后换行写其它的文字</li>
+</ul>
+<h3 id="3-大段落"><a href="#3-大段落" class="headerlink" title="3. 大段落"></a>3. 大段落</h3><ul>
+<li>可加入<code>&lt;br&gt;</code></li>
+<li>普通段落不该用空格或制表符来缩进。</li>
+</ul>
+<h2 id="（二）标题"><a href="#（二）标题" class="headerlink" title="（二）标题"></a>（二）标题</h2><p>支持两种标题的语法：    </p>
+<h3 id="1-类atx形式：在行首插入1-6个-，对应到标题的1到6阶；"><a href="#1-类atx形式：在行首插入1-6个-，对应到标题的1到6阶；" class="headerlink" title="1. 类atx形式：在行首插入1-6个#，对应到标题的1到6阶；"></a>1. 类atx形式：在行首插入1-6个<code>#</code>，对应到标题的1到6阶；</h3><h1 id="一阶"><a href="#一阶" class="headerlink" title="一阶  #"></a>一阶  <code>#</code></h1><h2 id="二阶"><a href="#二阶" class="headerlink" title="二阶 ##"></a>二阶 <code>##</code></h2><h3 id="三阶"><a href="#三阶" class="headerlink" title="三阶 ###"></a>三阶 <code>###</code></h3><h4 id="四阶"><a href="#四阶" class="headerlink" title="四阶 ####"></a>四阶 <code>####</code></h4><h5 id="五阶"><a href="#五阶" class="headerlink" title="五阶 #####"></a>五阶 <code>#####</code></h5><h6 id="六阶"><a href="#六阶" class="headerlink" title="六阶 ######"></a>六阶 <code>######</code></h6><h3 id="2-类Setext形式-底线形式，利用-（最高阶标题）和-（第二阶标题）"><a href="#2-类Setext形式-底线形式，利用-（最高阶标题）和-（第二阶标题）" class="headerlink" title="2. 类Setext形式:底线形式，利用 =（最高阶标题）和 -（第二阶标题）;"></a>2. 类Setext形式:底线形式，利用 <code>=</code>（最高阶标题）和 <code>-</code>（第二阶标题）;</h3><h1 id="一阶-1"><a href="#一阶-1" class="headerlink" title="一阶 "></a>一阶 </h1><h2 id="二阶-1"><a href="#二阶-1" class="headerlink" title="二阶"></a>二阶</h2><p><br></p>
+<h2 id="（三）区块引用-Blockquotes"><a href="#（三）区块引用-Blockquotes" class="headerlink" title="（三）区块引用 Blockquotes"></a>（三）区块引用 Blockquotes</h2><p>###1. 常规引用：在每行的最前面加上 <code>&gt;</code></p>
+<pre><code>&gt;This is a blockquote with two paragraphs.Lorem ipsum dolor sit ame,
+&gt;consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.    
+</code></pre><blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit ame,</p>
+<p>consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.</p>
+</blockquote>
+<h3 id="2-嵌套引用：根据层次加上不同数量的-gt"><a href="#2-嵌套引用：根据层次加上不同数量的-gt" class="headerlink" title="2.嵌套引用：根据层次加上不同数量的 &gt;"></a>2.嵌套引用：根据层次加上不同数量的 <code>&gt;</code></h3><pre><code>&gt; This is the first level of quoting.
+&gt; 
+&gt;&gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.    
+</code></pre><blockquote>
+<p>This is the first level of quoting.</p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<blockquote>
+<p>This is nested blockquote.</p>
+</blockquote>
+<p>Back to the first level.</p>
+</blockquote>
+<h3 id="3-引用区块中可以使用其他的Markdown语法"><a href="#3-引用区块中可以使用其他的Markdown语法" class="headerlink" title="3. 引用区块中可以使用其他的Markdown语法"></a>3. 引用区块中可以使用其他的Markdown语法</h3><pre><code>&gt; ### 这是一个标题
+&gt; 
+&gt; 1. 这是第一行列
+&gt; 
+&gt; 给出一些例子代码：
+&gt; 
+&gt; return shell_exec(&quot;echo $input | $markdown_script&quot;);
+</code></pre><blockquote>
+<h3 id="这是一个标题"><a href="#这是一个标题" class="headerlink" title="这是一个标题"></a>这是一个标题</h3><ol>
+<li>这是第一行列</li>
+</ol>
+<p>给出一些例子代码：</p>
+<p>return shell_exec(“echo $input | $markdown_script”);</p>
+</blockquote>
+<p><br></p>
+<h2 id="（四）列表"><a href="#（四）列表" class="headerlink" title="（四）列表"></a>（四）列表</h2><h3 id="1-有序列表：使用数字接着一个英文句点，然后加一个空格或制表符"><a href="#1-有序列表：使用数字接着一个英文句点，然后加一个空格或制表符" class="headerlink" title="1. 有序列表：使用数字接着一个英文句点，然后加一个空格或制表符"></a>1. 有序列表：使用数字接着一个英文句点，然后加一个空格或制表符</h3><pre><code>1. Bird
+2. McHale
+3. 
+</code></pre><ol>
+<li>Bird</li>
+<li>McHale<ol>
+<li>​</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-无序列表：使用星号-、加号-或是减号-作为列表标记，后接一个空格"><a href="#2-无序列表：使用星号-、加号-或是减号-作为列表标记，后接一个空格" class="headerlink" title="2. 无序列表：使用星号*、加号+或是减号-作为列表标记，后接一个空格"></a>2. 无序列表：使用星号<code>*</code>、加号<code>+</code>或是减号<code>-</code>作为列表标记，后接一个空格</h3><pre><code>* 列表
+    + 列表
+        - 列表
+            - 列表
+</code></pre><ul>
+<li>列表<ul>
+<li>列表<ul>
+<li>列表<ul>
+<li>列表</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-你在列表标记上使用的数字并不会影响输出的-HTML-结果"><a href="#3-你在列表标记上使用的数字并不会影响输出的-HTML-结果" class="headerlink" title="3. 你在列表标记上使用的数字并不会影响输出的 HTML 结果"></a>3. 你在列表标记上使用的数字并不会影响输出的 HTML 结果</h3><p>如果你的列表标记写成：<br>​    </p>
+<pre><code>1.  Bird
+1.  McHale
+1.  Parish
+</code></pre><p>或甚至是：</p>
+<pre><code>3. Bird
+1. McHale
+8. Parish
+</code></pre><p>你都会得到完全相同的 HTML 输出。</p>
+<h3 id="4-项目标记也可以缩进，最多三个空格"><a href="#4-项目标记也可以缩进，最多三个空格" class="headerlink" title="4. 项目标记也可以缩进，最多三个空格"></a>4. 项目标记也可以缩进，最多三个空格</h3><ul>
+<li>Lorem ipsum dolor sit amet, consectetueradipiscingelit.Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,viverra nec, fringilla in, laoreet vitae, risus.</li>
+<li>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.Suspendisse id sem consectetuer libero luctus adipiscing.</li>
+</ul>
+<h3 id="5-列表项目可以包含多个段落，每个项目下的段落都必须缩进-4-个空格或是-1-个制表符"><a href="#5-列表项目可以包含多个段落，每个项目下的段落都必须缩进-4-个空格或是-1-个制表符" class="headerlink" title="5. 列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符"></a>5. 列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符</h3><pre><code>1.  This is a list item with two paragraphs.
+    1.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. 
+
+    Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+</code></pre><ol>
+<li><p>This is a list item with two paragraphs.</p>
+<ol>
+<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. </li>
+</ol>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.</p>
+</li>
+</ol>
+<h3 id="6-如果要在列表项目内放进引用，那-gt-就需要缩进"><a href="#6-如果要在列表项目内放进引用，那-gt-就需要缩进" class="headerlink" title="6. 如果要在列表项目内放进引用，那 &gt; 就需要缩进"></a>6. 如果要在列表项目内放进引用，那 <code>&gt;</code> 就需要缩进</h3><pre><code>*   A list item with a blockquote:
+    &gt; This is a blockquote
+    &gt; inside a list item.
+</code></pre><ul>
+<li>A list item with a blockquote:<blockquote>
+<p>This is a blockquote inside a list item.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="7-如果要放代码区块的话，该区块就需要缩进两次，也就是-8-个空格或是-2-个制表符"><a href="#7-如果要放代码区块的话，该区块就需要缩进两次，也就是-8-个空格或是-2-个制表符" class="headerlink" title="7. 如果要放代码区块的话，该区块就需要缩进两次，也就是 8 个空格或是 2 个制表符"></a>7. 如果要放代码区块的话，该区块就需要缩进两次，也就是 8 个空格或是 2 个制表符</h3><pre><code>*   一列表项包含一个列表区块：
+        &lt;代码写在这&gt;
+</code></pre><h3 id="8-避免项目列表自动出现（数字-句点-空格），可在之前加"><a href="#8-避免项目列表自动出现（数字-句点-空格），可在之前加" class="headerlink" title="8. 避免项目列表自动出现（数字-句点-空格），可在之前加\"></a>8. 避免项目列表自动出现（数字-句点-空格），可在之前加<code>\</code></h3><pre><code>1986\. What a great season
+</code></pre><p><br></p>
+<h2 id="（五）代码区块"><a href="#（五）代码区块" class="headerlink" title="（五）代码区块"></a>（五）代码区块</h2><p>程序相关的写作或是标签语言原始码通常会有已经排版好的代码区块，通常这些区块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示，Markdown 会用<code>&lt;</code>pre<code>和</code>code`标签来把代码区块包起来。</p>
+<h3 id="1-建立方法：缩进-4-个空格或是-1-个制表符"><a href="#1-建立方法：缩进-4-个空格或是-1-个制表符" class="headerlink" title="1. 建立方法：缩进 4 个空格或是 1 个制表符"></a>1. 建立方法：缩进 4 个空格或是 1 个制表符</h3><pre><code>这是一个普通段落：
+
+      这是一个代码区块。
+</code></pre><p>Markdown 会转换成：</p>
+<pre><code>&lt;p&gt;这是一个普通段落：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;这是一个代码区块。
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre><p>这个每行一阶的缩进（4 个空格或是 1 个制表符），都会被移除；</p>
+<p>一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）</p>
+<h3 id="2-代码中的特殊符号"><a href="#2-代码中的特殊符号" class="headerlink" title="2. 代码中的特殊符号"></a>2. 代码中的特殊符号</h3><p>在代码区块里面， &amp; 、 &lt; 和 &gt; 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，再加上缩进就可以了<br>​<br>    <div class="footer"><br>        &copy; 2004 Foo Corporation<br>    </div><br>会被转换为：</p>
+<pre><code>&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;footer&quot;&amp;gt;
+&amp;amp;copy; 2004 Foo Corporation
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre><h3 id="3-代码区块中，一般的-Markdown-语法不会被转换，像星号便只是星号"><a href="#3-代码区块中，一般的-Markdown-语法不会被转换，像星号便只是星号" class="headerlink" title="3. 代码区块中，一般的 Markdown 语法不会被转换，像星号便只是星号"></a>3. 代码区块中，一般的 Markdown 语法不会被转换，像星号便只是星号</h3><h3 id="4-如果要放代码区块的话，该区块就需要缩进两次，也就是-8-个空格或是-2-个制表符"><a href="#4-如果要放代码区块的话，该区块就需要缩进两次，也就是-8-个空格或是-2-个制表符" class="headerlink" title="4. 如果要放代码区块的话，该区块就需要缩进两次，也就是 8 个空格或是 2 个制表符"></a>4. 如果要放代码区块的话，该区块就需要缩进两次，也就是 8 个空格或是 2 个制表符</h3><pre><code>*   一列表项包含一个列表区块：
+        &lt;代码写在这&gt;
+</code></pre><h3 id="5-代码块：这里使用"><a href="#5-代码块：这里使用" class="headerlink" title="5. 代码块：这里使用"></a>5. 代码块：这里使用<figure class="highlight plain"><figcaption><span>###</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">​</div></pre></td></tr></table></figure></h3><pre><code>&lt;p&gt;code here&lt;p&gt;
+​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">&lt;p&gt;code here&lt;p&gt;</div></pre></td></tr></table></figure>
+</code></pre><blockquote>
+<p>**三个 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 6. 代码高亮：在第一组 ``` 之后添加代码的语言 ###</div><div class="line">	​```sql</div><div class="line">	select * from table  </div><div class="line">	​</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">USE</span> st2;   </div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span>;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="（六）分割线-删除线"><a href="#（六）分割线-删除线" class="headerlink" title="（六）分割线+删除线"></a>（六）分割线+删除线</h2><h3 id="1-分割线"><a href="#1-分割线" class="headerlink" title="1. 分割线"></a>1. 分割线</h3><p>在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西；</p>
+<p>也可以在星号或是减号中间插入空格。<br>​    </p>
+<pre><code>***
+- - - 
+</code></pre><hr>
+<ul>
+<li><ul>
+<li><ul>
+<li>​</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-删除线"><a href="#2-删除线" class="headerlink" title="2.删除线"></a>2.删除线</h3><pre><code>~~删除线~~
+</code></pre><p><del>删除线</del></p>
+<p><br></p>
+<h2 id="（七）表格"><a href="#（七）表格" class="headerlink" title="（七）表格"></a>（七）表格</h2><h3 id="1-单元格与表头"><a href="#1-单元格与表头" class="headerlink" title="1. 单元格与表头"></a>1. 单元格与表头</h3><ul>
+<li>使用 <code>|</code> 来分隔不同的单元格</li>
+<li>使用 <code>-</code> 来分隔表头和其他行</li>
+</ul>
+<p><br></p>
+<pre><code>name | age
+---- | ---
+LearnShare | 12
+Mike |  32
+</code></pre><table>
+<thead>
+<tr>
+<th>name</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LearnShare</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Mike</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>为了使 Markdown 更清晰，| 和 - 两侧需要至少有一个空格（最左侧和最右侧的 | 外就不需要了）</p>
+</blockquote>
+<h3 id="2-对齐"><a href="#2-对齐" class="headerlink" title="2. 对齐"></a>2. 对齐</h3><p>在表头下方的分隔线标记中加入<strong> :</strong>，即可标记下方单元格内容的对齐方式：</p>
+<ul>
+<li><code>:--</code>代表左对齐</li>
+<li><code>:--:</code> 代表居中对齐</li>
+<li><p><code>---:</code> 代表右对齐</p>
+<pre><code>| left | center | right |
+| :--- | :----: | ----: |
+| aaaa | bbbbbb | ccccc |
+| a    | b      | c     |
+</code></pre></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">left</th>
+<th style="text-align:center">center</th>
+<th style="text-align:right">right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">aaaa</td>
+<td style="text-align:center">bbbbbb</td>
+<td style="text-align:right">ccccc</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:right">c</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果不使用对齐标记，单元格中的内容默认左对齐；表头单元格中的内容会一直居中对齐（不同的实现可能会有不同表现）</p>
+</blockquote>
+<h3 id="3-插入其他内容"><a href="#3-插入其他内容" class="headerlink" title="3. 插入其他内容"></a>3. 插入其他内容</h3><p>表格中可以插入其他 Markdown 中的行内标记：</p>
+<pre><code>|     name     | age |             blog                |
+| ------------ | --- | ------------------------------- |
+| _LearnShare_ |  12 | [LearnShare](http://xianbai.me) |
+| __Mike__     |  32 | [Mike](http://mike.me)          |
+</code></pre><table>
+<thead>
+<tr>
+<th>name</th>
+<th>age</th>
+<th>blog</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>LearnShare</em></td>
+<td>12</td>
+<td><a href="http://xianbai.me" target="_blank" rel="external">LearnShare</a></td>
+</tr>
+<tr>
+<td><strong>Mike</strong></td>
+<td>32</td>
+<td><a href="http://mike.me" target="_blank" rel="external">Mike</a></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h1 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h1><h2 id="（一）强调"><a href="#（一）强调" class="headerlink" title="（一）强调"></a>（一）强调</h2><h3 id="1-使用星号（）和底线（-）作为标记强调字词的符号，被-或-包围的字词会被转成用-lt-em-gt-标签包围，用两个-或-包起来的话，则会被转成-strong"><a href="#1-使用星号（）和底线（-）作为标记强调字词的符号，被-或-包围的字词会被转成用-lt-em-gt-标签包围，用两个-或-包起来的话，则会被转成-strong" class="headerlink" title="1.使用星号（）和底线（_）作为标记强调字词的符号，被  或  包围的字词会被转成用&lt;em&gt;标签包围，用两个 * 或 `` 包起来的话，则会被转成 strong"></a>1.使用星号（<em>）和底线（_）作为标记强调字词的符号，被 </em> 或 <em> 包围的字词会被转成用<code>&lt;em&gt;</code>标签包围，用两个 <code>*</code> 或 `</em>` 包起来的话，则会被转成 strong</h3><pre><code>*single asterisks*
+_single underscores_   
+
+**double asterisks**
+__double underscores__
+
+***double asterisks***
+</code></pre><p><em>single asterisks</em></p>
+<p><em>single underscores</em></p>
+<p><strong>double asterisks</strong></p>
+<p><strong>double underscores</strong></p>
+<p><strong><em>double asterisks</em></strong></p>
+<h3 id="2-强调也可以直接插在文字中间"><a href="#2-强调也可以直接插在文字中间" class="headerlink" title="2. 强调也可以直接插在文字中间"></a>2. 强调也可以直接插在文字中间</h3><pre><code>un**frigging**believable
+</code></pre><p>un<strong>frigging</strong>believable</p>
+<h3 id="3-如果你的-和-两边都有空白的话，它们就只会被当成普通的符号；或者利用反斜线"><a href="#3-如果你的-和-两边都有空白的话，它们就只会被当成普通的符号；或者利用反斜线" class="headerlink" title="3. 如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号；或者利用反斜线\"></a>3. 如果你的 * 和 _ 两边都有空白的话，它们就只会被当成普通的符号；或者利用反斜线<code>\</code></h3><pre><code>* single asterisks * 
+\* single asterisks 
+</code></pre><p>single asterisks *</p>
+<p>* single asterisks</p>
+<p><br></p>
+<h2 id="（二）代码"><a href="#（二）代码" class="headerlink" title="（二）代码"></a>（二）代码</h2><h3 id="1-标记行内代码，你可以用反引号把它包起来（-）"><a href="#1-标记行内代码，你可以用反引号把它包起来（-）" class="headerlink" title="1. 标记行内代码，你可以用反引号把它包起来（`）"></a>1. 标记行内代码，你可以用反引号把它包起来（`）</h3><pre><code>Use the `printf()` function.
+</code></pre><p>Use the <code>printf()</code> function.</p>
+<h3 id="2-代码区段内插入反引号，你可以用多个反引号来开启和结束代码区段"><a href="#2-代码区段内插入反引号，你可以用多个反引号来开启和结束代码区段" class="headerlink" title="2. 代码区段内插入反引号，你可以用多个反引号来开启和结束代码区段"></a>2. 代码区段内插入反引号，你可以用多个反引号来开启和结束代码区段</h3><pre><code>``There is a literal backtick (`) here.``
+`There is a literal backtick (`) here.`
+</code></pre><p><code>There is a literal backtick (`) here.</code><br><code>There is a literal backtick (</code>) here.`</p>
+<h3 id="3-代码区段的起始和结束端都可以放入一个空白-就可以在区段的一开始就插入反引号"><a href="#3-代码区段的起始和结束端都可以放入一个空白-就可以在区段的一开始就插入反引号" class="headerlink" title="3. 代码区段的起始和结束端都可以放入一个空白,就可以在区段的一开始就插入反引号"></a>3. 代码区段的起始和结束端都可以放入一个空白,就可以在区段的一开始就插入反引号</h3><pre><code>A backtick-delimited string in a code span: `` `foo` ``
+</code></pre><p>A single backtick in a code span: <code>`foo` </code></p>
+<h3 id="4-在代码区段内，-amp-和尖括号都会被自动地转成-HTML-实体"><a href="#4-在代码区段内，-amp-和尖括号都会被自动地转成-HTML-实体" class="headerlink" title="4. 在代码区段内，&amp; 和尖括号都会被自动地转成 HTML 实体"></a>4. 在代码区段内，&amp; 和尖括号都会被自动地转成 HTML 实体</h3><p>Please don’t use any <code>&lt;blink&gt;</code> tags.</p>
+<p><code>&amp;#8212;</code> is the decimal-encoded equivalent of <code>&amp;mdash;</code>.</p>
+<p><br></p>
+<h2 id="（三）图片"><a href="#（三）图片" class="headerlink" title="（三）图片"></a>（三）图片</h2><h3 id="1-行内式"><a href="#1-行内式" class="headerlink" title="1. 行内式"></a>1. 行内式</h3><ul>
+<li>一个惊叹号 !</li>
+<li>接着一个方括号，里面放上图片的替代文字</li>
+<li><p>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上  选择性的 ‘title’ 文字。</p>
+<pre><code>![图片名称](/path/to/img.jpg &quot;Optional title&quot;)    
+![图片名称](https://avatars2.githubusercontent.com/u/3265208?v=3&amp;s=100 &quot;GitHub,Social Coding&quot;)
+</code></pre><p>  <img src="https://avatars2.githubusercontent.com/u/3265208?v=3&amp;s=100" alt="GitHub" title="GitHub,Social Coding"></p>
+<h3 id="2-参考式"><a href="#2-参考式" class="headerlink" title="2. 参考式"></a>2. 参考式</h3></li>
+</ul>
+<ul>
+<li>「id」是图片参考的名称<pre><code>![Alt text][id]
+</code></pre></li>
+</ul>
+<pre><code>[id]: url/to/image  &quot;Optional title attribute&quot;    
+</code></pre><h3 id="3-指定图片大小"><a href="#3-指定图片大小" class="headerlink" title="3. 指定图片大小"></a>3. 指定图片大小</h3><p><strong>通过直接插入<code>&lt;img&gt;</code>标签来指定相关属性</strong></p>
+<pre><code>&lt;img src=&quot;https://avatars2.githubusercontent.com/u/3265208?v=3&amp;s=100&quot; alt=&quot;GitHub&quot; title=&quot;GitHub,Social Coding&quot; width=&quot;50&quot; height=&quot;50&quot; /&gt;
+</code></pre><p><img src="https://avatars2.githubusercontent.com/u/3265208?v=3&s=100" alt="GitHub" title="GitHub,Social Coding" width="50" height="50"><br>​        </p>
+<p><br></p>
+<h2 id="（四）链接"><a href="#（四）链接" class="headerlink" title="（四）链接"></a>（四）链接</h2><h3 id="1-行内式："><a href="#1-行内式：" class="headerlink" title="1. 行内式："></a>1. 行内式：</h3><p><code>[link text](URL &#39;title text&#39;)</code></p>
+<p><strong>（1）普通链接</strong></p>
+<pre><code>[Google](http://www.google.com/)
+</code></pre><p><a href="http://www.google.com/" target="_blank" rel="external">Google</a></p>
+<p><strong>（2）指向本地文件的链接</strong></p>
+<pre><code>[icon.png](./images/icon.png)
+</code></pre><p><a href="./images/icon.png">icon.png</a></p>
+<p><strong>（3）包含 ‘title’ 的链接</strong><br>​<br>    <a href="http://www.google.com/" title="Google" target="_blank" rel="external">Google</a></p>
+<p><a href="http://www.google.com/" title="Google" target="_blank" rel="external">Google</a></p>
+<h3 id="2-参考式-1"><a href="#2-参考式-1" class="headerlink" title="2. 参考式"></a>2. 参考式</h3><p>参考式链接的写法相当于行内式拆分成两部分，并通过一个<strong>识别符</strong>来连接两部分。参考式能尽量保持文章结构的简单，也方便统一管理 URL。</p>
+<p><strong>（1）定义链接</strong></p>
+<pre><code>[Google][1]   这个链接用 1 作为网址变量
+</code></pre><p><a href="http://www.google.com/" title="Google" target="_blank" rel="external">Google</a><br>第二个方括号内为链接独有的 <strong>识别符</strong>，可以是字母、数字、空白或标点符号。识别符是 不区分大小写 的；</p>
+<p><strong>（2）定义链接内容</strong></p>
+<pre><code>[1]: http://www.google.com/ &quot;Google&quot;   
+然后在文档的结尾为变量赋值（网址）
+</code></pre><p>其格式为：<code>[识别符]: URL &#39;title&#39;</code></p>
+<p><strong>（3）也可以省略 识别符，使用链接文本作为 识别符</strong></p>
+<pre><code>[Google][]
+[Google]: http://www.google.com/ &quot;Google&quot;
+</code></pre><blockquote>
+<p><strong>参考式相对于行内式有一个明显的优点，就是可以在多个不同的位置引用同一个 URL。</strong></p>
+</blockquote>
+<h3 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3. 超链接"></a>3. 超链接</h3><p><strong>使用 &lt;&gt; 括起来的 URL 或 邮箱地址 会被自动转换为超链接</strong>   </p>
+<pre><code>&lt;http://www.google.com/&gt;
+&lt;123@email.com&gt;
+</code></pre><p><a href="http://www.google.com/" target="_blank" rel="external">http://www.google.com/</a><br><a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#49;&#50;&#51;&#64;&#101;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#49;&#50;&#51;&#64;&#101;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<blockquote>
+<p>该方式适合行内较短的链接，会使用 URL 作为链接文字。</p>
+</blockquote>
+<p><br></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="（一）转义符"><a href="#（一）转义符" class="headerlink" title="（一）转义符"></a>（一）转义符</h2><p>反斜线（\）用于插入在 Markdown 语法中有特殊作用的字符</p>
+<pre><code>\
+`
+*
+_
+{}
+[]
+()
+#
++
+-
+.
+!
+</code></pre><p><br></p>
+<h2 id="二-页内跳转"><a href="#二-页内跳转" class="headerlink" title="(二)页内跳转"></a>(二)页内跳转</h2><h3 id="1-MarkDown实现"><a href="#1-MarkDown实现" class="headerlink" title="1. MarkDown实现"></a>1. MarkDown实现</h3><pre><code>* [主标题1](#1)
+    * [副标题1.1](#1.1)
+        * [次级副标题1.1.1](#1.1.1)
+    * [副标题1.2](#one-point-two)
+&lt;h1 id=&quot;1&quot;&gt;主标题1&lt;/h1&gt;
+文本内容。。。
+&lt;h2 id=&quot;1.1&quot;&gt;副标题1.1&lt;/h2&gt;
+文本内容。。。
+&lt;h3 id=&quot;1.1.1&quot;&gt;次级副标题1.1.1&lt;/h3&gt;
+文本内容。。。
+&lt;h2 id=&quot;one-point-two&quot;&gt;副标题1.2&lt;/h2&gt;
+这是为了演示id也可以设置成英文字母
+</code></pre><ul>
+<li><a href="#1">主标题1</a><ul>
+<li><a href="#1.1">副标题1.1</a><ul>
+<li><a href="#1.1.1">次级副标题1.1.1</a></li>
+</ul>
+</li>
+<li><a href="#one-point-two">副标题1.2</a></li>
+</ul>
+</li>
+</ul>
+<p></p><h1 id="1">主标题1</h1><br>文本内容。。。<p></p>
+<p></p><h2 id="1.1">副标题1.1</h2><br>文本内容。。。<p></p>
+<p></p><h3 id="1.1.1">次级副标题1.1.1</h3><br>文本内容。。。<p></p>
+<p></p><h2 id="one-point-two">副标题1.2</h2><br>这是为了演示id也可以设置成英文字母<p></p>
+<p><br></p>
+<h3 id="2-html标签实现-利用-HTML-元素创建-“锚”"><a href="#2-html标签实现-利用-HTML-元素创建-“锚”" class="headerlink" title="2.html标签实现:利用 HTML 元素创建 “锚”"></a>2.html标签实现:利用 HTML 元素创建 “锚”</h3><p>（1）定义一个锚(id)：   </p>
+<pre><code>&lt;span id=&quot;jump&quot;&gt;跳转到的地方&lt;/span&gt;
+</code></pre><p><span id="jump">区块元素</span></p>
+<p>（2）使用markdown语法：</p>
+<pre><code>[点击跳转](#jump)
+</code></pre><h2 id="区块元素-1"><a href="#区块元素-1" class="headerlink" title="区块元素"></a><a href="#jump">区块元素</a></h2><pre><code>* [主标题1](#1)
+    * [副标题1.1](#1.1)
+        * [次级副标题1.1.1](#1.1.1)
+    * [副标题1.2](#one-point-two)
+
+&lt;span id=&quot;1&quot;&gt;&lt;/span&gt;
+
+# 主标题1
+文本内容。。。
+
+&lt;span id=&quot;1.1&quot;&gt;&lt;/span&gt;
+
+## 副标题1.1
+文本内容。。。
+
+&lt;span id=&quot;1.1.1&quot;&gt;&lt;/span&gt;
+
+### 次级副标题1.1.1
+文本内容。。。
+
+&lt;span id=&quot;one-point-two&quot;&gt;&lt;/span&gt;
+
+## 副标题1.2
+这是为了演示id也可以设置成英文字母
+</code></pre><h3 id="3-Markdown-原生支持的页内跳转"><a href="#3-Markdown-原生支持的页内跳转" class="headerlink" title="3. Markdown 原生支持的页内跳转"></a>3. Markdown 原生支持的页内跳转</h3><pre><code>* [Cat and dog](#cat-and-dog)
+    * [Cat](#cat)
+        * [A little cat](#a-little-cat)
+    * [Dog](#dog)
+
+## Cat and dog
+
+一只单身狗和一只高冷猫的故事。。。
+
+### Cat
+
+有一天高冷猫遇见了单身狗。。。
+
+#### A little cat
+
+高冷猫生的很小巧但是脾气不是很好。。。
+
+### Dog
+</code></pre><ul>
+<li><a href="#cat-and-dog">Cat and dog</a><ul>
+<li><a href="#cat">Cat</a><ul>
+<li><a href="#a-little-cat">A little cat</a></li>
+</ul>
+</li>
+<li><a href="#dog">Dog</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Cat-and-dog"><a href="#Cat-and-dog" class="headerlink" title="Cat and dog"></a>Cat and dog</h2><p>一只单身狗和一只高冷猫的故事。。。</p>
+<h3 id="Cat"><a href="#Cat" class="headerlink" title="Cat"></a>Cat</h3><p>有一天高冷猫遇见了单身狗。。。</p>
+<h4 id="A-little-cat"><a href="#A-little-cat" class="headerlink" title="A little cat"></a>A little cat</h4><p>高冷猫生的很小巧但是脾气不是很好。。。</p>
+<h3 id="Dog"><a href="#Dog" class="headerlink" title="Dog"></a>Dog</h3><h3 id="4-MarkdownPad2-原生支持的页内跳转"><a href="#4-MarkdownPad2-原生支持的页内跳转" class="headerlink" title="4. MarkdownPad2 原生支持的页内跳转"></a>4. MarkdownPad2 原生支持的页内跳转</h3><pre><code>&lt;a name=&quot;myAnchor&quot;&gt;&lt;/a&gt;
+## My Header ##
+This is some content in my first section.
+[Go To Section One](#myAnchor)
+</code></pre><p><a name="myAnchor"></a></p>
+<h2 id="My-Header"><a href="#My-Header" class="headerlink" title="My Header"></a>My Header</h2><p>This is some content in my first section.<br><a href="#myAnchor">Go To Section One</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/30/数据分析/20_数据分析/专题分析/优秀员工离职原因分析与预测/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1000,187 +1628,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2008-2012年度/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jerry_Cai">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jerry那些事儿">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2008-2012年度/" itemprop="url">
-                  阅读书籍_2008-2012年度
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-05T00:00:00+08:00">
-                2017-01-05
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新</span>
-              
-              <time title="更新" itemprop="dateModified" datetime="2018-02-20T21:26:29+08:00">
-                2018-02-20
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/阅读书籍/" itemprop="url" rel="index">
-                    <span itemprop="name">阅读书籍</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/阅读书籍/汇总整理/" itemprop="url" rel="index">
-                    <span itemprop="name">汇总整理</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2008-2012年度/" class="leancloud_visitors" data-flag-title="阅读书籍_2008-2012年度">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>2008-2012年度共阅读11个大类（不完全统计），共计83本，读书笔记47本；</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2008-2012年度/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2013-2016年度/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1320,6 +1767,187 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2013-2016年度/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2008-2012年度/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jerry_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jerry那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2008-2012年度/" itemprop="url">
+                  阅读书籍_2008-2012年度
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-05T00:00:00+08:00">
+                2017-01-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-20T21:26:29+08:00">
+                2018-02-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/阅读书籍/" itemprop="url" rel="index">
+                    <span itemprop="name">阅读书籍</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/阅读书籍/汇总整理/" itemprop="url" rel="index">
+                    <span itemprop="name">汇总整理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2008-2012年度/" class="leancloud_visitors" data-flag-title="阅读书籍_2008-2012年度">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>2008-2012年度共阅读11个大类（不完全统计），共计83本，读书笔记47本；</strong></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2008-2012年度/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2438,178 +3066,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/28/阅读书籍/10_思维意识/30_生活方式/《晨间日志的奇迹》_佐藤传/《晨间日志的奇迹》读书笔记_佐藤传/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jerry_Cai">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jerry那些事儿">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jerry那些事儿" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/28/阅读书籍/10_思维意识/30_生活方式/《晨间日志的奇迹》_佐藤传/《晨间日志的奇迹》读书笔记_佐藤传/" itemprop="url">
-                  《晨间日志的奇迹》读书笔记_佐藤传
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-28T00:00:00+08:00">
-                2016-06-28
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新</span>
-              
-              <time title="更新" itemprop="dateModified" datetime="2018-02-13T22:02:29+08:00">
-                2018-02-13
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/阅读书籍/" itemprop="url" rel="index">
-                    <span itemprop="name">阅读书籍</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/06/28/阅读书籍/10_思维意识/30_生活方式/《晨间日志的奇迹》_佐藤传/《晨间日志的奇迹》读书笔记_佐藤传/" class="leancloud_visitors" data-flag-title="《晨间日志的奇迹》读书笔记_佐藤传">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>The Miracle with aDaybreak Diary</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/06/28/阅读书籍/10_思维意识/30_生活方式/《晨间日志的奇迹》_佐藤传/《晨间日志的奇迹》读书笔记_佐藤传/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2657,7 +3113,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">129</span>
+                <span class="site-state-item-count">130</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2666,7 +3122,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2675,7 +3131,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
