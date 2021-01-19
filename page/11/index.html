@@ -293,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_安装卸载/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_常见错误与解决办法/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jimmy_Cai">
@@ -318,8 +318,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_安装卸载/" itemprop="url">
-                  MySQL：安装卸载
+                <a class="post-title-link" href="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_常见错误与解决办法/" itemprop="url">
+                  MySQL:常见错误与解决办法
                 </a>
               
             
@@ -351,8 +351,8 @@
               
                 <span class="post-meta-item-text">更新</span>
               
-              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:08:05+08:00">
-                2018-02-13
+              <time title="更新" itemprop="dateModified" datetime="2018-11-11T22:28:54+08:00">
+                2018-11-11
               </time>
             
           </span>
@@ -409,7 +409,7 @@
 
           
           
-             <span id="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_安装卸载/" class="leancloud_visitors" data-flag-title="MySQL：安装卸载">
+             <span id="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_常见错误与解决办法/" class="leancloud_visitors" data-flag-title="MySQL:常见错误与解决办法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -439,18 +439,201 @@
 
       
         
-          
-            <h2 id="彻底卸载MySQL-windows"><a href="#彻底卸载MySQL-windows" class="headerlink" title="彻底卸载MySQL-windows"></a>彻底卸载MySQL-windows</h2><p>1.首先在windows服务中将mysql服务删掉，使用命令 sc delete mysql</p>
-<p>2.在控制面板中卸载掉mysql。</p>
-<p>3.清理mysql安装目录的ini文件。</p>
-<p>4.清理注册表（win+R : regedit)：</p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\MySQL目录删除</p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Services\Eventlog\Application\MySQL目录删除</p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\MySQL目录删除（我卸载的时候没有找到，略过后仍达到完全卸载的目的。）</p>
-<p>5.有一些mysql的数据文件也必须删除干净，比如说：C:\Documents and Settings\AllUsers\Application Data\MySQL</p>
-<p>6.重启电脑。重新安装即可。</p>
+          <h2 id="mysqldump不是内部命令或外部命令，也不是可执行的命令"><a href="#mysqldump不是内部命令或外部命令，也不是可执行的命令" class="headerlink" title="mysqldump不是内部命令或外部命令，也不是可执行的命令"></a>mysqldump不是内部命令或外部命令，也不是可执行的命令</h2><p>需转到对应的<code>.exe</code>的文件的目录下才能执行；譬如我把mysql装在了c盘，就到<code>c:\mysql\bin</code>下才能运行。</p>
+<p>通过CMD命令行切换到mysql安装文件夹里的bin目录（该path可通过“我的电脑—管理—服务—MySQL—可执行文件的路径”中查找），然后在CMD命令中输入如下代码</p>
+<p><code>cd C:\Program Files\MySQL\MySQL Server 5.7\bin\</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_常见错误与解决办法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/数据分析/10_统计学/统计学_基本概念/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jimmy_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jimmy那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jimmy那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/19/数据分析/10_统计学/统计学_基本概念/" itemprop="url">
+                  统计学_基本概念
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">
+                2017-02-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-12T22:57:52+08:00">
+                2018-02-12
+              </time>
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/统计学/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/19/数据分析/10_统计学/统计学_基本概念/" class="leancloud_visitors" data-flag-title="统计学_基本概念">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><h3 id="1-1-方差"><a href="#1-1-方差" class="headerlink" title="1.1 方差"></a>1.1 方差</h3><p><strong>Varience</strong></p>
+<ul>
+<li>what ： 各值与均值距离的平方和除以(n-1)；  $s^2=\frac{\sum(X-u)^2}{(n-1)}$</li>
+<li>why ： 说明数据的离散程度 </li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/19/数据分析/10_统计学/统计学_基本概念/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -639,6 +822,196 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/02/19/软件应用_程序编程/SQL/MySQL/MySQL_基本语法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/数据分析/10_统计学/统计学_分析方法/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jimmy_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jimmy那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jimmy那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/19/数据分析/10_统计学/统计学_分析方法/" itemprop="url">
+                  统计学_分析方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">
+                2017-02-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-12T22:52:51+08:00">
+                2018-02-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/统计学/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/19/数据分析/10_统计学/统计学_分析方法/" class="leancloud_visitors" data-flag-title="统计学_分析方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-相关性"><a href="#1-相关性" class="headerlink" title="1. 相关性"></a>1. 相关性</h2><ul>
+<li>What：显示两个随机变量之间<strong>线性关系</strong>的强度和方向；<ul>
+<li>Pearson相关系数</li>
+<li>Spearman相关系数：衡量两个<strong>有序尺度</strong>变数的相关性；</li>
+<li>Kendall等级相关系数：衡量两个<strong>人为认定的有序尺度</strong>变数的相关性</li>
+<li>Kappa一致性系数：衡量两个<strong>类别尺度</strong>变数的相关性；</li>
+</ul>
+</li>
+<li>Why ：用来衡量两个变量相对于其相互独立的距离；</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/19/数据分析/10_统计学/统计学_分析方法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -878,381 +1251,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/数据分析/10_统计学/统计学_基本概念/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jimmy_Cai">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jimmy那些事儿">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jimmy那些事儿" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/19/数据分析/10_统计学/统计学_基本概念/" itemprop="url">
-                  统计学_基本概念
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">
-                2017-02-19
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新</span>
-              
-              <time title="更新" itemprop="dateModified" datetime="2018-02-12T22:57:52+08:00">
-                2018-02-12
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/" itemprop="url" rel="index">
-                    <span itemprop="name">数据分析</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/统计学/" itemprop="url" rel="index">
-                    <span itemprop="name">统计学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/02/19/数据分析/10_统计学/统计学_基本概念/" class="leancloud_visitors" data-flag-title="统计学_基本概念">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><h3 id="1-1-方差"><a href="#1-1-方差" class="headerlink" title="1.1 方差"></a>1.1 方差</h3><p><strong>Varience</strong></p>
-<ul>
-<li>what ： 各值与均值距离的平方和除以(n-1)；  $s^2=\frac{\sum(X-u)^2}{(n-1)}$</li>
-<li>why ： 说明数据的离散程度 </li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/19/数据分析/10_统计学/统计学_基本概念/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/数据分析/10_统计学/统计学_分析方法/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jimmy_Cai">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jimmy那些事儿">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jimmy那些事儿" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/19/数据分析/10_统计学/统计学_分析方法/" itemprop="url">
-                  统计学_分析方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">
-                2017-02-19
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新</span>
-              
-              <time title="更新" itemprop="dateModified" datetime="2018-02-12T22:52:51+08:00">
-                2018-02-12
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/" itemprop="url" rel="index">
-                    <span itemprop="name">数据分析</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据分析/统计学/" itemprop="url" rel="index">
-                    <span itemprop="name">统计学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/02/19/数据分析/10_统计学/统计学_分析方法/" class="leancloud_visitors" data-flag-title="统计学_分析方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-相关性"><a href="#1-相关性" class="headerlink" title="1. 相关性"></a>1. 相关性</h2><ul>
-<li>What：显示两个随机变量之间<strong>线性关系</strong>的强度和方向；<ul>
-<li>Pearson相关系数</li>
-<li>Spearman相关系数：衡量两个<strong>有序尺度</strong>变数的相关性；</li>
-<li>Kendall等级相关系数：衡量两个<strong>人为认定的有序尺度</strong>变数的相关性</li>
-<li>Kappa一致性系数：衡量两个<strong>类别尺度</strong>变数的相关性；</li>
-</ul>
-</li>
-<li>Why ：用来衡量两个变量相对于其相互独立的距离；</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/19/数据分析/10_统计学/统计学_分析方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/13/hello-world/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1363,309 +1361,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/07/软件应用_办公软件/Markdown/Markdown使用手册_Typora/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Jimmy_Cai">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Jimmy那些事儿">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Jimmy那些事儿" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/07/软件应用_办公软件/Markdown/Markdown使用手册_Typora/" itemprop="url">
-                  Markdown使用手册_typora
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T00:00:00+08:00">
-                2017-02-07
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新</span>
-              
-              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:15:50+08:00">
-                2018-02-13
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件应用/" itemprop="url" rel="index">
-                    <span itemprop="name">软件应用</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件应用/办公软件/" itemprop="url" rel="index">
-                    <span itemprop="name">办公软件</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件应用/办公软件/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">markdown</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/02/07/软件应用_办公软件/Markdown/Markdown使用手册_Typora/" class="leancloud_visitors" data-flag-title="Markdown使用手册_typora">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>Markdown</strong>是由<a href="http://daringfireball.net/" target="_blank" rel="external">Daring Fireball</a>创建的，原来的指导方针就<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">在这里</a>。然而，其语法因不同的解析器或编辑者而异。<strong>Typora</strong>正在使用<a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank" rel="external">GitHub Flavored Markdown</a>。</p>
-<p>请注意，markdown源中的HTML片段将被识别，但不会被解析或呈现。另外，保存后的原始降价源代码可能会重新格式化。</p>
-<ul>
-<li><a href="http://support.typora.io/Markdown-Reference/#overview" target="_blank" rel="external">概述</a></li>
-<li><a href="http://support.typora.io/Markdown-Reference/#block-elements" target="_blank" rel="external">块元素</a><a href="http://support.typora.io/Markdown-Reference/#paragraph-and-line-breaks" target="_blank" rel="external">段落和换行符</a><a href="http://support.typora.io/Markdown-Reference/#headers" target="_blank" rel="external">标题</a><a href="http://support.typora.io/Markdown-Reference/#blockquotes" target="_blank" rel="external">块引用</a><a href="http://support.typora.io/Markdown-Reference/#lists" target="_blank" rel="external">列表</a><a href="http://support.typora.io/Markdown-Reference/#task-list" target="_blank" rel="external">任务列表</a><a href="http://support.typora.io/Markdown-Reference/#fenced-code-blocks" target="_blank" rel="external">（围栏）代码块</a><a href="http://support.typora.io/Markdown-Reference/#math-blocks" target="_blank" rel="external">数学块</a><a href="http://support.typora.io/Markdown-Reference/#tables" target="_blank" rel="external">表</a><a href="http://support.typora.io/Markdown-Reference/#footnotes" target="_blank" rel="external">脚注</a><a href="http://support.typora.io/Markdown-Reference/#horizontal-rules" target="_blank" rel="external">水平规则</a><a href="http://support.typora.io/Markdown-Reference/#yaml-front-matters" target="_blank" rel="external">YAML前线事宜</a><a href="http://support.typora.io/Markdown-Reference/#table-of-contents-toc" target="_blank" rel="external">目录（TOC）</a></li>
-<li><a href="http://support.typora.io/Markdown-Reference/#span-elements" target="_blank" rel="external">跨度元素</a><a href="http://support.typora.io/Markdown-Reference/#links" target="_blank" rel="external">链接</a><a href="http://support.typora.io/Markdown-Reference/#internal-links" target="_blank" rel="external">内部链接</a><a href="http://support.typora.io/Markdown-Reference/#reference-links" target="_blank" rel="external">参考链接</a><a href="http://support.typora.io/Markdown-Reference/#urls" target="_blank" rel="external">网址</a><a href="http://support.typora.io/Markdown-Reference/#images" target="_blank" rel="external">图片</a><a href="http://support.typora.io/Markdown-Reference/#emphasis" target="_blank" rel="external">重点</a><a href="http://support.typora.io/Markdown-Reference/#strong" target="_blank" rel="external">强大</a><a href="http://support.typora.io/Markdown-Reference/#code" target="_blank" rel="external">码</a><a href="http://support.typora.io/Markdown-Reference/#strikethrough" target="_blank" rel="external">删除线</a><a href="http://support.typora.io/Markdown-Reference/#underline" target="_blank" rel="external">强调</a><a href="http://support.typora.io/Markdown-Reference/#emoji-happy" target="_blank" rel="external">表情：快乐：</a><a href="http://support.typora.io/Markdown-Reference/#inline-math" target="_blank" rel="external">内联数学</a><a href="http://support.typora.io/Markdown-Reference/#subscript" target="_blank" rel="external">下标</a><a href="http://support.typora.io/Markdown-Reference/#superscript" target="_blank" rel="external">上标</a><a href="http://support.typora.io/Markdown-Reference/#highlight" target="_blank" rel="external">突出</a></li>
-</ul>
-<h2 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h2><h3 id="段落和换行符"><a href="#段落和换行符" class="headerlink" title="段落和换行符"></a>段落和换行符</h3><p>一段只是一个或多个连续的文本行。在markdown源代码中，段落由多个空白行分隔。在Typora中，您只需要按<code>Return</code>创建一个新的段落。</p>
-<p>按<code>Shift</code>+ <code>Return</code>创建一个换行符。但是，大多数markdown解析器将忽略单行中断，使其他分解器识别您的换行符，您可以在行尾留下两个空格或插入``。</p>
-<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>标题在行开始使用1-6个散列字符，对应于标题级别1-6。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># This is an H1</div><div class="line"></div><div class="line">## This is an H2</div><div class="line"></div><div class="line">###### This is an H6</div></pre></td></tr></table></figure>
-<p>在typora中，输入’＃’后跟标题内容，<code>Return</code>按键将创建一个标题。</p>
-<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><p>Markdown使用电子邮件风格&gt;字符进行块引用。它们被表示为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; This is a blockquote with two paragraphs. This is first paragraph.</div><div class="line">&gt;</div><div class="line">&gt; This is second pragraph.Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&gt; This is another blockquote with one paragraph. There is three empty line to seperate two blockquote.</div></pre></td></tr></table></figure>
-<p>在typora中，只需输入’&gt;’后跟引用内容就会生成一个块引用。Typora将为您插入适当的“&gt;”或换行符。通过添加额外的“&gt;”级别可以允许在另一个块引用内嵌一个引号。</p>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>输入<code>* list item 1</code>将创建一个无序列表，该<code>*</code>符号可以替换为<code>+</code>或<code>-</code>。</p>
-<p>输入<code>1. list item 1</code>将创建一个有序列表，它们的markdown源代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">## un-ordered list</div><div class="line">*   Red</div><div class="line">*   Green</div><div class="line">*   Blue</div><div class="line"></div><div class="line">## ordered list</div><div class="line">1.  Red</div><div class="line">2. 	Green</div><div class="line">3.	Blue</div></pre></td></tr></table></figure>
-<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>任务列表是标有[]或[x]（不完整或完整）的项目的列表。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- [ ] a task list item</div><div class="line">- [ ] list syntax required</div><div class="line">- [ ] normal **formatting**, @mentions, #1234 refs</div><div class="line">- [ ] incomplete</div><div class="line">- [x] completed</div></pre></td></tr></table></figure>
-<p>您可以通过单击项目之前的复选框来更改完整/不完整的状态。</p>
-<h3 id="（围栏）代码块"><a href="#（围栏）代码块" class="headerlink" title="（围栏）代码块"></a>（围栏）代码块</h3><p>Typora只支持Github Flavored Markdown中的栅栏。不支持标记中的原始代码块。</p>
-<p>使用栅栏很容易：输入“<code>”并按</code>return`。在<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>Here’s an example:</p>
-<p>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function test() &#123;</div><div class="line">  console.log(&quot;notice the blank line before this function?&quot;);</div><div class="line">&#125;</div><div class="line">​</div></pre></td></tr></table></figure></p>
-<p>syntax highlighting:<br>​<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></div><div class="line">markdown = Redcarpet.new(<span class="string">"Hello World!"</span>)</div><div class="line">puts markdown.to_html</div><div class="line">​</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 数学块</div><div class="line"></div><div class="line">您可以 使用**MathJax**渲染  *LaTeX*数学表达式  。****</div><div class="line"></div><div class="line">输入`$$`，然后按“返回”键将触发一个接受*Tex / LaTex*源的输入字段。以下是一个例子：</div><div class="line"></div><div class="line">V1× V2= |||||一世∂X∂你∂X∂vj∂Y∂你∂Y∂vk00|||||V1×V2=|一世jk∂X∂你∂Y∂你0∂X∂v∂Y∂v0|</div><div class="line"></div><div class="line">在markdown源文件中，数学块是由&apos;$$&apos;标记包裹的*LaTeX*表达式：</div></pre></td></tr></table></figure>
-<p>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 表</div><div class="line"></div><div class="line">输入`| First Header | Second Header |`和`return`按键将创建一个带有两列的表。</div><div class="line"></div><div class="line">创建表之后，将重点放在该表上将弹出一个表的工具栏，您可以在其中调整大小，对齐或删除表。您还可以使用上下文菜单来复制和添加/删除列/行。</div><div class="line"></div><div class="line">以下描述可以跳过，因为表的markdown源代码是由typora自动生成的。</div><div class="line"></div><div class="line">在markdown源代码中，它们看起来像：</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>First Header</th>
-<th>Second Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">您还可以包括内联Markdown，如链接，粗体，斜体或删除线。</div><div class="line"></div><div class="line">最后，通过包含冒号：在标题行中，您可以定义要左对齐，右对齐或中心对齐的文本：</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Left-Aligned</th>
-<th style="text-align:center">Center Aligned</th>
-<th style="text-align:right">Right Aligned</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">col 3 is</td>
-<td style="text-align:center">some wordy text</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td style="text-align:left">col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td style="text-align:left">zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">最左侧的冒号表示左对齐的列; 最右侧的结肠指示右对齐的柱; 两侧的结肠表示中心对齐的柱。</div><div class="line"></div><div class="line">### 脚注</div></pre></td></tr></table></figure>
-<p>You can create footnotes like this[^footnote].</p>
-<p>[^footnote]: Here is the <em>text</em> of the <strong>footnote</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">将产生：</div><div class="line"></div><div class="line">你可以创建这样的脚注[1](http://support.typora.io/Markdown-Reference/#fn:footnote)。</div><div class="line"></div><div class="line">鼠标在“脚注”上标上查看脚注的内容。</div><div class="line"></div><div class="line">### 水平规则</div><div class="line"></div><div class="line">输入`***`或`---`空白行，按下`return`将画一条水平线。</div><div class="line"></div><div class="line">------</div><div class="line"></div><div class="line">### YAML前线事宜</div><div class="line"></div><div class="line">Typora支持[YAML Front Matters](http://jekyllrb.com/docs/frontmatter/)。输入`---`文章顶部，然后按下`Enter`将会介绍一个。或从菜单中插入一个元数据块。</div><div class="line"></div><div class="line">### 目录（TOC）</div><div class="line"></div><div class="line">输入，`[toc]`然后`Return`按键将创建一个“目录”部分，从一个人的写作中提取所有标题，其内容将自动更新。</div><div class="line"></div><div class="line">## 跨度元素</div><div class="line"></div><div class="line">您的打字后，Span元素将被解析并呈现。在这些span元素的中间移动光标将这些元素扩展为markdown源。以下将介绍这些span元素的语法。</div><div class="line"></div><div class="line">### 链接</div><div class="line"></div><div class="line">Markdown支持两种风格的链接：内联和引用。</div><div class="line"></div><div class="line">在两种样式中，链接文本由[方括号]分隔。</div><div class="line"></div><div class="line">要创建内联链接，请在链接文本的关闭方括号后立即使用一组常规括号。在括号内，将链接所在的网址与链接的可选标题一起放在引号中。例如：</div></pre></td></tr></table></figure>
-<p>This is <a href="http://example.com/" title="Title" target="_blank" rel="external">an example</a> inline link.</p>
-<p><a href="http://example.net/" target="_blank" rel="external">This link</a> has no title attribute.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">将产生：</div><div class="line"></div><div class="line">这是[一个](http://example.com/%22Title%22)内联链接[示例](http://example.com/%22Title%22)。（`This is [`](http://example.com/)）</div><div class="line"></div><div class="line">[此链接](http://example.net/)没有标题属性。（`[This link](http://example.net/) has no`）</div><div class="line"></div><div class="line">#### 内部链接</div><div class="line"></div><div class="line">**您可以将href设置为标题**，这将创建一个书签，允许您在单击后跳转到该部分。例如：</div><div class="line"></div><div class="line">命令（在Windows上：Ctrl）+单击[此链接](http://support.typora.io/Markdown-Reference/#block-elements)将跳转到标题`Block Elements`。要查看如何写，请移动光标或点击该`⌘`按钮，将该元素展开为markdown源。</div><div class="line"></div><div class="line">#### 参考链接</div><div class="line"></div><div class="line">参考样式链接使用第二组方括号，您可以在其中放置您选择的标签来标识链接：</div></pre></td></tr></table></figure>
-<p>This is <a href="http://example.com/" title="Optional Title Here" target="_blank" rel="external">an example</a> reference-style link.</p>
-<p>Then, anywhere in the document, you define your link label like this, on a line by itself:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在typora中，它们将被渲染为：</div><div class="line"></div><div class="line">这是[一个示例](http://example.com/)参考样式的链接。</div><div class="line"></div><div class="line">隐式链接名称快捷方式允许您省略链接的名称，在这种情况下，将链接文本本身用作名称。只需使用一组空白的方括号 - 例如，将Google“Google”链接到google.com网站，您可以简单地写：</div></pre></td></tr></table></figure>
-<p><a href="http://google.com/" target="_blank" rel="external">Google</a><br>And then define the link:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在typora中，点击链接将扩展它进行编辑，命令+单击将打开Web浏览器中的超链接。</div><div class="line"></div><div class="line">### 网址</div><div class="line"></div><div class="line">Typora允许您将URL作为链接插入，用`&lt;`括号括起来`&gt;`。</div><div class="line"></div><div class="line">``成为[i@typora.io](mailto:i@typora.io)。</div><div class="line"></div><div class="line">Typora将自动链接标准URL。例如：www.google.com。</div><div class="line"></div><div class="line">### 图片</div><div class="line"></div><div class="line">图像看起来与链接类似，但`!`在链接开始之前需要一个额外的char。图像语法如下所示：</div></pre></td></tr></table></figure>
-<p><img src="/path/to/img.jpg" alt="Alt text"></p>
-<p><img src="/path/to/img.jpg" alt="Alt text" title="Optional title"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">您可以使用拖放来从图像文件或浏览器插入图像。并通过点击图像修改markdown源代码。如果图像与当前编辑文档在同一目录或子目录中拖放时，将使用相对路径。</div><div class="line"></div><div class="line">如果您使用markdown构建网站，则可以在本地计算机中`typora-root-url`为YAML Front Matters中的属性指定用于图像预览的网址前缀。例如，`typora-root-url:/User/Abner/Website/typora.io/`在YAML Front Matters中输入，然后`![alt](/blog/img/test.png)`将被视为`![alt](file:///User/Abner/Website/typora.io/blog/img/test.png)`类似的。</div><div class="line"></div><div class="line">![拖放图像](http://typora.io/img/drag-img.gif)</div><div class="line"></div><div class="line">### 重点</div><div class="line"></div><div class="line">Markdown将星号（`*`）和下划线（`_`）作为重点的指示。用一个包装的文本`*`或`_`将被HTML ``标签包装的文本。例如：</div></pre></td></tr></table></figure>
-<p><em>single asterisks</em></p>
-<p><em>single underscores</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">输出：</div><div class="line"></div><div class="line">*单个星号*</div><div class="line"></div><div class="line">*单个下划线*</div><div class="line"></div><div class="line">GFM将忽略通常用于代码和名称的单词中的下划线，如下所示：</div><div class="line"></div><div class="line">&gt; wow_great_stuff</div><div class="line">&gt;</div><div class="line">&gt; do_this_and_do_that_and_another_thing。</div><div class="line"></div><div class="line">要在一个位置上产生一个文字星号或下划线，否则它将被用作强调分隔符，您可以反斜杠逃避它：</div></pre></td></tr></table></figure>
-<p>*this text is surrounded by literal asterisks*</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Typora建议使用`*`符号。</div><div class="line"></div><div class="line">### 强大</div><div class="line"></div><div class="line">double *或_将包含HTML ``标签，例如：</div></pre></td></tr></table></figure>
-<p><strong>double asterisks</strong></p>
-<p><strong>double underscores</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">输出：</div><div class="line"></div><div class="line">**双星号**</div><div class="line"></div><div class="line">**双重下划线**</div><div class="line"></div><div class="line">Typora建议使用`**`符号。</div><div class="line"></div><div class="line">### 码</div><div class="line"></div><div class="line">要指示代码跨度，用反引号引号（`）包装。与预格式化的代码块不同，代码段表示正常段落中的代码。例如：</div></pre></td></tr></table></figure>
-<p>Use the <code>printf()</code> function.</p>
-<p>```</p>
-<p>将产生：</p>
-<p>使用该<code>printf()</code>功能。</p>
-<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>GFM添加语法来创建删除线文本，这在标准的Markdown中是缺少的。</p>
-<p><code>~~Mistaken text.~~</code> 成为 <del>错误的文字。</del></p>
-<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>下划线由原始HTML提供支持。</p>
-<p><code>Underline</code>成为下划线。</p>
-<h3 id="表情：快乐："><a href="#表情：快乐：" class="headerlink" title="表情：快乐："></a>表情：快乐：</h3><p>使用语法输入表情符号<code>:smile:</code>。</p>
-<p>用户可以通过<code>ESC</code>按键触发表情符号的自动填写建议，或者在首选面板上启用后自动触发。此外，还支持从<code>Edit</code>- &gt; <code>Emoji &amp; Symbols</code>从菜单栏直接输入UTF8表情符号字符串。</p>
-<h3 id="内联数学"><a href="#内联数学" class="headerlink" title="内联数学"></a>内联数学</h3><p>要使用此功能，请先在<code>Preference</code>面板 - &gt; <code>Markdown</code>选项卡中启用该功能。然后<code>$</code>用来包装TeX命令，例如：<code>$\lim_{x \to \infty} \exp(-x) = 0$</code>将被渲染为LaTeX命令。</p>
-<p>要触发内联数学的内联预览：输入“$”，然后<code>ESC</code>按键，然后输入TeX命令，预览工具提示将如下所示可见：</p>
-<p><img src="http://typora.io/img/inline-math.gif" alt="内联数学"></p>
-<h3 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h3><p>要使用此功能，请先在<code>Preference</code>面板 - &gt; <code>Markdown</code>选项卡中启用该功能。然后使用<code>~</code>包标内容，例如：<code>H~2~O</code>，<code>X~long\ text~</code>/</p>
-<h3 id="上标"><a href="#上标" class="headerlink" title="上标"></a>上标</h3><p>要使用此功能，请先在<code>Preference</code>面板 - &gt; <code>Markdown</code>选项卡中启用该功能。然后<code>^</code>用来包含上标内容，例如：<code>X^2^</code>。</p>
-<h3 id="突出"><a href="#突出" class="headerlink" title="突出"></a>突出</h3><p>要使用此功能，请先在<code>Preference</code>面板 - &gt; <code>Markdown</code>选项卡中启用该功能。然后<code>==</code>用来包装高亮内容，例如：<code>==highlight==</code>。</p>
-<ol>
-<li>这里是<em>文本</em>的的<strong>注脚</strong>。 <a href="http://support.typora.io/Markdown-Reference/#fnref:footnote" target="_blank" rel="external">↩</a></li>
-</ol>
-
-          
         
       
     </div>
@@ -2180,7 +1875,7 @@ __double underscores__
 <h3 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3. 超链接"></a>3. 超链接</h3><p><strong>使用 &lt;&gt; 括起来的 URL 或 邮箱地址 会被自动转换为超链接</strong>   </p>
 <pre><code>&lt;http://www.google.com/&gt;
 &lt;123@email.com&gt;
-</code></pre><p><a href="http://www.google.com/" target="_blank" rel="external">http://www.google.com/</a><br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x31;&#x32;&#51;&#64;&#101;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#x31;&#x32;&#51;&#64;&#101;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+</code></pre><p><a href="http://www.google.com/" target="_blank" rel="external">http://www.google.com/</a><br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x31;&#x32;&#x33;&#64;&#101;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#x31;&#x32;&#x33;&#64;&#101;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a></p>
 <blockquote>
 <p>该方式适合行内较短的链接，会使用 URL 作为链接文字。</p>
 </blockquote>
@@ -2512,6 +2207,309 @@ This is some content in my first section.
 <h3 id="排序的位置"><a href="#排序的位置" class="headerlink" title="排序的位置"></a>排序的位置</h3><p><code>rank(1,A1：B2 ,0)</code>  # 返回数值1在区域A1：B2中的相对位置； 默认按降序排列（0）</p>
 <p>rank(num, range, 0/1) 1，表示按升序排列</p>
 <h2 id="2-空值"><a href="#2-空值" class="headerlink" title="2. 空值"></a>2. 空值</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/07/软件应用_办公软件/Markdown/Markdown使用手册_Typora/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jimmy_Cai">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jimmy那些事儿">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jimmy那些事儿" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/07/软件应用_办公软件/Markdown/Markdown使用手册_Typora/" itemprop="url">
+                  Markdown使用手册_typora
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T00:00:00+08:00">
+                2017-02-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新</span>
+              
+              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:15:50+08:00">
+                2018-02-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件应用</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/办公软件/" itemprop="url" rel="index">
+                    <span itemprop="name">办公软件</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件应用/办公软件/markdown/" itemprop="url" rel="index">
+                    <span itemprop="name">markdown</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/07/软件应用_办公软件/Markdown/Markdown使用手册_Typora/" class="leancloud_visitors" data-flag-title="Markdown使用手册_typora">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>Markdown</strong>是由<a href="http://daringfireball.net/" target="_blank" rel="external">Daring Fireball</a>创建的，原来的指导方针就<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">在这里</a>。然而，其语法因不同的解析器或编辑者而异。<strong>Typora</strong>正在使用<a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank" rel="external">GitHub Flavored Markdown</a>。</p>
+<p>请注意，markdown源中的HTML片段将被识别，但不会被解析或呈现。另外，保存后的原始降价源代码可能会重新格式化。</p>
+<ul>
+<li><a href="http://support.typora.io/Markdown-Reference/#overview" target="_blank" rel="external">概述</a></li>
+<li><a href="http://support.typora.io/Markdown-Reference/#block-elements" target="_blank" rel="external">块元素</a><a href="http://support.typora.io/Markdown-Reference/#paragraph-and-line-breaks" target="_blank" rel="external">段落和换行符</a><a href="http://support.typora.io/Markdown-Reference/#headers" target="_blank" rel="external">标题</a><a href="http://support.typora.io/Markdown-Reference/#blockquotes" target="_blank" rel="external">块引用</a><a href="http://support.typora.io/Markdown-Reference/#lists" target="_blank" rel="external">列表</a><a href="http://support.typora.io/Markdown-Reference/#task-list" target="_blank" rel="external">任务列表</a><a href="http://support.typora.io/Markdown-Reference/#fenced-code-blocks" target="_blank" rel="external">（围栏）代码块</a><a href="http://support.typora.io/Markdown-Reference/#math-blocks" target="_blank" rel="external">数学块</a><a href="http://support.typora.io/Markdown-Reference/#tables" target="_blank" rel="external">表</a><a href="http://support.typora.io/Markdown-Reference/#footnotes" target="_blank" rel="external">脚注</a><a href="http://support.typora.io/Markdown-Reference/#horizontal-rules" target="_blank" rel="external">水平规则</a><a href="http://support.typora.io/Markdown-Reference/#yaml-front-matters" target="_blank" rel="external">YAML前线事宜</a><a href="http://support.typora.io/Markdown-Reference/#table-of-contents-toc" target="_blank" rel="external">目录（TOC）</a></li>
+<li><a href="http://support.typora.io/Markdown-Reference/#span-elements" target="_blank" rel="external">跨度元素</a><a href="http://support.typora.io/Markdown-Reference/#links" target="_blank" rel="external">链接</a><a href="http://support.typora.io/Markdown-Reference/#internal-links" target="_blank" rel="external">内部链接</a><a href="http://support.typora.io/Markdown-Reference/#reference-links" target="_blank" rel="external">参考链接</a><a href="http://support.typora.io/Markdown-Reference/#urls" target="_blank" rel="external">网址</a><a href="http://support.typora.io/Markdown-Reference/#images" target="_blank" rel="external">图片</a><a href="http://support.typora.io/Markdown-Reference/#emphasis" target="_blank" rel="external">重点</a><a href="http://support.typora.io/Markdown-Reference/#strong" target="_blank" rel="external">强大</a><a href="http://support.typora.io/Markdown-Reference/#code" target="_blank" rel="external">码</a><a href="http://support.typora.io/Markdown-Reference/#strikethrough" target="_blank" rel="external">删除线</a><a href="http://support.typora.io/Markdown-Reference/#underline" target="_blank" rel="external">强调</a><a href="http://support.typora.io/Markdown-Reference/#emoji-happy" target="_blank" rel="external">表情：快乐：</a><a href="http://support.typora.io/Markdown-Reference/#inline-math" target="_blank" rel="external">内联数学</a><a href="http://support.typora.io/Markdown-Reference/#subscript" target="_blank" rel="external">下标</a><a href="http://support.typora.io/Markdown-Reference/#superscript" target="_blank" rel="external">上标</a><a href="http://support.typora.io/Markdown-Reference/#highlight" target="_blank" rel="external">突出</a></li>
+</ul>
+<h2 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h2><h3 id="段落和换行符"><a href="#段落和换行符" class="headerlink" title="段落和换行符"></a>段落和换行符</h3><p>一段只是一个或多个连续的文本行。在markdown源代码中，段落由多个空白行分隔。在Typora中，您只需要按<code>Return</code>创建一个新的段落。</p>
+<p>按<code>Shift</code>+ <code>Return</code>创建一个换行符。但是，大多数markdown解析器将忽略单行中断，使其他分解器识别您的换行符，您可以在行尾留下两个空格或插入``。</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>标题在行开始使用1-6个散列字符，对应于标题级别1-6。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># This is an H1</div><div class="line"></div><div class="line">## This is an H2</div><div class="line"></div><div class="line">###### This is an H6</div></pre></td></tr></table></figure>
+<p>在typora中，输入’＃’后跟标题内容，<code>Return</code>按键将创建一个标题。</p>
+<h3 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h3><p>Markdown使用电子邮件风格&gt;字符进行块引用。它们被表示为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; This is a blockquote with two paragraphs. This is first paragraph.</div><div class="line">&gt;</div><div class="line">&gt; This is second pragraph.Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&gt; This is another blockquote with one paragraph. There is three empty line to seperate two blockquote.</div></pre></td></tr></table></figure>
+<p>在typora中，只需输入’&gt;’后跟引用内容就会生成一个块引用。Typora将为您插入适当的“&gt;”或换行符。通过添加额外的“&gt;”级别可以允许在另一个块引用内嵌一个引号。</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>输入<code>* list item 1</code>将创建一个无序列表，该<code>*</code>符号可以替换为<code>+</code>或<code>-</code>。</p>
+<p>输入<code>1. list item 1</code>将创建一个有序列表，它们的markdown源代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">## un-ordered list</div><div class="line">*   Red</div><div class="line">*   Green</div><div class="line">*   Blue</div><div class="line"></div><div class="line">## ordered list</div><div class="line">1.  Red</div><div class="line">2. 	Green</div><div class="line">3.	Blue</div></pre></td></tr></table></figure>
+<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>任务列表是标有[]或[x]（不完整或完整）的项目的列表。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- [ ] a task list item</div><div class="line">- [ ] list syntax required</div><div class="line">- [ ] normal **formatting**, @mentions, #1234 refs</div><div class="line">- [ ] incomplete</div><div class="line">- [x] completed</div></pre></td></tr></table></figure>
+<p>您可以通过单击项目之前的复选框来更改完整/不完整的状态。</p>
+<h3 id="（围栏）代码块"><a href="#（围栏）代码块" class="headerlink" title="（围栏）代码块"></a>（围栏）代码块</h3><p>Typora只支持Github Flavored Markdown中的栅栏。不支持标记中的原始代码块。</p>
+<p>使用栅栏很容易：输入“<code>”并按</code>return`。在<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>Here’s an example:</p>
+<p>​<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function test() &#123;</div><div class="line">  console.log(&quot;notice the blank line before this function?&quot;);</div><div class="line">&#125;</div><div class="line">​</div></pre></td></tr></table></figure></p>
+<p>syntax highlighting:<br>​<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></div><div class="line">markdown = Redcarpet.new(<span class="string">"Hello World!"</span>)</div><div class="line">puts markdown.to_html</div><div class="line">​</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 数学块</div><div class="line"></div><div class="line">您可以 使用**MathJax**渲染  *LaTeX*数学表达式  。****</div><div class="line"></div><div class="line">输入`$$`，然后按“返回”键将触发一个接受*Tex / LaTex*源的输入字段。以下是一个例子：</div><div class="line"></div><div class="line">V1× V2= |||||一世∂X∂你∂X∂vj∂Y∂你∂Y∂vk00|||||V1×V2=|一世jk∂X∂你∂Y∂你0∂X∂v∂Y∂v0|</div><div class="line"></div><div class="line">在markdown源文件中，数学块是由&apos;$$&apos;标记包裹的*LaTeX*表达式：</div></pre></td></tr></table></figure>
+<p>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 表</div><div class="line"></div><div class="line">输入`| First Header | Second Header |`和`return`按键将创建一个带有两列的表。</div><div class="line"></div><div class="line">创建表之后，将重点放在该表上将弹出一个表的工具栏，您可以在其中调整大小，对齐或删除表。您还可以使用上下文菜单来复制和添加/删除列/行。</div><div class="line"></div><div class="line">以下描述可以跳过，因为表的markdown源代码是由typora自动生成的。</div><div class="line"></div><div class="line">在markdown源代码中，它们看起来像：</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">您还可以包括内联Markdown，如链接，粗体，斜体或删除线。</div><div class="line"></div><div class="line">最后，通过包含冒号：在标题行中，您可以定义要左对齐，右对齐或中心对齐的文本：</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Left-Aligned</th>
+<th style="text-align:center">Center Aligned</th>
+<th style="text-align:right">Right Aligned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">col 3 is</td>
+<td style="text-align:center">some wordy text</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td style="text-align:left">col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td style="text-align:left">zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">最左侧的冒号表示左对齐的列; 最右侧的结肠指示右对齐的柱; 两侧的结肠表示中心对齐的柱。</div><div class="line"></div><div class="line">### 脚注</div></pre></td></tr></table></figure>
+<p>You can create footnotes like this[^footnote].</p>
+<p>[^footnote]: Here is the <em>text</em> of the <strong>footnote</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">将产生：</div><div class="line"></div><div class="line">你可以创建这样的脚注[1](http://support.typora.io/Markdown-Reference/#fn:footnote)。</div><div class="line"></div><div class="line">鼠标在“脚注”上标上查看脚注的内容。</div><div class="line"></div><div class="line">### 水平规则</div><div class="line"></div><div class="line">输入`***`或`---`空白行，按下`return`将画一条水平线。</div><div class="line"></div><div class="line">------</div><div class="line"></div><div class="line">### YAML前线事宜</div><div class="line"></div><div class="line">Typora支持[YAML Front Matters](http://jekyllrb.com/docs/frontmatter/)。输入`---`文章顶部，然后按下`Enter`将会介绍一个。或从菜单中插入一个元数据块。</div><div class="line"></div><div class="line">### 目录（TOC）</div><div class="line"></div><div class="line">输入，`[toc]`然后`Return`按键将创建一个“目录”部分，从一个人的写作中提取所有标题，其内容将自动更新。</div><div class="line"></div><div class="line">## 跨度元素</div><div class="line"></div><div class="line">您的打字后，Span元素将被解析并呈现。在这些span元素的中间移动光标将这些元素扩展为markdown源。以下将介绍这些span元素的语法。</div><div class="line"></div><div class="line">### 链接</div><div class="line"></div><div class="line">Markdown支持两种风格的链接：内联和引用。</div><div class="line"></div><div class="line">在两种样式中，链接文本由[方括号]分隔。</div><div class="line"></div><div class="line">要创建内联链接，请在链接文本的关闭方括号后立即使用一组常规括号。在括号内，将链接所在的网址与链接的可选标题一起放在引号中。例如：</div></pre></td></tr></table></figure>
+<p>This is <a href="http://example.com/" title="Title" target="_blank" rel="external">an example</a> inline link.</p>
+<p><a href="http://example.net/" target="_blank" rel="external">This link</a> has no title attribute.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">将产生：</div><div class="line"></div><div class="line">这是[一个](http://example.com/%22Title%22)内联链接[示例](http://example.com/%22Title%22)。（`This is [`](http://example.com/)）</div><div class="line"></div><div class="line">[此链接](http://example.net/)没有标题属性。（`[This link](http://example.net/) has no`）</div><div class="line"></div><div class="line">#### 内部链接</div><div class="line"></div><div class="line">**您可以将href设置为标题**，这将创建一个书签，允许您在单击后跳转到该部分。例如：</div><div class="line"></div><div class="line">命令（在Windows上：Ctrl）+单击[此链接](http://support.typora.io/Markdown-Reference/#block-elements)将跳转到标题`Block Elements`。要查看如何写，请移动光标或点击该`⌘`按钮，将该元素展开为markdown源。</div><div class="line"></div><div class="line">#### 参考链接</div><div class="line"></div><div class="line">参考样式链接使用第二组方括号，您可以在其中放置您选择的标签来标识链接：</div></pre></td></tr></table></figure>
+<p>This is <a href="http://example.com/" title="Optional Title Here" target="_blank" rel="external">an example</a> reference-style link.</p>
+<p>Then, anywhere in the document, you define your link label like this, on a line by itself:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在typora中，它们将被渲染为：</div><div class="line"></div><div class="line">这是[一个示例](http://example.com/)参考样式的链接。</div><div class="line"></div><div class="line">隐式链接名称快捷方式允许您省略链接的名称，在这种情况下，将链接文本本身用作名称。只需使用一组空白的方括号 - 例如，将Google“Google”链接到google.com网站，您可以简单地写：</div></pre></td></tr></table></figure>
+<p><a href="http://google.com/" target="_blank" rel="external">Google</a><br>And then define the link:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在typora中，点击链接将扩展它进行编辑，命令+单击将打开Web浏览器中的超链接。</div><div class="line"></div><div class="line">### 网址</div><div class="line"></div><div class="line">Typora允许您将URL作为链接插入，用`&lt;`括号括起来`&gt;`。</div><div class="line"></div><div class="line">``成为[i@typora.io](mailto:i@typora.io)。</div><div class="line"></div><div class="line">Typora将自动链接标准URL。例如：www.google.com。</div><div class="line"></div><div class="line">### 图片</div><div class="line"></div><div class="line">图像看起来与链接类似，但`!`在链接开始之前需要一个额外的char。图像语法如下所示：</div></pre></td></tr></table></figure>
+<p><img src="/path/to/img.jpg" alt="Alt text"></p>
+<p><img src="/path/to/img.jpg" alt="Alt text" title="Optional title"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">您可以使用拖放来从图像文件或浏览器插入图像。并通过点击图像修改markdown源代码。如果图像与当前编辑文档在同一目录或子目录中拖放时，将使用相对路径。</div><div class="line"></div><div class="line">如果您使用markdown构建网站，则可以在本地计算机中`typora-root-url`为YAML Front Matters中的属性指定用于图像预览的网址前缀。例如，`typora-root-url:/User/Abner/Website/typora.io/`在YAML Front Matters中输入，然后`![alt](/blog/img/test.png)`将被视为`![alt](file:///User/Abner/Website/typora.io/blog/img/test.png)`类似的。</div><div class="line"></div><div class="line">![拖放图像](http://typora.io/img/drag-img.gif)</div><div class="line"></div><div class="line">### 重点</div><div class="line"></div><div class="line">Markdown将星号（`*`）和下划线（`_`）作为重点的指示。用一个包装的文本`*`或`_`将被HTML ``标签包装的文本。例如：</div></pre></td></tr></table></figure>
+<p><em>single asterisks</em></p>
+<p><em>single underscores</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">输出：</div><div class="line"></div><div class="line">*单个星号*</div><div class="line"></div><div class="line">*单个下划线*</div><div class="line"></div><div class="line">GFM将忽略通常用于代码和名称的单词中的下划线，如下所示：</div><div class="line"></div><div class="line">&gt; wow_great_stuff</div><div class="line">&gt;</div><div class="line">&gt; do_this_and_do_that_and_another_thing。</div><div class="line"></div><div class="line">要在一个位置上产生一个文字星号或下划线，否则它将被用作强调分隔符，您可以反斜杠逃避它：</div></pre></td></tr></table></figure>
+<p>*this text is surrounded by literal asterisks*</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Typora建议使用`*`符号。</div><div class="line"></div><div class="line">### 强大</div><div class="line"></div><div class="line">double *或_将包含HTML ``标签，例如：</div></pre></td></tr></table></figure>
+<p><strong>double asterisks</strong></p>
+<p><strong>double underscores</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">输出：</div><div class="line"></div><div class="line">**双星号**</div><div class="line"></div><div class="line">**双重下划线**</div><div class="line"></div><div class="line">Typora建议使用`**`符号。</div><div class="line"></div><div class="line">### 码</div><div class="line"></div><div class="line">要指示代码跨度，用反引号引号（`）包装。与预格式化的代码块不同，代码段表示正常段落中的代码。例如：</div></pre></td></tr></table></figure>
+<p>Use the <code>printf()</code> function.</p>
+<p>```</p>
+<p>将产生：</p>
+<p>使用该<code>printf()</code>功能。</p>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>GFM添加语法来创建删除线文本，这在标准的Markdown中是缺少的。</p>
+<p><code>~~Mistaken text.~~</code> 成为 <del>错误的文字。</del></p>
+<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>下划线由原始HTML提供支持。</p>
+<p><code>Underline</code>成为下划线。</p>
+<h3 id="表情：快乐："><a href="#表情：快乐：" class="headerlink" title="表情：快乐："></a>表情：快乐：</h3><p>使用语法输入表情符号<code>:smile:</code>。</p>
+<p>用户可以通过<code>ESC</code>按键触发表情符号的自动填写建议，或者在首选面板上启用后自动触发。此外，还支持从<code>Edit</code>- &gt; <code>Emoji &amp; Symbols</code>从菜单栏直接输入UTF8表情符号字符串。</p>
+<h3 id="内联数学"><a href="#内联数学" class="headerlink" title="内联数学"></a>内联数学</h3><p>要使用此功能，请先在<code>Preference</code>面板 - &gt; <code>Markdown</code>选项卡中启用该功能。然后<code>$</code>用来包装TeX命令，例如：<code>$\lim_{x \to \infty} \exp(-x) = 0$</code>将被渲染为LaTeX命令。</p>
+<p>要触发内联数学的内联预览：输入“$”，然后<code>ESC</code>按键，然后输入TeX命令，预览工具提示将如下所示可见：</p>
+<p><img src="http://typora.io/img/inline-math.gif" alt="内联数学"></p>
+<h3 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h3><p>要使用此功能，请先在<code>Preference</code>面板 - &gt; <code>Markdown</code>选项卡中启用该功能。然后使用<code>~</code>包标内容，例如：<code>H~2~O</code>，<code>X~long\ text~</code>/</p>
+<h3 id="上标"><a href="#上标" class="headerlink" title="上标"></a>上标</h3><p>要使用此功能，请先在<code>Preference</code>面板 - &gt; <code>Markdown</code>选项卡中启用该功能。然后<code>^</code>用来包含上标内容，例如：<code>X^2^</code>。</p>
+<h3 id="突出"><a href="#突出" class="headerlink" title="突出"></a>突出</h3><p>要使用此功能，请先在<code>Preference</code>面板 - &gt; <code>Markdown</code>选项卡中启用该功能。然后<code>==</code>用来包装高亮内容，例如：<code>==highlight==</code>。</p>
+<ol>
+<li>这里是<em>文本</em>的的<strong>注脚</strong>。 <a href="http://support.typora.io/Markdown-Reference/#fnref:footnote" target="_blank" rel="external">↩</a></li>
+</ol>
+
           
         
       
