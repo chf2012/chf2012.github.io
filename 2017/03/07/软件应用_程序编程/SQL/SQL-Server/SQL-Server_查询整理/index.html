@@ -107,8 +107,8 @@ Where子句作用于From组装的记录集，根据条件筛选某些行。
 Group by 子句根据在该子句中指定的列将大量数据集分组成较小的数据集。
 Having 对较小的数据组执行聚合函数。
 Order by 子句确定结果子的排">
-<meta property="og:image" content="http://yoursite.com/![](https://raw.githubusercontent.com/chf2012/P-markdownpic/master/S软件应用_SQL01.jpg">
-<meta property="og:updated_time" content="2018-02-13T13:07:19.170Z">
+<meta property="og:image" content="http://yoursite.com/![](http://chf2012.oss-cn-hangzhou.aliyuncs.com/daily_pic/S软件应用_SQL01.jpg">
+<meta property="og:updated_time" content="2018-11-11T14:28:54.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL Server_常用查询">
 <meta name="twitter:description" content="SQL 逻辑流Select 语法
@@ -118,7 +118,7 @@ Where子句作用于From组装的记录集，根据条件筛选某些行。
 Group by 子句根据在该子句中指定的列将大量数据集分组成较小的数据集。
 Having 对较小的数据组执行聚合函数。
 Order by 子句确定结果子的排">
-<meta name="twitter:image" content="http://yoursite.com/![](https://raw.githubusercontent.com/chf2012/P-markdownpic/master/S软件应用_SQL01.jpg">
+<meta name="twitter:image" content="http://yoursite.com/![](http://chf2012.oss-cn-hangzhou.aliyuncs.com/daily_pic/S软件应用_SQL01.jpg">
 
 
 
@@ -367,8 +367,8 @@ Order by 子句确定结果子的排">
               
                 <span class="post-meta-item-text">更新</span>
               
-              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:07:19+08:00">
-                2018-02-13
+              <time title="更新" itemprop="dateModified" datetime="2018-11-11T22:28:54+08:00">
+                2018-11-11
               </time>
             
           </span>
@@ -1273,7 +1273,7 @@ Order by 子句确定结果子的排">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 按某个组分组并排序</div><div class="line">group by name</div><div class="line">order by name;</div><div class="line"></div><div class="line">----------------------</div><div class="line">GROUP BY name</div><div class="line">ORDER BY first_name, last_name DESC, SUM(age);  # 默认为升序排序（ASC）</div></pre></td></tr></table></figure>
 <h2 id="窗口函数-Select-Over"><a href="#窗口函数-Select-Over" class="headerlink" title="窗口函数 - Select Over()"></a>窗口函数 - Select Over()</h2><h3 id="聚合子句"><a href="#聚合子句" class="headerlink" title="聚合子句"></a>聚合子句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Sum(cola) Over(partition by col1 order by col2)</div><div class="line">--其他聚合函数：avg/max/min /count </div><div class="line"></div><div class="line"># 根据分组求和</div><div class="line">Over(Partition by col1) --根据col1的分组对cola进行求和； [若同一组别有多个维度，则求和的值是相同的]</div><div class="line"></div><div class="line"># 根据排名求累计和</div><div class="line">Over(Order by col2)--根据col2的顺序对cola列累计求和； [若同一组有多个维度，求和的值是累加的]</div><div class="line"></div><div class="line"># 根据分组后的排名，求累积和</div><div class="line">Over(Partition by col1 order by col2) --根据Col1的分组进行排名得出Col2的次序，并按col2的次序对cola进行分组求和</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 移动平均</div><div class="line">CONVERT(varchar(20),AVG(SalesYTD) OVER (ORDER BY DATEPART(yy,ModifiedDate)),1) AS MovingAvg</div></pre></td></tr></table></figure>
-<p><img src="![](https://raw.githubusercontent.com/chf2012/P-markdownpic/master/S软件应用_SQL01.jpg" alt="窗口函数"></p>
+<p><img src="![](http://chf2012.oss-cn-hangzhou.aliyuncs.com/daily_pic/S软件应用_SQL01.jpg" alt="窗口函数"></p>
 <blockquote>
 <p>在窗口内<strong>分区：Partition by</strong></p>
 <ul>
@@ -1659,8 +1659,8 @@ Order by 子句确定结果子的排">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/05/软件应用_办公软件/Markdown/Markdown使用手册_Typora_高阶/" rel="next" title="Markdown使用_typora_高阶">
-                <i class="fa fa-chevron-left"></i> Markdown使用_typora_高阶
+              <a href="/2017/03/05/阅读书籍/Others_罗振宇-罗辑思维/王阳明的心法_罗辑思维_20170315/" rel="next" title="王阳明的心法_罗辑思维">
+                <i class="fa fa-chevron-left"></i> 王阳明的心法_罗辑思维
               </a>
             
           </div>
@@ -1779,7 +1779,7 @@ Order by 子句确定结果子的排">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">143</span>
+                <span class="site-state-item-count">128</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1898,7 +1898,7 @@ Order by 子句确定结果子的排">
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
