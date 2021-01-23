@@ -1927,7 +1927,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_安装卸载/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_常见错误与解决办法/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jimmy_Cai">
@@ -1952,8 +1952,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_安装卸载/" itemprop="url">
-                  MySQL：安装卸载
+                <a class="post-title-link" href="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_常见错误与解决办法/" itemprop="url">
+                  MySQL:常见错误与解决办法
                 </a>
               
             
@@ -1985,8 +1985,8 @@
               
                 <span class="post-meta-item-text">更新</span>
               
-              <time title="更新" itemprop="dateModified" datetime="2018-02-13T21:08:05+08:00">
-                2018-02-13
+              <time title="更新" itemprop="dateModified" datetime="2018-11-11T22:28:54+08:00">
+                2018-11-11
               </time>
             
           </span>
@@ -2043,7 +2043,7 @@
 
           
           
-             <span id="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_安装卸载/" class="leancloud_visitors" data-flag-title="MySQL：安装卸载">
+             <span id="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_常见错误与解决办法/" class="leancloud_visitors" data-flag-title="MySQL:常见错误与解决办法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2073,18 +2073,16 @@
 
       
         
-          
-            <h2 id="彻底卸载MySQL-windows"><a href="#彻底卸载MySQL-windows" class="headerlink" title="彻底卸载MySQL-windows"></a>彻底卸载MySQL-windows</h2><p>1.首先在windows服务中将mysql服务删掉，使用命令 sc delete mysql</p>
-<p>2.在控制面板中卸载掉mysql。</p>
-<p>3.清理mysql安装目录的ini文件。</p>
-<p>4.清理注册表（win+R : regedit)：</p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\MySQL目录删除</p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Services\Eventlog\Application\MySQL目录删除</p>
-<p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\MySQL目录删除（我卸载的时候没有找到，略过后仍达到完全卸载的目的。）</p>
-<p>5.有一些mysql的数据文件也必须删除干净，比如说：C:\Documents and Settings\AllUsers\Application Data\MySQL</p>
-<p>6.重启电脑。重新安装即可。</p>
-
-          
+          <h2 id="mysqldump不是内部命令或外部命令，也不是可执行的命令"><a href="#mysqldump不是内部命令或外部命令，也不是可执行的命令" class="headerlink" title="mysqldump不是内部命令或外部命令，也不是可执行的命令"></a>mysqldump不是内部命令或外部命令，也不是可执行的命令</h2><p>需转到对应的<code>.exe</code>的文件的目录下才能执行；譬如我把mysql装在了c盘，就到<code>c:\mysql\bin</code>下才能运行。</p>
+<p>通过CMD命令行切换到mysql安装文件夹里的bin目录（该path可通过“我的电脑—管理—服务—MySQL—可执行文件的路径”中查找），然后在CMD命令中输入如下代码</p>
+<p><code>cd C:\Program Files\MySQL\MySQL Server 5.7\bin\</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/04/软件应用_程序编程/SQL/MySQL/MySQL_常见错误与解决办法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
