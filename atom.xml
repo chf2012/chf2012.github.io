@@ -2751,55 +2751,6 @@
   </entry>
   
   <entry>
-    <title>阅读书籍_2018年度</title>
-    <link href="http://yoursite.com/2018/02/05/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB_2018%E5%B9%B4%E5%BA%A6/"/>
-    <id>http://yoursite.com/2018/02/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2018年度/</id>
-    <published>2018-02-04T16:00:00.000Z</published>
-    <updated>2018-07-10T14:55:35.253Z</updated>
-    
-    <content type="html"><![CDATA[<p>记录2018年度阅读的书籍。</p>
-<a id="more"></a>
-<p>[TOC]</p>
-<p><br></p>
-<blockquote>
-<p>类别</p>
-<p>《书名》_作者 | 出版时间/ 购买时间 / 阅读时间 - 网址链接 （若时间点只有一个，表示阅读与购买时间为同一时段）</p>
-<p>《book name》_author | 2011.09 / 2017-02 （注意两个时间的格式不一样）</p>
-<p>一句话概括整本书的核心内容，最多不超过三句话。这个是原则。</p>
-</blockquote>
-<p><br></p>
-<h2 id="互联网运营"><a href="#互联网运营" class="headerlink" title="互联网运营"></a>互联网运营</h2><p><br></p>
-<ol>
-<li><p><strong>《运营之光：我的互联网运营方法论与自白 2.0》_黄有璨 / 2017-12 / 2018-02</strong> </p>
-</li>
-<li><p><strong>《小群效应》_徐志斌 / 2018-02</strong></p>
-</li>
-</ol>
-<p><br></p>
-<h2 id="思维意识与生活态度"><a href="#思维意识与生活态度" class="headerlink" title="思维意识与生活态度"></a>思维意识与生活态度</h2><ol>
-<li><strong>《精进》_采铜 / 2018-01 /2018-05</strong></li>
-<li><strong>《人生定位》_[美] 艾.里斯 &amp; 杰克.特劳特 (AI Ries &amp; Jack Trout) |2011.09 / 2018-07</strong></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录2018年度阅读的书籍。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-      <category term="汇总整理" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
-    
-    
-      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
-    
-      <category term="汇总整理" scheme="http://yoursite.com/tags/%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>阅读书籍汇总</title>
     <link href="http://yoursite.com/2018/02/05/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB/"/>
     <id>http://yoursite.com/2018/02/05/阅读书籍/阅读书籍汇总/阅读书籍汇总/</id>
@@ -3547,6 +3498,55 @@
       <category term="程序编程" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阅读书籍_2018年度</title>
+    <link href="http://yoursite.com/2018/02/05/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB_2018%E5%B9%B4%E5%BA%A6/"/>
+    <id>http://yoursite.com/2018/02/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2018年度/</id>
+    <published>2018-02-04T16:00:00.000Z</published>
+    <updated>2018-07-10T14:55:35.253Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录2018年度阅读的书籍。</p>
+<a id="more"></a>
+<p>[TOC]</p>
+<p><br></p>
+<blockquote>
+<p>类别</p>
+<p>《书名》_作者 | 出版时间/ 购买时间 / 阅读时间 - 网址链接 （若时间点只有一个，表示阅读与购买时间为同一时段）</p>
+<p>《book name》_author | 2011.09 / 2017-02 （注意两个时间的格式不一样）</p>
+<p>一句话概括整本书的核心内容，最多不超过三句话。这个是原则。</p>
+</blockquote>
+<p><br></p>
+<h2 id="互联网运营"><a href="#互联网运营" class="headerlink" title="互联网运营"></a>互联网运营</h2><p><br></p>
+<ol>
+<li><p><strong>《运营之光：我的互联网运营方法论与自白 2.0》_黄有璨 / 2017-12 / 2018-02</strong> </p>
+</li>
+<li><p><strong>《小群效应》_徐志斌 / 2018-02</strong></p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="思维意识与生活态度"><a href="#思维意识与生活态度" class="headerlink" title="思维意识与生活态度"></a>思维意识与生活态度</h2><ol>
+<li><strong>《精进》_采铜 / 2018-01 /2018-05</strong></li>
+<li><strong>《人生定位》_[美] 艾.里斯 &amp; 杰克.特劳特 (AI Ries &amp; Jack Trout) |2011.09 / 2018-07</strong></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录2018年度阅读的书籍。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="阅读书籍" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="汇总整理" scheme="http://yoursite.com/categories/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
+    
+      <category term="汇总整理" scheme="http://yoursite.com/tags/%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
     
   </entry>
   
