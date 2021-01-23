@@ -4197,6 +4197,349 @@
   </entry>
   
   <entry>
+    <title>Python_正则表达式_RE</title>
+    <link href="http://yoursite.com/2018/01/24/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F_RE/"/>
+    <id>http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_正则表达式_RE/</id>
+    <published>2018-01-23T16:00:00.000Z</published>
+    <updated>2018-02-13T13:44:18.005Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Re模块"><a href="#Re模块" class="headerlink" title="Re模块"></a>Re模块</h2><blockquote>
+<p>Re模块的函数主要分三个大类：匹配模式、替换、拆分</p>
+</blockquote>
+<p><strong>Python字符串转义符 <code>\</code> </strong> </p>
+<p><strong>因此强烈建议使用Python的<code>r</code>前缀，就不用考虑转义的问题了：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">s = <span class="string">r'ABC\-001'</span> <span class="comment"># Python的字符串</span></div><div class="line"><span class="comment"># 对应的正则表达式字符串不变：</span></div><div class="line"><span class="comment"># 'ABC\-001'</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><br></p>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>当我们在Python中使用正则表达式时，re模块内部会干两件事情：</p>
+<ol>
+<li>编译正则表达式，如果正则表达式的字符串本身不合法，会报错；</li>
+<li>用编译后的正则表达式去匹配字符串。</li>
+</ol>
+<blockquote>
+<p>Python代码最终被被编译为字节码，然后才被解释器执行。在匹配模式之前，正则表达式模式必须先被编译成regex对象。由于正则表达式在执行过程中多次被用于比较，所以强烈建议先对它进行预编译。</p>
+</blockquote>
+<p>如果一个正则表达式要重复使用几千次，出于效率的考虑，我们可以<strong>预编译</strong>该正则表达式，接下来重复使用时就不需要编译这个步骤了，直接匹配：</p>
+<p><br></p>
+<h4 id="compile-模块的函数"><a href="#compile-模块的函数" class="headerlink" title="compile - 模块的函数"></a>compile - 模块的函数</h4><ul>
+<li><strong>re.compile(patter [, flags=0])</strong> 把正则表达式<strong>编译成一个正则对象（regex）</strong>;供其他函数 find()、match()、search() 等函数使用<ul>
+<li>使用方式为 <strong>命名的变量.方法(查找对象的范围)</strong> ；其实因为在其他Re函数使用时，自动传递pattern</li>
+<li>若对许多字符串应用同一条正则表达式，强烈建议通过re.compile创建对象。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>flags 包括：<br>re.I 忽略大小写<br>re.L 表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境<br>re.M 多行模式<br>re.S 即为’ . ’并且包括换行符在内的任意字符（’ . ’不包括换行符）<br>re.U 表示特殊字符集 \w, \W, \b, \B, \d, \D, \s, \S 依赖于 Unicode 字符属性数据库<br>re.X 为了增加可读性，忽略空格和’ # ’后面的注释</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">a = re.compile() <span class="comment"># 创建的正则规则</span></div><div class="line">result = a.findall(ojbect)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 简单说明 】</span></div><div class="line">compiled_pattern = re.compile(pattren)</div><div class="line">resule = re.findall(compiled_pattern, string)  <span class="comment"># 这种方式更利于理解</span></div><div class="line"><span class="comment">#---------等价于--------------</span></div><div class="line">compiled_pattern = re.compile(pattren)</div><div class="line">result = compiled_patter.findall(string)  <span class="comment"># 使用方式为 命名的变量.方法(查找对象的范围) 。其实因为在其他Re函数使用时，自动传递pattern</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 解释说明 】</span></div><div class="line"><span class="comment">## p 即为编译后的 pattern。 在其他Re函数使用时，自动传递pattern</span></div><div class="line">p = re.compile( <span class="string">'(one|two|three)'</span>)  </div><div class="line">p.sub( <span class="string">'num'</span>, <span class="string">'one word two words three words'</span>)   <span class="comment"># 其第一个参数为p，即将one|two|three作为查找的对象，替换为rep = num</span></div><div class="line"><span class="string">'num word num words num words'</span></div><div class="line"><span class="comment">### 正常应为 re.sub('(one|two|three)', 'num', 'one word two words three words')</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</div><div class="line"><span class="comment"># 编译:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone = re.compile(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>)</div><div class="line"><span class="comment"># 使用：</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-12345'</span>).groups()   </div><div class="line">(<span class="string">'010'</span>, <span class="string">'12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-8086'</span>).groups()</div><div class="line">(<span class="string">'010'</span>, <span class="string">'8086'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<blockquote>
+<p>Re模块的函数和regex对象的方法</p>
+<p>强调：查找的对象是 <strong>字符串string</strong></p>
+</blockquote>
+<h4 id="search-amp-match-搜索-amp-匹配"><a href="#search-amp-match-搜索-amp-匹配" class="headerlink" title="search &amp; match- 搜索&amp;匹配"></a>search &amp; match- 搜索&amp;匹配</h4><blockquote>
+<p>search - 搜索；  match - 匹配</p>
+<p>通过.group 返回对象</p>
+</blockquote>
+<ul>
+<li><strong>match(pattern, string, flags=0)</strong>：在字符串string的<strong>开头 开始搜索</strong>正则表达式模式pattern；若匹配成功，则返回一个匹配对象<u>（仅返回匹配的部分）</u>；否则返回None</li>
+</ul>
+<ul>
+<li><strong>search(pattern, string, flags=0)</strong>：从字符串string中<strong>（任意位置）</strong>搜索正则表达式模式pattern <strong>第一次出现的地方</strong>； 如果匹配成功，则返回一个匹配对象；否则返回None</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># match 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">3</span>), match=<span class="string">'foo'</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'The food on the table'</span>) <span class="comment"># 什么都没有返回</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># search 应用</span></div><div class="line">re.search(<span class="string">'foo'</span>, <span class="string">'The food on the table'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">4</span>, <span class="number">7</span>), match=<span class="string">'foo'</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">val = <span class="string">'abc, dca, guides'</span></div><div class="line"></div><div class="line">m = re.search(<span class="string">'uid'</span>, val)</div><div class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(9, 12), match='uid'&gt;</span></div><div class="line">val[m.start():m.end()]</div><div class="line"><span class="comment"># 'uid'</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="findall-amp-finditer-查找"><a href="#findall-amp-finditer-查找" class="headerlink" title="findall &amp; finditer - 查找"></a>findall &amp; finditer - 查找</h4><blockquote>
+<p>search 与 findall 不同之处在于：findall 总返回一个<strong>[ 列表 ] </strong></p>
+</blockquote>
+<ul>
+<li><strong>findall(pattern, string [,flags])</strong> ：在字符串string中搜索匹配pattern的<strong>所有内容</strong>，并返回一个匹配对象的 <strong>[列表 list]</strong></li>
+</ul>
+<blockquote>
+<p>正则表达式</p>
+</blockquote>
+<ul>
+<li><strong>finditer(pattern, string [, flags])</strong>：在字符串string中搜索匹配pattern的<strong>所有内容</strong>，返回一个<strong>迭代器</strong>，该迭代器返回一个匹配对象</li>
+</ul>
+<p><br></p>
+<h4 id="sub-替换"><a href="#sub-替换" class="headerlink" title="sub - 替换"></a>sub - 替换</h4><ul>
+<li><strong>re.sub(pattern, repl ,string, max = 0)</strong> : 把字符串string中所有匹配正则表达式pattern的地方 <strong>替换</strong>成 字符串 repl <ul>
+<li>如果没有找到匹配 pattern 的串，则返回未被修改的 string。Repl 既可以是字符串也可以是一个函数。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>若max 的值没有给出，则对所有匹配的地方进行替换</p>
+</blockquote>
+<ul>
+<li>re.subn - 该函数的功能和 sub() 相同，但它还返回新的字符串以及替换的次数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">re.sub(pattern, repl, string[, count, flags])</div><div class="line"></div><div class="line"><span class="comment"># count=1 表示替换仅替换第一个</span></div><div class="line">p = re.compile( <span class="string">'(one|two|three)'</span>) </div><div class="line">p.sub( <span class="string">'num'</span>, <span class="string">'one word two words three words'</span>)   <span class="comment"># 其第一个参数为p，即将one|two|three作为查找的对象，替换为rep = num</span></div><div class="line"><span class="string">'num word num words num words'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ------------------------------------</span></div><div class="line">subn(repl, string[, count=<span class="number">0</span>])</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="split-分割"><a href="#split-分割" class="headerlink" title="split - 分割"></a>split - 分割</h4><ul>
+<li><strong>re.split(pattren, string, max=0)</strong> ： 根据正则表达式pattern中的分隔符 把字符串string <strong>分割为一个 [列表]</strong></li>
+</ul>
+<blockquote>
+<p>若max 的值没有给出，则对所有匹配的地方进行分割</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.split(pattern, string[, maxsplit=<span class="number">0</span>, flags=<span class="number">0</span>])</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="group-匹配对象"><a href="#group-匹配对象" class="headerlink" title="group - 匹配对象"></a>group - 匹配对象</h4><blockquote>
+<p><strong>匹配对象的方法：在match &amp; search 被成功调用之后所返回的结果。</strong></p>
+</blockquote>
+<ul>
+<li><strong>group(num=0)</strong>：<strong>返回全部匹配对象</strong>（或指定编号是num的子组）</li>
+<li><strong>groups()</strong>：返回一个包含<strong>唯一或全部</strong>匹配的子组的<strong>元组</strong>（若正则表达式中没有子组，则返回一个空元组）</li>
+</ul>
+<blockquote>
+<p>num 代表第1、2、……个子串。如果正则表达式中定义了组，就可以在<code>Match</code>对象上用<code>group()</code>方法提取出子串来。</p>
+<p>用<code>()</code>表示的就是要提取的分组(Group)，进行<strong>提取子串</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#  group 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>).group()</div><div class="line"><span class="string">'foo'</span></div><div class="line"></div><div class="line"><span class="comment"># groups 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>).groups()</div><div class="line">()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 用()定义组</span></div><div class="line">^(\d&#123;<span class="number">3</span>&#125;)-(\d&#123;<span class="number">3</span>,<span class="number">8</span>&#125;)$  <span class="comment"># 分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>, <span class="string">'010-12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">'010-12345'</span>&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)  <span class="comment"># group(0) 永远是原始字符串</span></div><div class="line"><span class="string">'010-12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'010'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group()  <span class="comment"># 返回所有的值</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h3><ol>
+<li>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。<ul>
+<li>由于<code>\d+</code>采用贪婪匹配，直接把后面的<code>0</code>全部匹配了，结果<code>0*</code>只能匹配空字符串了。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'102300'</span>, <span class="string">''</span>)</div></pre></td></tr></table></figure>
+<ol>
+<li>必须让<code>\d+</code>采用<strong>非贪婪匹配（也就是尽可能少匹配）</strong>，才能把后面的<code>0</code>匹配出来，<strong>加个<code>?</code>就可以让<code>\d+</code>采用非贪婪匹配：</strong></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+?)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'1023'</span>, <span class="string">'00'</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="参考资料-：-正则表达式"><a href="#参考资料-：-正则表达式" class="headerlink" title="参考资料 ： 正则表达式"></a>参考资料 ： 正则表达式</h2><blockquote>
+<p>元字符</p>
+</blockquote>
+<h3 id="匹配对象"><a href="#匹配对象" class="headerlink" title="匹配对象"></a>匹配对象</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.</strong></td>
+<td>点号</td>
+<td>匹配单个(除换行符以外)<strong>任意字符</strong> <strong>（含空格、下划线等）</strong></td>
+</tr>
+<tr>
+<td><strong>\s </strong></td>
+<td>空白/空格- space</td>
+<td>匹配任意的<strong>空白符</strong></td>
+</tr>
+<tr>
+<td>\S</td>
+<td>非空白字符</td>
+<td>匹配<strong>任何非空白字符，相当于[^ fv]</strong></td>
+</tr>
+<tr>
+<td><strong>\d</strong></td>
+<td>数字 - digit</td>
+<td>匹配<strong>数字 ，相当于[0-9]</strong></td>
+</tr>
+<tr>
+<td>\D</td>
+<td>非数字</td>
+<td>匹配任何<strong>非数字字符</strong>，相当于[^0-9]</td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td>任何字符 - whatever</td>
+<td><strong>匹配任何字母数字字符，相当于[a-zA-Z0-9_]</strong></td>
+</tr>
+<tr>
+<td>\W</td>
+<td>非任何字符</td>
+<td>匹配<strong>任何非字母数字字符</strong>，相当于[^a-zA-Z0-9_]</td>
+</tr>
+<tr>
+<td><strong>[ ]</strong></td>
+<td>字符组</td>
+<td>匹配<strong>单个</strong>列出的字符，表示或的关系</td>
+</tr>
+<tr>
+<td><strong>[^ ]</strong></td>
+<td>排除性字符组</td>
+<td>匹配<strong>单个</strong>未列出的字符</td>
+</tr>
+<tr>
+<td>\char</td>
+<td>转义字符</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>对于 ? 和 * 的对象在”匹配成功”时也可能并没有匹配任何内容。因为它们允许匹配的数量为0</p>
+<p>即便是排除性字符，也需要匹配一个字符</p>
+<p>转义符 <code>\\*</code>第一个转义符是对\进行转义，表示：查找 <code>\*</code>此类字符的内容</p>
+<p>空格 也是一个字符</p>
+<p>由于Python的字符串本身也用<code>\</code>转义，因此强烈建议使用Python的<code>r</code>前缀，就不用考虑转义的问题了：</p>
+</blockquote>
+<h4 id="字符组"><a href="#字符组" class="headerlink" title="字符组 [ ]"></a>字符组 [ ]</h4><ol>
+<li><p>字符组内匹配的是<strong>列出的单个字符</strong>，<strong>或者</strong>的关系</p>
+</li>
+<li><p><strong>字符组元字符</strong> ：字符组内的元字符，<strong>其含义表示为本身的含义，即代表普通文本字符，相当于转义之后的字符（连字符 - 除外）</strong></p>
+<ul>
+<li><strong>连字符 ( - )</strong>表示一个<strong>范围</strong>；<strong>【注意：只有在字符组内部，连字符( - )才是元字符】</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">0</span><span class="number">-9</span>]  <span class="comment"># 表示匹配的字符为0~9之间的任意一个</span></div></pre></td></tr></table></figure>
+<ul>
+<li>连字符 ( - ) 出现在<strong>字符组的开头</strong>，则仅代表<strong>普通文本字符</strong>； </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">-09</span>]  <span class="comment"># 表示匹配的字符为 - 或者 0 或者 9</span></div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<h3 id="量词-计数功能"><a href="#量词-计数功能" class="headerlink" title="量词 - 计数功能"></a>量词 - 计数功能</h3><p>对前一个/一组字符匹配的的次数</p>
+<table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>？</strong>  = 0 或 1</td>
+<td><strong>问号</strong></td>
+<td>不匹配，或仅匹配一次</td>
+</tr>
+<tr>
+<td><strong>*</strong>     $\ge$ 0</td>
+<td>星号</td>
+<td>可能不匹配，也可能匹配任意多次</td>
+</tr>
+<tr>
+<td><strong>+</strong>     $\ge$ 1</td>
+<td>加号</td>
+<td>至少匹配一次，也可能匹配任意多次</td>
+</tr>
+<tr>
+<td>{m}</td>
+<td></td>
+<td>对于前一个字符重复m次</td>
+</tr>
+<tr>
+<td><strong>{min, max}</strong></td>
+<td>区间量词</td>
+<td>对前一个字符重复min到max次</td>
+</tr>
+</tbody>
+</table>
+<h3 id="匹配位置"><a href="#匹配位置" class="headerlink" title="匹配位置"></a>匹配位置</h3><table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>^</strong></td>
+<td>脱字符</td>
+<td>一行的开头位置</td>
+</tr>
+<tr>
+<td><strong>$</strong></td>
+<td>美元符</td>
+<td>一行的结束位置</td>
+</tr>
+<tr>
+<td>\b</td>
+<td><strong>单词分界符</strong></td>
+<td>匹配<strong>单词的开始或结束</strong> (用于精确匹配)</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>非单词分界符</td>
+<td>匹配<strong>不是单词开头或结束的位置</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="其他元字符"><a href="#其他元字符" class="headerlink" title="其他元字符"></a>其他元字符</h3><table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>( )</td>
+<td>括号</td>
+<td>限定多线结构的范围； 为反向引用“捕获”文本</td>
+</tr>
+<tr>
+<td>\1 , \2</td>
+<td>反向引用</td>
+<td>匹配之前的第一个、第二个括号内的字表达式<strong>所匹配的文本</strong>(即捕获的文本)</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>或者</td>
+<td>匹配任意分隔的表达式</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>括号与反向引用的示例</p>
+<ul>
+<li><strong>分组0对应整个正则表达式</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; \b(a-zA-Z)*+\<span class="number">1</span>\b</div><div class="line">&gt; <span class="comment"># 若 \b(a-zA-Z)*+ 任意字符找到的以单词开头的内容为the，则\1 表示其末尾也应为the的内容 </span></div><div class="line">&gt; <span class="comment"># 若有两个括号，\2表示第二个括号中所匹配的文本内容</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="多选结构"><a href="#多选结构" class="headerlink" title="多选结构"></a>多选结构</h4><ol>
+<li><p>使用圆括号( ) 来进行表示，而非方括号</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查找 gray 或 grey的写法</span></div><div class="line"></div><div class="line"><span class="number">1.</span> gr[ae]y</div><div class="line"><span class="number">2.</span> gr(a|e)y</div><div class="line"></div><div class="line"><span class="comment"># 错误的写法 gr[a|e]y  -表示查找 a 或者 | 或者 e</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>多选结构可以匹配<strong>任意长度</strong>的字符，而字符组[ ]只能匹配<strong>单个</strong>字符</p>
+</blockquote>
+<h2 id="【实战演练】"><a href="#【实战演练】" class="headerlink" title="【实战演练】"></a>【实战演练】</h2><p>你在一篇英文小说里查找hi，你可以使用正则表达式hi</p>
+<p>通常，处理正则表达式的工具会提供一个忽略大小写的选项，如果选中了这个选项，它可以匹配hi,HI,Hi,hI这四种情况中的任意一种。</p>
+<p>很多单词里包含hi这两个连续的字符，比如him,history,high等等。用hi来查找的话，这里边的hi也会被找出来。如果要精确地查找hi这个单词的话，我们应该使用\bhi\b</p>
+<p><code>\bhi\b.*\bLucy\b</code>的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词</p>
+<p><br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">f = open(<span class="string">'caihf001'</span>)</div><div class="line">text = f.read()</div><div class="line">f.close()</div><div class="line">k = re.compile(<span class="string">'Lemon'</span>, re.I)</div><div class="line">k.findall(text)</div><div class="line"></div><div class="line"><span class="comment"># ----效果同上</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'caihf001'</span>) <span class="keyword">as</span> f:</div><div class="line">    text = f.read()</div><div class="line"><span class="comment">#     print(text)</span></div><div class="line">    k = re.compile(<span class="string">'lemon'</span>,re.I)</div><div class="line">    l = re.findall(k,text)</div><div class="line">print(l)</div><div class="line"></div><div class="line"></div><div class="line">[<span class="string">'Lemon'</span>, <span class="string">'lemon'</span>, <span class="string">'Lemon'</span>, <span class="string">'Lemon'</span>, <span class="string">'LeMoN'</span>, <span class="string">'LEmon'</span>, <span class="string">'LEMON'</span>]</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Re模块&quot;&gt;&lt;a href=&quot;#Re模块&quot; class=&quot;headerlink&quot; title=&quot;Re模块&quot;&gt;&lt;/a&gt;Re模块&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Re模块的函数主要分三个大类：匹配模式、替换、拆分&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Python字符串转义符 &lt;code&gt;\&lt;/code&gt; &lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因此强烈建议使用Python的&lt;code&gt;r&lt;/code&gt;前缀，就不用考虑转义的问题了：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;s = &lt;span class=&quot;string&quot;&gt;r&#39;ABC\-001&#39;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# Python的字符串&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 对应的正则表达式字符串不变：&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# &#39;ABC\-001&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="程序编程" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/"/>
+    
+    
+      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="程序编程" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python_安装设置&amp;jupyter</title>
     <link href="http://yoursite.com/2018/01/24/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE&amp;Jupyter/"/>
     <id>http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_安装设置&amp;Jupyter/</id>
@@ -4603,349 +4946,6 @@ os.environ
 &lt;li&gt;&lt;code&gt;pip&lt;/code&gt;不是内部或外部命令，也不是可运行的程序&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;添加Python的Script  到环境变量；在Path后面追加一下内容(Path： 不要复制进去) &lt;code&gt;Path:;C:\python;C:\Python\Scripts&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="程序编程" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/"/>
-    
-    
-      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="程序编程" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python_正则表达式_RE</title>
-    <link href="http://yoursite.com/2018/01/24/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F_RE/"/>
-    <id>http://yoursite.com/2018/01/24/软件应用_程序编程/Python/Python_专题总结/Python_正则表达式_RE/</id>
-    <published>2018-01-23T16:00:00.000Z</published>
-    <updated>2018-02-13T13:44:18.005Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Re模块"><a href="#Re模块" class="headerlink" title="Re模块"></a>Re模块</h2><blockquote>
-<p>Re模块的函数主要分三个大类：匹配模式、替换、拆分</p>
-</blockquote>
-<p><strong>Python字符串转义符 <code>\</code> </strong> </p>
-<p><strong>因此强烈建议使用Python的<code>r</code>前缀，就不用考虑转义的问题了：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">s = <span class="string">r'ABC\-001'</span> <span class="comment"># Python的字符串</span></div><div class="line"><span class="comment"># 对应的正则表达式字符串不变：</span></div><div class="line"><span class="comment"># 'ABC\-001'</span></div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><br></p>
-<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>当我们在Python中使用正则表达式时，re模块内部会干两件事情：</p>
-<ol>
-<li>编译正则表达式，如果正则表达式的字符串本身不合法，会报错；</li>
-<li>用编译后的正则表达式去匹配字符串。</li>
-</ol>
-<blockquote>
-<p>Python代码最终被被编译为字节码，然后才被解释器执行。在匹配模式之前，正则表达式模式必须先被编译成regex对象。由于正则表达式在执行过程中多次被用于比较，所以强烈建议先对它进行预编译。</p>
-</blockquote>
-<p>如果一个正则表达式要重复使用几千次，出于效率的考虑，我们可以<strong>预编译</strong>该正则表达式，接下来重复使用时就不需要编译这个步骤了，直接匹配：</p>
-<p><br></p>
-<h4 id="compile-模块的函数"><a href="#compile-模块的函数" class="headerlink" title="compile - 模块的函数"></a>compile - 模块的函数</h4><ul>
-<li><strong>re.compile(patter [, flags=0])</strong> 把正则表达式<strong>编译成一个正则对象（regex）</strong>;供其他函数 find()、match()、search() 等函数使用<ul>
-<li>使用方式为 <strong>命名的变量.方法(查找对象的范围)</strong> ；其实因为在其他Re函数使用时，自动传递pattern</li>
-<li>若对许多字符串应用同一条正则表达式，强烈建议通过re.compile创建对象。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>flags 包括：<br>re.I 忽略大小写<br>re.L 表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境<br>re.M 多行模式<br>re.S 即为’ . ’并且包括换行符在内的任意字符（’ . ’不包括换行符）<br>re.U 表示特殊字符集 \w, \W, \b, \B, \d, \D, \s, \S 依赖于 Unicode 字符属性数据库<br>re.X 为了增加可读性，忽略空格和’ # ’后面的注释</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">a = re.compile() <span class="comment"># 创建的正则规则</span></div><div class="line">result = a.findall(ojbect)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 简单说明 】</span></div><div class="line">compiled_pattern = re.compile(pattren)</div><div class="line">resule = re.findall(compiled_pattern, string)  <span class="comment"># 这种方式更利于理解</span></div><div class="line"><span class="comment">#---------等价于--------------</span></div><div class="line">compiled_pattern = re.compile(pattren)</div><div class="line">result = compiled_patter.findall(string)  <span class="comment"># 使用方式为 命名的变量.方法(查找对象的范围) 。其实因为在其他Re函数使用时，自动传递pattern</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ----【 解释说明 】</span></div><div class="line"><span class="comment">## p 即为编译后的 pattern。 在其他Re函数使用时，自动传递pattern</span></div><div class="line">p = re.compile( <span class="string">'(one|two|three)'</span>)  </div><div class="line">p.sub( <span class="string">'num'</span>, <span class="string">'one word two words three words'</span>)   <span class="comment"># 其第一个参数为p，即将one|two|three作为查找的对象，替换为rep = num</span></div><div class="line"><span class="string">'num word num words num words'</span></div><div class="line"><span class="comment">### 正常应为 re.sub('(one|two|three)', 'num', 'one word two words three words')</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</div><div class="line"><span class="comment"># 编译:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone = re.compile(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>)</div><div class="line"><span class="comment"># 使用：</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-12345'</span>).groups()   </div><div class="line">(<span class="string">'010'</span>, <span class="string">'12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>re_telephone.match(<span class="string">'010-8086'</span>).groups()</div><div class="line">(<span class="string">'010'</span>, <span class="string">'8086'</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<p><br></p>
-<blockquote>
-<p>Re模块的函数和regex对象的方法</p>
-<p>强调：查找的对象是 <strong>字符串string</strong></p>
-</blockquote>
-<h4 id="search-amp-match-搜索-amp-匹配"><a href="#search-amp-match-搜索-amp-匹配" class="headerlink" title="search &amp; match- 搜索&amp;匹配"></a>search &amp; match- 搜索&amp;匹配</h4><blockquote>
-<p>search - 搜索；  match - 匹配</p>
-<p>通过.group 返回对象</p>
-</blockquote>
-<ul>
-<li><strong>match(pattern, string, flags=0)</strong>：在字符串string的<strong>开头 开始搜索</strong>正则表达式模式pattern；若匹配成功，则返回一个匹配对象<u>（仅返回匹配的部分）</u>；否则返回None</li>
-</ul>
-<ul>
-<li><strong>search(pattern, string, flags=0)</strong>：从字符串string中<strong>（任意位置）</strong>搜索正则表达式模式pattern <strong>第一次出现的地方</strong>； 如果匹配成功，则返回一个匹配对象；否则返回None</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># match 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">3</span>), match=<span class="string">'foo'</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'The food on the table'</span>) <span class="comment"># 什么都没有返回</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># search 应用</span></div><div class="line">re.search(<span class="string">'foo'</span>, <span class="string">'The food on the table'</span>)</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">4</span>, <span class="number">7</span>), match=<span class="string">'foo'</span>&gt;</div><div class="line"></div><div class="line"></div><div class="line">val = <span class="string">'abc, dca, guides'</span></div><div class="line"></div><div class="line">m = re.search(<span class="string">'uid'</span>, val)</div><div class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(9, 12), match='uid'&gt;</span></div><div class="line">val[m.start():m.end()]</div><div class="line"><span class="comment"># 'uid'</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="findall-amp-finditer-查找"><a href="#findall-amp-finditer-查找" class="headerlink" title="findall &amp; finditer - 查找"></a>findall &amp; finditer - 查找</h4><blockquote>
-<p>search 与 findall 不同之处在于：findall 总返回一个<strong>[ 列表 ] </strong></p>
-</blockquote>
-<ul>
-<li><strong>findall(pattern, string [,flags])</strong> ：在字符串string中搜索匹配pattern的<strong>所有内容</strong>，并返回一个匹配对象的 <strong>[列表 list]</strong></li>
-</ul>
-<blockquote>
-<p>正则表达式</p>
-</blockquote>
-<ul>
-<li><strong>finditer(pattern, string [, flags])</strong>：在字符串string中搜索匹配pattern的<strong>所有内容</strong>，返回一个<strong>迭代器</strong>，该迭代器返回一个匹配对象</li>
-</ul>
-<p><br></p>
-<h4 id="sub-替换"><a href="#sub-替换" class="headerlink" title="sub - 替换"></a>sub - 替换</h4><ul>
-<li><strong>re.sub(pattern, repl ,string, max = 0)</strong> : 把字符串string中所有匹配正则表达式pattern的地方 <strong>替换</strong>成 字符串 repl <ul>
-<li>如果没有找到匹配 pattern 的串，则返回未被修改的 string。Repl 既可以是字符串也可以是一个函数。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>若max 的值没有给出，则对所有匹配的地方进行替换</p>
-</blockquote>
-<ul>
-<li>re.subn - 该函数的功能和 sub() 相同，但它还返回新的字符串以及替换的次数</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">re.sub(pattern, repl, string[, count, flags])</div><div class="line"></div><div class="line"><span class="comment"># count=1 表示替换仅替换第一个</span></div><div class="line">p = re.compile( <span class="string">'(one|two|three)'</span>) </div><div class="line">p.sub( <span class="string">'num'</span>, <span class="string">'one word two words three words'</span>)   <span class="comment"># 其第一个参数为p，即将one|two|three作为查找的对象，替换为rep = num</span></div><div class="line"><span class="string">'num word num words num words'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># ------------------------------------</span></div><div class="line">subn(repl, string[, count=<span class="number">0</span>])</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="split-分割"><a href="#split-分割" class="headerlink" title="split - 分割"></a>split - 分割</h4><ul>
-<li><strong>re.split(pattren, string, max=0)</strong> ： 根据正则表达式pattern中的分隔符 把字符串string <strong>分割为一个 [列表]</strong></li>
-</ul>
-<blockquote>
-<p>若max 的值没有给出，则对所有匹配的地方进行分割</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">re.split(pattern, string[, maxsplit=<span class="number">0</span>, flags=<span class="number">0</span>])</div></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="group-匹配对象"><a href="#group-匹配对象" class="headerlink" title="group - 匹配对象"></a>group - 匹配对象</h4><blockquote>
-<p><strong>匹配对象的方法：在match &amp; search 被成功调用之后所返回的结果。</strong></p>
-</blockquote>
-<ul>
-<li><strong>group(num=0)</strong>：<strong>返回全部匹配对象</strong>（或指定编号是num的子组）</li>
-<li><strong>groups()</strong>：返回一个包含<strong>唯一或全部</strong>匹配的子组的<strong>元组</strong>（若正则表达式中没有子组，则返回一个空元组）</li>
-</ul>
-<blockquote>
-<p>num 代表第1、2、……个子串。如果正则表达式中定义了组，就可以在<code>Match</code>对象上用<code>group()</code>方法提取出子串来。</p>
-<p>用<code>()</code>表示的就是要提取的分组(Group)，进行<strong>提取子串</strong></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#  group 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>).group()</div><div class="line"><span class="string">'foo'</span></div><div class="line"></div><div class="line"><span class="comment"># groups 应用</span></div><div class="line">re.match(<span class="string">'foo'</span>, <span class="string">'food on the table'</span>).groups()</div><div class="line">()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 用()定义组</span></div><div class="line">^(\d&#123;<span class="number">3</span>&#125;)-(\d&#123;<span class="number">3</span>,<span class="number">8</span>&#125;)$  <span class="comment"># 分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m = re.match(<span class="string">r'^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$'</span>, <span class="string">'010-12345'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m</div><div class="line">&lt;_sre.SRE_Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">'010-12345'</span>&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">0</span>)  <span class="comment"># group(0) 永远是原始字符串</span></div><div class="line"><span class="string">'010-12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">1</span>)</div><div class="line"><span class="string">'010'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group(<span class="number">2</span>)</div><div class="line"><span class="string">'12345'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>m.group()  <span class="comment"># 返回所有的值</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h3><ol>
-<li>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。<ul>
-<li>由于<code>\d+</code>采用贪婪匹配，直接把后面的<code>0</code>全部匹配了，结果<code>0*</code>只能匹配空字符串了。</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'102300'</span>, <span class="string">''</span>)</div></pre></td></tr></table></figure>
-<ol>
-<li>必须让<code>\d+</code>采用<strong>非贪婪匹配（也就是尽可能少匹配）</strong>，才能把后面的<code>0</code>匹配出来，<strong>加个<code>?</code>就可以让<code>\d+</code>采用非贪婪匹配：</strong></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(<span class="string">r'^(\d+?)(0*)$'</span>, <span class="string">'102300'</span>).groups()</div><div class="line">(<span class="string">'1023'</span>, <span class="string">'00'</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="参考资料-：-正则表达式"><a href="#参考资料-：-正则表达式" class="headerlink" title="参考资料 ： 正则表达式"></a>参考资料 ： 正则表达式</h2><blockquote>
-<p>元字符</p>
-</blockquote>
-<h3 id="匹配对象"><a href="#匹配对象" class="headerlink" title="匹配对象"></a>匹配对象</h3><table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>.</strong></td>
-<td>点号</td>
-<td>匹配单个(除换行符以外)<strong>任意字符</strong> <strong>（含空格、下划线等）</strong></td>
-</tr>
-<tr>
-<td><strong>\s </strong></td>
-<td>空白/空格- space</td>
-<td>匹配任意的<strong>空白符</strong></td>
-</tr>
-<tr>
-<td>\S</td>
-<td>非空白字符</td>
-<td>匹配<strong>任何非空白字符，相当于[^ fv]</strong></td>
-</tr>
-<tr>
-<td><strong>\d</strong></td>
-<td>数字 - digit</td>
-<td>匹配<strong>数字 ，相当于[0-9]</strong></td>
-</tr>
-<tr>
-<td>\D</td>
-<td>非数字</td>
-<td>匹配任何<strong>非数字字符</strong>，相当于[^0-9]</td>
-</tr>
-<tr>
-<td><strong>\w</strong></td>
-<td>任何字符 - whatever</td>
-<td><strong>匹配任何字母数字字符，相当于[a-zA-Z0-9_]</strong></td>
-</tr>
-<tr>
-<td>\W</td>
-<td>非任何字符</td>
-<td>匹配<strong>任何非字母数字字符</strong>，相当于[^a-zA-Z0-9_]</td>
-</tr>
-<tr>
-<td><strong>[ ]</strong></td>
-<td>字符组</td>
-<td>匹配<strong>单个</strong>列出的字符，表示或的关系</td>
-</tr>
-<tr>
-<td><strong>[^ ]</strong></td>
-<td>排除性字符组</td>
-<td>匹配<strong>单个</strong>未列出的字符</td>
-</tr>
-<tr>
-<td>\char</td>
-<td>转义字符</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>对于 ? 和 * 的对象在”匹配成功”时也可能并没有匹配任何内容。因为它们允许匹配的数量为0</p>
-<p>即便是排除性字符，也需要匹配一个字符</p>
-<p>转义符 <code>\\*</code>第一个转义符是对\进行转义，表示：查找 <code>\*</code>此类字符的内容</p>
-<p>空格 也是一个字符</p>
-<p>由于Python的字符串本身也用<code>\</code>转义，因此强烈建议使用Python的<code>r</code>前缀，就不用考虑转义的问题了：</p>
-</blockquote>
-<h4 id="字符组"><a href="#字符组" class="headerlink" title="字符组 [ ]"></a>字符组 [ ]</h4><ol>
-<li><p>字符组内匹配的是<strong>列出的单个字符</strong>，<strong>或者</strong>的关系</p>
-</li>
-<li><p><strong>字符组元字符</strong> ：字符组内的元字符，<strong>其含义表示为本身的含义，即代表普通文本字符，相当于转义之后的字符（连字符 - 除外）</strong></p>
-<ul>
-<li><strong>连字符 ( - )</strong>表示一个<strong>范围</strong>；<strong>【注意：只有在字符组内部，连字符( - )才是元字符】</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">0</span><span class="number">-9</span>]  <span class="comment"># 表示匹配的字符为0~9之间的任意一个</span></div></pre></td></tr></table></figure>
-<ul>
-<li>连字符 ( - ) 出现在<strong>字符组的开头</strong>，则仅代表<strong>普通文本字符</strong>； </li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">-09</span>]  <span class="comment"># 表示匹配的字符为 - 或者 0 或者 9</span></div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-<h3 id="量词-计数功能"><a href="#量词-计数功能" class="headerlink" title="量词 - 计数功能"></a>量词 - 计数功能</h3><p>对前一个/一组字符匹配的的次数</p>
-<table>
-<thead>
-<tr>
-<th><strong>符号</strong></th>
-<th><strong>含义</strong></th>
-<th><strong>解释</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>？</strong>  = 0 或 1</td>
-<td><strong>问号</strong></td>
-<td>不匹配，或仅匹配一次</td>
-</tr>
-<tr>
-<td><strong>*</strong>     $\ge$ 0</td>
-<td>星号</td>
-<td>可能不匹配，也可能匹配任意多次</td>
-</tr>
-<tr>
-<td><strong>+</strong>     $\ge$ 1</td>
-<td>加号</td>
-<td>至少匹配一次，也可能匹配任意多次</td>
-</tr>
-<tr>
-<td>{m}</td>
-<td></td>
-<td>对于前一个字符重复m次</td>
-</tr>
-<tr>
-<td><strong>{min, max}</strong></td>
-<td>区间量词</td>
-<td>对前一个字符重复min到max次</td>
-</tr>
-</tbody>
-</table>
-<h3 id="匹配位置"><a href="#匹配位置" class="headerlink" title="匹配位置"></a>匹配位置</h3><table>
-<thead>
-<tr>
-<th><strong>符号</strong></th>
-<th><strong>含义</strong></th>
-<th><strong>解释</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>^</strong></td>
-<td>脱字符</td>
-<td>一行的开头位置</td>
-</tr>
-<tr>
-<td><strong>$</strong></td>
-<td>美元符</td>
-<td>一行的结束位置</td>
-</tr>
-<tr>
-<td>\b</td>
-<td><strong>单词分界符</strong></td>
-<td>匹配<strong>单词的开始或结束</strong> (用于精确匹配)</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>非单词分界符</td>
-<td>匹配<strong>不是单词开头或结束的位置</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="其他元字符"><a href="#其他元字符" class="headerlink" title="其他元字符"></a>其他元字符</h3><table>
-<thead>
-<tr>
-<th><strong>符号</strong></th>
-<th><strong>含义</strong></th>
-<th><strong>解释</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>( )</td>
-<td>括号</td>
-<td>限定多线结构的范围； 为反向引用“捕获”文本</td>
-</tr>
-<tr>
-<td>\1 , \2</td>
-<td>反向引用</td>
-<td>匹配之前的第一个、第二个括号内的字表达式<strong>所匹配的文本</strong>(即捕获的文本)</td>
-</tr>
-<tr>
-<td>\</td>
-<td></td>
-<td>或者</td>
-<td>匹配任意分隔的表达式</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>括号与反向引用的示例</p>
-<ul>
-<li><strong>分组0对应整个正则表达式</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; \b(a-zA-Z)*+\<span class="number">1</span>\b</div><div class="line">&gt; <span class="comment"># 若 \b(a-zA-Z)*+ 任意字符找到的以单词开头的内容为the，则\1 表示其末尾也应为the的内容 </span></div><div class="line">&gt; <span class="comment"># 若有两个括号，\2表示第二个括号中所匹配的文本内容</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="多选结构"><a href="#多选结构" class="headerlink" title="多选结构"></a>多选结构</h4><ol>
-<li><p>使用圆括号( ) 来进行表示，而非方括号</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查找 gray 或 grey的写法</span></div><div class="line"></div><div class="line"><span class="number">1.</span> gr[ae]y</div><div class="line"><span class="number">2.</span> gr(a|e)y</div><div class="line"></div><div class="line"><span class="comment"># 错误的写法 gr[a|e]y  -表示查找 a 或者 | 或者 e</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>多选结构可以匹配<strong>任意长度</strong>的字符，而字符组[ ]只能匹配<strong>单个</strong>字符</p>
-</blockquote>
-<h2 id="【实战演练】"><a href="#【实战演练】" class="headerlink" title="【实战演练】"></a>【实战演练】</h2><p>你在一篇英文小说里查找hi，你可以使用正则表达式hi</p>
-<p>通常，处理正则表达式的工具会提供一个忽略大小写的选项，如果选中了这个选项，它可以匹配hi,HI,Hi,hI这四种情况中的任意一种。</p>
-<p>很多单词里包含hi这两个连续的字符，比如him,history,high等等。用hi来查找的话，这里边的hi也会被找出来。如果要精确地查找hi这个单词的话，我们应该使用\bhi\b</p>
-<p><code>\bhi\b.*\bLucy\b</code>的意思就很明显了：先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词</p>
-<p><br></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">f = open(<span class="string">'caihf001'</span>)</div><div class="line">text = f.read()</div><div class="line">f.close()</div><div class="line">k = re.compile(<span class="string">'Lemon'</span>, re.I)</div><div class="line">k.findall(text)</div><div class="line"></div><div class="line"><span class="comment"># ----效果同上</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'caihf001'</span>) <span class="keyword">as</span> f:</div><div class="line">    text = f.read()</div><div class="line"><span class="comment">#     print(text)</span></div><div class="line">    k = re.compile(<span class="string">'lemon'</span>,re.I)</div><div class="line">    l = re.findall(k,text)</div><div class="line">print(l)</div><div class="line"></div><div class="line"></div><div class="line">[<span class="string">'Lemon'</span>, <span class="string">'lemon'</span>, <span class="string">'Lemon'</span>, <span class="string">'Lemon'</span>, <span class="string">'LeMoN'</span>, <span class="string">'LEmon'</span>, <span class="string">'LEMON'</span>]</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Re模块&quot;&gt;&lt;a href=&quot;#Re模块&quot; class=&quot;headerlink&quot; title=&quot;Re模块&quot;&gt;&lt;/a&gt;Re模块&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Re模块的函数主要分三个大类：匹配模式、替换、拆分&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Python字符串转义符 &lt;code&gt;\&lt;/code&gt; &lt;/strong&gt; &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;因此强烈建议使用Python的&lt;code&gt;r&lt;/code&gt;前缀，就不用考虑转义的问题了：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; re&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;s = &lt;span class=&quot;string&quot;&gt;r&#39;ABC\-001&#39;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# Python的字符串&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 对应的正则表达式字符串不变：&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# &#39;ABC\-001&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
