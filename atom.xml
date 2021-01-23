@@ -2751,362 +2751,6 @@
   </entry>
   
   <entry>
-    <title>Python_日期处理</title>
-    <link href="http://yoursite.com/2018/02/05/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86/"/>
-    <id>http://yoursite.com/2018/02/05/软件应用_程序编程/Python/Python_专题总结/Python_日期处理/</id>
-    <published>2018-02-04T16:00:00.000Z</published>
-    <updated>2018-02-17T13:10:09.352Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="日期与时间"><a href="#日期与时间" class="headerlink" title="日期与时间"></a>日期与时间</h1><blockquote>
-<p><strong><code>datetime</code>表示的时间需要时区信息才能确定一个特定的时间，否则只能视为本地时间。</strong></p>
-<p><strong>如果要存储<code>datetime</code>，最佳方法是将其转换为timestamp再存储，因为timestamp的值与时区完全无关。</strong></p>
-</blockquote>
-<a id="more"></a>
-<p>Python中关于时间、日期的处理库有三个：time、datetime和Calendar。</p>
-<ul>
-<li>datetime又有datetime.date、datetime.time、datetime.datetime三个类</li>
-<li>时间又可以分为时间戳、本地时间和UTC时间（世界标准时间）</li>
-</ul>
-<p><code>from time import time</code></p>
-<p><code>from datetime import datetime</code></p>
-<p><br></p>
-<p>时间序列的几种内容</p>
-<ul>
-<li>时间戳 (timestamp)，特定的时刻</li>
-<li>固定时期 (period)，如2017年1月或2017年全年</li>
-<li>时间间隔 (internal) ，由起始时间和结束时间戳表示。时期 (period) 可以看做间隔的一个特例</li>
-</ul>
-<p><br></p>
-<h2 id="datetime模块"><a href="#datetime模块" class="headerlink" title="datetime模块"></a>datetime模块</h2><blockquote>
-<p>datetime是Python处理日期和时间的标准库。</p>
-<p><code>from datetime import datetime</code></p>
-</blockquote>
-<p>datetime模块。该模块中包含4个主要的类：</p>
-<ul>
-<li>datetime.date：日期类，只包含年、月、日、星期等日期信息。</li>
-<li>datetime.time：时间类，只包含时、分、秒、微秒等时间信息。</li>
-<li>datetime.datetime：日期时间类，包含以上两者的全部信息。</li>
-<li>datetime.timedelta：时间日期差值类，用来表示两个datetime之间的差值（日、秒、毫秒）。</li>
-</ul>
-<blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; # 获取当前时间</div><div class="line">&gt; &gt;&gt;&gt; from datetime import datetime</div><div class="line">&gt; &gt;&gt;&gt; now = datetime.now() # 获取当前datetime</div><div class="line">&gt; &gt;&gt;&gt; print(now)</div><div class="line">&gt; 2015-05-18 16:28:07.198690</div><div class="line">&gt; &gt;&gt;&gt; print(type(now))</div><div class="line">&gt; &lt;class 'datetime.datetime'&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<p>注意到<code>datetime</code>是模块，<code>datetime</code>模块还包含一个<code>datetime</code>类，通过<code>from datetime import datetime</code>导入的才是<code>datetime</code>这个类。</p>
-<p>如果仅导入<code>import datetime</code>，则必须引用全名<code>datetime.datetime</code>。</p>
-<p><code>datetime.now()</code>返回当前日期和时间，其类型是<code>datetime</code>。</p>
-</blockquote>
-<p><br></p>
-<h3 id="时间获取"><a href="#时间获取" class="headerlink" title="时间获取"></a>时间获取</h3><ul>
-<li><strong>datetime.datetime.now()</strong>：获取当前日期与时间</li>
-<li><strong>datetime.datetime(2012, 1, 12)</strong>：获取<strong>指定</strong>日期与时间</li>
-</ul>
-<p><br></p>
-<p>####指定部分</p>
-<ul>
-<li><p><strong>datetime.year</strong> : 获取日期与时间的<strong>指定部分</strong></p>
-<ul>
-<li><p><code>datetime.year</code></p>
-</li>
-<li><p><code>datetime.month</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><code>datetime.day</code></li>
-</ul>
-<ul>
-<li><code>datetime.hour</code></li>
-</ul>
-<ul>
-<li><code>datetime.minute</code></li>
-</ul>
-<ul>
-<li><code>datetime.second</code></li>
-</ul>
-<ul>
-<li><code>datetime.microsecond</code>   In range(1000000) </li>
-</ul>
-<ul>
-<li><p>datetime.date()：获得日期部分</p>
-<ul>
-<li>datetime.time()</li>
-<li><strong>datetime.weekday()</strong>：将星期几作为整数返回，<strong>其中星期一为0，星期日为6</strong></li>
-<li><strong>datetime.isoweek()</strong>：将星期几作为整数返回，<strong>星期一为1，星期日为7</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h3><ul>
-<li><strong>datetime.strftime( format )</strong> ：时间<strong>转为字符串</strong>    <em>f：表示from</em><ul>
-<li>strftime() 用来<strong>格式化</strong>  datetime对象</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>format : ‘%Y-%M-%D %H:%M:%S’</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># datetime.datetime类型转字符串</span></div><div class="line">print(a_datetime_local.strftime(<span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>))  </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 字符串转datetime.datetime格式</span></div><div class="line">a_datetime = datetime.datetime.strptime(<span class="string">"2016-11-15, 15:32:12, 2"</span>, <span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>datetime.strptime( ‘date_string’, ‘%Y-%M-%D’)</strong>：字符串<strong>转为时间格式</strong><ul>
-<li>datetime.strptime 是通过已知的格式进行日期解析的方式。但每次都必须要编写格式定义。</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<ul>
-<li><strong>parser.parse(‘str’ ,dayfirst =True)</strong>：可以解析几乎所有人类能够理解的日期表示形式（中文除外）<ul>
-<li>对于常见的日期格式，可以使用<code>dateutil</code> 第三方包中的 <code>parser.parse</code> 方法</li>
-<li>注意：它并不是一个完美的工具；因为会把一些原本不是日期的字符串认作是日期（比如 “42”会被解析为2042年的今天）</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>dayfirst =True ，将日期显示在最前面；因为国际通用格式中，日通常排在月的前面。</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> dateutil.parser <span class="keyword">import</span> parse</div><div class="line">parse(<span class="string">'2011-03-11'</span>)</div><div class="line"></div><div class="line">[out]:datetime.datetime(<span class="number">2011</span>, <span class="number">3</span>, <span class="number">11</span>, <span class="number">0</span>, <span class="number">0</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="timedelta对象-加减"><a href="#timedelta对象-加减" class="headerlink" title="timedelta对象 + 加减"></a>timedelta对象 + 加减</h3><p>datetime.timedelta <strong>表示两个datetime之间的时间差。</strong></p>
-<p>给datetime对象加上一个或多个 timedelta，会产生一个新的对象；</p>
-<ul>
-<li><p><strong>now + timedelta(days=n, hours=m)</strong>：在原有基础上加减日期</p>
-<ul>
-<li>对日期和时间进行加减实际上就是把datetime往后或往前计算，得到新的datetime。加减可以直接用<code>+</code>和<code>-</code>运算符，不过需要导入<code>timedelta</code>这个类：</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>years<br>months<br>days<br>hours<br>minutes<br>seconds </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 日期加减</span></div><div class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</div><div class="line">start = datetime(<span class="number">2011</span>,<span class="number">1</span>,<span class="number">7</span>)</div><div class="line"></div><div class="line">start + timedelta(<span class="number">12</span>)</div><div class="line">[out]:datetime.datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">19</span>, <span class="number">0</span>, <span class="number">0</span>)</div><div class="line">  </div><div class="line">  </div><div class="line"><span class="comment"># 返回间隔</span></div><div class="line">delta = datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">7</span>) - datetime(<span class="number">2008</span>, <span class="number">6</span>, <span class="number">24</span>)</div><div class="line">delta</div><div class="line">[out]:datetime.timedelta(<span class="number">927</span>)</div><div class="line"></div><div class="line">delta.days</div><div class="line">[out]:<span class="number">927</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="time模块"><a href="#time模块" class="headerlink" title="time模块"></a>time模块</h2><p>在time模块中，时间有三种表现形式：</p>
-<ul>
-<li>时间戳，一般指Unix时间戳，是从1970年开始到现在的秒数。<ul>
-<li>1970年以前的时间timestamp为负数</li>
-</ul>
-</li>
-<li>本地时间的struct_time形式：一个长度为11的命名元组，第一位为年，第二位为月….</li>
-<li>UTC时间的struct_time形式：一个长度为11的命名元组，类似于上个，只不过为UTC时间</li>
-</ul>
-<blockquote>
-<p>其中后两者的类型一致，区别在于一个是本地时间（localtime），一个是utc时间。</p>
-</blockquote>
-<p><br></p>
-<h3 id="时间获取-1"><a href="#时间获取-1" class="headerlink" title="时间获取"></a>时间获取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 时间戳：1479193181.829338</span></div><div class="line">print(<span class="string">"time stamp:"</span>, time.time())         </div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的本地时间</span></div><div class="line">print(<span class="string">"local time:"</span>, time.localtime())    </div><div class="line">time.struct_time(tm_year=<span class="number">2016</span>, tm_mon=<span class="number">11</span>, tm_mday=<span class="number">15</span>, tm_hour=<span class="number">14</span>, tm_min=<span class="number">59</span>, tm_sec=<span class="number">41</span>, tm_wday=<span class="number">1</span>, tm_yday=<span class="number">320</span>, tm_isdst=<span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的utc时间</span></div><div class="line">print(<span class="string">"utc time:"</span>, time.gmtime())         </div><div class="line">time.struct_time(tm_year=<span class="number">2016</span>, tm_mon=<span class="number">11</span>, tm_mday=<span class="number">15</span>, tm_hour=<span class="number">6</span>, tm_min=<span class="number">59</span>, tm_sec=<span class="number">41</span>, tm_wday=<span class="number">1</span>, tm_yday=<span class="number">320</span>, tm_isdst=<span class="number">0</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="字符串转换-1"><a href="#字符串转换-1" class="headerlink" title="字符串转换"></a>字符串转换</h3><ul>
-<li><strong>time.strptime()：</strong>字符串<strong>转为时间格式</strong></li>
-<li><strong>time.strftime()</strong>：时间格式<strong>转为字符串</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 时间戳转字符串(本地时间字符串)</span></div><div class="line">print(time.ctime(time_stamp))       </div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的本地时间转字符串</span></div><div class="line">print(time.asctime(local_time))   </div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的utc时间转字符串</span></div><div class="line">print(time.asctime(utc_time))       </div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的本地时间转字符串：自定义格式</span></div><div class="line">print(time.strftime(<span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>, local_time))</div><div class="line"><span class="comment"># struct_time类型的utc时间转字符串：自定义格式</span></div><div class="line">print(time.strftime(<span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>, utc_time))</div><div class="line"></div><div class="line">struct_time = time.strptime(<span class="string">"2016-11-15, 15:32:12, 2"</span>, <span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>)</div></pre></td></tr></table></figure>
-<p><br></p>
-<p><img src="https://pic3.zhimg.com/80/v2-69d0c2ed958b802e9902c8e3815c19e9_hd.jpg" alt="img"></p>
-<p><br></p>
-<p><br></p>
-<h2 id="datetime-与-timestamp转换"><a href="#datetime-与-timestamp转换" class="headerlink" title="datetime 与 timestamp转换"></a>datetime 与 timestamp转换</h2><p>在计算机中，时间实际上是用数字表示的。我们把1970年1月1日 00:00:00 UTC+00:00时区的时刻称为epoch time，记为<code>0</code>（1970年以前的时间timestamp为负数），当前时间就是相对于epoch time的秒数，称为timestamp</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 可以认为</span></div><div class="line">timestamp = <span class="number">0</span> = <span class="number">1970</span><span class="number">-1</span><span class="number">-1</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> UTC+<span class="number">0</span>:<span class="number">00</span></div><div class="line"></div><div class="line"><span class="comment"># 对应的北京时间是：</span></div><div class="line">timestamp = <span class="number">0</span> = <span class="number">1970</span><span class="number">-1</span><span class="number">-1</span> <span class="number">08</span>:<span class="number">00</span>:<span class="number">00</span> UTC+<span class="number">8</span>:<span class="number">00</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>可见timestamp的值与时区毫无关系，因为timestamp一旦确定，其UTC时间就确定了，转换到任意时区的时间也是完全确定的，这就是为什么计算机存储的当前时间是以timestamp表示的，因为全球各地的计算机在任意时刻的timestamp都是完全相同的（假定时间已校准）。</p>
-</blockquote>
-<p><br></p>
-<h3 id="datetime-转-timestamp"><a href="#datetime-转-timestamp" class="headerlink" title="datetime 转 timestamp"></a>datetime 转 timestamp</h3><ul>
-<li><strong>dt.timestamp()</strong>：把datetime对象转化为timestamp</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt = datetime(<span class="number">2015</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">12</span>, <span class="number">20</span>) <span class="comment"># 用指定日期时间创建datetime</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt.timestamp() <span class="comment"># 把datetime转换为timestamp</span></div><div class="line"><span class="number">1429417200.0</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="timestamp-转-datetime"><a href="#timestamp-转-datetime" class="headerlink" title="timestamp 转 datetime"></a>timestamp 转 datetime</h3><ul>
-<li><strong>datetime.fromtimestamp(t)</strong>：从timestamp 转为datetime<strong>（本地时间）</strong><ul>
-<li>注意到timestamp是一个浮点数，<strong>它没有时区的概念</strong>，而datetime是有时区的。上述转换是在timestamp和本地时间做转换。</li>
-</ul>
-</li>
-<li><strong>datetime. utcfromstimestamp(t)</strong>：从timestamp 转为datetime<strong>（UTC时间）</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = <span class="number">1429417200.0</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.fromtimestamp(t)) <span class="comment"># 本地时间</span></div><div class="line"><span class="number">2015</span><span class="number">-04</span><span class="number">-19</span> <span class="number">12</span>:<span class="number">20</span>:<span class="number">00</span></div><div class="line">    </div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.utcfromtimestamp(t)) <span class="comment"># UTC时间</span></div><div class="line"><span class="number">2015</span><span class="number">-04</span><span class="number">-19</span> <span class="number">04</span>:<span class="number">20</span>:<span class="number">00</span></div></pre></td></tr></table></figure>
-<p>类型和时间戳、struct_time类型的相互转换</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> <span class="comment"># datetime类型转时间戳</span></div><div class="line">time_stamp = a_datetime_local.timestamp()   </div><div class="line">print(time_stamp)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 时间戳转datetime.datetime类型的本地时间</span></div><div class="line">a_datetime_local = datetime.datetime.fromtimestamp(time.time())     </div><div class="line">a_datetime_utc = datetime.datetime.utcfromtimestamp(time.time())    <span class="comment"># 时间戳转datetime.datetime类型的utc时间</span></div><div class="line">print(a_datetime_local, a_datetime_utc)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># datetime类型转struct_time类型</span></div><div class="line">print(a_datetime_local.timetuple())    </div><div class="line">print(a_datetime_utc.utctimetuple())    <span class="comment"># datetime类型转struct_time类型</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<p><img src="https://pic1.zhimg.com/80/v2-e623f9c109960af3805ec3eadfeaaa11_hd.jpg" alt="img"></p>
-<p><br></p>
-<h2 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h2><h3 id="本地时间转UTC时间"><a href="#本地时间转UTC时间" class="headerlink" title="本地时间转UTC时间"></a>本地时间转UTC时间</h3><blockquote>
-<p>本地时间是指系统设定时区的时间，例如北京时间是UTC+8:00时区的时间，而UTC时间指UTC+0:00时区的时间。</p>
-</blockquote>
-<p>一个<code>datetime</code>类型有一个时区属性<code>tzinfo</code>，但是默认为<code>None</code>，所以无法区分这个<code>datetime</code>到底是哪个时区，除非强行给<code>datetime</code>设置一个时区：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta, timezone</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tz_utc_8 = timezone(timedelta(hours=<span class="number">8</span>)) <span class="comment"># 创建时区UTC+8:00</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>now = datetime.now()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>now</div><div class="line">datetime.datetime(<span class="number">2015</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">871012</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt = now.replace(tzinfo=tz_utc_8) <span class="comment"># 强制设置为UTC+8:00</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt</div><div class="line">datetime.datetime(<span class="number">2015</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">871012</span>, tzinfo=datetime.timezone(datetime.timedelta(<span class="number">0</span>, <span class="number">28800</span>)))</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="时区转换"><a href="#时区转换" class="headerlink" title="时区转换"></a>时区转换</h3><ul>
-<li><strong>utcnow()</strong>：获取当前的UTC时间</li>
-<li>时区转换的关键在于，拿到一个<code>datetime</code>时，要获知其正确的时区，然后强制设置时区，作为基准时间。</li>
-<li>利用带时区的<code>datetime</code>，通过<code>astimezone()</code>方法，可以转换到任意时区。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 拿到UTC时间，并强制设置时区为UTC+0:00:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(utc_dt)</div><div class="line"><span class="number">2015</span><span class="number">-05</span><span class="number">-18</span> <span class="number">09</span>:<span class="number">05</span>:<span class="number">12.377316</span>+<span class="number">00</span>:<span class="number">00</span></div><div class="line">      </div><div class="line"><span class="comment"># astimezone()将转换时区为北京时间:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bj_dt = utc_dt.astimezone(timezone(timedelta(hours=<span class="number">8</span>)))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(bj_dt)</div><div class="line"><span class="number">2015</span><span class="number">-05</span><span class="number">-18</span> <span class="number">17</span>:<span class="number">05</span>:<span class="number">12.377316</span>+<span class="number">08</span>:<span class="number">00</span></div><div class="line">      </div><div class="line"><span class="comment"># astimezone()将转换时区为东京时间:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo_dt = utc_dt.astimezone(timezone(timedelta(hours=<span class="number">9</span>)))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(tokyo_dt)</div><div class="line"><span class="number">2015</span><span class="number">-05</span><span class="number">-18</span> <span class="number">18</span>:<span class="number">05</span>:<span class="number">12.377316</span>+<span class="number">09</span>:<span class="number">00</span></div><div class="line">      </div><div class="line"><span class="comment"># astimezone()将bj_dt转换时区为东京时间:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo_dt2 = bj_dt.astimezone(timezone(timedelta(hours=<span class="number">9</span>)))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(tokyo_dt2)</div><div class="line"><span class="number">2015</span><span class="number">-05</span><span class="number">-18</span> <span class="number">18</span>:<span class="number">05</span>:<span class="number">12.377316</span>+<span class="number">09</span>:<span class="number">00</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>注：不是必须从UTC+0:00时区转换到其他时区，任何带时区的<code>datetime</code>都可以正确转换，例如上述<code>bj_dt</code>到<code>tokyo_dt</code>的转换。</p>
-</blockquote>
-<p><br></p>
-<h2 id="格式定义"><a href="#格式定义" class="headerlink" title="格式定义"></a>格式定义</h2><h3 id="datetime格式定义"><a href="#datetime格式定义" class="headerlink" title="datetime格式定义"></a>datetime格式定义</h3><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%Y</td>
-<td>4位数的年</td>
-</tr>
-<tr>
-<td>%y</td>
-<td>2位数的年</td>
-</tr>
-<tr>
-<td>%m</td>
-<td>2位数的月 [01, 12]</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>2位数的日 [01, 31]</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>%F</td>
-<td>%Y-%m-%d 简写形式；2012-04-18</td>
-</tr>
-<tr>
-<td>%D</td>
-<td>%m/%d/%y 简写形式；04/18/12</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>%H</td>
-<td>时间（24小时制） [00, 23]</td>
-</tr>
-<tr>
-<td>%I</td>
-<td>时间（12小时制） [00, 12]</td>
-</tr>
-<tr>
-<td>%M</td>
-<td>2位数的分钟 [00, 59]</td>
-</tr>
-<tr>
-<td>%S</td>
-<td>秒 [00, 61] (秒60和61用于闰秒)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>%w</td>
-<td>用整数表示的星期几 （星期天为第0天） [0, 6]</td>
-</tr>
-<tr>
-<td>%U</td>
-<td>每年的第几周 [00, 53]。<strong>星期天被认为是每周的第一天</strong>，每年第一个星期天之前的那几天被认为是 “第0周”</td>
-</tr>
-<tr>
-<td>%W</td>
-<td>每年的第几周 [00, 53]。<strong>星期一被认为是每周的第一天</strong>，每年第一个星期一之前的那几天被认为是 “第0周”</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>%z</td>
-<td>以+HHMM 或-HHMM 表示的UTC时区偏移量</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h3 id="特定于当前环境的日期格式"><a href="#特定于当前环境的日期格式" class="headerlink" title="特定于当前环境的日期格式"></a>特定于当前环境的日期格式</h3><table>
-<thead>
-<tr>
-<th>代码</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%a</td>
-<td>星期几的简写</td>
-</tr>
-<tr>
-<td>%A</td>
-<td>星期几的全称</td>
-</tr>
-<tr>
-<td>%b</td>
-<td>月份的简写</td>
-</tr>
-<tr>
-<td>%B</td>
-<td>月份的全称</td>
-</tr>
-<tr>
-<td>%c</td>
-<td>完成的日期和时间；Tue 01 May 2012 04:20:57 pm</td>
-</tr>
-<tr>
-<td>%p</td>
-<td>不同环境中的AM 或PM</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>适用于当前环境的日期格式  ；若在美国， “May 1 2012” 会产生 “05/01/2012”</td>
-</tr>
-<tr>
-<td>%X</td>
-<td>适用于当前环境的时间格式； “04:24:12 PM”</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="【实战演练】"><a href="#【实战演练】" class="headerlink" title="【实战演练】"></a>【实战演练】</h2><h4 id="输出为-月-日格式"><a href="#输出为-月-日格式" class="headerlink" title="输出为 月-日格式"></a>输出为 月-日格式</h4><p><br></p>
-<h1 id="时间序列"><a href="#时间序列" class="headerlink" title="时间序列"></a>时间序列</h1><p>pandas最基本的时间序列类型就是<strong>以时间戳为索引</strong>的Series；</p>
-<p>当创建一个<strong>带有DatatimeIndex</strong> 的Series时，pandas就会知道该对象是一个<strong>时间序列</strong></p>
-<blockquote>
-<p>索引是 时间格式的字段；</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;日期与时间&quot;&gt;&lt;a href=&quot;#日期与时间&quot; class=&quot;headerlink&quot; title=&quot;日期与时间&quot;&gt;&lt;/a&gt;日期与时间&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;datetime&lt;/code&gt;表示的时间需要时区信息才能确定一个特定的时间，否则只能视为本地时间。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;如果要存储&lt;code&gt;datetime&lt;/code&gt;，最佳方法是将其转换为timestamp再存储，因为timestamp的值与时区完全无关。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="程序编程" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/"/>
-    
-    
-      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
-    
-      <category term="程序编程" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>阅读书籍_2018年度</title>
     <link href="http://yoursite.com/2018/02/05/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D%E6%B1%87%E6%80%BB_2018%E5%B9%B4%E5%BA%A6/"/>
     <id>http://yoursite.com/2018/02/05/阅读书籍/阅读书籍汇总/阅读书籍汇总_2018年度/</id>
@@ -3547,6 +3191,362 @@
       <category term="阅读书籍" scheme="http://yoursite.com/tags/%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/"/>
     
       <category term="汇总整理" scheme="http://yoursite.com/tags/%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python_日期处理</title>
+    <link href="http://yoursite.com/2018/02/05/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/Python_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/Python_%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86/"/>
+    <id>http://yoursite.com/2018/02/05/软件应用_程序编程/Python/Python_专题总结/Python_日期处理/</id>
+    <published>2018-02-04T16:00:00.000Z</published>
+    <updated>2018-02-17T13:10:09.352Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="日期与时间"><a href="#日期与时间" class="headerlink" title="日期与时间"></a>日期与时间</h1><blockquote>
+<p><strong><code>datetime</code>表示的时间需要时区信息才能确定一个特定的时间，否则只能视为本地时间。</strong></p>
+<p><strong>如果要存储<code>datetime</code>，最佳方法是将其转换为timestamp再存储，因为timestamp的值与时区完全无关。</strong></p>
+</blockquote>
+<a id="more"></a>
+<p>Python中关于时间、日期的处理库有三个：time、datetime和Calendar。</p>
+<ul>
+<li>datetime又有datetime.date、datetime.time、datetime.datetime三个类</li>
+<li>时间又可以分为时间戳、本地时间和UTC时间（世界标准时间）</li>
+</ul>
+<p><code>from time import time</code></p>
+<p><code>from datetime import datetime</code></p>
+<p><br></p>
+<p>时间序列的几种内容</p>
+<ul>
+<li>时间戳 (timestamp)，特定的时刻</li>
+<li>固定时期 (period)，如2017年1月或2017年全年</li>
+<li>时间间隔 (internal) ，由起始时间和结束时间戳表示。时期 (period) 可以看做间隔的一个特例</li>
+</ul>
+<p><br></p>
+<h2 id="datetime模块"><a href="#datetime模块" class="headerlink" title="datetime模块"></a>datetime模块</h2><blockquote>
+<p>datetime是Python处理日期和时间的标准库。</p>
+<p><code>from datetime import datetime</code></p>
+</blockquote>
+<p>datetime模块。该模块中包含4个主要的类：</p>
+<ul>
+<li>datetime.date：日期类，只包含年、月、日、星期等日期信息。</li>
+<li>datetime.time：时间类，只包含时、分、秒、微秒等时间信息。</li>
+<li>datetime.datetime：日期时间类，包含以上两者的全部信息。</li>
+<li>datetime.timedelta：时间日期差值类，用来表示两个datetime之间的差值（日、秒、毫秒）。</li>
+</ul>
+<blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; # 获取当前时间</div><div class="line">&gt; &gt;&gt;&gt; from datetime import datetime</div><div class="line">&gt; &gt;&gt;&gt; now = datetime.now() # 获取当前datetime</div><div class="line">&gt; &gt;&gt;&gt; print(now)</div><div class="line">&gt; 2015-05-18 16:28:07.198690</div><div class="line">&gt; &gt;&gt;&gt; print(type(now))</div><div class="line">&gt; &lt;class 'datetime.datetime'&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>注意到<code>datetime</code>是模块，<code>datetime</code>模块还包含一个<code>datetime</code>类，通过<code>from datetime import datetime</code>导入的才是<code>datetime</code>这个类。</p>
+<p>如果仅导入<code>import datetime</code>，则必须引用全名<code>datetime.datetime</code>。</p>
+<p><code>datetime.now()</code>返回当前日期和时间，其类型是<code>datetime</code>。</p>
+</blockquote>
+<p><br></p>
+<h3 id="时间获取"><a href="#时间获取" class="headerlink" title="时间获取"></a>时间获取</h3><ul>
+<li><strong>datetime.datetime.now()</strong>：获取当前日期与时间</li>
+<li><strong>datetime.datetime(2012, 1, 12)</strong>：获取<strong>指定</strong>日期与时间</li>
+</ul>
+<p><br></p>
+<p>####指定部分</p>
+<ul>
+<li><p><strong>datetime.year</strong> : 获取日期与时间的<strong>指定部分</strong></p>
+<ul>
+<li><p><code>datetime.year</code></p>
+</li>
+<li><p><code>datetime.month</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>datetime.day</code></li>
+</ul>
+<ul>
+<li><code>datetime.hour</code></li>
+</ul>
+<ul>
+<li><code>datetime.minute</code></li>
+</ul>
+<ul>
+<li><code>datetime.second</code></li>
+</ul>
+<ul>
+<li><code>datetime.microsecond</code>   In range(1000000) </li>
+</ul>
+<ul>
+<li><p>datetime.date()：获得日期部分</p>
+<ul>
+<li>datetime.time()</li>
+<li><strong>datetime.weekday()</strong>：将星期几作为整数返回，<strong>其中星期一为0，星期日为6</strong></li>
+<li><strong>datetime.isoweek()</strong>：将星期几作为整数返回，<strong>星期一为1，星期日为7</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h3><ul>
+<li><strong>datetime.strftime( format )</strong> ：时间<strong>转为字符串</strong>    <em>f：表示from</em><ul>
+<li>strftime() 用来<strong>格式化</strong>  datetime对象</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>format : ‘%Y-%M-%D %H:%M:%S’</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># datetime.datetime类型转字符串</span></div><div class="line">print(a_datetime_local.strftime(<span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>))  </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 字符串转datetime.datetime格式</span></div><div class="line">a_datetime = datetime.datetime.strptime(<span class="string">"2016-11-15, 15:32:12, 2"</span>, <span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>datetime.strptime( ‘date_string’, ‘%Y-%M-%D’)</strong>：字符串<strong>转为时间格式</strong><ul>
+<li>datetime.strptime 是通过已知的格式进行日期解析的方式。但每次都必须要编写格式定义。</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>parser.parse(‘str’ ,dayfirst =True)</strong>：可以解析几乎所有人类能够理解的日期表示形式（中文除外）<ul>
+<li>对于常见的日期格式，可以使用<code>dateutil</code> 第三方包中的 <code>parser.parse</code> 方法</li>
+<li>注意：它并不是一个完美的工具；因为会把一些原本不是日期的字符串认作是日期（比如 “42”会被解析为2042年的今天）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>dayfirst =True ，将日期显示在最前面；因为国际通用格式中，日通常排在月的前面。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> dateutil.parser <span class="keyword">import</span> parse</div><div class="line">parse(<span class="string">'2011-03-11'</span>)</div><div class="line"></div><div class="line">[out]:datetime.datetime(<span class="number">2011</span>, <span class="number">3</span>, <span class="number">11</span>, <span class="number">0</span>, <span class="number">0</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="timedelta对象-加减"><a href="#timedelta对象-加减" class="headerlink" title="timedelta对象 + 加减"></a>timedelta对象 + 加减</h3><p>datetime.timedelta <strong>表示两个datetime之间的时间差。</strong></p>
+<p>给datetime对象加上一个或多个 timedelta，会产生一个新的对象；</p>
+<ul>
+<li><p><strong>now + timedelta(days=n, hours=m)</strong>：在原有基础上加减日期</p>
+<ul>
+<li>对日期和时间进行加减实际上就是把datetime往后或往前计算，得到新的datetime。加减可以直接用<code>+</code>和<code>-</code>运算符，不过需要导入<code>timedelta</code>这个类：</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>years<br>months<br>days<br>hours<br>minutes<br>seconds </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 日期加减</span></div><div class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</div><div class="line">start = datetime(<span class="number">2011</span>,<span class="number">1</span>,<span class="number">7</span>)</div><div class="line"></div><div class="line">start + timedelta(<span class="number">12</span>)</div><div class="line">[out]:datetime.datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">19</span>, <span class="number">0</span>, <span class="number">0</span>)</div><div class="line">  </div><div class="line">  </div><div class="line"><span class="comment"># 返回间隔</span></div><div class="line">delta = datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">7</span>) - datetime(<span class="number">2008</span>, <span class="number">6</span>, <span class="number">24</span>)</div><div class="line">delta</div><div class="line">[out]:datetime.timedelta(<span class="number">927</span>)</div><div class="line"></div><div class="line">delta.days</div><div class="line">[out]:<span class="number">927</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="time模块"><a href="#time模块" class="headerlink" title="time模块"></a>time模块</h2><p>在time模块中，时间有三种表现形式：</p>
+<ul>
+<li>时间戳，一般指Unix时间戳，是从1970年开始到现在的秒数。<ul>
+<li>1970年以前的时间timestamp为负数</li>
+</ul>
+</li>
+<li>本地时间的struct_time形式：一个长度为11的命名元组，第一位为年，第二位为月….</li>
+<li>UTC时间的struct_time形式：一个长度为11的命名元组，类似于上个，只不过为UTC时间</li>
+</ul>
+<blockquote>
+<p>其中后两者的类型一致，区别在于一个是本地时间（localtime），一个是utc时间。</p>
+</blockquote>
+<p><br></p>
+<h3 id="时间获取-1"><a href="#时间获取-1" class="headerlink" title="时间获取"></a>时间获取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 时间戳：1479193181.829338</span></div><div class="line">print(<span class="string">"time stamp:"</span>, time.time())         </div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的本地时间</span></div><div class="line">print(<span class="string">"local time:"</span>, time.localtime())    </div><div class="line">time.struct_time(tm_year=<span class="number">2016</span>, tm_mon=<span class="number">11</span>, tm_mday=<span class="number">15</span>, tm_hour=<span class="number">14</span>, tm_min=<span class="number">59</span>, tm_sec=<span class="number">41</span>, tm_wday=<span class="number">1</span>, tm_yday=<span class="number">320</span>, tm_isdst=<span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的utc时间</span></div><div class="line">print(<span class="string">"utc time:"</span>, time.gmtime())         </div><div class="line">time.struct_time(tm_year=<span class="number">2016</span>, tm_mon=<span class="number">11</span>, tm_mday=<span class="number">15</span>, tm_hour=<span class="number">6</span>, tm_min=<span class="number">59</span>, tm_sec=<span class="number">41</span>, tm_wday=<span class="number">1</span>, tm_yday=<span class="number">320</span>, tm_isdst=<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="字符串转换-1"><a href="#字符串转换-1" class="headerlink" title="字符串转换"></a>字符串转换</h3><ul>
+<li><strong>time.strptime()：</strong>字符串<strong>转为时间格式</strong></li>
+<li><strong>time.strftime()</strong>：时间格式<strong>转为字符串</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 时间戳转字符串(本地时间字符串)</span></div><div class="line">print(time.ctime(time_stamp))       </div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的本地时间转字符串</span></div><div class="line">print(time.asctime(local_time))   </div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的utc时间转字符串</span></div><div class="line">print(time.asctime(utc_time))       </div><div class="line"></div><div class="line"><span class="comment"># struct_time类型的本地时间转字符串：自定义格式</span></div><div class="line">print(time.strftime(<span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>, local_time))</div><div class="line"><span class="comment"># struct_time类型的utc时间转字符串：自定义格式</span></div><div class="line">print(time.strftime(<span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>, utc_time))</div><div class="line"></div><div class="line">struct_time = time.strptime(<span class="string">"2016-11-15, 15:32:12, 2"</span>, <span class="string">"%Y-%m-%d, %H:%M:%S, %w"</span>)</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><img src="https://pic3.zhimg.com/80/v2-69d0c2ed958b802e9902c8e3815c19e9_hd.jpg" alt="img"></p>
+<p><br></p>
+<p><br></p>
+<h2 id="datetime-与-timestamp转换"><a href="#datetime-与-timestamp转换" class="headerlink" title="datetime 与 timestamp转换"></a>datetime 与 timestamp转换</h2><p>在计算机中，时间实际上是用数字表示的。我们把1970年1月1日 00:00:00 UTC+00:00时区的时刻称为epoch time，记为<code>0</code>（1970年以前的时间timestamp为负数），当前时间就是相对于epoch time的秒数，称为timestamp</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 可以认为</span></div><div class="line">timestamp = <span class="number">0</span> = <span class="number">1970</span><span class="number">-1</span><span class="number">-1</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> UTC+<span class="number">0</span>:<span class="number">00</span></div><div class="line"></div><div class="line"><span class="comment"># 对应的北京时间是：</span></div><div class="line">timestamp = <span class="number">0</span> = <span class="number">1970</span><span class="number">-1</span><span class="number">-1</span> <span class="number">08</span>:<span class="number">00</span>:<span class="number">00</span> UTC+<span class="number">8</span>:<span class="number">00</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>可见timestamp的值与时区毫无关系，因为timestamp一旦确定，其UTC时间就确定了，转换到任意时区的时间也是完全确定的，这就是为什么计算机存储的当前时间是以timestamp表示的，因为全球各地的计算机在任意时刻的timestamp都是完全相同的（假定时间已校准）。</p>
+</blockquote>
+<p><br></p>
+<h3 id="datetime-转-timestamp"><a href="#datetime-转-timestamp" class="headerlink" title="datetime 转 timestamp"></a>datetime 转 timestamp</h3><ul>
+<li><strong>dt.timestamp()</strong>：把datetime对象转化为timestamp</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt = datetime(<span class="number">2015</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">12</span>, <span class="number">20</span>) <span class="comment"># 用指定日期时间创建datetime</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt.timestamp() <span class="comment"># 把datetime转换为timestamp</span></div><div class="line"><span class="number">1429417200.0</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="timestamp-转-datetime"><a href="#timestamp-转-datetime" class="headerlink" title="timestamp 转 datetime"></a>timestamp 转 datetime</h3><ul>
+<li><strong>datetime.fromtimestamp(t)</strong>：从timestamp 转为datetime<strong>（本地时间）</strong><ul>
+<li>注意到timestamp是一个浮点数，<strong>它没有时区的概念</strong>，而datetime是有时区的。上述转换是在timestamp和本地时间做转换。</li>
+</ul>
+</li>
+<li><strong>datetime. utcfromstimestamp(t)</strong>：从timestamp 转为datetime<strong>（UTC时间）</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>t = <span class="number">1429417200.0</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.fromtimestamp(t)) <span class="comment"># 本地时间</span></div><div class="line"><span class="number">2015</span><span class="number">-04</span><span class="number">-19</span> <span class="number">12</span>:<span class="number">20</span>:<span class="number">00</span></div><div class="line">    </div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.utcfromtimestamp(t)) <span class="comment"># UTC时间</span></div><div class="line"><span class="number">2015</span><span class="number">-04</span><span class="number">-19</span> <span class="number">04</span>:<span class="number">20</span>:<span class="number">00</span></div></pre></td></tr></table></figure>
+<p>类型和时间戳、struct_time类型的相互转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> <span class="comment"># datetime类型转时间戳</span></div><div class="line">time_stamp = a_datetime_local.timestamp()   </div><div class="line">print(time_stamp)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 时间戳转datetime.datetime类型的本地时间</span></div><div class="line">a_datetime_local = datetime.datetime.fromtimestamp(time.time())     </div><div class="line">a_datetime_utc = datetime.datetime.utcfromtimestamp(time.time())    <span class="comment"># 时间戳转datetime.datetime类型的utc时间</span></div><div class="line">print(a_datetime_local, a_datetime_utc)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># datetime类型转struct_time类型</span></div><div class="line">print(a_datetime_local.timetuple())    </div><div class="line">print(a_datetime_utc.utctimetuple())    <span class="comment"># datetime类型转struct_time类型</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p><img src="https://pic1.zhimg.com/80/v2-e623f9c109960af3805ec3eadfeaaa11_hd.jpg" alt="img"></p>
+<p><br></p>
+<h2 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h2><h3 id="本地时间转UTC时间"><a href="#本地时间转UTC时间" class="headerlink" title="本地时间转UTC时间"></a>本地时间转UTC时间</h3><blockquote>
+<p>本地时间是指系统设定时区的时间，例如北京时间是UTC+8:00时区的时间，而UTC时间指UTC+0:00时区的时间。</p>
+</blockquote>
+<p>一个<code>datetime</code>类型有一个时区属性<code>tzinfo</code>，但是默认为<code>None</code>，所以无法区分这个<code>datetime</code>到底是哪个时区，除非强行给<code>datetime</code>设置一个时区：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta, timezone</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tz_utc_8 = timezone(timedelta(hours=<span class="number">8</span>)) <span class="comment"># 创建时区UTC+8:00</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>now = datetime.now()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>now</div><div class="line">datetime.datetime(<span class="number">2015</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">871012</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt = now.replace(tzinfo=tz_utc_8) <span class="comment"># 强制设置为UTC+8:00</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dt</div><div class="line">datetime.datetime(<span class="number">2015</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">871012</span>, tzinfo=datetime.timezone(datetime.timedelta(<span class="number">0</span>, <span class="number">28800</span>)))</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="时区转换"><a href="#时区转换" class="headerlink" title="时区转换"></a>时区转换</h3><ul>
+<li><strong>utcnow()</strong>：获取当前的UTC时间</li>
+<li>时区转换的关键在于，拿到一个<code>datetime</code>时，要获知其正确的时区，然后强制设置时区，作为基准时间。</li>
+<li>利用带时区的<code>datetime</code>，通过<code>astimezone()</code>方法，可以转换到任意时区。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 拿到UTC时间，并强制设置时区为UTC+0:00:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(utc_dt)</div><div class="line"><span class="number">2015</span><span class="number">-05</span><span class="number">-18</span> <span class="number">09</span>:<span class="number">05</span>:<span class="number">12.377316</span>+<span class="number">00</span>:<span class="number">00</span></div><div class="line">      </div><div class="line"><span class="comment"># astimezone()将转换时区为北京时间:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>bj_dt = utc_dt.astimezone(timezone(timedelta(hours=<span class="number">8</span>)))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(bj_dt)</div><div class="line"><span class="number">2015</span><span class="number">-05</span><span class="number">-18</span> <span class="number">17</span>:<span class="number">05</span>:<span class="number">12.377316</span>+<span class="number">08</span>:<span class="number">00</span></div><div class="line">      </div><div class="line"><span class="comment"># astimezone()将转换时区为东京时间:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo_dt = utc_dt.astimezone(timezone(timedelta(hours=<span class="number">9</span>)))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(tokyo_dt)</div><div class="line"><span class="number">2015</span><span class="number">-05</span><span class="number">-18</span> <span class="number">18</span>:<span class="number">05</span>:<span class="number">12.377316</span>+<span class="number">09</span>:<span class="number">00</span></div><div class="line">      </div><div class="line"><span class="comment"># astimezone()将bj_dt转换时区为东京时间:</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo_dt2 = bj_dt.astimezone(timezone(timedelta(hours=<span class="number">9</span>)))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(tokyo_dt2)</div><div class="line"><span class="number">2015</span><span class="number">-05</span><span class="number">-18</span> <span class="number">18</span>:<span class="number">05</span>:<span class="number">12.377316</span>+<span class="number">09</span>:<span class="number">00</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：不是必须从UTC+0:00时区转换到其他时区，任何带时区的<code>datetime</code>都可以正确转换，例如上述<code>bj_dt</code>到<code>tokyo_dt</code>的转换。</p>
+</blockquote>
+<p><br></p>
+<h2 id="格式定义"><a href="#格式定义" class="headerlink" title="格式定义"></a>格式定义</h2><h3 id="datetime格式定义"><a href="#datetime格式定义" class="headerlink" title="datetime格式定义"></a>datetime格式定义</h3><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%Y</td>
+<td>4位数的年</td>
+</tr>
+<tr>
+<td>%y</td>
+<td>2位数的年</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>2位数的月 [01, 12]</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>2位数的日 [01, 31]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%F</td>
+<td>%Y-%m-%d 简写形式；2012-04-18</td>
+</tr>
+<tr>
+<td>%D</td>
+<td>%m/%d/%y 简写形式；04/18/12</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%H</td>
+<td>时间（24小时制） [00, 23]</td>
+</tr>
+<tr>
+<td>%I</td>
+<td>时间（12小时制） [00, 12]</td>
+</tr>
+<tr>
+<td>%M</td>
+<td>2位数的分钟 [00, 59]</td>
+</tr>
+<tr>
+<td>%S</td>
+<td>秒 [00, 61] (秒60和61用于闰秒)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%w</td>
+<td>用整数表示的星期几 （星期天为第0天） [0, 6]</td>
+</tr>
+<tr>
+<td>%U</td>
+<td>每年的第几周 [00, 53]。<strong>星期天被认为是每周的第一天</strong>，每年第一个星期天之前的那几天被认为是 “第0周”</td>
+</tr>
+<tr>
+<td>%W</td>
+<td>每年的第几周 [00, 53]。<strong>星期一被认为是每周的第一天</strong>，每年第一个星期一之前的那几天被认为是 “第0周”</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%z</td>
+<td>以+HHMM 或-HHMM 表示的UTC时区偏移量</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="特定于当前环境的日期格式"><a href="#特定于当前环境的日期格式" class="headerlink" title="特定于当前环境的日期格式"></a>特定于当前环境的日期格式</h3><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%a</td>
+<td>星期几的简写</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>星期几的全称</td>
+</tr>
+<tr>
+<td>%b</td>
+<td>月份的简写</td>
+</tr>
+<tr>
+<td>%B</td>
+<td>月份的全称</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>完成的日期和时间；Tue 01 May 2012 04:20:57 pm</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>不同环境中的AM 或PM</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>适用于当前环境的日期格式  ；若在美国， “May 1 2012” 会产生 “05/01/2012”</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>适用于当前环境的时间格式； “04:24:12 PM”</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="【实战演练】"><a href="#【实战演练】" class="headerlink" title="【实战演练】"></a>【实战演练】</h2><h4 id="输出为-月-日格式"><a href="#输出为-月-日格式" class="headerlink" title="输出为 月-日格式"></a>输出为 月-日格式</h4><p><br></p>
+<h1 id="时间序列"><a href="#时间序列" class="headerlink" title="时间序列"></a>时间序列</h1><p>pandas最基本的时间序列类型就是<strong>以时间戳为索引</strong>的Series；</p>
+<p>当创建一个<strong>带有DatatimeIndex</strong> 的Series时，pandas就会知道该对象是一个<strong>时间序列</strong></p>
+<blockquote>
+<p>索引是 时间格式的字段；</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;日期与时间&quot;&gt;&lt;a href=&quot;#日期与时间&quot; class=&quot;headerlink&quot; title=&quot;日期与时间&quot;&gt;&lt;/a&gt;日期与时间&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;datetime&lt;/code&gt;表示的时间需要时区信息才能确定一个特定的时间，否则只能视为本地时间。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果要存储&lt;code&gt;datetime&lt;/code&gt;，最佳方法是将其转换为timestamp再存储，因为timestamp的值与时区完全无关。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="软件应用" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="程序编程" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/Python/"/>
+    
+    
+      <category term="软件应用" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="程序编程" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
   </entry>
   
